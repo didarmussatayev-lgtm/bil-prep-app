@@ -1,0 +1,213 @@
+// Схема базы данных для сайта подготовки к БИЛ
+// PostgreSQL, разворачивается на Railway
+//
+// Собрана из: базового черновика (пункт 1) + prisma/auth-models.prisma (шаг 3)
+// + prisma/student-models.prisma (шаг 5, авторитетная версия Progress/TaskResult/TestAttempt)
+// + prisma/schema-additions.prisma (шаг 4, только то, что реально используется — slug/order/number).
+//
+// Test/TestQuestion из черновика НЕ используются: начиная с шага 5 вопросы тестов
+// подбираются на лету (см. TestAttempt.questionIds, src/lib/student/tests.ts, TEST_CONFIG).
+// Модели оставлены ниже закомментированными на случай, если понадобится редактируемый
+// список тестов из админки — раскомментируйте и снова смигрируйте.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- Пользователи и сессии (шаг 3) ----------
+
+enum Role {
+  student
+  admin
+}
+
+model User {
+  id           String   @id @default(cuid())
+  login        String   @unique // хранится в нижнем регистре
+  passwordHash String   @map("password_hash")
+  role         Role     @default(student)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  sessions     Session[]
+  progress     Progress[]
+  taskResults  TaskResult[]
+  testAttempts TestAttempt[]
+
+  @@map("users")
+}
+
+model Session {
+  id            String   @id @default(cuid())
+  userId        String   @map("user_id")
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash     String   @unique @map("token_hash") // SHA-256 от токена из куки
+  expiresAt     DateTime @map("expires_at")
+  revoked       Boolean  @default(false)
+  revokedReason String?  @map("revoked_reason") // replaced | admin | logout | password_reset
+  ip            String?
+  userAgent     String?  @map("user_agent")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@index([userId, revoked])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+// ---------- Структура контента ----------
+
+model Subject {
+  id    String @id @default(cuid())
+  name  String @unique // "Математика" | "Логика"
+  slug  String @unique // "math" | "logic" — идёт в URL /bil/math (шаг 5)
+  order Int    @default(0)
+
+  sections     Section[]
+  testAttempts TestAttempt[]
+
+  @@map("subjects")
+}
+
+model Section {
+  id        String @id @default(cuid())
+  subjectId String @map("subject_id")
+  title     String // "I раздел"
+  slug      String @unique // "math-1" (шаг 4, идемпотентный seed)
+  order     Int    @default(0)
+
+  subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  topics  Topic[]
+
+  @@index([subjectId])
+  @@map("sections")
+}
+
+model Topic {
+  id                 String @id @default(cuid())
+  sectionId          String @map("section_id")
+  title              String // "1.1 Дроби"
+  slug               String @unique // "math-1.1.1" (шаг 4)
+  order              Int    @default(0)
+  // ExplanationBlock[] (см. src/lib/content/types.ts) ИЛИ строка Markdown
+  // (заголовки ###, **жирный**, :::figure {json}) — обе формы разбирает parseExplanation().
+  explanationContent Json?  @map("explanation_content")
+
+  section  Section    @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  tasks    Task[]
+  progress Progress[]
+
+  @@index([sectionId])
+  @@map("topics")
+}
+
+// ---------- Задачи ----------
+
+enum TaskType {
+  test_choice // вопрос теста с вариантами A–E → пул для тестов
+  open // задача с открытым ответом → пул для «Закрепить тему»
+}
+
+model Task {
+  id      String   @id @default(cuid())
+  topicId String   @map("topic_id")
+  type    TaskType
+  slug    String?  @unique // "math-1.1.1:p:1a" / "math-1.1.1:t:3" — у задач из админки может быть null
+  number  String? // номер как в книге: "1a", "7"
+  order   Int      @default(0)
+
+  question String @db.Text
+
+  // Для type = test_choice:
+  // options — string[] (положение в массиве = буква A, B, C… — см. parseOptions в lib/content/types.ts)
+  options       Json?
+  correctOption String? @map("correct_option") // "A".."E"
+
+  // Для type = open:
+  answerType        String?  @map("answer_type") // integer | decimal | fraction | mixed
+  correctAnswerJson Json?    @map("correct_answer") // {value} | {num,denom} | {whole,num,denom}
+  allowUnreduced    Boolean  @default(false) @map("allow_unreduced")
+
+  solutionText String? @db.Text @map("solution_text") // разбор (кнопка «Показать решение», шаг 6)
+  // FigureSpec | FigureSpec[] — параметры параметрических SVG (шаг 6); фигуры с kind="placeholder"
+  // скрывают задачу от учеников до тех пор, пока рисунок не заменят (см. lib/content/types.ts).
+  // Названо c суффиксом Json (не imageParams), чтобы совпадать с полем, которое пишут
+  // админка (шаг 7) и seed (шаг 4) — под этим именем поле и ушло в Prisma Client.
+  imageParamsJson Json? @map("image_params")
+
+  topic   Topic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  results TaskResult[]
+
+  @@index([topicId])
+  @@map("tasks")
+}
+
+// ---------- Прогресс (шаг 5 — заменяет черновую Progress: status/score → отдельные поля) ----------
+
+model Progress {
+  id            String    @id @default(cuid())
+  userId        String    @map("user_id")
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  topicId       String    @map("topic_id")
+  topic         Topic     @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  learnedAt     DateTime? @map("learned_at") // тема отмечена как изученная
+  lastAttemptAt DateTime? @map("last_attempt_at")
+
+  @@unique([userId, topicId])
+  @@map("progress")
+}
+
+// Результат ученика по каждой задаче (пишется на шаге 6 при проверке ответа)
+model TaskResult {
+  id         String   @id @default(cuid())
+  userId     String   @map("user_id")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  taskId     String   @map("task_id")
+  task       Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  correct    Boolean  @default(false) // хотя бы раз решена верно
+  attempts   Int      @default(0)
+  lastAnswer Json?    @map("last_answer")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@unique([userId, taskId])
+  @@index([userId])
+  @@map("task_results")
+}
+
+enum TestScope {
+  topic
+  section
+  full
+}
+
+// Заменяет черновую TestAttempt: вопросы подбираются при старте и хранятся в самой попытке
+model TestAttempt {
+  id          String    @id @default(cuid())
+  userId      String    @map("user_id")
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subjectId   String    @map("subject_id")
+  subject     Subject   @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  scope       TestScope
+  sectionId   String?   @map("section_id")
+  topicId     String?   @map("topic_id")
+  questionIds Json      @map("question_ids") // string[] в порядке показа
+  answers     Json      @default("{}") // { [taskId]: "B" }
+  startedAt   DateTime  @default(now()) @map("started_at")
+  deadlineAt  DateTime? @map("deadline_at") // null — без таймера
+  finishedAt  DateTime? @map("finished_at")
+  score       Int?
+  total       Int
+  breakdown   Json? // [{ topicId, title, correct, total }]
+
+  @@index([userId, subjectId, startedAt])
+  @@map("test_attempts")
+}
+
+// ---------- Не используется с шага 5 (оставлено для справки) ----------
+// model Test { scope TestScope; sectionId String?; topicId String? @unique; title String; timeLimitSeconds Int? }
+// model TestQuestion { testId String; taskId String; order Int }
+// Если понадобится редактируемый список тестов из админки — верните эти модели
+// и параметры из TEST_CONFIG (src/lib/student/tests.ts) переедут в таблицу Test.
