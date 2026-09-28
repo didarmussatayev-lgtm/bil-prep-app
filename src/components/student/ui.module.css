@@ -44,7 +44,7 @@
 .btnGhost { color: var(--ink); background: #fff; border: 1px solid var(--ink); }
 .btn:disabled, .btnGhost:disabled, .btnLarge:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn:focus-visible, .btnGhost:focus-visible, .btnLarge:focus-visible,
-.tile:focus-visible, .topicRow:focus-visible, .option input:focus-visible + span {
+.tile:focus-visible, .topicRow:focus-visible {
   outline: 3px solid var(--pen); outline-offset: 2px;
 }
 
@@ -169,16 +169,23 @@ a.topicRow:hover { background: #eef3ff; }
 .timerLow { color: var(--bad); }
 .question { min-width: 0; margin: 0 0 18px; padding: 16px 18px; background: #fff; border: 1px solid var(--ink); border-radius: 4px; }
 .questionNum { margin: 0 0 6px; font-weight: 700; }
-.options { display: grid; gap: 8px; margin-top: 12px; }
-.option { display: block; cursor: pointer; }
+.options { display: grid; gap: 10px; margin-top: 14px; }
+.option { display: block; position: relative; cursor: pointer; }
 .option input { position: absolute; opacity: 0; }
-.option span {
-  display: flex; gap: 10px; padding: 10px 12px; background: #fff;
-  border: 1px solid var(--grid); border-radius: 3px;
+/* только прямой потомок — иначе рамки получают и вложенные span'ы (дроби, жирный текст) */
+.option > span {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #fff;
+  border: 2px solid var(--grid); border-radius: 8px; transition: border-color .15s, background .15s;
 }
-.option:hover span { border-color: var(--ink); }
-.option input:checked + span { border-color: var(--pen); background: #eaf0ff; font-weight: 600; }
-.optKey { font-weight: 700; min-width: 1.2em; }
+.option:hover > span { border-color: #aebcdc; }
+.option input:checked + span { border-color: var(--pen); background: #eaf0ff; }
+.option input:focus-visible + span { outline: 3px solid var(--pen); outline-offset: 2px; }
+.optKey {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; font-size: 0.9rem; font-weight: 700; color: var(--ink);
+  background: var(--paper); border: 1px solid var(--grid); border-radius: 50%;
+}
+.option input:checked + span .optKey { color: #fff; background: var(--pen); border-color: var(--pen); }
 
 /* результат */
 .score { margin: 0 0 20px; padding: 20px; background: #fff; border: 1px solid var(--ink); border-radius: 4px; }
