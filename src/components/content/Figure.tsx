@@ -1,5 +1,6 @@
 import type { FigureSpec } from "@/lib/content/types";
 import ui from "@/components/student/ui.module.css";
+import { renderRichInline } from "@/components/content/RichText";
 
 /** Прямоугольник, поделённый на равные вертикальные доли — dольные полосы (kind="fraction_bar"). */
 function FractionBar({ parts, shaded }: { parts: number; shaded: number[] }) {
@@ -197,7 +198,7 @@ export function Figure({ spec }: { spec: FigureSpec }) {
   return (
     <div className={ui.figureBox}>
       {content}
-      {caption && <div className={ui.muted}>{caption}</div>}
+      {caption && <div className={ui.muted}>{renderRichInline(caption, "cap")}</div>}
     </div>
   );
 }
