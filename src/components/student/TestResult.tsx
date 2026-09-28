@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { RichText } from "@/components/content/RichText";
+import { RichText, renderRichInline } from "@/components/content/RichText";
 import { TaskContent } from "@/components/tasks/TaskContent";
 import { parseFigures, parseOptions } from "@/lib/content/types";
 import { WEAK_THRESHOLD_PERCENT, type BreakdownRow } from "@/lib/student/tests";
@@ -83,11 +83,11 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
             <TaskContent question={t.question} figures={parseFigures(t.imageParamsJson)} />
             {!ok && (
               <p className={ui.reviewLine}>
-                Ваш ответ: {mine ? `${mine}. ${text(mine)?.text ?? ""}` : "не выбран"}
+                Ваш ответ: {mine ? <>{mine}. {renderRichInline(text(mine)?.text ?? "", `m${i}`)}</> : "не выбран"}
               </p>
             )}
             <p className={ui.reviewLine}>
-              Правильный ответ: {t.correctOption}. {text(t.correctOption ?? undefined)?.text}
+              Правильный ответ: {t.correctOption}. {renderRichInline(text(t.correctOption ?? undefined)?.text ?? "", `c${i}`)}
             </p>
             {t.solutionText && (
               <details>
