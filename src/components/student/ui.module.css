@@ -166,3 +166,10 @@ a.topicRow:hover { background: #eef3ff; }
 @media (max-width: 520px) {
   .topicRow { flex-wrap: wrap; }
 }
+
+/* инлайн-дробь в тексте: {a/b} и {w a/b} (RichText) */
+.fraction { display: inline-flex; align-items: center; gap: 3px; margin: 0 2px; vertical-align: middle; white-space: nowrap; }
+.fractionWhole { font-weight: 600; }
+.fractionStack { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.1; font-size: 0.9em; }
+.fractionNum { padding: 0 3px 1px; border-bottom: 1.5px solid currentColor; }
+.fractionDenom { padding: 1px 3px 0; }
