@@ -106,21 +106,54 @@ a.topicRow:hover { background: #eef3ff; }
 .okMsg { margin: 10px 0 0; font-size: 0.9rem; font-weight: 600; color: var(--ok); }
 
 /* виджет ввода ответа (шаг 6) */
-.answerBlock { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--grid); }
-.answerRow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.taskCard { transition: border-color .15s, box-shadow .15s; }
+.taskCardOk { border-color: var(--ok); box-shadow: 4px 4px 0 rgba(31, 122, 77, .18); }
+.taskCardBad { border-color: var(--bad); box-shadow: 4px 4px 0 rgba(179, 38, 30, .15); }
+
+.answerBlock { margin-top: 16px; padding: 14px 16px; background: var(--paper); border: 1px solid var(--grid); border-radius: 6px; }
+.answerLabel { margin: 0 0 8px; font-size: 0.8rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .6; }
+.answerLine { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.answerRow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.answerEq { font-size: 1.4rem; font-weight: 600; opacity: .55; }
+
 .answerBox {
-  width: 64px; padding: 8px 10px; font: inherit; text-align: center;
-  border: 1px solid var(--ink); border-radius: 3px; background: #fff; color: inherit;
+  width: 72px; height: 46px; padding: 0 8px; font: inherit; font-size: 1.25rem; font-weight: 600;
+  font-variant-numeric: tabular-nums; text-align: center; color: var(--ink);
+  background: #fff; border: 2px solid var(--grid); border-radius: 6px;
+  transition: border-color .15s, box-shadow .15s; -moz-appearance: textfield;
 }
-.answerBox:disabled { opacity: 0.6; }
-.fractionInput { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
-.fractionInput .answerBox { width: 56px; }
-.fractionBar { width: 56px; height: 2px; background: var(--ink); }
+.answerBox:hover:not(:disabled) { border-color: #aebcdc; }
+.answerBox:focus { outline: none; border-color: var(--pen); box-shadow: 0 0 0 3px rgba(47, 91, 234, .18); }
+.answerBox:disabled { background: #eef7f2; border-color: var(--ok); color: var(--ok); }
+.answerBoxBad, .answerBoxBad:hover:not(:disabled) { border-color: var(--bad); background: #fdf3f2; }
+.answerBoxWide { width: 130px; }
+.answerBoxWhole { width: 60px; }
+
+.fractionInput { display: inline-flex; flex-direction: column; align-items: center; gap: 6px; }
+.fractionInput .answerBox { width: 84px; }
+.fractionBar { width: 84px; height: 3px; border-radius: 2px; background: var(--ink); }
+
+.answerActions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+.answerActions .btn { min-width: 132px; }
+.feedback { display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem; font-weight: 600; }
+.feedbackOk { color: var(--ok); }
+.feedbackBad { color: var(--bad); }
+.feedbackErr { color: var(--warn); }
+
 .linkButton {
-  margin-top: 12px; padding: 0; font: inherit; font-size: 0.9rem; font-weight: 600;
-  color: var(--pen); background: none; border: none; cursor: pointer; text-decoration: underline;
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 6px 2px; font: inherit;
+  font-size: 0.9rem; font-weight: 600; color: var(--pen); background: none; border: none; cursor: pointer;
 }
-.linkButton:disabled { opacity: 0.6; cursor: not-allowed; }
+.linkButton:hover { text-decoration: underline; }
+.linkButton:disabled { opacity: .6; cursor: not-allowed; }
+.solutionPanel { margin-top: 10px; padding: 12px 16px; background: #fffbea; border: 1px solid #f0dfa0; border-left: 4px solid #e0b400; border-radius: 4px; }
+.solutionPanel p { margin: 0 0 6px; }
+
+@media (max-width: 480px) {
+  .answerBox { width: 64px; height: 44px; }
+  .fractionInput .answerBox, .fractionBar { width: 76px; }
+  .answerActions .btn { width: 100%; }
+}
 
 /* фигура-таблица (docs/content-format.md, kind="table") */
 .figureTable { border-collapse: collapse; margin: 0 auto; }
