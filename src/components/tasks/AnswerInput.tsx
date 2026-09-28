@@ -8,53 +8,57 @@ export type AnswerDraft = Record<string, string>;
  * Виджет ввода ответа: форма зависит от answerType (см. Task.answerType) —
  * отдельные поля, а не голое текстовое поле. draft хранит "сырой" текст полей,
  * приведение к числам и сборка JSON для /api/tasks/:id/check — в TaskCard.
+ * Enter в любом поле — отправка (onSubmit); invalid подсвечивает поля красным после неверного ответа.
  */
 export function AnswerInput({
   answerType,
   value,
   onChange,
+  onSubmit,
   disabled,
+  invalid,
 }: {
   answerType: "integer" | "decimal" | "fraction" | "mixed";
   value: AnswerDraft;
   onChange: (v: AnswerDraft) => void;
+  onSubmit?: () => void;
   disabled?: boolean;
+  invalid?: boolean;
 }) {
-  const set = (key: string) => (e: React.ChangeEvent<HTMLInputElement>) => onChange({ ...value, [key]: e.target.value });
-
-  const field = (key: string, placeholder: string, inputMode: "numeric" | "decimal" = "numeric") => (
+  const field = (key: string, label: string, opts: { mode?: "numeric" | "decimal"; cls?: string; autoFocus?: boolean } = {}) => (
     <input
       key={key}
-      className={ui.answerBox}
-      inputMode={inputMode}
-      placeholder={placeholder}
+      className={[ui.answerBox, opts.cls, invalid ? ui.answerBoxBad : ""].filter(Boolean).join(" ")}
+      inputMode={opts.mode ?? "numeric"}
+      autoComplete="off"
       value={value[key] ?? ""}
-      onChange={set(key)}
+      onChange={(e) => onChange({ ...value, [key]: e.target.value })}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") onSubmit?.();
+      }}
       disabled={disabled}
-      aria-label={placeholder}
+      aria-label={label}
+      title={label}
     />
   );
 
-  const fraction = (numKey: string, denomKey: string) => (
+  const fraction = (
     <div className={ui.fractionInput}>
-      {field(numKey, "числ.")}
+      {field("num", "Числитель")}
       <div className={ui.fractionBar} />
-      {field(denomKey, "знам.")}
+      {field("denom", "Знаменатель")}
     </div>
   );
 
-  if (answerType === "integer") return <div className={ui.answerRow}>{field("value", "число")}</div>;
+  if (answerType === "integer") return <div className={ui.answerRow}>{field("value", "Ответ")}</div>;
+  if (answerType === "decimal")
+    return <div className={ui.answerRow}>{field("value", "Ответ (десятичная дробь)", { mode: "decimal", cls: ui.answerBoxWide })}</div>;
+  if (answerType === "fraction") return <div className={ui.answerRow}>{fraction}</div>;
 
-  if (answerType === "decimal") return <div className={ui.answerRow}>{field("value", "0,0", "decimal")}</div>;
-
-  if (answerType === "fraction") return <div className={ui.answerRow}>{fraction("num", "denom")}</div>;
-
-  // mixed
   return (
     <div className={ui.answerRow}>
-      {field("whole", "цел.")}
-      <span className={ui.muted} style={{ margin: 0 }}>и</span>
-      {fraction("num", "denom")}
+      {field("whole", "Целая часть", { cls: ui.answerBoxWhole })}
+      {fraction}
     </div>
   );
 }
