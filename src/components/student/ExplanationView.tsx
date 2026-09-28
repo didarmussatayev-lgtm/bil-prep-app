@@ -1,5 +1,5 @@
 import { Figure } from "@/components/content/Figure";
-import { RichText } from "@/components/content/RichText";
+import { RichText, renderRichInline } from "@/components/content/RichText";
 import type { ExplanationBlock } from "@/lib/content/types";
 import ui from "./ui.module.css";
 
@@ -47,7 +47,7 @@ export function ExplanationView({ blocks }: { blocks: ExplanationBlock[] }) {
             return (
               <figure key={i} style={{ margin: 0 }}>
                 <Figure spec={b.figure} />
-                {b.caption && <figcaption className={ui.muted}>{b.caption}</figcaption>}
+                {b.caption && <figcaption className={ui.muted}>{renderRichInline(b.caption, `fc${i}`)}</figcaption>}
               </figure>
             );
           default:
