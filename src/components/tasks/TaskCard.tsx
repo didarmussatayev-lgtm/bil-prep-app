@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { PublicTask } from "@/lib/content/types";
-import { RichText } from "@/components/content/RichText";
+import { RichText, renderRichInline } from "@/components/content/RichText";
 import ui from "@/components/student/ui.module.css";
 import { AnswerInput, type AnswerDraft } from "./AnswerInput";
 import { TaskContent } from "./TaskContent";
@@ -80,8 +80,17 @@ export function TaskCard({ index, task, solved }: { index: number; task: PublicT
     }
   }
 
+  const hint: Record<NonNullable<PublicTask["answerType"]>, string> = {
+    integer: "Введите целое число",
+    decimal: "Введите десятичную дробь (можно с запятой)",
+    fraction: "Введите дробь: числитель и знаменатель",
+    mixed: "Введите смешанное число: целая часть, числитель, знаменатель",
+  };
+
+  const cardCls = [ui.taskCard, status === "correct" ? ui.taskCardOk : status === "wrong" ? ui.taskCardBad : ""].filter(Boolean).join(" ");
+
   return (
-    <article className={ui.taskCard}>
+    <article className={cardCls}>
       <div className={ui.taskHead}>
         <span>Задача {index}</span>
         {status === "correct" && <span className={`${ui.badge} ${ui.badgeDone}`}>Решена</span>}
@@ -91,32 +100,46 @@ export function TaskCard({ index, task, solved }: { index: number; task: PublicT
 
       {canAnswer ? (
         <div className={ui.answerBlock}>
-          <AnswerInput answerType={task.answerType!} value={draft} onChange={setDraft} disabled={status === "correct"} />
-          {error && <p className={ui.error}>{error}</p>}
-          {status === "wrong" && <p className={ui.error}>Неверно, попробуйте ещё раз.</p>}
-          {status === "correct" && <p className={ui.okMsg}>Верно!</p>}
-          {status !== "correct" && (
-            <button className={ui.btnGhost} onClick={submit} disabled={status === "checking"}>
-              {status === "checking" ? "Проверяем…" : "Проверить"}
-            </button>
-          )}
+          <p className={ui.answerLabel}>Ваш ответ · {hint[task.answerType!]}</p>
+          <AnswerInput
+            answerType={task.answerType!}
+            value={draft}
+            onChange={(v) => {
+              setDraft(v);
+              if (status === "wrong") setStatus("idle");
+              if (error) setError("");
+            }}
+            onSubmit={submit}
+            disabled={status === "correct"}
+            invalid={status === "wrong"}
+          />
+          <div className={ui.answerActions}>
+            {status !== "correct" && (
+              <button className={ui.btn} onClick={submit} disabled={status === "checking"}>
+                {status === "checking" ? "Проверяем…" : "Проверить"}
+              </button>
+            )}
+            {status === "correct" && <span className={`${ui.feedback} ${ui.feedbackOk}`}>✓ Верно! Отличная работа</span>}
+            {status === "wrong" && <span className={`${ui.feedback} ${ui.feedbackBad}`}>✗ Пока неверно — попробуйте ещё раз</span>}
+            {error && <span className={`${ui.feedback} ${ui.feedbackErr}`}>{error}</span>}
+          </div>
         </div>
       ) : (
         <p className={ui.muted}>Тип ответа для этой задачи ещё не задан в контенте — проверить нельзя.</p>
       )}
 
       {solution ? (
-        <div className={ui.solution}>
+        <div className={ui.solutionPanel}>
           {solution.answer && (
             <p>
-              <strong>Ответ:</strong> {solution.answer}
+              <strong>Ответ:</strong> {renderRichInline(solution.answer.includes("/") ? `{${solution.answer}}` : solution.answer, "ans")}
             </p>
           )}
           {solution.solutionText && <RichText text={solution.solutionText} />}
         </div>
       ) : (
         <button className={ui.linkButton} onClick={revealSolution} disabled={solutionLoading}>
-          {solutionLoading ? "Загрузка…" : "Показать решение"}
+          {solutionLoading ? "Загрузка…" : "💡 Показать решение"}
         </button>
       )}
     </article>
