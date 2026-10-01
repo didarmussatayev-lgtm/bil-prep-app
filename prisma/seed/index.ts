@@ -9,9 +9,14 @@ import { Prisma, PrismaClient } from "@prisma/client";
 import { ENTITIES } from "../../src/lib/content-schemas";
 import { Ans, Figure, SeedTask, SeedTopic } from "./types";
 import { SECTION_1 } from "./data/math/section-1";
+import { LOGIC_SECTION_1 } from "./data/logic/section-1";
 
 const prisma = new PrismaClient();
-const SECTIONS = [SECTION_1]; // сюда добавляются следующие разделы
+
+const SUBJECTS = [
+  { name: "Математика", slug: "math", order: 0, sections: [SECTION_1] },
+  { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1] },
+];
 
 const fmtAns = (a: Ans) =>
   a.t === "int" ? String(a.v)
@@ -98,22 +103,25 @@ async function seedTopic(sectionId: string, sectionSlug: string, t: SeedTopic, o
 }
 
 async function main() {
-  const subject = await prisma.subject.upsert({
-    where: { name: "Математика" },
-    update: { slug: "math" },
-    create: { name: "Математика", slug: "math", order: 0 },
-  });
   const review: string[] = [];
   const pending: string[] = [];
 
-  for (const s of SECTIONS) {
-    const section = await prisma.section.upsert({
-      where: { slug: s.slug },
-      update: { title: s.title, order: s.order, subjectId: subject.id },
-      create: { slug: s.slug, subjectId: subject.id, title: s.title, order: s.order },
+  for (const subjectDef of SUBJECTS) {
+    const subject = await prisma.subject.upsert({
+      where: { name: subjectDef.name },
+      update: { slug: subjectDef.slug, order: subjectDef.order },
+      create: { name: subjectDef.name, slug: subjectDef.slug, order: subjectDef.order },
     });
-    console.log(`${s.title}:`);
-    for (const [i, t] of s.topics.entries()) pending.push(...(await seedTopic(section.id, s.slug, t, i + 1, review)));
+    console.log(`\n=== ${subjectDef.name} ===`);
+    for (const s of subjectDef.sections) {
+      const section = await prisma.section.upsert({
+        where: { slug: s.slug },
+        update: { title: s.title, order: s.order, subjectId: subject.id },
+        create: { slug: s.slug, subjectId: subject.id, title: s.title, order: s.order },
+      });
+      console.log(`${s.title}:`);
+      for (const [i, t] of s.topics.entries()) pending.push(...(await seedTopic(section.id, s.slug, t, i + 1, review)));
+    }
   }
 
   if (review.length) console.log(`\nПроверить вручную (${review.length}):\n` + review.map((r) => " - " + r).join("\n"));
