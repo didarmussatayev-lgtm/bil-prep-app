@@ -17,6 +17,9 @@ export type Figure =
   | { kind: "grid"; rows: number; cols: number; shaded: [number, number][]; caption?: string }
   | { kind: "number_line"; from: number; to: number; divisions: number; marks: { at: number | [number, number]; label?: string }[]; caption?: string }
   | { kind: "table"; rows: string[][]; caption?: string }
+  /** Пять чисел/символов вокруг центра — "Связь между числами и фигурами" в логике.
+   *  Любая позиция может быть "?" (неизвестное, которое должен найти ученик). */
+  | { kind: "cross"; top: number | string; left: number | string; center: number | string; right: number | string; bottom: number | string; label?: string }
   /** Рисунок ещё не построен: задача сохранена, но скрыта от учеников, пока placeholder не заменят. */
   | { kind: "placeholder"; description: string };
 
