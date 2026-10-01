@@ -20,6 +20,10 @@ export type Figure =
   /** Пять чисел/символов вокруг центра — "Связь между числами и фигурами" в логике.
    *  Любая позиция может быть "?" (неизвестное, которое должен найти ученик). */
   | { kind: "cross"; top: number | string; left: number | string; center: number | string; right: number | string; bottom: number | string; label?: string }
+  /** N чисел по кругу через равные промежутки, по часовой стрелке с 12 часов. Любой элемент может быть "?". */
+  | { kind: "circle_numbers"; values: (number | string)[]; caption?: string }
+  /** Цепочка фигур (кружков/квадратов/шестигранников) со стрелками между ними, каждая со своим числом. Любой элемент может быть "?". */
+  | { kind: "chain"; cells: (number | string)[]; shape?: "circle" | "square" | "hexagon"; caption?: string }
   /** Рисунок ещё не построен: задача сохранена, но скрыта от учеников, пока placeholder не заменят. */
   | { kind: "placeholder"; description: string };
 
