@@ -149,6 +149,34 @@ function FigureTableEl({ rows }: { rows: string[][] }) {
   );
 }
 
+/** Пять чисел вокруг центра (kind="cross") — "Связь между числами и фигурами" в логике. Любая
+ *  позиция может быть "?" — неизвестное, которое должен найти ученик (эталон на клиент не уходит). */
+function NumberCross({
+  top, left, center, right, bottom,
+}: { top: number | string; left: number | string; center: number | string; right: number | string; bottom: number | string }) {
+  const size = 120;
+  const cell = 34;
+  const cx = size / 2;
+  const cy = size / 2;
+  const box = (x: number, y: number, val: number | string, bold?: boolean) => (
+    <g key={`${x}-${y}`}>
+      <rect x={x - cell / 2} y={y - cell / 2} width={cell} height={cell} fill="#fff" stroke="var(--ink, #1b2a4a)" strokeWidth={bold ? 2 : 1} />
+      <text x={x} y={y + 5} textAnchor="middle" fontSize={14} fontWeight={bold ? 700 : 400} fill="var(--ink, #1b2a4a)">
+        {val}
+      </text>
+    </g>
+  );
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
+      {box(cx, cy - cell, top)}
+      {box(cx - cell, cy, left)}
+      {box(cx, cy, center, true)}
+      {box(cx + cell, cy, right)}
+      {box(cx, cy + cell, bottom)}
+    </svg>
+  );
+}
+
 /**
  * Диспетчер по spec.kind → параметрический SVG/таблица (шаг 6). kind="placeholder" сюда
  * долетать не должно для задач (их прячет hasPendingFigure), но может попасться внутри
@@ -186,6 +214,17 @@ export function Figure({ spec }: { spec: FigureSpec }) {
       break;
     case "table":
       content = <FigureTableEl rows={(spec.rows as string[][]) ?? []} />;
+      break;
+    case "cross":
+      content = (
+        <NumberCross
+          top={spec.top as number | string}
+          left={spec.left as number | string}
+          center={spec.center as number | string}
+          right={spec.right as number | string}
+          bottom={spec.bottom as number | string}
+        />
+      );
       break;
     case "placeholder": {
       const description = typeof spec.description === "string" ? spec.description : undefined;
