@@ -15,7 +15,7 @@ const issues: { level: Level; where: string; message: string }[] = [];
 const err = (where: string, message: string) => issues.push({ level: "error", where, message });
 const warn = (where: string, message: string) => issues.push({ level: "warn", where, message });
 
-const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "placeholder"]);
+const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "placeholder"]);
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 function checkFigure(where: string, f: Figure) {
@@ -55,6 +55,11 @@ function checkFigure(where: string, f: Figure) {
     if (!Array.isArray(f.rows) || !f.rows.every((r) => Array.isArray(r))) err(where, "table: rows должен быть массивом массивов строк");
   } else if (f.kind === "placeholder") {
     if (!f.description || typeof f.description !== "string") warn(where, "placeholder: не помешало бы description — что нарисовано в книге");
+  } else if (f.kind === "circle_numbers") {
+    if (!Array.isArray(f.values) || f.values.length < 2) err(where, "circle_numbers: values должен быть массивом из ≥2 элементов");
+  } else if (f.kind === "chain") {
+    if (!Array.isArray(f.cells) || f.cells.length < 2) err(where, "chain: cells должен быть массивом из ≥2 элементов");
+    if (f.shape && !["circle", "square", "hexagon"].includes(f.shape)) err(where, `chain: неизвестная форма "${f.shape}" (circle|square|hexagon)`);
   } else if (f.kind === "cross") {
     for (const key of ["top", "left", "center", "right", "bottom"] as const) {
       const v = (f as any)[key];
