@@ -149,6 +149,90 @@ function FigureTableEl({ rows }: { rows: string[][] }) {
   );
 }
 
+/** N чисел по кругу через равные промежутки, по часовой стрелке с 12 часов (kind="circle_numbers"). */
+function CircleNumbers({ values }: { values: (number | string)[] }) {
+  const n = Math.max(values.length, 1);
+  const size = 140;
+  const cx = size / 2;
+  const cy = size / 2;
+  const r = size / 2 - 18;
+  return (
+    <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}>
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--ink, #1b2a4a)" strokeWidth={1} />
+      {values.map((v, i) => {
+        const angle = ((-90 + (i * 360) / n) * Math.PI) / 180;
+        const x = cx + r * Math.cos(angle);
+        const y = cy + r * Math.sin(angle);
+        return (
+          <g key={i}>
+            <rect x={x - 16} y={y - 12} width={32} height={24} fill="#fff" stroke="var(--ink, #1b2a4a)" />
+            <text x={x} y={y + 5} textAnchor="middle" fontSize={13} fill="var(--ink, #1b2a4a)">
+              {v}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+/** Цепочка фигур со стрелками между ними, каждая со своим числом (kind="chain"). */
+function Chain({ cells, shape = "square" }: { cells: (number | string)[]; shape?: "circle" | "square" | "hexagon" }) {
+  const cellSize = 40;
+  const gap = 28;
+  const width = cells.length * cellSize + (cells.length - 1) * gap + 20;
+  const height = 60;
+  const cy = height / 2;
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
+      {cells.map((v, i) => {
+        const cx = 10 + cellSize / 2 + i * (cellSize + gap);
+        const shapeEl =
+          shape === "circle" ? (
+            <circle cx={cx} cy={cy} r={cellSize / 2} fill="#fff" stroke="var(--ink, #1b2a4a)" />
+          ) : shape === "hexagon" ? (
+            <polygon
+              points={Array.from({ length: 6 }, (_, k) => {
+                const a = (Math.PI / 3) * k - Math.PI / 6;
+                return `${cx + (cellSize / 2) * Math.cos(a)},${cy + (cellSize / 2) * Math.sin(a)}`;
+              }).join(" ")}
+              fill="#fff"
+              stroke="var(--ink, #1b2a4a)"
+            />
+          ) : (
+            <rect x={cx - cellSize / 2} y={cy - cellSize / 2} width={cellSize} height={cellSize} fill="#fff" stroke="var(--ink, #1b2a4a)" />
+          );
+        const arrow =
+          i < cells.length - 1 ? (
+            <line
+              x1={cx + cellSize / 2 + 2}
+              y1={cy}
+              x2={cx + cellSize / 2 + gap - 4}
+              y2={cy}
+              stroke="var(--pen, #2f5bea)"
+              strokeWidth={2}
+              markerEnd="url(#chain-arrow)"
+            />
+          ) : null;
+        return (
+          <g key={i}>
+            {shapeEl}
+            <text x={cx} y={cy + 5} textAnchor="middle" fontSize={13} fill="var(--ink, #1b2a4a)">
+              {v}
+            </text>
+            {arrow}
+          </g>
+        );
+      })}
+      <defs>
+        <marker id="chain-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="var(--pen, #2f5bea)" />
+        </marker>
+      </defs>
+    </svg>
+  );
+}
+
 /** Пять чисел вокруг центра (kind="cross") — "Связь между числами и фигурами" в логике. Любая
  *  позиция может быть "?" — неизвестное, которое должен найти ученик (эталон на клиент не уходит). */
 function NumberCross({
@@ -214,6 +298,12 @@ export function Figure({ spec }: { spec: FigureSpec }) {
       break;
     case "table":
       content = <FigureTableEl rows={(spec.rows as string[][]) ?? []} />;
+      break;
+    case "circle_numbers":
+      content = <CircleNumbers values={(spec.values as (number | string)[]) ?? []} />;
+      break;
+    case "chain":
+      content = <Chain cells={(spec.cells as (number | string)[]) ?? []} shape={spec.shape as "circle" | "square" | "hexagon" | undefined} />;
       break;
     case "cross":
       content = (
