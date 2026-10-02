@@ -9,12 +9,13 @@ import { Prisma, PrismaClient } from "@prisma/client";
 import { ENTITIES } from "../../src/lib/content-schemas";
 import { Ans, Figure, SeedTask, SeedTopic } from "./types";
 import { SECTION_1 } from "./data/math/section-1";
+import { SECTION_2 } from "./data/math/section-2";
 import { LOGIC_SECTION_1 } from "./data/logic/section-1";
 
 const prisma = new PrismaClient();
 
 const SUBJECTS = [
-  { name: "Математика", slug: "math", order: 0, sections: [SECTION_1] },
+  { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2] },
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1] },
 ];
 
