@@ -8,10 +8,14 @@ import t16 from "./topic-1-6";
 import t17 from "./topic-1-7";
 import t18 from "./topic-1-8";
 import t19 from "./topic-1-9";
+import t110 from "./topic-1-10";
+import t111 from "./topic-1-11";
+import t112 from "./topic-1-12";
+import t113 from "./topic-1-13";
 
 export const SECTION_1 = {
   slug: "math-1",
   title: "I раздел",
   order: 1,
-  topics: [t11, t12, t13, t14, t15, t16, t17, t18, t19] as SeedTopic[],
+  topics: [t11, t12, t13, t14, t15, t16, t17, t18, t19, t110, t111, t112, t113] as SeedTopic[],
 };
