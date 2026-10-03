@@ -15,7 +15,7 @@ const issues: { level: Level; where: string; message: string }[] = [];
 const err = (where: string, message: string) => issues.push({ level: "error", where, message });
 const warn = (where: string, message: string) => issues.push({ level: "warn", where, message });
 
-const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "placeholder"]);
+const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "placeholder"]);
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 function checkFigure(where: string, f: Figure) {
@@ -62,6 +62,18 @@ function checkFigure(where: string, f: Figure) {
   } else if (f.kind === "triangle") {
     if (f.a === undefined || f.b === undefined || f.c === undefined) err(where, "triangle: нужны a, b, c");
     if (f.right && !["A", "B", "C"].includes(f.right)) err(where, `triangle: right должен быть A|B|C, получено "${f.right}"`);
+  } else if (f.kind === "circle_measure") {
+    if (f.radius === undefined && f.diameter === undefined) err(where, "circle_measure: нужен хотя бы radius или diameter");
+    if (f.square && !["in", "out"].includes(f.square)) err(where, `circle_measure: square должен быть "in"|"out", получено "${f.square}"`);
+  } else if (f.kind === "path_shape") {
+    if (!Array.isArray(f.moves) || f.moves.length < 2) err(where, "path_shape: moves должен быть массивом из ≥2 ходов");
+    else for (const m of f.moves) {
+      if (!["R", "L", "U", "D"].includes(m.dir)) err(where, `path_shape: неизвестное направление "${m.dir}" (R|L|U|D)`);
+      if (typeof m.len !== "number" || m.len <= 0) err(where, "path_shape: len должен быть положительным числом");
+    }
+  } else if (f.kind === "box3d") {
+    if (f.width === undefined && f.height === undefined && f.depth === undefined && !f.units) err(where, "box3d: нужны хотя бы одна из width/height/depth или units");
+    if (f.units && (!Array.isArray(f.units) || f.units.length !== 3)) err(where, "box3d: units должен быть массивом из 3 чисел [x,y,z]");
   } else if (f.kind === "circle_numbers") {
     if (!Array.isArray(f.values) || f.values.length < 2) err(where, "circle_numbers: values должен быть массивом из ≥2 элементов");
   } else if (f.kind === "chain") {
