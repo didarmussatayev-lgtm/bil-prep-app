@@ -233,6 +233,62 @@ function Chain({ cells, shape = "square" }: { cells: (number | string)[]; shape?
   );
 }
 
+/** Прямоугольник с подписанными шириной и высотой (kind="rectangle"). */
+function RectShape({ width, height }: { width: number | string; height: number | string }) {
+  const w = 160, h = 100, pad = 30;
+  return (
+    <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
+      <rect x={pad} y={pad} width={w} height={h} fill="#fff" stroke="var(--ink, #1b2a4a)" strokeWidth={2} />
+      <text x={pad + w / 2} y={pad - 8} textAnchor="middle" fontSize={15} fill="var(--ink, #1b2a4a)">{width}</text>
+      <text x={pad + w + 14} y={pad + h / 2 + 5} textAnchor="start" fontSize={15} fill="var(--ink, #1b2a4a)">{height}</text>
+    </svg>
+  );
+}
+
+/** Квадрат с подписанной стороной (kind="square"). */
+function SquareShape({ side }: { side: number | string }) {
+  const s = 120, pad = 30;
+  return (
+    <svg viewBox={`0 0 ${s + pad * 2} ${s + pad * 2}`} width={s + pad * 2} height={s + pad * 2}>
+      <rect x={pad} y={pad} width={s} height={s} fill="#fff" stroke="var(--ink, #1b2a4a)" strokeWidth={2} />
+      <text x={pad + s / 2} y={pad - 8} textAnchor="middle" fontSize={15} fill="var(--ink, #1b2a4a)">{side}</text>
+      <text x={pad + s / 2} y={pad + s + 20} textAnchor="middle" fontSize={15} fill="var(--ink, #1b2a4a)">{side}</text>
+    </svg>
+  );
+}
+
+/** Треугольник с тремя подписанными сторонами (kind="triangle").
+ *  Если right задан (любой из "A"|"B"|"C" — просто флаг "это прямоугольный треугольник"),
+ *  рисуется прямоугольный треугольник: a и b — катеты (вертикальный и горизонтальный), c — гипотенуза.
+ *  Если right не задан — рисуется обычный (равнобедренный на вид) треугольник: a — основание (низ), b — левая сторона, c — правая сторона. */
+function TriangleShape({ a, b, c, right }: { a: number | string; b: number | string; c: number | string; right?: "A" | "B" | "C" }) {
+  const w = 180, h = 130, pad = 30;
+  if (right) {
+    const pTop = [pad, pad], pBL = [pad, pad + h], pBR = [pad + w, pad + h];
+    const points = `${pTop[0]},${pTop[1]} ${pBL[0]},${pBL[1]} ${pBR[0]},${pBR[1]}`;
+    return (
+      <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
+        <polygon points={points} fill="#fff" stroke="var(--ink, #1b2a4a)" strokeWidth={2} />
+        <rect x={pTop[0]} y={pTop[1]} width={12} height={12} fill="none" stroke="var(--ink, #1b2a4a)" />
+        <text x={pTop[0] - 10} y={(pTop[1] + pBL[1]) / 2} textAnchor="end" fontSize={15} fill="var(--ink, #1b2a4a)">{a}</text>
+        <text x={(pBL[0] + pBR[0]) / 2} y={pBL[1] + 22} textAnchor="middle" fontSize={15} fill="var(--ink, #1b2a4a)">{b}</text>
+        <text x={(pTop[0] + pBR[0]) / 2 + 14} y={(pTop[1] + pBR[1]) / 2 - 2} textAnchor="start" fontSize={15} fill="var(--ink, #1b2a4a)">{c}</text>
+      </svg>
+    );
+  }
+  const Ax = pad + w * 0.35, Ay = pad;
+  const Bx = pad, By = pad + h;
+  const Cx = pad + w, Cy = pad + h;
+  return (
+    <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
+      <polygon points={`${Ax},${Ay} ${Bx},${By} ${Cx},${Cy}`} fill="#fff" stroke="var(--ink, #1b2a4a)" strokeWidth={2} />
+      <text x={(Bx + Cx) / 2} y={By + 22} textAnchor="middle" fontSize={15} fill="var(--ink, #1b2a4a)">{a}</text>
+      <text x={(Ax + Bx) / 2 - 14} y={(Ay + By) / 2} textAnchor="end" fontSize={15} fill="var(--ink, #1b2a4a)">{b}</text>
+      <text x={(Ax + Cx) / 2 + 14} y={(Ay + Cy) / 2} textAnchor="start" fontSize={15} fill="var(--ink, #1b2a4a)">{c}</text>
+    </svg>
+  );
+}
+
 /** Пять чисел вокруг центра (kind="cross") — "Связь между числами и фигурами" в логике. Любая
  *  позиция может быть "?" — неизвестное, которое должен найти ученик (эталон на клиент не уходит). */
 function NumberCross({
@@ -304,6 +360,15 @@ export function Figure({ spec }: { spec: FigureSpec }) {
       break;
     case "chain":
       content = <Chain cells={(spec.cells as (number | string)[]) ?? []} shape={spec.shape as "circle" | "square" | "hexagon" | undefined} />;
+      break;
+    case "rectangle":
+      content = <RectShape width={spec.width as number | string} height={spec.height as number | string} />;
+      break;
+    case "square":
+      content = <SquareShape side={spec.side as number | string} />;
+      break;
+    case "triangle":
+      content = <TriangleShape a={spec.a as number | string} b={spec.b as number | string} c={spec.c as number | string} right={spec.right as "A" | "B" | "C" | undefined} />;
       break;
     case "cross":
       content = (
