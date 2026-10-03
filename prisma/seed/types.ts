@@ -24,12 +24,23 @@ export type Figure =
   | { kind: "circle_numbers"; values: (number | string)[]; caption?: string }
   /** Цепочка фигур (кружков/квадратов/шестигранников) со стрелками между ними, каждая со своим числом. Любой элемент может быть "?". */
   | { kind: "chain"; cells: (number | string)[]; shape?: "circle" | "square" | "hexagon"; caption?: string }
-  /** Прямоугольник с подписанными сторонами (ширина/высота) — для задач на периметр/площадь. */
-  | { kind: "rectangle"; width: number | string; height: number | string; caption?: string }
+  /** Прямоугольник с подписанными сторонами (ширина/высота) — для задач на периметр/площадь.
+   *  color — индекс цвета заливки (0-5, см. палитру в Figure.tsx), необязателен. */
+  | { kind: "rectangle"; width: number | string; height: number | string; color?: number; caption?: string }
   /** Квадрат с подписанной стороной. */
-  | { kind: "square"; side: number | string; caption?: string }
+  | { kind: "square"; side: number | string; color?: number; caption?: string }
   /** Треугольник с тремя подписанными сторонами. Если right задан (любое из "A"|"B"|"C" — просто флаг "прямоугольный"), рисуется прямоугольный треугольник, где a,b — катеты, c — гипотенуза. Если right не задан — обычный треугольник: a — основание, b и c — боковые стороны. */
-  | { kind: "triangle"; a: number | string; b: number | string; c: number | string; right?: "A" | "B" | "C"; caption?: string }
+  | { kind: "triangle"; a: number | string; b: number | string; c: number | string; right?: "A" | "B" | "C"; color?: number; caption?: string }
+  /** Круг с подписанным радиусом и/или диаметром. square="in" рисует вписанный в круг квадрат (вершины на окружности);
+   *  square="out" рисует квадрат, описанный вокруг круга (круг вписан в квадрат). */
+  | { kind: "circle_measure"; radius?: number | string; diameter?: number | string; square?: "in" | "out"; color?: number; caption?: string }
+  /** Произвольная прямоугольная ("ступенчатая") фигура — контур задаётся последовательностью ходов
+   *  (как черепашья графика), начиная из произвольной точки и возвращаясь в неё же последним сегментом.
+   *  dir — направление (R/L/U/D), len — длина в условных клетках (для пропорций рисунка, не обязана совпадать с подписанным числом), label — текст подписи на этой стороне (необязателен). */
+  | { kind: "path_shape"; moves: { dir: "R" | "L" | "U" | "D"; len: number; label?: string }[]; color?: number; caption?: string }
+  /** Прямоугольный параллелепипед в псевдо-3D с подписанными шириной/высотой/глубиной.
+   *  units=[x,y,z] — вместо подписей размеров рисует сетку единичных кубиков на трёх видимых гранях (для задач "из скольки кубиков состоит фигура"). */
+  | { kind: "box3d"; width?: number | string; height?: number | string; depth?: number | string; units?: [number, number, number]; color?: number; caption?: string }
   /** Рисунок ещё не построен: задача сохранена, но скрыта от учеников, пока placeholder не заменят. */
   | { kind: "placeholder"; description: string };
 
