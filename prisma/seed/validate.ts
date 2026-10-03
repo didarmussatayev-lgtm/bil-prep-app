@@ -15,7 +15,7 @@ const issues: { level: Level; where: string; message: string }[] = [];
 const err = (where: string, message: string) => issues.push({ level: "error", where, message });
 const warn = (where: string, message: string) => issues.push({ level: "warn", where, message });
 
-const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "placeholder"]);
+const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "placeholder"]);
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 function checkFigure(where: string, f: Figure) {
@@ -55,6 +55,13 @@ function checkFigure(where: string, f: Figure) {
     if (!Array.isArray(f.rows) || !f.rows.every((r) => Array.isArray(r))) err(where, "table: rows должен быть массивом массивов строк");
   } else if (f.kind === "placeholder") {
     if (!f.description || typeof f.description !== "string") warn(where, "placeholder: не помешало бы description — что нарисовано в книге");
+  } else if (f.kind === "rectangle") {
+    if (f.width === undefined || f.height === undefined) err(where, "rectangle: нужны width и height");
+  } else if (f.kind === "square") {
+    if (f.side === undefined) err(where, "square: нужна side");
+  } else if (f.kind === "triangle") {
+    if (f.a === undefined || f.b === undefined || f.c === undefined) err(where, "triangle: нужны a, b, c");
+    if (f.right && !["A", "B", "C"].includes(f.right)) err(where, `triangle: right должен быть A|B|C, получено "${f.right}"`);
   } else if (f.kind === "circle_numbers") {
     if (!Array.isArray(f.values) || f.values.length < 2) err(where, "circle_numbers: values должен быть массивом из ≥2 элементов");
   } else if (f.kind === "chain") {
