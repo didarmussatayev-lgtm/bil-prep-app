@@ -24,6 +24,12 @@ export type Figure =
   | { kind: "circle_numbers"; values: (number | string)[]; caption?: string }
   /** Цепочка фигур (кружков/квадратов/шестигранников) со стрелками между ними, каждая со своим числом. Любой элемент может быть "?". */
   | { kind: "chain"; cells: (number | string)[]; shape?: "circle" | "square" | "hexagon"; caption?: string }
+  /** Прямоугольник с подписанными сторонами (ширина/высота) — для задач на периметр/площадь. */
+  | { kind: "rectangle"; width: number | string; height: number | string; caption?: string }
+  /** Квадрат с подписанной стороной. */
+  | { kind: "square"; side: number | string; caption?: string }
+  /** Треугольник с тремя подписанными сторонами. Если right задан (любое из "A"|"B"|"C" — просто флаг "прямоугольный"), рисуется прямоугольный треугольник, где a,b — катеты, c — гипотенуза. Если right не задан — обычный треугольник: a — основание, b и c — боковые стороны. */
+  | { kind: "triangle"; a: number | string; b: number | string; c: number | string; right?: "A" | "B" | "C"; caption?: string }
   /** Рисунок ещё не построен: задача сохранена, но скрыта от учеников, пока placeholder не заменят. */
   | { kind: "placeholder"; description: string };
 
