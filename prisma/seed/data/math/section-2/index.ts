@@ -1,10 +1,10 @@
 import { SeedTopic } from "../../../types";
-import t21 from "./topic-2-1";
-import t22 from "./topic-2-2";
-import t23 from "./topic-2-3";
-import t24 from "./topic-2-4";
-import t25 from "./topic-2-5";
-import t26 from "./topic-2-6";
+import t21 from "./topic-2-1-figs";
+import t22 from "./topic-2-2-figs";
+import t23 from "./topic-2-3-figs";
+import t24 from "./topic-2-4-figs";
+import t25 from "./topic-2-5-figs";
+import t26 from "./topic-2-6-figs";
 
 export const SECTION_2 = {
   slug: "math-2",
