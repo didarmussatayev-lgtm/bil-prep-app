@@ -26,9 +26,9 @@ export type Figure =
   | { kind: "chain"; cells: (number | string)[]; shape?: "circle" | "square" | "hexagon"; caption?: string }
   /** Прямоугольник с подписанными сторонами (ширина/высота) — для задач на периметр/площадь.
    *  color — индекс цвета заливки (0-5, см. палитру в Figure.tsx), необязателен. */
-  | { kind: "rectangle"; width: number | string; height: number | string; color?: number; caption?: string }
+  | { kind: "rectangle"; width?: number | string; height?: number | string; names?: string; color?: number; caption?: string }
   /** Квадрат с подписанной стороной. */
-  | { kind: "square"; side: number | string; color?: number; caption?: string }
+  | { kind: "square"; side?: number | string; color?: number; caption?: string }
   /** Треугольник с тремя подписанными сторонами. Если right задан (любое из "A"|"B"|"C" — просто флаг "прямоугольный"), рисуется прямоугольный треугольник, где a,b — катеты, c — гипотенуза. Если right не задан — обычный треугольник: a — основание, b и c — боковые стороны. */
   | { kind: "triangle"; a: number | string; b: number | string; c: number | string; right?: "A" | "B" | "C"; color?: number; caption?: string }
   /** Круг с подписанным радиусом и/или диаметром. square="in" рисует вписанный в круг квадрат (вершины на окружности);
