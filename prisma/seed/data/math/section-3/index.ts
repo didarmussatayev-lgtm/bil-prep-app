@@ -11,7 +11,7 @@ import t39 from "./topic-3-9";
 import t310 from "./topic-3-10";
 import t311 from "./topic-3-11";
 import t312 from "./topic-3-12";
-import t313 from "./topic-3-13";
+import t313 from "./topic-3-13-figs";
 
 export const SECTION_3 = {
   slug: "math-3",
