@@ -1,0 +1,18 @@
+import base from "./topic-3-5";
+import { applyOverlay, type Overlay } from "../../../overlay";
+import { int, dec, frac, mixed, type Figure } from "../../../types";
+
+// Рисунки и задачи, добавленные поверх topic-3-5.ts (см. overlay.ts). Меняйте здесь, базовый файл не трогаем.
+const overlay: Overlay = {
+  practiceFigures: {
+    "6a": {"kind": "scene", "width": 6.6, "height": 10.0, "items": [{"t": "rect", "x": 0.0, "y": 0.0, "w": 5.0, "h": 3.0, "fill": "#FCA5A5"}, {"t": "rect", "x": 0.0, "y": 3.0, "w": 3.0, "h": 3.0, "fill": "#7DD3FC"}, {"t": "rect", "x": 3.0, "y": 3.0, "w": 2.0, "h": 3.0, "fill": "#FDE68A"}, {"t": "poly", "pts": [[0.0, 6.0], [5.0, 6.0], [5.0, 10.0]], "fill": "#BBF7D0"}, {"t": "poly", "pts": [[0.0, 6.0], [5.0, 10.0], [0.0, 10.0]], "fill": "#BAE6FD"}, {"t": "rect", "x": 0.0, "y": 0.0, "w": 5.0, "h": 10.0, "fill": null}, {"t": "text", "x": 2.5, "y": 1.589, "s": "Пшеница", "anchor": "middle", "size": 14}, {"t": "text", "x": 1.5, "y": 4.589, "s": "Ячмень", "anchor": "middle", "size": 14}, {"t": "text", "x": 4.0, "y": 4.589, "s": "Кукуруза", "anchor": "middle", "size": 13}, {"t": "text", "x": 4.0, "y": 3.459, "s": "100 м", "anchor": "middle", "size": 12}, {"t": "text", "x": 3.8, "y": 8.018, "s": "Овёс", "anchor": "middle", "size": 14}, {"t": "text", "x": 1.2, "y": 9.118, "s": "Нут", "anchor": "middle", "size": 14}, {"t": "text", "x": 2.5, "y": -0.236, "s": "250 м", "anchor": "middle", "size": 14}, {"t": "text", "x": -0.148, "y": 5.089, "s": "500 м", "anchor": "end", "size": 14}, {"t": "line", "x1": 5.24, "y1": 3.0, "x2": 5.24, "y2": 6.0, "color": 5}, {"t": "line", "x1": 5.24, "y1": 6.0, "x2": 5.24, "y2": 10.0, "color": 5}, {"t": "line", "x1": 5.16, "y1": 3.0, "x2": 5.32, "y2": 3.0, "color": 5}, {"t": "line", "x1": 5.16, "y1": 6.0, "x2": 5.32, "y2": 6.0, "color": 5}, {"t": "line", "x1": 5.16, "y1": 10.0, "x2": 5.32, "y2": 10.0, "color": 5}, {"t": "text", "x": 5.388, "y": 4.589, "s": "150 м", "anchor": "start", "size": 12}, {"t": "text", "x": 5.388, "y": 8.089, "s": "200 м", "anchor": "start", "size": 12}], "scale": 44, "color": 3},
+  },
+  testFigures: {
+    "5": {"kind": "scene", "width": 9.287, "height": 8.989, "items": [{"t": "circle", "cx": 4.643, "cy": 1.6, "r": 1.6, "fill": "#FDE68A"}, {"t": "circle", "cx": 7.687, "cy": 3.811, "r": 1.6, "fill": "#FDE68A"}, {"t": "circle", "cx": 6.524, "cy": 7.389, "r": 1.6, "fill": "#FDE68A"}, {"t": "circle", "cx": 2.762, "cy": 7.389, "r": 1.6, "fill": "#FDE68A"}, {"t": "circle", "cx": 1.6, "cy": 3.811, "r": 1.6, "fill": "#FDE68A"}, {"t": "circle", "cx": 4.643, "cy": 4.8, "r": 1.3, "fill": "#FFFFFF"}, {"t": "circle", "cx": 4.643, "cy": 4.8, "r": 1.3, "fill": null}, {"t": "text", "x": 4.643, "y": 1.407, "s": "1 100 000", "anchor": "middle", "size": 12}, {"t": "text", "x": 4.643, "y": 1.889, "s": "дм²", "anchor": "middle", "size": 12}, {"t": "text", "x": 7.687, "y": 3.619, "s": "11 000 000", "anchor": "middle", "size": 12}, {"t": "text", "x": 7.687, "y": 4.1, "s": "см²", "anchor": "middle", "size": 12}, {"t": "text", "x": 6.524, "y": 7.533, "s": "1,1 га", "anchor": "middle", "size": 13}, {"t": "text", "x": 2.762, "y": 7.533, "s": "1100 а", "anchor": "middle", "size": 13}, {"t": "text", "x": 1.6, "y": 3.956, "s": "110 а", "anchor": "middle", "size": 13}, {"t": "text", "x": 4.643, "y": 4.607, "s": "11000", "anchor": "middle", "size": 13}, {"t": "text", "x": 4.643, "y": 5.089, "s": "м²", "anchor": "middle", "size": 12}], "scale": 27, "color": 2},
+  },
+  pending: [
+    { page: 216, n: "6", why: "условие противоречиво (5 гектаров пшеницы = 50000 м², что больше указанных 20000 м² земли) — вероятна ошибка числовых данных; рисунка в задаче нет" },
+  ],
+};
+
+export default applyOverlay(base, overlay);

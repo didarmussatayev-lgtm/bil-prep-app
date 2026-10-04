@@ -1,0 +1,27 @@
+import base from "./topic-3-10";
+import { applyOverlay, type Overlay } from "../../../overlay";
+import { int, dec, frac, mixed, type Figure } from "../../../types";
+
+// Рисунки и задачи, добавленные поверх topic-3-10.ts (см. overlay.ts). Меняйте здесь, базовый файл не трогаем.
+const overlay: Overlay = {
+  practiceFigures: {
+    "2": {"kind": "scene", "width": 4.8, "height": 4.8, "items": [{"t": "rect", "x": 0.0, "y": 0.0, "w": 4.8, "h": 4.8, "fill": "#BFDBFE"}, {"t": "circle", "cx": 2.4, "cy": 2.4, "r": 2.4, "fill": "#FFFFFF"}], "scale": 41},
+    "3": {"kind": "scene", "width": 4.8, "height": 2.4, "items": [{"t": "rect", "x": 0.0, "y": 0.0, "w": 4.8, "h": 2.4, "fill": "#BBF7D0"}, {"t": "circle", "cx": 1.2, "cy": 1.2, "r": 1.2, "fill": "#FFFFFF"}, {"t": "circle", "cx": 3.6, "cy": 1.2, "r": 1.2, "fill": "#FFFFFF"}], "scale": 47, "color": 3},
+    "6": {"kind": "scene", "width": 4.0, "height": 4.0, "items": [{"t": "rect", "x": 0.0, "y": 0.0, "w": 4.0, "h": 4.0, "fill": null}, {"t": "circle", "cx": 2.0, "cy": 2.0, "r": 2.0, "fill": "#BFDBFE"}], "scale": 50},
+    "sector-1": {"kind": "scene", "width": 7.0, "height": 7.0, "items": [{"t": "circle", "cx": 3.5, "cy": 3.5, "r": 3.5, "fill": null}, {"t": "sector", "cx": 3.5, "cy": 3.5, "r": 3.5, "a0": 0, "a1": 70, "fill": "#DDD6FE"}, {"t": "sector", "cx": 3.5, "cy": 3.5, "r": 3.5, "a0": 175, "a1": 225, "fill": "#DDD6FE"}, {"t": "sector", "cx": 3.5, "cy": 3.5, "r": 3.5, "a0": 290, "a1": 330, "fill": "#DDD6FE"}, {"t": "circle", "cx": 3.5, "cy": 3.5, "r": 3.5, "fill": null}, {"t": "line", "x1": 3.5, "y1": 3.5, "x2": 3.5, "y2": 0.0}, {"t": "text", "x": 3.5, "y": -0.311, "s": "C", "anchor": "middle", "size": 15}, {"t": "line", "x1": 3.5, "y1": 3.5, "x2": 6.789, "y2": 2.303}, {"t": "text", "x": 7.212, "y": 2.288, "s": "D", "anchor": "middle", "size": 15}, {"t": "line", "x1": 3.5, "y1": 3.5, "x2": 3.805, "y2": 6.987}, {"t": "text", "x": 3.844, "y": 7.574, "s": "E", "anchor": "middle", "size": 15}, {"t": "line", "x1": 3.5, "y1": 3.5, "x2": 1.025, "y2": 5.975}, {"t": "text", "x": 0.707, "y": 6.432, "s": "F", "anchor": "middle", "size": 15}, {"t": "line", "x1": 3.5, "y1": 3.5, "x2": 0.211, "y2": 2.303}, {"t": "text", "x": -0.212, "y": 2.288, "s": "A", "anchor": "middle", "size": 15}, {"t": "line", "x1": 3.5, "y1": 3.5, "x2": 1.75, "y2": 0.469}, {"t": "text", "x": 1.525, "y": 0.218, "s": "B", "anchor": "middle", "size": 15}, {"t": "circle", "cx": 3.5, "cy": 3.5, "r": 0.07, "fill": "#6D28D9"}, {"t": "text", "x": 3.775, "y": 3.875, "s": "O", "anchor": "middle", "size": 15}], "scale": 28, "color": 5},
+  },
+  testFigures: {
+    "1": {"kind": "scene", "width": 4.8, "height": 4.8, "items": [{"t": "rect", "x": 0.4, "y": 0.4, "w": 4.0, "h": 4.0, "fill": "#DDD6FE"}, {"t": "sector", "cx": 4.4, "cy": 4.4, "r": 4.0, "a0": 270, "a1": 360, "fill": "#FFFFFF"}, {"t": "line", "x1": 0.4, "y1": 0.4, "x2": 0.4, "y2": 4.4}, {"t": "line", "x1": 0.4, "y1": 4.4, "x2": 4.4, "y2": 4.4}, {"t": "text", "x": 0.178, "y": 0.178, "s": "D", "anchor": "middle", "size": 15}, {"t": "text", "x": 4.622, "y": 0.178, "s": "C", "anchor": "middle", "size": 15}, {"t": "text", "x": 0.178, "y": 4.844, "s": "A", "anchor": "middle", "size": 15}, {"t": "text", "x": 4.622, "y": 4.844, "s": "B", "anchor": "middle", "size": 15}], "scale": 41},
+    "4": {"kind": "scene", "width": 7.0, "height": 7.0, "items": [{"t": "circle", "cx": 3.5, "cy": 3.5, "r": 3.5, "fill": "#FBCFE8"}, {"t": "circle", "cx": 3.5, "cy": 3.5, "r": 1.5, "fill": "#FFFFFF"}, {"t": "line", "x1": 3.5, "y1": 3.5, "x2": 7.0, "y2": 3.5}, {"t": "circle", "cx": 3.5, "cy": 3.5, "r": 0.07, "fill": "#BE185D"}, {"t": "text", "x": 3.129, "y": 3.221, "s": "O", "anchor": "middle", "size": 15}, {"t": "text", "x": 5.0, "y": 3.082, "s": "A", "anchor": "middle", "size": 15}, {"t": "text", "x": 7.232, "y": 3.082, "s": "B", "anchor": "middle", "size": 15}], "scale": 28, "color": 2},
+    "5": {"kind": "scene", "width": 4.0, "height": 4.0, "items": [{"t": "rect", "x": 0.0, "y": 0.0, "w": 4.0, "h": 4.0, "fill": "#FBCFE8"}, {"t": "circle", "cx": 1.0, "cy": 1.0, "r": 1.0, "fill": "#FFFFFF"}, {"t": "circle", "cx": 3.0, "cy": 1.0, "r": 1.0, "fill": "#FFFFFF"}, {"t": "circle", "cx": 1.0, "cy": 3.0, "r": 1.0, "fill": "#FFFFFF"}, {"t": "circle", "cx": 3.0, "cy": 3.0, "r": 1.0, "fill": "#FFFFFF"}, {"t": "text", "x": -0.208, "y": -0.156, "s": "D", "anchor": "middle", "size": 15}, {"t": "text", "x": 4.208, "y": -0.156, "s": "C", "anchor": "middle", "size": 15}, {"t": "text", "x": -0.208, "y": 4.364, "s": "A", "anchor": "middle", "size": 15}, {"t": "text", "x": 4.208, "y": 4.364, "s": "B", "anchor": "middle", "size": 15}], "scale": 50, "color": 2},
+  },
+  pending: [
+    { page: 246, n: "1 (задачи)", why: "круг на клетчатой сетке: в условии не указано значение π, поэтому ответ в «квадратных единицах» не определён числом" },
+    { page: 246, n: "7", why: "4 концентрических круга с радиусами A>B>C>D без числовых значений — задача абстрактная" },
+    { page: 248, n: "2 (задачи)", why: "квадрат ABCD вписан в круг, площадь квадрата 64 см², а «диаметр круга больше стороны квадрата на 6 см» — для квадрата, вершины которого лежат на окружности, эти данные противоречат друг другу (диагональ ≠ сторона+6)" },
+    { page: 248, n: "3 (задачи)", why: "звезда из четырёх дуг на клетчатой сетке, длина клетки 2 см — в условии нет значения π" },
+    { page: 249, n: "2 (тест)", why: "фигура-цветок на клетчатой сетке — точная конфигурация лепестков не считана однозначно со скана" },
+  ],
+};
+
+export default applyOverlay(base, overlay);
