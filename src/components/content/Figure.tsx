@@ -1,7 +1,7 @@
 import type { FigureSpec } from "@/lib/content/types";
 import ui from "@/components/student/ui.module.css";
 import { renderRichInline } from "@/components/content/RichText";
-
+ 
 /** Прямоугольник, поделённый на равные вертикальные доли — dольные полосы (kind="fraction_bar"). */
 function FractionBar({ parts, shaded }: { parts: number; shaded: number[] }) {
   const width = 220;
@@ -24,7 +24,7 @@ function FractionBar({ parts, shaded }: { parts: number; shaded: number[] }) {
     </svg>
   );
 }
-
+ 
 /** Круг, поделённый на равные секторы (kind="circle"). */
 function FractionCircle({ parts, shaded }: { parts: number; shaded: number[] }) {
   const size = 96;
@@ -56,7 +56,7 @@ function FractionCircle({ parts, shaded }: { parts: number; shaded: number[] }) 
     </svg>
   );
 }
-
+ 
 /** Прямоугольная сетка с закрашенными клетками — [строка, столбец], нумерация с 0 (kind="grid"). */
 function FractionGrid({ rows, cols, shaded }: { rows: number; cols: number; shaded: [number, number][] }) {
   const cell = 26;
@@ -85,7 +85,7 @@ function FractionGrid({ rows, cols, shaded }: { rows: number; cols: number; shad
     </svg>
   );
 }
-
+ 
 /** Числовой луч с делениями и отмеченными точками (kind="number_line"). at может быть числом или [числитель,знаменатель]. */
 function NumberLine({
   from,
@@ -104,9 +104,9 @@ function NumberLine({
   const span = to - from || 1;
   const x = (v: number) => pad + ((v - from) / span) * (width - pad * 2);
   const valueOf = (at: number | [number, number]) => (Array.isArray(at) ? at[0] / at[1] : at);
-
+ 
   const ticks = Array.from({ length: divisions + 1 }, (_, i) => from + (span * i) / divisions);
-
+ 
   return (
     <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
       <line x1={pad} y1={height / 2} x2={width - pad} y2={height / 2} stroke="var(--ink, #1b2a4a)" />
@@ -131,7 +131,7 @@ function NumberLine({
     </svg>
   );
 }
-
+ 
 /** Таблица (kind="table") — обычная HTML-таблица, не SVG (текстовый контент, векторизовать нечего). */
 function FigureTableEl({ rows }: { rows: string[][] }) {
   return (
@@ -148,7 +148,7 @@ function FigureTableEl({ rows }: { rows: string[][] }) {
     </table>
   );
 }
-
+ 
 /** N чисел по кругу через равные промежутки, по часовой стрелке с 12 часов (kind="circle_numbers"). */
 function CircleNumbers({ values }: { values: (number | string)[] }) {
   const n = Math.max(values.length, 1);
@@ -175,7 +175,7 @@ function CircleNumbers({ values }: { values: (number | string)[] }) {
     </svg>
   );
 }
-
+ 
 /** Цепочка фигур со стрелками между ними, каждая со своим числом (kind="chain"). */
 function Chain({ cells, shape = "square" }: { cells: (number | string)[]; shape?: "circle" | "square" | "hexagon" }) {
   const cellSize = 40;
@@ -232,7 +232,7 @@ function Chain({ cells, shape = "square" }: { cells: (number | string)[]; shape?
     </svg>
   );
 }
-
+ 
 /** Палитра мягких, "учебниковых" цветов заливки для геометрических фигур (fill+stroke подобраны парами). */
 const SHAPE_PALETTE = [
   { fill: "#FDE68A", stroke: "#B45309" }, // жёлтый
@@ -245,38 +245,53 @@ const SHAPE_PALETTE = [
 function paletteColor(i = 0) {
   return SHAPE_PALETTE[((i % SHAPE_PALETTE.length) + SHAPE_PALETTE.length) % SHAPE_PALETTE.length];
 }
-
-/** Прямоугольник с подписанными шириной и высотой (kind="rectangle"). */
-function RectShape({ width, height, color = 1 }: { width?: number | string; height?: number | string; color?: number }) {
-  const w = 170, h = 104, pad = 34;
+ 
+/** Буквы вершин: для прямоугольника/квадрата "ABCD" — A слева-внизу, B справа-внизу, C справа-вверху, D слева-вверху. */
+function CornerNames({ names, pts, stroke }: { names?: string; pts: [number, number][]; stroke: string }) {
+  if (!names) return null;
+  const off: [number, number][] = [[-12, 16], [12, 16], [12, -6], [-12, -6]];
+  return (
+    <>
+      {pts.map((p, i) => names[i] ? (
+        <text key={i} x={p[0] + (off[i] ?? [0, 0])[0]} y={p[1] + (off[i] ?? [0, 0])[1]} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[i]}</text>
+      ) : null)}
+    </>
+  );
+}
+ 
+/** Прямоугольник с подписанными шириной (сверху) и высотой (слева) (kind="rectangle"). */
+function RectShape({ width, height, color = 1, names }: { width?: number | string; height?: number | string; color?: number; names?: string }) {
+  const w = 170, h = 104, padL = 58, padR = 34, padT = 34, padB = 34;
   const { fill, stroke } = paletteColor(color);
   return (
-    <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
-      <rect x={pad} y={pad} width={w} height={h} rx={5} fill={fill} stroke={stroke} strokeWidth={2.5} />
-      <text x={pad + w / 2} y={pad - 11} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{width}</text>
-      <text x={pad + w + 16} y={pad + h / 2 + 5} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{height}</text>
+    <svg viewBox={`0 0 ${w + padL + padR} ${h + padT + padB}`} width={w + padL + padR} height={h + padT + padB}>
+      <rect x={padL} y={padT} width={w} height={h} rx={4} fill={fill} stroke={stroke} strokeWidth={2.5} />
+      {lbl(width) && <text x={padL + w / 2} y={padT - 11} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{lbl(width)}</text>}
+      {lbl(height) && <text x={padL - 10} y={padT + h / 2 + 5} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lbl(height)}</text>}
+      <CornerNames names={names} stroke={stroke} pts={[[padL, padT + h], [padL + w, padT + h], [padL + w, padT], [padL, padT]]} />
     </svg>
   );
 }
-
-/** Квадрат с подписанной стороной (kind="square"). */
-function SquareShape({ side, color = 0 }: { side: number | string; color?: number }) {
-  const s = 128, pad = 34;
+ 
+/** Квадрат с подписанной стороной (сверху и слева) (kind="square"). */
+function SquareShape({ side, color = 0, names }: { side?: number | string; color?: number; names?: string }) {
+  const s = 128, padL = 58, padR = 34, padT = 34, padB = 34;
   const { fill, stroke } = paletteColor(color);
   return (
-    <svg viewBox={`0 0 ${s + pad * 2} ${s + pad * 2}`} width={s + pad * 2} height={s + pad * 2}>
-      <rect x={pad} y={pad} width={s} height={s} rx={5} fill={fill} stroke={stroke} strokeWidth={2.5} />
-      <text x={pad + s / 2} y={pad - 11} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{side}</text>
-      <text x={pad + s + 16} y={pad + s / 2 + 5} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{side}</text>
+    <svg viewBox={`0 0 ${s + padL + padR} ${s + padT + padB}`} width={s + padL + padR} height={s + padT + padB}>
+      <rect x={padL} y={padT} width={s} height={s} rx={4} fill={fill} stroke={stroke} strokeWidth={2.5} />
+      {lbl(side) && <text x={padL + s / 2} y={padT - 11} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{lbl(side)}</text>}
+      {lbl(side) && <text x={padL - 10} y={padT + s / 2 + 5} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lbl(side)}</text>}
+      <CornerNames names={names} stroke={stroke} pts={[[padL, padT + s], [padL + s, padT + s], [padL + s, padT], [padL, padT]]} />
     </svg>
   );
 }
-
+ 
 /** Треугольник с тремя подписанными сторонами (kind="triangle").
  *  Если right задан (любой из "A"|"B"|"C" — просто флаг "это прямоугольный треугольник"),
  *  рисуется прямоугольный треугольник: a и b — катеты (вертикальный и горизонтальный), c — гипотенуза.
  *  Если right не задан — рисуется обычный (равнобедренный на вид) треугольник: a — основание (низ), b — левая сторона, c — правая сторона. */
-function TriangleShape({ a, b, c, right, color = 2 }: { a: number | string; b: number | string; c: number | string; right?: "A" | "B" | "C"; color?: number }) {
+function TriangleShape({ a, b, c, right, color = 2, names }: { a?: number | string; b?: number | string; c?: number | string; right?: "A" | "B" | "C"; color?: number; names?: string }) {
   const w = 190, h = 136, pad = 34;
   const { fill, stroke } = paletteColor(color);
   if (right) {
@@ -286,9 +301,12 @@ function TriangleShape({ a, b, c, right, color = 2 }: { a: number | string; b: n
       <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
         <polygon points={points} fill={fill} stroke={stroke} strokeWidth={2.5} strokeLinejoin="round" />
         <rect x={pTop[0]} y={pTop[1]} width={14} height={14} fill="none" stroke={stroke} strokeWidth={2} />
-        <text x={pTop[0] - 12} y={(pTop[1] + pBL[1]) / 2} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{a}</text>
-        <text x={(pBL[0] + pBR[0]) / 2} y={pBL[1] + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{b}</text>
-        <text x={(pTop[0] + pBR[0]) / 2 + 16} y={(pTop[1] + pBR[1]) / 2 - 2} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{c}</text>
+        {names && <text x={pTop[0] + 2} y={pTop[1] - 8} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[0]}</text>}
+        {names && <text x={pBL[0] - 2} y={pBL[1] + 18} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[1]}</text>}
+        {names && <text x={pBR[0] + 10} y={pBR[1] + 5} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[2]}</text>}
+        {lbl(a) && <text x={pTop[0] - 12} y={(pTop[1] + pBL[1]) / 2} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lbl(a)}</text>}
+        {lbl(b) && <text x={(pBL[0] + pBR[0]) / 2} y={pBL[1] + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{lbl(b)}</text>}
+        {lbl(c) && <text x={(pTop[0] + pBR[0]) / 2 + 16} y={(pTop[1] + pBR[1]) / 2 - 2} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{lbl(c)}</text>}
       </svg>
     );
   }
@@ -298,13 +316,16 @@ function TriangleShape({ a, b, c, right, color = 2 }: { a: number | string; b: n
   return (
     <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
       <polygon points={`${Ax},${Ay} ${Bx},${By} ${Cx},${Cy}`} fill={fill} stroke={stroke} strokeWidth={2.5} strokeLinejoin="round" />
-      <text x={(Bx + Cx) / 2} y={By + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{a}</text>
-      <text x={(Ax + Bx) / 2 - 14} y={(Ay + By) / 2} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{b}</text>
-      <text x={(Ax + Cx) / 2 + 14} y={(Ay + Cy) / 2} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{c}</text>
+      {lbl(a) && <text x={(Bx + Cx) / 2} y={By + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{lbl(a)}</text>}
+      {lbl(b) && <text x={(Ax + Bx) / 2 - 14} y={(Ay + By) / 2} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lbl(b)}</text>}
+      {lbl(c) && <text x={(Ax + Cx) / 2 + 14} y={(Ay + Cy) / 2} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{lbl(c)}</text>}
+      {names && <text x={Ax} y={Ay - 8} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[0]}</text>}
+      {names && <text x={Bx - 12} y={By + 4} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[1]}</text>}
+      {names && <text x={Cx + 12} y={Cy + 4} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[2]}</text>}
     </svg>
   );
 }
-
+ 
 /** Круг с подписанным радиусом и/или диаметром (kind="circle_measure").
  *  square="in"  — дополнительно рисует квадрат, вписанный В круг (вершины на окружности).
  *  square="out" — дополнительно рисует квадрат, ОПИСАННЫЙ вокруг круга (круг вписан в квадрат). */
@@ -328,122 +349,241 @@ function CircleMeasure({
           fill="none" stroke={sqColor.stroke} strokeWidth={2.5}
         />
       )}
-      {radius !== undefined && (
+      {lbl(radius) !== null && (
         <>
           <line x1={cx} y1={cy} x2={cx + r} y2={cy} stroke={stroke} strokeWidth={2.5} />
           <circle cx={cx} cy={cy} r={3.5} fill={stroke} />
-          <text x={cx + r / 2} y={cy - 10} textAnchor="middle" fontSize={15} fontWeight={700} fill={stroke}>{radius}</text>
+          <text x={cx + r / 2} y={cy - 10} textAnchor="middle" fontSize={15} fontWeight={700} fill={stroke}>{lbl(radius)}</text>
         </>
       )}
-      {diameter !== undefined && (
+      {lbl(diameter) !== null && (
         <>
           <line x1={cx - r} y1={cy} x2={cx + r} y2={cy} stroke={stroke} strokeWidth={2.5} />
-          <text x={cx} y={cy - 10} textAnchor="middle" fontSize={15} fontWeight={700} fill={stroke}>{diameter}</text>
+          <text x={cx} y={cy - 10} textAnchor="middle" fontSize={15} fontWeight={700} fill={stroke}>{lbl(diameter)}</text>
         </>
       )}
     </svg>
   );
 }
-
+ 
 /** Произвольная прямоугольная ("ступенчатая") фигура, заданная последовательностью ходов
- *  (как черепашья графика: R/L/U/D + длина в условных клетках + подпись). Контур автоматически
- *  замыкается последним сегментом обратно в начальную точку (kind="path_shape"). */
+ *  (R/L/U/D + длина в условных клетках + подпись). Контур замыкается автоматически (kind="path_shape").
+ *  Подписи ставятся с внешней стороны контура. */
 function PathShape({
   moves, color = 3,
 }: { moves: { dir: "R" | "L" | "U" | "D"; len: number; label?: string }[]; color?: number }) {
   const scale = 24;
   let x = 0, y = 0;
   const points: [number, number][] = [[0, 0]];
-  const labels: { x: number; y: number; text: string; vertical: boolean }[] = [];
+  const segs: { mx: number; my: number; text: string; vertical: boolean }[] = [];
   for (const m of moves) {
     const dx = m.dir === "R" ? m.len : m.dir === "L" ? -m.len : 0;
     const dy = m.dir === "D" ? m.len : m.dir === "U" ? -m.len : 0;
     const nx = x + dx, ny = y + dy;
-    if (m.label) labels.push({ x: (x + nx) / 2, y: (y + ny) / 2, text: m.label, vertical: dx === 0 });
+    const t = lbl(m.label);
+    if (t) segs.push({ mx: (x + nx) / 2, my: (y + ny) / 2, text: t, vertical: dx === 0 });
     x = nx; y = ny;
     points.push([x, y]);
   }
+  const inside = (px: number, py: number) => {
+    let c = false;
+    for (let i = 0, j = points.length - 1; i < points.length; j = i++) {
+      const [xi, yi] = points[i], [xj, yj] = points[j];
+      if ((yi > py) !== (yj > py) && px < ((xj - xi) * (py - yi)) / (yj - yi) + xi) c = !c;
+    }
+    return c;
+  };
   const xs = points.map((p) => p[0]), ys = points.map((p) => p[1]);
   const minX = Math.min(...xs), maxX = Math.max(...xs);
   const minY = Math.min(...ys), maxY = Math.max(...ys);
-  const padUnits = 1.4;
-  const gw = maxX - minX + padUnits * 2, gh = maxY - minY + padUnits * 2;
-  const toSvg = (p: [number, number]): [number, number] => [(p[0] - minX + padUnits) * scale, (p[1] - minY + padUnits) * scale];
+  const padUnits = 1.6, padX = 3.2;
+  const gw = maxX - minX + padX * 2, gh = maxY - minY + padUnits * 2;
+  const toSvg = (p: [number, number]): [number, number] => [(p[0] - minX + padX) * scale, (p[1] - minY + padUnits) * scale];
   const { fill, stroke } = paletteColor(color);
   const W = gw * scale, H = gh * scale;
-  const dispW = Math.min(W, 340);
+  const dispW = Math.min(W, 360);
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width={dispW} height={(dispW * H) / W}>
       <polygon points={points.map((p) => toSvg(p).join(",")).join(" ")} fill={fill} fillOpacity={0.6} stroke={stroke} strokeWidth={2.5} strokeLinejoin="round" />
-      {labels.map((l, i) => {
-        const [sx, sy] = toSvg([l.x, l.y]);
-        return (
-          <text
-            key={i}
-            x={sx + (l.vertical ? 16 : 0)}
-            y={sy + (l.vertical ? 4 : -8)}
-            textAnchor="middle"
-            fontSize={13}
-            fontWeight={700}
-            fill={stroke}
-          >
-            {l.text}
-          </text>
-        );
+      {segs.map((l, i) => {
+        const e = 0.25;
+        let tx = l.mx, ty = l.my, anchor: "middle" | "start" | "end" = "middle";
+        if (l.vertical) {
+          const rightOut = !inside(l.mx + e, l.my);
+          anchor = rightOut ? "start" : "end";
+          tx = l.mx + (rightOut ? 0.45 : -0.45); ty = l.my + 0.2;
+        } else {
+          const upOut = !inside(l.mx, l.my - e);
+          ty = l.my + (upOut ? -0.45 : 0.95);
+        }
+        const [sx, sy] = toSvg([tx, ty]);
+        return <text key={i} x={sx} y={sy} textAnchor={anchor} fontSize={13} fontWeight={700} fill={stroke}>{l.text}</text>;
       })}
     </svg>
   );
 }
-
-/** Прямоугольный параллелепипед в псевдо-3D с подписанными шириной/высотой/глубиной (kind="box3d").
- *  Если units=[x,y,z] задан — на трёх видимых гранях рисуется сетка единичных кубиков (вместо подписей размеров). */
+ 
+/** Подпись допустима, только если она задана и не «?» (знаков вопроса на рисунках не рисуем). */
+function lbl(v: unknown): string | null {
+  if (v === undefined || v === null) return null;
+  const s = String(v).trim();
+  if (s === "" || s === "?") return null;
+  return s;
+}
+ 
+/** Прямоугольный параллелепипед в псевдо-3D (kind="box3d"): три видимые грани + штриховые невидимые рёбра.
+ *  units=[x,y,z] — сетка единичных кубиков на всех трёх видимых гранях (x — по ширине, y — по глубине, z — по высоте). */
 function Box3D({
   width, height, depth, units, color = 1,
 }: { width?: number | string; height?: number | string; depth?: number | string; units?: [number, number, number]; color?: number }) {
-  const W = 130, H = 90, D = 58, pad = 28;
-  const skx = D * 0.62, sky = D * 0.42;
-  const ox = pad + skx, oy = pad + H + sky;
-  const FBL: [number, number] = [ox, oy];
-  const FBR: [number, number] = [ox + W, oy];
-  const FTR: [number, number] = [ox + W, oy - H];
-  const FTL: [number, number] = [ox, oy - H];
-  const BTL: [number, number] = [ox - skx, oy - H - sky];
-  const BTR: [number, number] = [ox + W - skx, oy - H - sky];
-  const BBR: [number, number] = [ox + W - skx, oy - sky];
+  const num = (v: unknown): number | null => {
+    const m = String(v ?? "").replace(",", ".").match(/\d+(\.\d+)?/);
+    return m ? parseFloat(m[0]) : null;
+  };
+  // пропорции: из units (ширина, глубина, высота в кубиках), иначе из чисел в подписях, иначе по умолчанию
+  let rw = 1.4, rh = 1, rd = 0.9;
+  if (units) { rw = units[0]; rd = units[1]; rh = units[2]; }
+  else { const nw = num(width), nh = num(height), nd = num(depth); if (nw && nh && nd) { rw = nw; rh = nh; rd = nd; } }
+  const k = 140 / Math.max(rw, rh * 1.15, rd * 1.3);
+  const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
+  const W = clamp(rw * k, 40, 150), H = clamp(rh * k, 34, 120), D = clamp(rd * k, 30, 100);
+  const pad = 26, lab = 44;
+  const skx = D * 0.55, sky = D * 0.4;
   const { fill, stroke } = paletteColor(color);
-  const darker = paletteColor(color).stroke;
-  const totalW = W + skx + pad * 2, totalH = H + sky + pad * 2;
+  const FBL: [number, number] = [pad, pad + sky + H];
+  const FBR: [number, number] = [pad + W, pad + sky + H];
+  const FTR: [number, number] = [pad + W, pad + sky];
+  const FTL: [number, number] = [pad, pad + sky];
+  const sh = (p: [number, number]): [number, number] => [p[0] + skx, p[1] - sky];
+  const BBL = sh(FBL), BBR = sh(FBR), BTR = sh(FTR), BTL = sh(FTL);
+  const pts = (a: [number, number][]) => a.map((p) => p.join(",")).join(" ");
+  const totalW = W + skx + pad * 2 + lab, totalH = H + sky + pad * 2 + 8;
   const [ux, uy, uz] = units ?? [0, 0, 0];
-  const gridLines: React.ReactNode[] = [];
+  const lerp = (a: [number, number], b: [number, number], t: number): [number, number] => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
+  const g: React.ReactNode[] = [];
+  const gl = (k: string, a: [number, number], b: [number, number]) => (
+    <line key={k} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} stroke={stroke} strokeWidth={1.2} opacity={0.6} />
+  );
   if (units) {
-    for (let i = 1; i < ux; i++) {
-      const t = i / ux;
-      gridLines.push(<line key={`f-v-${i}`} x1={FBL[0] + t * W} y1={FBL[1]} x2={FTL[0] + t * W} y2={FTL[1]} stroke={darker} strokeWidth={1} opacity={0.5} />);
-    }
-    for (let i = 1; i < uz; i++) {
-      const t = i / uz;
-      gridLines.push(<line key={`f-h-${i}`} x1={FBL[0]} y1={FBL[1] - t * H} x2={FBR[0]} y2={FBR[1] - t * H} stroke={darker} strokeWidth={1} opacity={0.5} />);
-    }
-    for (let i = 1; i < uy; i++) {
-      const t = i / uy;
-      const bx = FTL[0] + (BTL[0] - FTL[0]) * t, by = FTL[1] + (BTL[1] - FTL[1]) * t;
-      const fx = FTR[0] + (BTR[0] - FTR[0]) * t, fy = FTR[1] + (BTR[1] - FTR[1]) * t;
-      gridLines.push(<line key={`t-${i}`} x1={bx} y1={by} x2={fx} y2={fy} stroke={darker} strokeWidth={1} opacity={0.5} />);
-    }
+    for (let i = 1; i < ux; i++) { const t = i / ux; g.push(gl(`fv${i}`, lerp(FBL, FBR, t), lerp(FTL, FTR, t))); g.push(gl(`tv${i}`, lerp(FTL, FTR, t), lerp(BTL, BTR, t))); }
+    for (let i = 1; i < uz; i++) { const t = i / uz; g.push(gl(`fh${i}`, lerp(FBL, FTL, t), lerp(FBR, FTR, t))); g.push(gl(`rh${i}`, lerp(FBR, FTR, t), lerp(BBR, BTR, t))); }
+    for (let i = 1; i < uy; i++) { const t = i / uy; g.push(gl(`th${i}`, lerp(FTL, BTL, t), lerp(FTR, BTR, t))); g.push(gl(`rv${i}`, lerp(FBR, BBR, t), lerp(FTR, BTR, t))); }
   }
+  const wl = lbl(width), hl = lbl(height), dl = lbl(depth);
+  const tx = { fontSize: 14, fontWeight: 700, fill: stroke } as const;
   return (
     <svg viewBox={`0 0 ${totalW} ${totalH}`} width={totalW} height={totalH}>
-      <polygon points={[FTL, FTR, BTR, BTL].map((p) => p.join(",")).join(" ")} fill={fill} opacity={0.85} stroke={stroke} strokeWidth={2} strokeLinejoin="round" />
-      <polygon points={[FBR, FTR, BTR, BBR].map((p) => p.join(",")).join(" ")} fill={fill} opacity={0.55} stroke={stroke} strokeWidth={2} strokeLinejoin="round" />
-      <polygon points={[FBL, FBR, FTR, FTL].map((p) => p.join(",")).join(" ")} fill={fill} stroke={stroke} strokeWidth={2.5} strokeLinejoin="round" />
-      {gridLines}
-      {width !== undefined && <text x={(FBL[0] + FBR[0]) / 2} y={FBL[1] + 22} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{width}</text>}
-      {height !== undefined && <text x={FBR[0] + 14} y={(FBR[1] + FTR[1]) / 2 + 5} textAnchor="start" fontSize={14} fontWeight={700} fill={stroke}>{height}</text>}
-      {depth !== undefined && <text x={(FTR[0] + BTR[0]) / 2 + 8} y={(FTR[1] + BTR[1]) / 2 - 8} textAnchor="start" fontSize={14} fontWeight={700} fill={stroke}>{depth}</text>}
+      <polygon points={pts([FTL, FTR, BTR, BTL])} fill={fill} opacity={0.8} stroke={stroke} strokeWidth={2} strokeLinejoin="round" />
+      <polygon points={pts([FBR, FTR, BTR, BBR])} fill={fill} opacity={0.55} stroke={stroke} strokeWidth={2} strokeLinejoin="round" />
+      <polygon points={pts([FBL, FBR, FTR, FTL])} fill={fill} stroke={stroke} strokeWidth={2.5} strokeLinejoin="round" />
+      {g}
+      {/* невидимые рёбра */}
+      <g stroke={stroke} strokeWidth={1.5} strokeDasharray="4 4" fill="none" opacity={0.7}>
+        <line x1={FBL[0]} y1={FBL[1]} x2={BBL[0]} y2={BBL[1]} />
+        <line x1={BBL[0]} y1={BBL[1]} x2={BBR[0]} y2={BBR[1]} />
+        <line x1={BBL[0]} y1={BBL[1]} x2={BTL[0]} y2={BTL[1]} />
+      </g>
+      {wl && <text x={(FBL[0] + FBR[0]) / 2} y={FBL[1] + 20} textAnchor="middle" {...tx}>{wl}</text>}
+      {dl && <text x={(FBR[0] + BBR[0]) / 2 + 12} y={(FBR[1] + BBR[1]) / 2 + 16} textAnchor="start" {...tx}>{dl}</text>}
+      {hl && <text x={BBR[0] + 10} y={(BBR[1] + BTR[1]) / 2 + 5} textAnchor="start" {...tx}>{hl}</text>}
     </svg>
   );
 }
-
+ 
+/** Универсальный «холст» (kind="scene"): рисунок из примитивов в клетках (x вправо, y вниз), чтобы повторять
+ *  картинки учебника. scale — пикселей на клетку (по умолчанию 26). Цвет — индекс палитры 0-5 или hex. */
+type SceneItem =
+  | { t: "rect"; x: number; y: number; w: number; h: number; fill?: number | string | null; dash?: boolean; label?: string }
+  | { t: "poly"; pts: [number, number][]; fill?: number | string | null; dash?: boolean; open?: boolean }
+  | { t: "line"; x1: number; y1: number; x2: number; y2: number; dash?: boolean; color?: number | string }
+  | { t: "circle"; cx: number; cy: number; r: number; fill?: number | string | null; dash?: boolean }
+  | { t: "sector"; cx: number; cy: number; r: number; a0: number; a1: number; fill?: number | string | null }
+  | { t: "arc"; cx: number; cy: number; r: number; a0: number; a1: number; color?: number | string; w?: number }
+  | { t: "path"; d: string; fill?: number | string | null; dash?: boolean; color?: number | string; w?: number }
+  | { t: "right"; x: number; y: number; dx?: 1 | -1; dy?: 1 | -1 }
+  | { t: "text"; x: number; y: number; s: string; anchor?: "start" | "middle" | "end"; color?: number | string; size?: number };
+ 
+function sceneColor(c: number | string | null | undefined, def: number): { fill: string; stroke: string } {
+  if (typeof c === "string") return { fill: c, stroke: c };
+  return paletteColor(typeof c === "number" ? c : def);
+}
+ 
+function Scene({ width, height, items, scale = 26, color = 1 }: { width: number; height: number; items: SceneItem[]; scale?: number; color?: number }) {
+  const padX = 56, padY = 34;
+  const S = (v: number) => v * scale;
+  const W = S(width) + padX * 2, H = S(height) + padY * 2;
+  const base = paletteColor(color);
+  const P = (x: number, y: number) => `${padX + S(x)},${padY + S(y)}`;
+  const polar = (cx: number, cy: number, r: number, a: number): [number, number] => {
+    const rad = ((a - 90) * Math.PI) / 180; // 0° — вверх, по часовой
+    return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
+  };
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      {items.map((it, i) => {
+        const dash = (it as { dash?: boolean }).dash ? "5 4" : undefined;
+        if (it.t === "rect") {
+          const c = it.fill === null ? null : sceneColor(it.fill, color);
+          return (
+            <g key={i}>
+              <rect x={padX + S(it.x)} y={padY + S(it.y)} width={S(it.w)} height={S(it.h)} fill={c ? c.fill : "none"} fillOpacity={c ? 0.75 : 1} stroke={base.stroke} strokeWidth={2.2} strokeDasharray={dash} strokeLinejoin="round" />
+              {it.label && <text x={padX + S(it.x + it.w / 2)} y={padY + S(it.y + it.h / 2) + 5} textAnchor="middle" fontSize={14} fontWeight={700} fill={base.stroke}>{it.label}</text>}
+            </g>
+          );
+        }
+        if (it.t === "poly") {
+          const c = it.fill === null ? null : sceneColor(it.fill, color);
+          const pts = it.pts.map((p) => P(p[0], p[1])).join(" ");
+          return it.open
+            ? <polyline key={i} points={pts} fill="none" stroke={base.stroke} strokeWidth={2.2} strokeDasharray={dash} strokeLinejoin="round" />
+            : <polygon key={i} points={pts} fill={c ? c.fill : "none"} fillOpacity={c ? 0.75 : 1} stroke={base.stroke} strokeWidth={2.2} strokeDasharray={dash} strokeLinejoin="round" />;
+        }
+        if (it.t === "line") {
+          const c = it.color !== undefined ? sceneColor(it.color, color).stroke : base.stroke;
+          return <line key={i} x1={padX + S(it.x1)} y1={padY + S(it.y1)} x2={padX + S(it.x2)} y2={padY + S(it.y2)} stroke={c} strokeWidth={2} strokeDasharray={dash} />;
+        }
+        if (it.t === "circle") {
+          const c = it.fill === null ? null : sceneColor(it.fill, color);
+          return <circle key={i} cx={padX + S(it.cx)} cy={padY + S(it.cy)} r={S(it.r)} fill={c ? c.fill : "none"} fillOpacity={c ? 0.7 : 1} stroke={base.stroke} strokeWidth={2.2} strokeDasharray={dash} />;
+        }
+        if (it.t === "sector" || it.t === "arc") {
+          const [x0, y0] = polar(it.cx, it.cy, it.r, it.a0);
+          const [x1, y1] = polar(it.cx, it.cy, it.r, it.a1);
+          const large = ((it.a1 - it.a0 + 360) % 360) > 180 ? 1 : 0;
+          const d = it.t === "sector"
+            ? `M ${P(it.cx, it.cy)} L ${P(x0, y0)} A ${S(it.r)} ${S(it.r)} 0 ${large} 1 ${P(x1, y1)} Z`
+            : `M ${P(x0, y0)} A ${S(it.r)} ${S(it.r)} 0 ${large} 1 ${P(x1, y1)}`;
+          const c = it.t === "sector" ? (it.fill === null ? null : sceneColor(it.fill, color)) : null;
+          const sc = it.t === "arc" && it.color !== undefined ? sceneColor(it.color, color).stroke : base.stroke;
+          const sw = it.t === "arc" && it.w ? it.w : 2.2;
+          return <path key={i} d={d} fill={c ? c.fill : "none"} fillOpacity={c ? 0.75 : 1} stroke={sc} strokeWidth={sw} strokeLinecap="round" />;
+        }
+        if (it.t === "path") {
+          // d — абсолютные команды M/L/A/Z в клетках: переводим в пиксели
+          const tk = it.d.match(/[MLAZ]|-?\d*\.?\d+/g) ?? [];
+          const out: string[] = [];
+          for (let k = 0; k < tk.length; ) {
+            const cmd = tk[k];
+            if (cmd === "Z") { out.push("Z"); k++; }
+            else if (cmd === "M" || cmd === "L") { out.push(`${cmd} ${P(+tk[k + 1], +tk[k + 2])}`); k += 3; }
+            else if (cmd === "A") { out.push(`A ${S(+tk[k + 1])} ${S(+tk[k + 2])} ${tk[k + 3]} ${tk[k + 4]} ${tk[k + 5]} ${P(+tk[k + 6], +tk[k + 7])}`); k += 8; }
+            else k++;
+          }
+          const c = it.fill === undefined || it.fill === null ? null : sceneColor(it.fill, color);
+          const sc = it.color !== undefined ? sceneColor(it.color, color).stroke : base.stroke;
+          return <path key={i} d={out.join(" ")} fill={c ? c.fill : "none"} fillOpacity={c ? 0.75 : 1} stroke={sc} strokeWidth={it.w ?? 2.2} strokeDasharray={dash} strokeLinejoin="round" strokeLinecap="round" />;
+        }
+        if (it.t === "right") {
+          const dx = it.dx ?? 1, dy = it.dy ?? 1, m = 0.35;
+          return <polyline key={i} points={`${P(it.x + dx * m, it.y)} ${P(it.x + dx * m, it.y + dy * m)} ${P(it.x, it.y + dy * m)}`} fill="none" stroke={base.stroke} strokeWidth={1.6} />;
+        }
+        const c = it.color !== undefined ? sceneColor(it.color, color).stroke : base.stroke;
+        return <text key={i} x={padX + S(it.x)} y={padY + S(it.y)} textAnchor={it.anchor ?? "middle"} fontSize={it.size ?? 14} fontWeight={700} fill={c}>{it.s}</text>;
+      })}
+    </svg>
+  );
+}
+ 
 /** Пять чисел вокруг центра (kind="cross") — "Связь между числами и фигурами" в логике. Любая
  *  позиция может быть "?" — неизвестное, которое должен найти ученик (эталон на клиент не уходит). */
 function NumberCross({
@@ -471,7 +611,7 @@ function NumberCross({
     </svg>
   );
 }
-
+ 
 /**
  * Диспетчер по spec.kind → параметрический SVG/таблица (шаг 6). kind="placeholder" сюда
  * долетать не должно для задач (их прячет hasPendingFigure), но может попасться внутри
@@ -479,7 +619,7 @@ function NumberCross({
  */
 export function Figure({ spec }: { spec: FigureSpec }) {
   const caption = typeof spec.caption === "string" ? spec.caption : undefined;
-
+ 
   let content: React.ReactNode;
   switch (spec.kind) {
     case "fraction_bar":
@@ -517,13 +657,13 @@ export function Figure({ spec }: { spec: FigureSpec }) {
       content = <Chain cells={(spec.cells as (number | string)[]) ?? []} shape={spec.shape as "circle" | "square" | "hexagon" | undefined} />;
       break;
     case "rectangle":
-      content = <RectShape width={spec.width as number | string} height={spec.height as number | string} color={spec.color as number | undefined} />;
+      content = <RectShape width={spec.width as number | string} height={spec.height as number | string} color={spec.color as number | undefined} names={spec.names as string | undefined} />;
       break;
     case "square":
-      content = <SquareShape side={spec.side as number | string} color={spec.color as number | undefined} />;
+      content = <SquareShape side={spec.side as number | string} color={spec.color as number | undefined} names={spec.names as string | undefined} />;
       break;
     case "triangle":
-      content = <TriangleShape a={spec.a as number | string} b={spec.b as number | string} c={spec.c as number | string} right={spec.right as "A" | "B" | "C" | undefined} color={spec.color as number | undefined} />;
+      content = <TriangleShape a={spec.a as number | string} b={spec.b as number | string} c={spec.c as number | string} right={spec.right as "A" | "B" | "C" | undefined} color={spec.color as number | undefined} names={spec.names as string | undefined} />;
       break;
     case "circle_measure":
       content = (
@@ -537,6 +677,17 @@ export function Figure({ spec }: { spec: FigureSpec }) {
       break;
     case "path_shape":
       content = <PathShape moves={spec.moves as { dir: "R" | "L" | "U" | "D"; len: number; label?: string }[]} color={spec.color as number | undefined} />;
+      break;
+    case "scene":
+      content = (
+        <Scene
+          width={spec.width as number}
+          height={spec.height as number}
+          items={spec.items as SceneItem[]}
+          scale={spec.scale as number | undefined}
+          color={spec.color as number | undefined}
+        />
+      );
       break;
     case "box3d":
       content = (
@@ -567,7 +718,7 @@ export function Figure({ spec }: { spec: FigureSpec }) {
     default:
       content = `Рисунок: ${spec.kind}`;
   }
-
+ 
   return (
     <div className={ui.figureBox}>
       {content}
