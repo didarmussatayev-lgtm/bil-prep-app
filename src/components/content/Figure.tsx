@@ -291,34 +291,51 @@ function SquareShape({ side, color = 0, names }: { side?: number | string; color
  *  Если right задан (любой из "A"|"B"|"C" — просто флаг "это прямоугольный треугольник"),
  *  рисуется прямоугольный треугольник: a и b — катеты (вертикальный и горизонтальный), c — гипотенуза.
  *  Если right не задан — рисуется обычный (равнобедренный на вид) треугольник: a — основание (низ), b — левая сторона, c — правая сторона. */
+/** ЗАМЕНА функции TriangleShape в Figure.tsx (вместо старой целиком, до комментария про CircleMeasure).
+ *  Что исправлено:
+ *  1) у прямоугольного треугольника слева теперь есть поле для подписи — «12 см» больше не обрезается до «см»;
+ *  2) значок прямого угла стоит в вершине, где сходятся оба катета (внизу слева), а не вверху;
+ *  3) если все три стороны подписаны одинаково (равносторонний) — рисуется настоящий равносторонний треугольник;
+ *     если равны две боковые стороны — равнобедренный с вершиной по центру.
+ *  Подписи и буквы вершин работают как раньше. */
 function TriangleShape({ a, b, c, right, color = 2, names }: { a?: number | string; b?: number | string; c?: number | string; right?: "A" | "B" | "C"; color?: number; names?: string }) {
-  const w = 190, h = 136, pad = 34;
+  const h = 136, pad = 34, padL = 74;
   const { fill, stroke } = paletteColor(color);
   if (right) {
-    const pTop = [pad, pad], pBL = [pad, pad + h], pBR = [pad + w, pad + h];
+    const w = 190;
+    const pTop = [padL, pad], pBL = [padL, pad + h], pBR = [padL + w, pad + h];
     const points = `${pTop[0]},${pTop[1]} ${pBL[0]},${pBL[1]} ${pBR[0]},${pBR[1]}`;
+    const VW = padL + w + pad + 20, VH = h + pad * 2;
     return (
-      <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
+      <svg viewBox={`0 0 ${VW} ${VH}`} width={VW} height={VH}>
         <polygon points={points} fill={fill} stroke={stroke} strokeWidth={2.5} strokeLinejoin="round" />
-        <rect x={pTop[0]} y={pTop[1]} width={14} height={14} fill="none" stroke={stroke} strokeWidth={2} />
+        {/* прямой угол — внизу слева, где сходятся катеты */}
+        <polyline points={`${pBL[0]},${pBL[1] - 14} ${pBL[0] + 14},${pBL[1] - 14} ${pBL[0] + 14},${pBL[1]}`} fill="none" stroke={stroke} strokeWidth={2} />
         {names && <text x={pTop[0] + 2} y={pTop[1] - 8} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[0]}</text>}
-        {names && <text x={pBL[0] - 2} y={pBL[1] + 18} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[1]}</text>}
+        {names && <text x={pBL[0] - 12} y={pBL[1] + 18} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[1]}</text>}
         {names && <text x={pBR[0] + 10} y={pBR[1] + 5} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[2]}</text>}
-        {lbl(a) && <text x={pTop[0] - 12} y={(pTop[1] + pBL[1]) / 2} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lbl(a)}</text>}
+        {lbl(a) && <text x={pTop[0] - 12} y={(pTop[1] + pBL[1]) / 2 + 5} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lbl(a)}</text>}
         {lbl(b) && <text x={(pBL[0] + pBR[0]) / 2} y={pBL[1] + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{lbl(b)}</text>}
         {lbl(c) && <text x={(pTop[0] + pBR[0]) / 2 + 16} y={(pTop[1] + pBR[1]) / 2 - 2} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{lbl(c)}</text>}
       </svg>
     );
   }
-  const Ax = pad + w * 0.35, Ay = pad;
-  const Bx = pad, By = pad + h;
-  const Cx = pad + w, Cy = pad + h;
+  const la = lbl(a), lb = lbl(b), lc = lbl(c);
+  const equilateral = la !== null && la === lb && lb === lc;
+  const isosceles = !equilateral && lb !== null && lb === lc;
+  const w = equilateral ? 170 : 190;
+  const th = equilateral ? Math.round(w * 0.866) : h;
+  const apexK = equilateral || isosceles ? 0.5 : 0.35;
+  const Ax = padL + w * apexK, Ay = pad;
+  const Bx = padL, By = pad + th;
+  const Cx = padL + w, Cy = pad + th;
+  const VW = padL + w + pad + 36, VH = th + pad * 2;
   return (
-    <svg viewBox={`0 0 ${w + pad * 2} ${h + pad * 2}`} width={w + pad * 2} height={h + pad * 2}>
+    <svg viewBox={`0 0 ${VW} ${VH}`} width={VW} height={VH}>
       <polygon points={`${Ax},${Ay} ${Bx},${By} ${Cx},${Cy}`} fill={fill} stroke={stroke} strokeWidth={2.5} strokeLinejoin="round" />
-      {lbl(a) && <text x={(Bx + Cx) / 2} y={By + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{lbl(a)}</text>}
-      {lbl(b) && <text x={(Ax + Bx) / 2 - 14} y={(Ay + By) / 2} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lbl(b)}</text>}
-      {lbl(c) && <text x={(Ax + Cx) / 2 + 14} y={(Ay + Cy) / 2} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{lbl(c)}</text>}
+      {la && <text x={(Bx + Cx) / 2} y={By + 24} textAnchor="middle" fontSize={16} fontWeight={700} fill={stroke}>{la}</text>}
+      {lb && <text x={(Ax + Bx) / 2 - 14} y={(Ay + By) / 2 + 5} textAnchor="end" fontSize={16} fontWeight={700} fill={stroke}>{lb}</text>}
+      {lc && <text x={(Ax + Cx) / 2 + 14} y={(Ay + Cy) / 2 + 5} textAnchor="start" fontSize={16} fontWeight={700} fill={stroke}>{lc}</text>}
       {names && <text x={Ax} y={Ay - 8} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[0]}</text>}
       {names && <text x={Bx - 12} y={By + 4} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[1]}</text>}
       {names && <text x={Cx + 12} y={Cy + 4} textAnchor="middle" fontSize={14} fontWeight={700} fill={stroke}>{names[2]}</text>}
