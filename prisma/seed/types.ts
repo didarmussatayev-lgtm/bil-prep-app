@@ -4,12 +4,12 @@ export type Ans =
   | { t: "dec"; v: number }
   | { t: "frac"; n: number; d: number }
   | { t: "mixed"; w: number; n: number; d: number };
-
+ 
 export const int = (v: number): Ans => ({ t: "int", v });
 export const dec = (v: number): Ans => ({ t: "dec", v });
 export const frac = (n: number, d: number): Ans => ({ t: "frac", n, d });
 export const mixed = (w: number, n: number, d: number): Ans => ({ t: "mixed", w, n, d });
-
+ 
 /** Параметры рисунков → параметрические SVG-компоненты (пункт 6). */
 export type Figure =
   | { kind: "fraction_bar"; parts: number; shaded: number[]; caption?: string }
@@ -28,9 +28,9 @@ export type Figure =
    *  color — индекс цвета заливки (0-5, см. палитру в Figure.tsx), необязателен. */
   | { kind: "rectangle"; width?: number | string; height?: number | string; names?: string; color?: number; caption?: string }
   /** Квадрат с подписанной стороной. */
-  | { kind: "square"; side?: number | string; color?: number; caption?: string }
+  | { kind: "square"; side?: number | string; names?: string; color?: number; caption?: string }
   /** Треугольник с тремя подписанными сторонами. Если right задан (любое из "A"|"B"|"C" — просто флаг "прямоугольный"), рисуется прямоугольный треугольник, где a,b — катеты, c — гипотенуза. Если right не задан — обычный треугольник: a — основание, b и c — боковые стороны. */
-  | { kind: "triangle"; a: number | string; b: number | string; c: number | string; right?: "A" | "B" | "C"; color?: number; caption?: string }
+  | { kind: "triangle"; a?: number | string; b?: number | string; c?: number | string; right?: "A" | "B" | "C"; names?: string; color?: number; caption?: string }
   /** Круг с подписанным радиусом и/или диаметром. square="in" рисует вписанный в круг квадрат (вершины на окружности);
    *  square="out" рисует квадрат, описанный вокруг круга (круг вписан в квадрат). */
   | { kind: "circle_measure"; radius?: number | string; diameter?: number | string; square?: "in" | "out"; color?: number; caption?: string }
@@ -40,10 +40,15 @@ export type Figure =
   | { kind: "path_shape"; moves: { dir: "R" | "L" | "U" | "D"; len: number; label?: string }[]; color?: number; caption?: string }
   /** Прямоугольный параллелепипед в псевдо-3D с подписанными шириной/высотой/глубиной.
    *  units=[x,y,z] — вместо подписей размеров рисует сетку единичных кубиков на трёх видимых гранях (для задач "из скольки кубиков состоит фигура"). */
+  /** Универсальный «холст» для повторения рисунков учебника: примитивы в клетках (x вправо, y вниз).
+   *  items: rect{x,y,w,h,fill?,dash?,label?} | poly{pts,fill?,dash?,open?} | line{x1,y1,x2,y2,dash?,color?} | circle{cx,cy,r,fill?,dash?}
+   *  | sector{cx,cy,r,a0,a1,fill?} | arc{cx,cy,r,a0,a1,color?,w?} | path{d,fill?,dash?,color?,w?} (d: абсолютные M/L/A/Z в клетках) (углы в градусах, 0° — вверх, по часовой) | right{x,y,dx?,dy?} (значок прямого угла) | text{x,y,s,anchor?,color?,size?}.
+   *  fill — индекс палитры 0-5, hex-строка или null (без заливки). scale — пикселей на клетку (26 по умолчанию). */
+  | { kind: "scene"; width: number; height: number; items: Record<string, unknown>[]; scale?: number; color?: number; caption?: string }
   | { kind: "box3d"; width?: number | string; height?: number | string; depth?: number | string; units?: [number, number, number]; color?: number; caption?: string }
   /** Рисунок ещё не построен: задача сохранена, но скрыта от учеников, пока placeholder не заменят. */
   | { kind: "placeholder"; description: string };
-
+ 
 export type SeedTask = {
   /** Номер как в книге: "1a", "7". Для тестов — номер вопроса. */
   n: string;
@@ -57,9 +62,9 @@ export type SeedTask = {
   /** Что проверить человеку (ответ определён по сканy неуверенно / в книге неточность) */
   review?: string;
 };
-
+ 
 export type Pending = { page: number; n: string; why: string };
-
+ 
 export type SeedTopic = {
   /** "1.1" */
   code: string;
@@ -71,3 +76,4 @@ export type SeedTopic = {
   /** Задания книги, которые пока НЕ загружены (и почему) */
   pending: Pending[];
 };
+ 
