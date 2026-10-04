@@ -247,7 +247,7 @@ function paletteColor(i = 0) {
 }
 
 /** Прямоугольник с подписанными шириной и высотой (kind="rectangle"). */
-function RectShape({ width, height, color = 1 }: { width: number | string; height: number | string; color?: number }) {
+function RectShape({ width, height, color = 1 }: { width?: number | string; height?: number | string; color?: number }) {
   const w = 170, h = 104, pad = 34;
   const { fill, stroke } = paletteColor(color);
   return (
