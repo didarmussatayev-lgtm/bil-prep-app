@@ -24,7 +24,11 @@ export type Figure =
   | { kind: "fraction_bar"; parts: number; shaded: number[]; caption?: string }
   | { kind: "circle"; parts: number; shaded: number[]; caption?: string }
   | { kind: "grid"; rows: number; cols: number; shaded: [number, number][]; caption?: string }
-  | { kind: "number_line"; from: number; to: number; divisions: number; marks: { at: number | [number, number]; label?: string }[]; caption?: string }
+  /** labelTicks — подписать каждое деление; arrows — стрелки на концах; mark.hollow — пустая точка; mark.color — индекс палитры 0-5. */
+  | { kind: "number_line"; from: number; to: number; divisions: number; marks: { at: number | [number, number]; label?: string; hollow?: boolean; color?: number }[]; labelTicks?: boolean; arrows?: boolean; caption?: string }
+  /** Постройка из кубиков: heights[r][c] — высота стопки (r=0 дальний ряд, c слева направо). shade — [r,c,этаж] выделенные кубики.
+   *  view: "iso" (3D, по умолчанию) | "top" | "front" | "side" | "views" (три вида рядом). */
+  | { kind: "cubes"; heights: number[][]; shade?: [number, number, number][]; view?: "iso" | "top" | "front" | "side" | "views"; color?: number; caption?: string }
   | { kind: "table"; rows: string[][]; caption?: string }
   /** Пять чисел/символов вокруг центра — "Связь между числами и фигурами" в логике.
    *  Любая позиция может быть "?" (неизвестное, которое должен найти ученик). */
