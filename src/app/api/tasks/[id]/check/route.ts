@@ -48,6 +48,14 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       }),
     ]);
 
+    // Если ученик сам решил верно задачу, которую ранее отметил «не смог решить» — заявка закрывается.
+    if (correct) {
+      await prisma.helpRequest.updateMany({
+        where: { userId: user.id, taskId: task.id, status: "open" },
+        data: { status: "resolved", autoResolved: true, resolvedAt: new Date() },
+      });
+    }
+
     return NextResponse.json({ correct });
   } catch (e) {
     return handleApiError(e);
