@@ -10,7 +10,12 @@ export type TopicRow = {
   practiceSolved: number; // из них решено верно
   testTotal: number; // вопросов type=test_choice
 };
-export type SectionRow = { id: string; title: string; topics: TopicRow[] };
+export type SectionRow = { id: string; title: string; level: number; topics: TopicRow[] };
+
+/** Уровни по предметам: у математики 4 уровня («Математика 1–4»), у остальных предметов — плоский список разделов. */
+export const SUBJECT_LEVELS: Record<string, { level: number; title: string }[]> = {
+  math: [1, 2, 3, 4].map((level) => ({ level, title: `Математика ${level}` })),
+};
 
 export type Status = "not_started" | "in_progress" | "done" | "empty";
 
@@ -41,6 +46,7 @@ export async function getCourseTree(subjectId: string, userId: string): Promise<
     select: {
       id: true,
       title: true,
+      level: true,
       topics: { orderBy: { order: "asc" }, select: { id: true, title: true } },
     },
   });
@@ -81,6 +87,7 @@ export async function getCourseTree(subjectId: string, userId: string): Promise<
   return sections.map((s) => ({
     id: s.id,
     title: s.title,
+    level: s.level,
     topics: s.topics.map((t) => ({
       id: t.id,
       title: t.title,
