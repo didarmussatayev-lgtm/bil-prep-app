@@ -39,6 +39,11 @@ export default async function TopicPracticePage({
     select: { taskId: true },
   });
   const solved = new Set(results.map((r) => r.taskId));
+  const helpRows = await prisma.helpRequest.findMany({
+    where: { userId: user.id, status: "open", taskId: { in: tasks.map((t) => t.id) } },
+    select: { taskId: true },
+  });
+  const flagged = new Set(helpRows.map((h) => h.taskId));
 
   const row = flattenTopics(await getCourseTree(subject.id, user.id)).find((t) => t.id === topic.id);
   const testQuestions = Math.min(row?.testTotal ?? 0, TEST_CONFIG.topic.questions);
@@ -59,7 +64,7 @@ export default async function TopicPracticePage({
       {tasks.length === 0 ? (
         <p className={ui.callout}>Задач по этой теме пока нет.</p>
       ) : (
-        tasks.map((t, i) => <TaskCard key={t.id} index={i + 1} task={toPublicTask(t)} solved={solved.has(t.id)} />)
+        tasks.map((t, i) => <TaskCard key={t.id} index={i + 1} task={toPublicTask(t)} solved={solved.has(t.id)} flagged={flagged.has(t.id)} />)
       )}
 
       {testQuestions > 0 && (
