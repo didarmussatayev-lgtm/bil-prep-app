@@ -15,7 +15,8 @@ import t313 from "./topic-3-13-figs";
 
 export const SECTION_3 = {
   slug: "math-3",
-  title: "III раздел",
+  title: "III раздел. Длина, периметр, площадь и объём",
+  level: 1,
   order: 3,
   topics: [t31, t32, t33, t34, t35, t36, t37, t38, t39, t310, t311, t312, t313] as SeedTopic[],
 };
