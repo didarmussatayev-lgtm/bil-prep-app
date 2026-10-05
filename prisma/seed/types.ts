@@ -3,13 +3,22 @@ export type Ans =
   | { t: "int"; v: number }
   | { t: "dec"; v: number }
   | { t: "frac"; n: number; d: number }
-  | { t: "mixed"; w: number; n: number; d: number };
- 
+  | { t: "mixed"; w: number; n: number; d: number }
+  /** Порядок (важен): ученик вводит элементы через пробел, напр. seq("B","A","C"). */
+  | { t: "seq"; items: string[] }
+  /** Набор (порядок не важен): напр. set(5,6,7,8). */
+  | { t: "set"; items: string[] }
+  /** Короткое выражение: напр. text("2A/3"). Пробелы и регистр не важны. */
+  | { t: "text"; s: string };
+
 export const int = (v: number): Ans => ({ t: "int", v });
 export const dec = (v: number): Ans => ({ t: "dec", v });
 export const frac = (n: number, d: number): Ans => ({ t: "frac", n, d });
 export const mixed = (w: number, n: number, d: number): Ans => ({ t: "mixed", w, n, d });
- 
+export const seq = (...items: (string | number)[]): Ans => ({ t: "seq", items: items.map(String) });
+export const set = (...items: (string | number)[]): Ans => ({ t: "set", items: items.map(String) });
+export const text = (s: string): Ans => ({ t: "text", s });
+
 /** Параметры рисунков → параметрические SVG-компоненты (пункт 6). */
 export type Figure =
   | { kind: "fraction_bar"; parts: number; shaded: number[]; caption?: string }
@@ -48,7 +57,7 @@ export type Figure =
   | { kind: "box3d"; width?: number | string; height?: number | string; depth?: number | string; units?: [number, number, number]; color?: number; caption?: string }
   /** Рисунок ещё не построен: задача сохранена, но скрыта от учеников, пока placeholder не заменят. */
   | { kind: "placeholder"; description: string };
- 
+
 export type SeedTask = {
   /** Номер как в книге: "1a", "7". Для тестов — номер вопроса. */
   n: string;
@@ -62,9 +71,9 @@ export type SeedTask = {
   /** Что проверить человеку (ответ определён по сканy неуверенно / в книге неточность) */
   review?: string;
 };
- 
+
 export type Pending = { page: number; n: string; why: string };
- 
+
 export type SeedTopic = {
   /** "1.1" */
   code: string;
@@ -76,4 +85,3 @@ export type SeedTopic = {
   /** Задания книги, которые пока НЕ загружены (и почему) */
   pending: Pending[];
 };
- 
