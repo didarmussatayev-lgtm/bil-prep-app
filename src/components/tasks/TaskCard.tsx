@@ -15,7 +15,22 @@ const toNum = (s: string | undefined): Num => {
 };
 
 /** Собирает JSON эталонной формы из "сырых" полей виджета — или null, если что-то не заполнено/не число. */
-function draftToAnswer(answerType: NonNullable<PublicTask["answerType"]>, draft: AnswerDraft): Record<string, number> | null {
+/** Разбивает «B A C» / «8 9 10» / «B, A; C» / «B>A>C» на элементы (запятая между цифрами = десятичная запятая). Та же логика, что splitItems на сервере. */
+const splitItems = (raw: string): string[] =>
+  raw
+    .split(/[;\s>]+|,(?!\d)/)
+    .map((x) => x.trim())
+    .filter(Boolean);
+
+function draftToAnswer(answerType: NonNullable<PublicTask["answerType"]>, draft: AnswerDraft): Record<string, unknown> | null {
+  if (answerType === "sequence" || answerType === "set") {
+    const items = splitItems(draft.text ?? "");
+    return items.length === 0 ? null : { items };
+  }
+  if (answerType === "text") {
+    const text = (draft.text ?? "").trim();
+    return text === "" ? null : { text };
+  }
   if (answerType === "integer" || answerType === "decimal") {
     const value = toNum(draft.value);
     return value === null ? null : { value };
@@ -85,6 +100,9 @@ export function TaskCard({ index, task, solved }: { index: number; task: PublicT
     decimal: "Введите десятичную дробь (можно с запятой)",
     fraction: "Введите дробь: числитель и знаменатель",
     mixed: "Введите смешанное число: целая часть, числитель, знаменатель",
+    sequence: "Введите ответ по порядку через пробел (например: B A C)",
+    set: "Введите все подходящие числа через пробел (например: 5 6 7)",
+    text: "Введите ответ выражением",
   };
 
   const cardCls = [ui.taskCard, status === "correct" ? ui.taskCardOk : status === "wrong" ? ui.taskCardBad : ""].filter(Boolean).join(" ");
@@ -132,7 +150,7 @@ export function TaskCard({ index, task, solved }: { index: number; task: PublicT
         <div className={ui.solutionPanel}>
           {solution.answer && (
             <p>
-              <strong>Ответ:</strong> {renderRichInline(solution.answer.includes("/") ? `{${solution.answer}}` : solution.answer, "ans")}
+              <strong>Ответ:</strong> {renderRichInline(["integer", "decimal", "fraction", "mixed"].includes(task.answerType ?? "") && solution.answer.includes("/") ? `{${solution.answer}}` : solution.answer, "ans")}
             </p>
           )}
           {solution.solutionText && <RichText text={solution.solutionText} />}
