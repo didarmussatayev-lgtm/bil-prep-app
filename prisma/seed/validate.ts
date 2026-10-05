@@ -1,10 +1,6 @@
 /**
- * Проверка файла темы (topic-N-M.ts) ПЕРЕД тем, как его подключать в seed —
- * ловит типичные ошибки формата у контента, сгенерированного ИИ (Gemini/NotebookLM),
- * до того, как они попадут в базу.
- *
- * Запуск (без установки зависимостей проекта — файлы темы не тянут ничего, кроме ./types):
- *   npx tsx prisma/seed/validate.ts prisma/seed/data/math/section-1/topic-1-4.ts
+ * Проверка файла темы (topic-N-M.ts) ПЕРЕД тем, как его подключать в seed.
+ * Запуск: npx tsx prisma/seed/validate.ts prisma/seed/data/math/section-1/topic-1-4.ts
  */
 import { pathToFileURL } from "node:url";
 import { resolve } from "node:path";
@@ -15,7 +11,7 @@ const issues: { level: Level; where: string; message: string }[] = [];
 const err = (where: string, message: string) => issues.push({ level: "error", where, message });
 const warn = (where: string, message: string) => issues.push({ level: "warn", where, message });
 
-const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "placeholder"]);
+const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "scene", "placeholder"]);
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 function checkFigure(where: string, f: Figure) {
@@ -56,14 +52,10 @@ function checkFigure(where: string, f: Figure) {
   } else if (f.kind === "placeholder") {
     if (!f.description || typeof f.description !== "string") warn(where, "placeholder: не помешало бы description — что нарисовано в книге");
   } else if (f.kind === "rectangle") {
-    if (f.width === undefined || f.height === undefined) err(where, "rectangle: нужны width и height");
   } else if (f.kind === "square") {
-    if (f.side === undefined) err(where, "square: нужна side");
   } else if (f.kind === "triangle") {
-    if (f.a === undefined || f.b === undefined || f.c === undefined) err(where, "triangle: нужны a, b, c");
     if (f.right && !["A", "B", "C"].includes(f.right)) err(where, `triangle: right должен быть A|B|C, получено "${f.right}"`);
   } else if (f.kind === "circle_measure") {
-    if (f.radius === undefined && f.diameter === undefined) err(where, "circle_measure: нужен хотя бы radius или diameter");
     if (f.square && !["in", "out"].includes(f.square)) err(where, `circle_measure: square должен быть "in"|"out", получено "${f.square}"`);
   } else if (f.kind === "path_shape") {
     if (!Array.isArray(f.moves) || f.moves.length < 2) err(where, "path_shape: moves должен быть массивом из ≥2 ходов");
@@ -71,8 +63,13 @@ function checkFigure(where: string, f: Figure) {
       if (!["R", "L", "U", "D"].includes(m.dir)) err(where, `path_shape: неизвестное направление "${m.dir}" (R|L|U|D)`);
       if (typeof m.len !== "number" || m.len <= 0) err(where, "path_shape: len должен быть положительным числом");
     }
+  } else if (f.kind === "scene") {
+    if (typeof f.width !== "number" || typeof f.height !== "number") err(where, "scene: нужны числовые width и height (в клетках)");
+    if (!Array.isArray(f.items) || f.items.length === 0) err(where, "scene: items должен быть непустым массивом");
+    else for (const it of f.items) {
+      if (!["rect", "poly", "line", "circle", "sector", "arc", "path", "right", "text"].includes(it.t)) err(where, `scene: неизвестный примитив "${it.t}"`);
+    }
   } else if (f.kind === "box3d") {
-    if (f.width === undefined && f.height === undefined && f.depth === undefined && !f.units) err(where, "box3d: нужны хотя бы одна из width/height/depth или units");
     if (f.units && (!Array.isArray(f.units) || f.units.length !== 3)) err(where, "box3d: units должен быть массивом из 3 чисел [x,y,z]");
   } else if (f.kind === "circle_numbers") {
     if (!Array.isArray(f.values) || f.values.length < 2) err(where, "circle_numbers: values должен быть массивом из ≥2 элементов");
@@ -87,7 +84,6 @@ function checkFigure(where: string, f: Figure) {
   }
 }
 
-/** :::figure {json} внутри explanation — та же валидация JSON, что делает parseExplanation() на сайте. */
 function checkExplanationFigures(explanation: string) {
   const lines = explanation.split("\n");
   lines.forEach((line, i) => {
@@ -105,7 +101,6 @@ function checkExplanationFigures(explanation: string) {
       err(`explanation, строка ${i + 1}`, `:::figure — невалидный JSON (${(e as Error).message}): ${jsonPart.slice(0, 80)}`);
     }
   });
-  // Незакрытые фигурные скобки {a/b} — типичная ошибка при ручной правке сгенерированного текста.
   const braceBalance = (explanation.match(/\{/g)?.length ?? 0) - (explanation.match(/\}/g)?.length ?? 0);
   if (braceBalance !== 0) warn("explanation", `не совпадает число { и } — возможно, незакрытая дробь {a/b} (баланс ${braceBalance})`);
 }
@@ -121,6 +116,15 @@ function checkAns(where: string, ans: NonNullable<SeedTask["ans"]>) {
     if (!Number.isFinite(ans.w) || !Number.isFinite(ans.n) || !Number.isFinite(ans.d)) err(where, "mixed: w/n/d не числа");
     else if (ans.d === 0) err(where, "mixed: знаменатель 0");
     else if (Math.abs(ans.n) >= Math.abs(ans.d)) warn(where, `mixed: дробная часть {${ans.n}/${ans.d}} неправильная — числитель должен быть меньше знаменателя`);
+  } else if (ans.t === "seq" || ans.t === "set") {
+    if (!Array.isArray(ans.items) || ans.items.length < (ans.t === "seq" ? 2 : 1)) err(where, `${ans.t}: нужен непустой массив items`);
+    else {
+      if (ans.items.some((x) => typeof x !== "string" || !x.trim() || /[\s;>]/.test(x))) err(where, `${ans.t}: элемент пустой или содержит пробел/;/>`);
+      if (ans.items.some((x) => /^\d+,\d+$/.test(x))) warn(where, `${ans.t}: десятичные числа в items пишите через точку (0.5) — ученик вводит и «0,5»`);
+      if (ans.t === "set" && new Set(ans.items).size !== ans.items.length) err(where, "set: повторяющиеся элементы");
+    }
+  } else if (ans.t === "text") {
+    if (typeof ans.s !== "string" || !ans.s.trim()) err(where, "text: пустая строка");
   } else {
     err(where, `неизвестный тип ответа "${(ans as any).t}"`);
   }
