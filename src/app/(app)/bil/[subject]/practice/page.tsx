@@ -24,7 +24,7 @@ export default async function PracticeTocPage({ params }: { params: Promise<{ su
       />
       <h1 className={ui.h1}>Закрепление</h1>
       <p className={ui.lead}>Выберите тему, чтобы решать задачи по ней.</p>
-      <TopicToc sections={sections} mode="practice" basePath={`/bil/${slug}/practice`} />
+      <TopicToc sections={sections} subjectSlug={slug} mode="practice" basePath={`/bil/${slug}/practice`} />
     </main>
   );
 }
