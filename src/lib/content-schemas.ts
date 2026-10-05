@@ -1,7 +1,7 @@
 import { randomBytes } from "crypto";
 import { z } from "zod";
 
-const answerType = z.enum(["integer", "decimal", "fraction", "mixed"]);
+const answerType = z.enum(["integer", "decimal", "fraction", "mixed", "sequence", "set", "text"]);
 
 /** Форма эталонного ответа зависит от answerType — проверяем при сохранении задачи. */
 const answerShape = {
@@ -9,6 +9,10 @@ const answerShape = {
   decimal: z.object({ value: z.number() }),
   fraction: z.object({ num: z.number().int(), denom: z.number().int().positive() }),
   mixed: z.object({ whole: z.number().int(), num: z.number().int(), denom: z.number().int().positive() }),
+  // Новые типы: порядок (важен), набор (порядок не важен), короткий текст/выражение.
+  sequence: z.object({ items: z.array(z.string().min(1)).min(2) }),
+  set: z.object({ items: z.array(z.string().min(1)).min(1) }),
+  text: z.object({ text: z.string().min(1) }),
 };
 
 // Контент, который приходит из этой схемы (шаг 4) и из формы админки (шаг 7), кладёт
