@@ -67,7 +67,7 @@ function checkFigure(where: string, f: Figure) {
     if (typeof f.width !== "number" || typeof f.height !== "number") err(where, "scene: нужны числовые width и height (в клетках)");
     if (!Array.isArray(f.items) || f.items.length === 0) err(where, "scene: items должен быть непустым массивом");
     else for (const it of f.items) {
-      if (!["rect", "poly", "line", "circle", "sector", "arc", "path", "right", "text"].includes(it.t)) err(where, `scene: неизвестный примитив "${it.t}"`);
+      if (!["rect", "poly", "line", "circle", "sector", "arc", "path", "right", "text"].includes((it as any).t)) err(where, `scene: неизвестный примитив "${(it as any).t}"`);
     }
   } else if (f.kind === "box3d") {
     if (f.units && (!Array.isArray(f.units) || f.units.length !== 3)) err(where, "box3d: units должен быть массивом из 3 чисел [x,y,z]");
