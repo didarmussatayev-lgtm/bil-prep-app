@@ -213,3 +213,22 @@ a.topicRow:hover { background: #eef3ff; }
 .fractionStack { display: inline-flex; flex-direction: column; align-items: center; line-height: 1.1; font-size: 0.9em; }
 .fractionNum { padding: 0 3px 1px; border-bottom: 1.5px solid currentColor; }
 .fractionDenom { padding: 1px 3px 0; }
+
+/* уровни и раскрывающиеся разделы (оглавление) */
+.levelBox { margin: 0 0 14px; background: #fff; border: 1px solid var(--ink); border-radius: 4px; }
+.levelSummary { display: flex; align-items: center; gap: 12px; padding: 14px 16px; font-size: 1.1rem; font-weight: 700; cursor: pointer; list-style: none; }
+.levelSummary::-webkit-details-marker, .sectionSummary::-webkit-details-marker { display: none; }
+.levelSummary::before, .sectionSummary::before { content: "▸"; display: inline-block; width: 1em; transition: transform 0.15s; }
+details[open] > .levelSummary::before, details[open] > .sectionSummary::before { transform: rotate(90deg); }
+.levelSummary:focus-visible, .sectionSummary:focus-visible { outline: 2px solid var(--pen); outline-offset: -2px; }
+.levelTitle { flex: 1; }
+.levelBody { padding: 0 12px 12px; }
+.levelSoon { margin: 0; padding: 0 16px 16px; opacity: 0.7; }
+.sectionBox { margin: 8px 0 0; border: 1px solid var(--grid); border-radius: 4px; }
+.sectionSummary { display: flex; align-items: center; gap: 10px; padding: 12px 14px; font-weight: 600; cursor: pointer; list-style: none; }
+.sectionBox .topicList { border: 0; border-top: 1px solid var(--grid); border-radius: 0; }
+
+/* «Не смог решить» */
+.helpBox { margin: 12px 0 0; padding: 12px 14px; background: #fff8e8; border: 1px solid var(--warn); border-radius: 4px; }
+.helpBox textarea { width: 100%; min-height: 64px; margin: 8px 0; padding: 8px 10px; font: inherit; border: 1px solid var(--ink); border-radius: 4px; resize: vertical; }
+.helpFlag { margin: 12px 0 0; font-size: 0.95rem; color: var(--warn); font-weight: 600; }
