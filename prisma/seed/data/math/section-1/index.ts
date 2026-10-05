@@ -15,7 +15,8 @@ import t113 from "./topic-1-13-figs";
 
 export const SECTION_1 = {
   slug: "math-1",
-  title: "I раздел",
+  title: "I раздел. Дроби, проценты и пропорции",
+  level: 1,
   order: 1,
   topics: [t11, t12, t13, t14, t15, t16, t17, t18, t19, t110, t111, t112, t113] as SeedTopic[],
 };
