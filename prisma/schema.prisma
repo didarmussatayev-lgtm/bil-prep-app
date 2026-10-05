@@ -37,6 +37,7 @@ model User {
   progress     Progress[]
   taskResults  TaskResult[]
   testAttempts TestAttempt[]
+  helpRequests HelpRequest[]
 
   @@map("users")
 }
@@ -75,9 +76,10 @@ model Subject {
 model Section {
   id        String @id @default(cuid())
   subjectId String @map("subject_id")
-  title     String // "I раздел"
+  title     String // "I раздел. Дроби, проценты и пропорции"
   slug      String @unique // "math-1" (шаг 4, идемпотентный seed)
   order     Int    @default(0)
+  level     Int    @default(1) // уровень внутри предмета: для математики 1–4 («Математика 1–4»)
 
   subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
   topics  Topic[]
@@ -140,6 +142,7 @@ model Task {
 
   topic   Topic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
   results TaskResult[]
+  helpRequests HelpRequest[]
 
   @@index([topicId])
   @@map("tasks")
@@ -175,6 +178,29 @@ model TaskResult {
   @@unique([userId, taskId])
   @@index([userId])
   @@map("task_results")
+}
+
+enum HelpStatus {
+  open // ученик не смог решить — ждёт разбора на встрече
+  resolved // разобрано (админом или ученик потом решил сам)
+}
+
+// Заявка «Не смог решить»: одна на пару ученик+задача (повторная отметка снова открывает её)
+model HelpRequest {
+  id           String     @id @default(cuid())
+  userId       String     @map("user_id")
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  taskId       String     @map("task_id")
+  task         Task       @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  note         String?    @db.Text // что не получилось (необязательно)
+  status       HelpStatus @default(open)
+  autoResolved Boolean    @default(false) @map("auto_resolved") // закрыта, потому что ученик сам потом решил верно
+  createdAt    DateTime   @default(now()) @map("created_at")
+  resolvedAt   DateTime?  @map("resolved_at")
+
+  @@unique([userId, taskId])
+  @@index([status, createdAt])
+  @@map("help_requests")
 }
 
 enum TestScope {
