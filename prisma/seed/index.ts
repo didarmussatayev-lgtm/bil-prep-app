@@ -124,8 +124,8 @@ async function main() {
     for (const s of subjectDef.sections) {
       const section = await prisma.section.upsert({
         where: { slug: s.slug },
-        update: { title: s.title, order: s.order, subjectId: subject.id },
-        create: { slug: s.slug, subjectId: subject.id, title: s.title, order: s.order },
+        update: { title: s.title, order: s.order, level: (s as { level?: number }).level ?? 1, subjectId: subject.id },
+        create: { slug: s.slug, subjectId: subject.id, title: s.title, order: s.order, level: (s as { level?: number }).level ?? 1 },
       });
       console.log(`${s.title}:`);
       for (const [i, t] of s.topics.entries()) pending.push(...(await seedTopic(section.id, s.slug, t, i + 1, review)));
