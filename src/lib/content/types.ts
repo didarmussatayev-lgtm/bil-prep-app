@@ -23,7 +23,7 @@ export type PublicTask = {
   question: string;
   options: ChoiceOption[] | null;
   /** Только для type="open" — какой виджет ввода показать. Сам эталон на клиент не уходит. */
-  answerType: "integer" | "decimal" | "fraction" | "mixed" | null;
+  answerType: "integer" | "decimal" | "fraction" | "mixed" | "sequence" | "set" | "text" | null;
   /** Ноль, один или несколько рисунков к условию (см. docs/content-format.md — Task.figure может быть массивом). */
   figures: FigureSpec[];
 };
@@ -133,7 +133,7 @@ export function toPublicTask(row: {
     question: row.question,
     options: row.type === "open" ? null : parseOptions(row.options),
     answerType:
-      row.type === "open" && (row.answerType === "integer" || row.answerType === "decimal" || row.answerType === "fraction" || row.answerType === "mixed")
+      row.type === "open" && (row.answerType === "integer" || row.answerType === "decimal" || row.answerType === "fraction" || row.answerType === "mixed" || row.answerType === "sequence" || row.answerType === "set" || row.answerType === "text")
         ? row.answerType
         : null,
     figures: parseFigures(row.imageParamsJson),
