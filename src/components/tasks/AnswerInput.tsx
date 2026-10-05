@@ -18,7 +18,7 @@ export function AnswerInput({
   disabled,
   invalid,
 }: {
-  answerType: "integer" | "decimal" | "fraction" | "mixed";
+  answerType: "integer" | "decimal" | "fraction" | "mixed" | "sequence" | "set" | "text";
   value: AnswerDraft;
   onChange: (v: AnswerDraft) => void;
   onSubmit?: () => void;
@@ -29,7 +29,7 @@ export function AnswerInput({
     <input
       key={key}
       className={[ui.answerBox, opts.cls, invalid ? ui.answerBoxBad : ""].filter(Boolean).join(" ")}
-      inputMode={opts.mode ?? "numeric"}
+      inputMode={opts.mode ?? (answerType === "sequence" || answerType === "set" || answerType === "text" ? "text" : "numeric")}
       autoComplete="off"
       value={value[key] ?? ""}
       onChange={(e) => onChange({ ...value, [key]: e.target.value })}
@@ -49,6 +49,17 @@ export function AnswerInput({
       {field("denom", "Знаменатель")}
     </div>
   );
+
+  // Порядок / набор / короткий текст — одно широкое поле (разбор в TaskCard.draftToAnswer).
+  if (answerType === "sequence" || answerType === "set" || answerType === "text")
+    return (
+      <div className={ui.answerRow}>
+        {field("text", answerType === "text" ? "Ответ (выражение)" : answerType === "set" ? "Ответ (числа через пробел)" : "Ответ (по порядку через пробел)", {
+          mode: undefined,
+          cls: ui.answerBoxWide,
+        })}
+      </div>
+    );
 
   if (answerType === "integer") return <div className={ui.answerRow}>{field("value", "Ответ")}</div>;
   if (answerType === "decimal")
