@@ -11,7 +11,7 @@ const issues: { level: Level; where: string; message: string }[] = [];
 const err = (where: string, message: string) => issues.push({ level: "error", where, message });
 const warn = (where: string, message: string) => issues.push({ level: "warn", where, message });
 
-const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "scene", "placeholder"]);
+const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "cubes", "scene", "placeholder"]);
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 function checkFigure(where: string, f: Figure) {
@@ -68,6 +68,14 @@ function checkFigure(where: string, f: Figure) {
     if (!Array.isArray(f.items) || f.items.length === 0) err(where, "scene: items должен быть непустым массивом");
     else for (const it of f.items) {
       if (!["rect", "poly", "line", "circle", "sector", "arc", "path", "right", "text"].includes((it as any).t)) err(where, `scene: неизвестный примитив "${(it as any).t}"`);
+    }
+  } else if (f.kind === "cubes") {
+    if (!Array.isArray(f.heights) || f.heights.length === 0 || !f.heights.every((r) => Array.isArray(r) && r.length > 0 && r.every((v) => Number.isInteger(v) && v >= 0 && v <= 12))) err(where, "cubes: heights должен быть непустым массивом рядов из целых 0–12");
+    else if (f.heights.every((r) => r.every((v) => v === 0))) err(where, "cubes: нет ни одного кубика");
+    if (f.view && !["iso", "top", "front", "side", "views"].includes(f.view)) err(where, `cubes: неизвестный view "${f.view}" (iso|top|front|side|views)`);
+    for (const t of f.shade ?? []) {
+      const [r, c, k] = t as number[];
+      if (!f.heights[r] || !(k >= 0 && k < (f.heights[r][c] ?? 0))) err(where, `cubes: shade [${t}] указывает на несуществующий кубик`);
     }
   } else if (f.kind === "box3d") {
     if (f.units && (!Array.isArray(f.units) || f.units.length !== 3)) err(where, "box3d: units должен быть массивом из 3 чисел [x,y,z]");
