@@ -8,12 +8,14 @@ import "server-only";
  * из БД, на клиент эта функция не попадает.
  */
 
-export type AnswerType = "integer" | "decimal" | "fraction" | "mixed";
+export type AnswerType = "integer" | "decimal" | "fraction" | "mixed" | "sequence" | "set" | "text";
 
 export type AnswerValue =
   | { value: number } // integer | decimal
   | { num: number; denom: number } // fraction
-  | { whole: number; num: number; denom: number }; // mixed
+  | { whole: number; num: number; denom: number } // mixed
+  | { items: string[] } // sequence (порядок важен) | set (порядок не важен)
+  | { text: string }; // text
 
 function gcd(a: number, b: number): number {
   a = Math.abs(a);
@@ -22,8 +24,29 @@ function gcd(a: number, b: number): number {
   return a || 1;
 }
 
+type NumericType = "integer" | "decimal" | "fraction" | "mixed";
+
+/** Приводит один элемент списка к канону: пробелы убраны, регистр единый, десятичная запятая → точка, числа — в нормальной форме. */
+function normItem(s: string): string {
+  const t = s.trim().toLowerCase().replace(/\s+/g, "").replace(/,/g, ".");
+  if (/^-?\d+(\.\d+)?$/.test(t)) return String(Number(t));
+  return t;
+}
+
+/** Разбивает «B, A; C» / «8 9 10» / «B>A>C» на элементы. */
+export function splitItems(raw: string): string[] {
+  return raw
+    .split(/[;\s>]+|,(?!\d)/)
+    .map((x) => x.trim())
+    .filter(Boolean);
+}
+
+function normText(s: string): string {
+  return s.trim().toLowerCase().replace(/\s+/g, "").replace(/[·*×]/g, "*").replace(/,/g, ".").replace(/[−–—]/g, "-");
+}
+
 /** Приводит любой из четырёх видов ответа к паре [числитель, знаменатель] неправильной дроби. */
-function toImproperFraction(type: AnswerType, value: AnswerValue): { num: number; denom: number } {
+function toImproperFraction(type: NumericType, value: AnswerValue): { num: number; denom: number } {
   switch (type) {
     case "fraction": {
       const v = value as { num: number; denom: number };
@@ -57,6 +80,8 @@ export function isWellFormedAnswer(type: AnswerType, value: unknown): value is A
   const v = value as Record<string, unknown>;
   if (type === "integer" || type === "decimal") return isFiniteNumber(v.value);
   if (type === "fraction") return isFiniteNumber(v.num) && isFiniteNumber(v.denom) && v.denom !== 0;
+  if (type === "sequence" || type === "set") return Array.isArray(v.items) && v.items.length > 0 && v.items.every((x) => typeof x === "string" && x.trim() !== "");
+  if (type === "text") return typeof v.text === "string" && v.text.trim() !== "";
   if (type === "mixed") return isFiniteNumber(v.whole) && isFiniteNumber(v.num) && isFiniteNumber(v.denom) && v.denom !== 0;
   return false;
 }
@@ -73,6 +98,19 @@ export function checkAnswer(params: {
   allowUnreduced: boolean;
 }): boolean {
   const { answerType, studentValue, correctValue, allowUnreduced } = params;
+
+  if (answerType === "sequence" || answerType === "set") {
+    const s = (studentValue as { items: string[] }).items.map(normItem);
+    const c = (correctValue as { items: string[] }).items.map(normItem);
+    if (s.length !== c.length) return false;
+    if (answerType === "sequence") return s.every((x, i) => x === c[i]);
+    const sa = [...s].sort(), ca = [...c].sort();
+    return sa.every((x, i) => x === ca[i]);
+  }
+  if (answerType === "text") {
+    return normText((studentValue as { text: string }).text) === normText((correctValue as { text: string }).text);
+  }
+
   const student = toImproperFraction(answerType, studentValue);
   const correct = toImproperFraction(answerType, correctValue);
   if (student.denom === 0) return false;
@@ -103,5 +141,11 @@ export function formatAnswer(type: AnswerType, value: AnswerValue): string {
       const v = value as { whole: number; num: number; denom: number };
       return `${v.whole} ${v.num}/${v.denom}`;
     }
+    case "sequence":
+      return (value as { items: string[] }).items.join(", ");
+    case "set":
+      return (value as { items: string[] }).items.join("; ");
+    case "text":
+      return (value as { text: string }).text;
   }
 }
