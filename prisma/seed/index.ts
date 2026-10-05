@@ -24,7 +24,10 @@ const fmtAns = (a: Ans) =>
   a.t === "int" ? String(a.v)
   : a.t === "dec" ? String(a.v).replace(".", ",")
   : a.t === "frac" ? `{${a.n}/${a.d}}`
-  : `{${a.w} ${a.n}/${a.d}}`;
+  : a.t === "mixed" ? `{${a.w} ${a.n}/${a.d}}`
+  : a.t === "seq" ? a.items.join(", ")
+  : a.t === "set" ? a.items.join("; ")
+  : a.s;
 
 function answerFields(a: Ans) {
   switch (a.t) {
@@ -32,6 +35,9 @@ function answerFields(a: Ans) {
     case "dec": return { answerType: "decimal", correctAnswerJson: { value: a.v } };
     case "frac": return { answerType: "fraction", correctAnswerJson: { num: a.n, denom: a.d } };
     case "mixed": return { answerType: "mixed", correctAnswerJson: { whole: a.w, num: a.n, denom: a.d } };
+    case "seq": return { answerType: "sequence", correctAnswerJson: { items: a.items } };
+    case "set": return { answerType: "set", correctAnswerJson: { items: a.items } };
+    case "text": return { answerType: "text", correctAnswerJson: { text: a.s } };
   }
 }
 
