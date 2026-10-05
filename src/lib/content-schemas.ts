@@ -70,6 +70,7 @@ export const ENTITIES: Record<string, Entity> = {
       title: z.string().min(1),
       slug: slugField(),
       order: z.number().int(),
+      level: z.number().int().min(1).max(4).optional(),
     }),
     filters: ["subjectId"],
     orderBy: { order: "asc" },
