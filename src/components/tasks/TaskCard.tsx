@@ -46,12 +46,16 @@ function draftToAnswer(answerType: NonNullable<PublicTask["answerType"]>, draft:
   return whole === null || num === null || denom === null || denom === 0 ? null : { whole, num, denom };
 }
 
-export function TaskCard({ index, task, solved }: { index: number; task: PublicTask; solved: boolean }) {
+export function TaskCard({ index, task, solved, flagged = false }: { index: number; task: PublicTask; solved: boolean; flagged?: boolean }) {
   const [draft, setDraft] = useState<AnswerDraft>({});
   const [status, setStatus] = useState<"idle" | "checking" | "correct" | "wrong">(solved ? "correct" : "idle");
   const [error, setError] = useState("");
   const [solution, setSolution] = useState<{ solutionText: string; answer: string | null } | null>(null);
   const [solutionLoading, setSolutionLoading] = useState(false);
+  // «Не смог решить»: отметка уходит админу на разбор при встрече
+  const [flag, setFlag] = useState<"none" | "form" | "sending" | "sent">(flagged && !solved ? "sent" : "none");
+  const [note, setNote] = useState("");
+  const [flagError, setFlagError] = useState("");
 
   const canAnswer = task.type === "open" && !!task.answerType;
 
@@ -77,6 +81,7 @@ export function TaskCard({ index, task, solved }: { index: number; task: PublicT
         return;
       }
       setStatus(data.correct ? "correct" : "wrong");
+      if (data.correct) setFlag("none"); // верное решение закрывает заявку на сервере
     } catch {
       setError("Нет связи с сервером");
       setStatus("idle");
@@ -92,6 +97,35 @@ export function TaskCard({ index, task, solved }: { index: number; task: PublicT
       if (res.ok) setSolution(data);
     } finally {
       setSolutionLoading(false);
+    }
+  }
+
+  async function sendHelp() {
+    setFlag("sending");
+    setFlagError("");
+    try {
+      const res = await fetch(`/api/tasks/${task.id}/help`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ note }),
+      });
+      if (!res.ok) throw new Error();
+      setFlag("sent");
+    } catch {
+      setFlagError("Не получилось отправить, попробуйте ещё раз");
+      setFlag("form");
+    }
+  }
+
+  async function cancelHelp() {
+    setFlagError("");
+    try {
+      const res = await fetch(`/api/tasks/${task.id}/help`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      setFlag("none");
+      setNote("");
+    } catch {
+      setFlagError("Не получилось снять отметку");
     }
   }
 
@@ -159,6 +193,33 @@ export function TaskCard({ index, task, solved }: { index: number; task: PublicT
         <button className={ui.linkButton} onClick={revealSolution} disabled={solutionLoading}>
           {solutionLoading ? "Загрузка…" : "💡 Показать решение"}
         </button>
+      )}
+
+      {status !== "correct" && flag === "none" && (
+        <button className={ui.linkButton} onClick={() => setFlag("form")}>
+          🙋 Не смог решить
+        </button>
+      )}
+      {flag === "form" || flag === "sending" ? (
+        <div className={ui.helpBox}>
+          <strong>Отправить задачу на разбор</strong>
+          <p className={ui.muted}>Преподаватель разберёт её с вами при встрече. Можно коротко написать, что не получилось.</p>
+          <textarea value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} placeholder="Что не получилось? (необязательно)" aria-label="Что не получилось" />
+          <div className={ui.answerActions}>
+            <button className={ui.btn} onClick={sendHelp} disabled={flag === "sending"}>
+              {flag === "sending" ? "Отправляем…" : "Отправить"}
+            </button>
+            <button className={ui.linkButton} onClick={() => setFlag("none")} disabled={flag === "sending"}>Отмена</button>
+            {flagError && <span className={`${ui.feedback} ${ui.feedbackErr}`}>{flagError}</span>}
+          </div>
+        </div>
+      ) : null}
+      {flag === "sent" && (
+        <p className={ui.helpFlag}>
+          ✋ Отмечено — разберём на встрече.{" "}
+          <button className={ui.linkButton} onClick={cancelHelp}>Снять отметку</button>
+          {flagError && <span className={`${ui.feedback} ${ui.feedbackErr}`}> {flagError}</span>}
+        </p>
       )}
     </article>
   );
