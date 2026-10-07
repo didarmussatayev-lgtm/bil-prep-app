@@ -14,12 +14,13 @@ import { SECTION_3 } from "./data/math/section-3";
 import { M2_SECTION_1 } from "./data/math2/section-1";
 import { M2_SECTION_2 } from "./data/math2/section-2";
 import { M2_SECTION_3 } from "./data/math2/section-3";
+import { M3_SECTION_1 } from "./data/math3/section-1";
 import { LOGIC_SECTION_1 } from "./data/logic/section-1";
 
 const prisma = new PrismaClient();
 
 const SUBJECTS = [
-  { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2, SECTION_3, M2_SECTION_1, M2_SECTION_2, M2_SECTION_3] },
+  { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2, SECTION_3, M2_SECTION_1, M2_SECTION_2, M2_SECTION_3, M3_SECTION_1] },
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1] },
 ];
 
