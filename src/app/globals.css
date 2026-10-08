@@ -1,30 +1,112 @@
-/* Базовые стили-заготовка. Полноценная визуальная проработка (типографика,
-   палитра, компоновка) — отдельный этап после того, как заработает логика. */
+/* Дизайн-токены сайта. Светлая тема по умолчанию; тёмная включается
+   системной настройкой или переключателем (атрибут data-theme на <html>). */
 
 :root {
-  --color-bg: #ffffff;
-  --color-text: #1a1a1a;
-  --color-primary: #2f6f4f;
-  --color-primary-hover: #245939;
-  --color-border: #e0e0e0;
-  --color-muted: #6b6b6b;
-  --color-error: #c0392b;
-  --radius: 8px;
+  color-scheme: light;
+
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #f0f2f8;
+  --border: #e3e6ef;
+  --border-strong: #cdd3e3;
+  --text: #121629;
+  --muted: #667089;
+
+  --accent: #3b5bfa;
+  --accent-hover: #2f49d6;
+  --accent-soft: #eaeefe;
+  --on-accent: #ffffff;
+
+  --ok: #14804a;
+  --ok-soft: #e5f6ec;
+  --bad: #c62a35;
+  --bad-soft: #fdecee;
+  --warn: #9a5b00;
+  --warn-soft: #fff4de;
+
+  --shadow-sm: 0 1px 2px rgba(18, 22, 41, 0.05);
+  --shadow-md: 0 8px 28px rgba(18, 22, 41, 0.08);
+  --radius: 16px;
+  --radius-sm: 10px;
+
+  /* старые имена — на них завязаны фигуры (Figure.tsx) и часть стилей */
+  --paper: var(--bg);
+  --grid: var(--border);
+  --ink: var(--text);
+  --pen: var(--accent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0d1017;
+    --surface: #151a25;
+    --surface-2: #1c2230;
+    --border: #262e40;
+    --border-strong: #38425a;
+    --text: #e9edf6;
+    --muted: #97a1b8;
+    --accent: #7c93ff;
+    --accent-hover: #96a9ff;
+    --accent-soft: #1d2542;
+    --on-accent: #0d1017;
+    --ok: #4cc88a;
+    --ok-soft: #12291f;
+    --bad: #ff7b84;
+    --bad-soft: #321a1e;
+    --warn: #f0b252;
+    --warn-soft: #2d2412;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0d1017;
+  --surface: #151a25;
+  --surface-2: #1c2230;
+  --border: #262e40;
+  --border-strong: #38425a;
+  --text: #e9edf6;
+  --muted: #97a1b8;
+  --accent: #7c93ff;
+  --accent-hover: #96a9ff;
+  --accent-soft: #1d2542;
+  --on-accent: #0d1017;
+  --ok: #4cc88a;
+  --ok-soft: #12291f;
+  --bad: #ff7b84;
+  --bad-soft: #321a1e;
+  --warn: #f0b252;
+  --warn-soft: #2d2412;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
 }
 
 * {
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--accent);
 }
 
 button {
@@ -32,44 +114,14 @@ button {
   cursor: pointer;
 }
 
-.btn-primary {
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius);
-  padding: 10px 18px;
-  font-size: 15px;
+::selection {
+  background: var(--accent-soft);
 }
 
-.btn-primary:hover {
-  background: var(--color-primary-hover);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 10px 18px;
-  font-size: 15px;
-}
-
-.card {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 20px;
-}
-
-.input {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 10px 12px;
-  font-size: 15px;
-  width: 100%;
-}
-
-.page-container {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 20px;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+    scroll-behavior: auto !important;
+  }
 }
