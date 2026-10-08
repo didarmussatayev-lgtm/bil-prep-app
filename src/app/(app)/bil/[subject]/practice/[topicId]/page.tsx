@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import { StartTestButton } from "@/components/student/StartTestButton";
 import ui from "@/components/student/ui.module.css";
-import { TaskCard } from "@/components/tasks/TaskCard";
+import { TaskPager } from "@/components/tasks/TaskPager";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth/guards";
 import { hasPendingFigure, parseFigures, toPublicTask } from "@/lib/content/types";
@@ -59,12 +59,13 @@ export default async function TopicPracticePage({
         ]}
       />
       <h1 className={ui.h1}>{topic.title}</h1>
-      <p className={ui.lead}>Решено задач: {solved.size} из {tasks.length}.</p>
-
+      
       {tasks.length === 0 ? (
         <p className={ui.callout}>Задач по этой теме пока нет.</p>
       ) : (
-        tasks.map((t, i) => <TaskCard key={t.id} index={i + 1} task={toPublicTask(t)} solved={solved.has(t.id)} flagged={flagged.has(t.id)} />)
+        <TaskPager
+          items={tasks.map((t) => ({ task: toPublicTask(t), solved: solved.has(t.id), flagged: flagged.has(t.id) }))}
+        />
       )}
 
       {testQuestions > 0 && (
