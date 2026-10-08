@@ -232,3 +232,10 @@ details[open] > .levelSummary::before, details[open] > .sectionSummary::before {
 .helpBox { margin: 12px 0 0; padding: 12px 14px; background: #fff8e8; border: 1px solid var(--warn); border-radius: 4px; }
 .helpBox textarea { width: 100%; min-height: 64px; margin: 8px 0; padding: 8px 10px; font: inherit; border: 1px solid var(--ink); border-radius: 4px; resize: vertical; }
 .helpFlag { margin: 12px 0 0; font-size: 0.95rem; color: var(--warn); font-weight: 600; }
+/* ===== Закрепление: сетка номеров задач (ДОБАВИТЬ В КОНЕЦ ui.module.css) ===== */
+.pager { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+.pagerNum { min-width: 38px; height: 38px; padding: 0 8px; font: inherit; font-weight: 700; background: #fff; color: var(--ink); border: 1px solid var(--ink); border-radius: 4px; cursor: pointer; transition: background .12s, border-color .12s; }
+.pagerNum:hover { background: rgba(0, 0, 0, .05); }
+.pagerNumDone { background: var(--ok); border-color: var(--ok); color: #fff; }
+.pagerNumDone:hover { background: var(--ok); filter: brightness(.95); }
+.pagerNumCur { outline: 3px solid var(--ink); outline-offset: 2px; }
