@@ -46,7 +46,7 @@ function draftToAnswer(answerType: NonNullable<PublicTask["answerType"]>, draft:
   return whole === null || num === null || denom === null || denom === 0 ? null : { whole, num, denom };
 }
 
-export function TaskCard({ index, task, solved, flagged = false }: { index: number; task: PublicTask; solved: boolean; flagged?: boolean }) {
+export function TaskCard({ index, task, solved, flagged = false, onSolved }: { index: number; task: PublicTask; solved: boolean; flagged?: boolean; onSolved?: () => void }) {
   const [draft, setDraft] = useState<AnswerDraft>({});
   const [status, setStatus] = useState<"idle" | "checking" | "correct" | "wrong">(solved ? "correct" : "idle");
   const [error, setError] = useState("");
@@ -81,7 +81,10 @@ export function TaskCard({ index, task, solved, flagged = false }: { index: numb
         return;
       }
       setStatus(data.correct ? "correct" : "wrong");
-      if (data.correct) setFlag("none"); // верное решение закрывает заявку на сервере
+      if (data.correct) {
+        setFlag("none"); // верное решение закрывает заявку на сервере
+        onSolved?.();
+      }
     } catch {
       setError("Нет связи с сервером");
       setStatus("idle");
