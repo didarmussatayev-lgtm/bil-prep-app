@@ -6,9 +6,15 @@ export const metadata: Metadata = {
   description: "Подготовка к поступлению: математика и логика",
 };
 
+// Выставляет тему до первой отрисовки, чтобы не было вспышки при тёмной теме.
+const themeInit = `try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInit }} />
+      </head>
       <body>{children}</body>
     </html>
   );
