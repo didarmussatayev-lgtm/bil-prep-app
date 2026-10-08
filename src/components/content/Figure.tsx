@@ -1,6 +1,7 @@
 import type { FigureSpec } from "@/lib/content/types";
 import ui from "@/components/student/ui.module.css";
 import { renderRichInline } from "@/components/content/RichText";
+import { FigureImage } from "./FigureImage";
  
 /** Прямоугольник, поделённый на равные вертикальные доли — dольные полосы (kind="fraction_bar"). */
 function FractionBar({ parts, shaded }: { parts: number; shaded: number[] }) {
@@ -86,60 +87,42 @@ function FractionGrid({ rows, cols, shaded }: { rows: number; cols: number; shad
   );
 }
  
-/** Числовой луч с делениями и отмеченными точками (kind="number_line"). at может быть числом или [числитель,знаменатель].
- *  labelTicks — подписать числом каждое деление; arrows — стрелки на концах; mark.hollow — пустая точка; mark.color — индекс палитры. */
+/** Числовой луч с делениями и отмеченными точками (kind="number_line"). at может быть числом или [числитель,знаменатель]. */
 function NumberLine({
   from,
   to,
   divisions,
   marks,
-  labelTicks,
-  arrows,
 }: {
   from: number;
   to: number;
   divisions: number;
-  marks: { at: number | [number, number]; label?: string; hollow?: boolean; color?: number }[];
-  labelTicks?: boolean;
-  arrows?: boolean;
+  marks: { at: number | [number, number]; label?: string }[];
 }) {
-  const width = labelTicks && divisions > 8 ? 360 : 260;
+  const width = 260;
   const height = 56;
   const pad = 18;
   const span = to - from || 1;
   const x = (v: number) => pad + ((v - from) / span) * (width - pad * 2);
   const valueOf = (at: number | [number, number]) => (Array.isArray(at) ? at[0] / at[1] : at);
-  const fmt = (v: number) => (Number.isInteger(v) ? String(v) : String(+v.toFixed(3)).replace(".", ","));
-
+ 
   const ticks = Array.from({ length: divisions + 1 }, (_, i) => from + (span * i) / divisions);
-  const mid = height / 2;
-
+ 
   return (
     <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
-      <line x1={pad} y1={mid} x2={width - pad + (arrows ? 8 : 0)} y2={mid} stroke="var(--ink, #1b2a4a)" />
-      {arrows && <polygon points={`${width - pad + 10},${mid} ${width - pad + 3},${mid - 3.5} ${width - pad + 3},${mid + 3.5}`} fill="var(--ink, #1b2a4a)" />}
+      <line x1={pad} y1={height / 2} x2={width - pad} y2={height / 2} stroke="var(--ink, #1b2a4a)" />
       {ticks.map((v, i) => (
-        <g key={i}>
-          <line x1={x(v)} x2={x(v)} y1={mid - 5} y2={mid + 5} stroke="var(--ink, #1b2a4a)" />
-          {labelTicks && (
-            <text x={x(v)} y={mid - 10} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">{fmt(v)}</text>
-          )}
-        </g>
+        <line key={i} x1={x(v)} x2={x(v)} y1={height / 2 - 5} y2={height / 2 + 5} stroke="var(--ink, #1b2a4a)" />
       ))}
-      {!labelTicks && (
-        <>
-          <text x={pad} y={mid - 10} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">{fmt(from)}</text>
-          <text x={width - pad} y={mid - 10} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">{fmt(to)}</text>
-        </>
-      )}
+      <text x={pad} y={height / 2 - 10} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">{from}</text>
+      <text x={width - pad} y={height / 2 - 10} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">{to}</text>
       {marks.map((m, i) => {
         const v = valueOf(m.at);
-        const c = m.color !== undefined ? paletteColor(m.color).stroke : "var(--pen, #2f5bea)";
         return (
           <g key={i}>
-            <circle cx={x(v)} cy={mid} r={4.5} fill={m.hollow ? "#fff" : c} stroke={c} strokeWidth={m.hollow ? 2 : 0} />
+            <circle cx={x(v)} cy={height / 2} r={4} fill="var(--pen, #2f5bea)" />
             {m.label && (
-              <text x={x(v)} y={mid + 20} fontSize={12} fontWeight={700} textAnchor="middle" fill="var(--ink, #1b2a4a)">
+              <text x={x(v)} y={height / 2 + 20} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">
                 {m.label}
               </text>
             )}
@@ -149,7 +132,7 @@ function NumberLine({
     </svg>
   );
 }
-
+ 
 /** Таблица (kind="table") — обычная HTML-таблица, не SVG (текстовый контент, векторизовать нечего). */
 function FigureTableEl({ rows }: { rows: string[][] }) {
   return (
@@ -525,86 +508,6 @@ function Box3D({
   );
 }
  
-/** Постройка из единичных кубиков (kind="cubes").
- *  heights[r][c] — число кубиков в стопке; r=0 — дальний ряд, последний ряд — ближний к зрителю, c — слева направо.
- *  shade — [r,c,k] кубики (k — этаж с 0), которые нужно выделить другим цветом.
- *  view: "iso" (3D, по умолчанию) | "top" | "front" | "side" | "views" (три вида рядом: сверху, спереди, справа). */
-function Cubes({
-  heights, shade, view = "iso", color = 1,
-}: { heights: number[][]; shade?: [number, number, number][]; view?: "iso" | "top" | "front" | "side" | "views"; color?: number }) {
-  const rows = Math.max(heights.length, 1);
-  const cols = Math.max(...heights.map((r) => r.length), 1);
-  const H = (r: number, c: number) => Math.max(0, Math.floor(Number(heights[r]?.[c]) || 0));
-  const maxH = Math.max(1, ...heights.flatMap((r, ri) => r.map((_, ci) => H(ri, ci))));
-  const { fill, stroke } = paletteColor(color);
-  const hl = paletteColor(color + 3);
-  const shadeSet = new Set((shade ?? []).map(([r, c, k]) => `${r}:${c}:${k}`));
-
-  if (view !== "iso") {
-    const cell = 24, gap = 22, lab = 18;
-    type Grid = { title: string; w: number; h: number; on: (x: number, y: number) => boolean; text?: (x: number, y: number) => string };
-    const top: Grid = { title: "Вид сверху", w: cols, h: rows, on: (x, y) => H(y, x) > 0, text: (x, y) => String(H(y, x) || "") };
-    const frontMax = (c: number) => Math.max(0, ...Array.from({ length: rows }, (_, r) => H(r, c)));
-    const sideMax = (r: number) => Math.max(0, ...Array.from({ length: cols }, (_, c) => H(r, c)));
-    const front: Grid = { title: "Вид спереди", w: cols, h: maxH, on: (x, y) => maxH - 1 - y < frontMax(x) };
-    const side: Grid = { title: "Вид справа", w: rows, h: maxH, on: (x, y) => maxH - 1 - y < sideMax(rows - 1 - x) };
-    const grids = view === "top" ? [top] : view === "front" ? [front] : view === "side" ? [side] : [top, front, side];
-    const totalW = grids.reduce((s, g) => s + g.w * cell, 0) + gap * (grids.length - 1) + 12;
-    const totalH = Math.max(...grids.map((g) => g.h)) * cell + lab + 12;
-    let ox = 6;
-    return (
-      <svg viewBox={`0 0 ${totalW} ${totalH}`} width={totalW} height={totalH}>
-        {grids.map((g, gi) => {
-          const x0 = ox; ox += g.w * cell + gap;
-          return (
-            <g key={gi}>
-              <text x={x0 + (g.w * cell) / 2} y={12} textAnchor="middle" fontSize={11} fill="var(--ink, #1b2a4a)">{g.title}</text>
-              {Array.from({ length: g.h }, (_, y) => Array.from({ length: g.w }, (_, x) => (
-                <g key={`${x}-${y}`}>
-                  <rect x={x0 + x * cell} y={lab + 4 + y * cell} width={cell} height={cell} fill={g.on(x, y) ? fill : "#fff"} stroke={stroke} strokeWidth={1.4} />
-                  {g.on(x, y) && g.text && <text x={x0 + x * cell + cell / 2} y={lab + 4 + y * cell + cell / 2 + 5} textAnchor="middle" fontSize={13} fontWeight={700} fill={stroke}>{g.text(x, y)}</text>}
-                </g>
-              )))}
-            </g>
-          );
-        })}
-      </svg>
-    );
-  }
-
-  const s = 26, a = s * 0.866, b = s * 0.5, h = s;
-  const items: { r: number; c: number; k: number }[] = [];
-  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) for (let k = 0; k < H(r, c); k++) items.push({ r, c, k });
-  items.sort((p, q) => p.r + p.c - (q.r + q.c) || p.k - q.k || p.r - q.r);
-  const px = (r: number, c: number) => (c - r) * a;
-  const py = (r: number, c: number, k: number) => (c + r) * b - k * h;
-  const minX = Math.min(...items.map((i) => px(i.r, i.c) - a), 0), maxX = Math.max(...items.map((i) => px(i.r, i.c) + a), 1);
-  const minY = Math.min(...items.map((i) => py(i.r, i.c, i.k) - h), 0), maxY = Math.max(...items.map((i) => py(i.r, i.c, i.k) + 2 * b), 1);
-  const pad = 10;
-  const W = maxX - minX + pad * 2, Ht = maxY - minY + pad * 2;
-  const pts = (arr: [number, number][]) => arr.map((p) => p.join(",")).join(" ");
-  return (
-    <svg viewBox={`0 0 ${W} ${Ht}`} width={Math.min(W, 380)} height={(Math.min(W, 380) * Ht) / W}>
-      <g transform={`translate(${pad - minX},${pad - minY})`}>
-        {items.map((it, i) => {
-          const col = shadeSet.has(`${it.r}:${it.c}:${it.k}`) ? hl : { fill, stroke };
-          const x = px(it.r, it.c), y = py(it.r, it.c, it.k);
-          const T: [number, number] = [x, y - h];
-          return (
-            <g key={i} stroke={col.stroke} strokeWidth={1.3} strokeLinejoin="round">
-              <polygon points={pts([T, [T[0] + a, T[1] + b], [T[0], T[1] + 2 * b], [T[0] - a, T[1] + b]])} fill={col.fill} />
-              <polygon points={pts([[T[0] - a, T[1] + b], [T[0], T[1] + 2 * b], [x, y + 2 * b], [x - a, y + b]])} fill={col.fill} />
-              <polygon points={pts([[T[0] - a, T[1] + b], [T[0], T[1] + 2 * b], [x, y + 2 * b], [x - a, y + b]])} fill="#000" fillOpacity={0.1} stroke="none" />
-              <polygon points={pts([[T[0], T[1] + 2 * b], [T[0] + a, T[1] + b], [x + a, y + b], [x, y + 2 * b]])} fill={col.fill} />
-              <polygon points={pts([[T[0], T[1] + 2 * b], [T[0] + a, T[1] + b], [x + a, y + b], [x, y + 2 * b]])} fill="#000" fillOpacity={0.22} stroke="none" />
-            </g>
-          );
-        })}
-      </g>
-    </svg>
-  );
-}
-
 /** Универсальный «холст» (kind="scene"): рисунок из примитивов в клетках (x вправо, y вниз), чтобы повторять
  *  картинки учебника. scale — пикселей на клетку (по умолчанию 26). Цвет — индекс палитры 0-5 или hex. */
 type SceneItem =
@@ -758,9 +661,7 @@ export function Figure({ spec }: { spec: FigureSpec }) {
           from={Number(spec.from) || 0}
           to={Number(spec.to) || 1}
           divisions={Number(spec.divisions) || 1}
-          marks={(spec.marks as { at: number | [number, number]; label?: string; hollow?: boolean; color?: number }[]) ?? []}
-          labelTicks={spec.labelTicks === true}
-          arrows={spec.arrows === true}
+          marks={(spec.marks as { at: number | [number, number]; label?: string }[]) ?? []}
         />
       );
       break;
@@ -817,16 +718,6 @@ export function Figure({ spec }: { spec: FigureSpec }) {
         />
       );
       break;
-    case "cubes":
-      content = (
-        <Cubes
-          heights={(spec.heights as number[][]) ?? []}
-          shade={spec.shade as [number, number, number][] | undefined}
-          view={spec.view as "iso" | "top" | "front" | "side" | "views" | undefined}
-          color={spec.color as number | undefined}
-        />
-      );
-      break;
     case "cross":
       content = (
         <NumberCross
@@ -837,6 +728,9 @@ export function Figure({ spec }: { spec: FigureSpec }) {
           bottom={spec.bottom as number | string}
         />
       );
+      break;
+    case "image":
+      content = <FigureImage src={spec.src as string} alt={spec.alt as string | undefined} width={spec.width as number | undefined} />;
       break;
     case "placeholder": {
       const description = typeof spec.description === "string" ? spec.description : undefined;
