@@ -11,7 +11,7 @@ const issues: { level: Level; where: string; message: string }[] = [];
 const err = (where: string, message: string) => issues.push({ level: "error", where, message });
 const warn = (where: string, message: string) => issues.push({ level: "warn", where, message });
 
-const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "cubes", "scene", "placeholder"]);
+const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "cubes", "scene", "image", "placeholder"]);
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 function checkFigure(where: string, f: Figure) {
@@ -49,6 +49,11 @@ function checkFigure(where: string, f: Figure) {
       }
   } else if (f.kind === "table") {
     if (!Array.isArray(f.rows) || !f.rows.every((r) => Array.isArray(r))) err(where, "table: rows должен быть массивом массивов строк");
+  } else if (f.kind === "image") {
+    const src = (f as any).src;
+    if (typeof src !== "string" || !/^\/figures\/[\w\-./]+\.(png|jpe?g|webp)$/i.test(src)) err(where, `image: src должен быть путём вида "/figures/<папка>/<файл>.jpg|png|webp", получено ${JSON.stringify(src)}`);
+    if ((f as any).width !== undefined && !(typeof (f as any).width === "number" && (f as any).width > 0)) err(where, "image: width должно быть положительным числом (пикселей)");
+    if (!(f as any).alt) warn(where, "image: не помешало бы alt — что изображено");
   } else if (f.kind === "placeholder") {
     if (!f.description || typeof f.description !== "string") warn(where, "placeholder: не помешало бы description — что нарисовано в книге");
   } else if (f.kind === "rectangle") {
