@@ -46,7 +46,21 @@ function draftToAnswer(answerType: NonNullable<PublicTask["answerType"]>, draft:
   return whole === null || num === null || denom === null || denom === 0 ? null : { whole, num, denom };
 }
 
-export function TaskCard({ index, task, solved, flagged = false, onSolved }: { index: number; task: PublicTask; solved: boolean; flagged?: boolean; onSolved?: () => void }) {
+export function TaskCard({
+  index,
+  task,
+  solved,
+  flagged = false,
+  onSolved,
+  onFlagChange,
+}: {
+  index: number;
+  task: PublicTask;
+  solved: boolean;
+  flagged?: boolean;
+  onSolved?: () => void;
+  onFlagChange?: (flagged: boolean) => void;
+}) {
   const [draft, setDraft] = useState<AnswerDraft>({});
   const [status, setStatus] = useState<"idle" | "checking" | "correct" | "wrong">(solved ? "correct" : "idle");
   const [error, setError] = useState("");
@@ -84,6 +98,7 @@ export function TaskCard({ index, task, solved, flagged = false, onSolved }: { i
       if (data.correct) {
         setFlag("none"); // верное решение закрывает заявку на сервере
         onSolved?.();
+        onFlagChange?.(false);
       }
     } catch {
       setError("Нет связи с сервером");
@@ -114,6 +129,7 @@ export function TaskCard({ index, task, solved, flagged = false, onSolved }: { i
       });
       if (!res.ok) throw new Error();
       setFlag("sent");
+      onFlagChange?.(true);
     } catch {
       setFlagError("Не получилось отправить, попробуйте ещё раз");
       setFlag("form");
@@ -127,6 +143,7 @@ export function TaskCard({ index, task, solved, flagged = false, onSolved }: { i
       if (!res.ok) throw new Error();
       setFlag("none");
       setNote("");
+      onFlagChange?.(false);
     } catch {
       setFlagError("Не получилось снять отметку");
     }
@@ -156,24 +173,26 @@ export function TaskCard({ index, task, solved, flagged = false, onSolved }: { i
       {canAnswer ? (
         <div className={ui.answerBlock}>
           <p className={ui.answerLabel}>Ваш ответ · {hint[task.answerType!]}</p>
-          <AnswerInput
-            answerType={task.answerType!}
-            value={draft}
-            onChange={(v) => {
-              setDraft(v);
-              if (status === "wrong") setStatus("idle");
-              if (error) setError("");
-            }}
-            onSubmit={submit}
-            disabled={status === "correct"}
-            invalid={status === "wrong"}
-          />
-          <div className={ui.answerActions}>
+          <div className={ui.answerLine}>
+            <AnswerInput
+              answerType={task.answerType!}
+              value={draft}
+              onChange={(v) => {
+                setDraft(v);
+                if (status === "wrong") setStatus("idle");
+                if (error) setError("");
+              }}
+              onSubmit={submit}
+              disabled={status === "correct"}
+              invalid={status === "wrong"}
+            />
             {status !== "correct" && (
               <button className={ui.btn} onClick={submit} disabled={status === "checking"}>
                 {status === "checking" ? "Проверяем…" : "Проверить"}
               </button>
             )}
+          </div>
+          <div className={ui.answerActions}>
             {status === "correct" && <span className={`${ui.feedback} ${ui.feedbackOk}`}>✓ Верно! Отличная работа</span>}
             {status === "wrong" && <span className={`${ui.feedback} ${ui.feedbackBad}`}>✗ Пока неверно — попробуйте ещё раз</span>}
             {error && <span className={`${ui.feedback} ${ui.feedbackErr}`}>{error}</span>}
