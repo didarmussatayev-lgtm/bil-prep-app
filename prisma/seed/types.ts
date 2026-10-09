@@ -58,8 +58,10 @@ export type Figure =
    *  | sector{cx,cy,r,a0,a1,fill?} | arc{cx,cy,r,a0,a1,color?,w?} | path{d,fill?,dash?,color?,w?} (d: абсолютные M/L/A/Z в клетках) (углы в градусах, 0° — вверх, по часовой) | right{x,y,dx?,dy?} (значок прямого угла) | text{x,y,s,anchor?,color?,size?}.
    *  fill — индекс палитры 0-5, hex-строка или null (без заливки). scale — пикселей на клетку (26 по умолчанию). */
   | { kind: "scene"; width: number; height: number; items: Record<string, unknown>[]; scale?: number; color?: number; caption?: string }
-  | { kind: "box3d"; width?: number | string; height?: number | string; depth?: number | string; units?: [number, number, number]; color?: number; caption?: string }
+  /** Фрагмент страницы книги (растр) — для рисунков, которые нельзя честно перерисовать параметрически.
+   *  src — путь от корня сайта к файлу в public/, напр. "/figures/math4/1-1-p12-n7.jpg"; alt — краткое описание для доступности. */
   | { kind: "image"; src: string; alt?: string; width?: number; caption?: string }
+  | { kind: "box3d"; width?: number | string; height?: number | string; depth?: number | string; units?: [number, number, number]; color?: number; caption?: string }
   /** Рисунок ещё не построен: задача сохранена, но скрыта от учеников, пока placeholder не заменят. */
   | { kind: "placeholder"; description: string };
 
