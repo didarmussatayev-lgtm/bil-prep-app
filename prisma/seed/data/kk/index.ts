@@ -5,7 +5,9 @@
  *
  * Ключи задач: "p:<n>" (закрепление) и "t:<n>" (тест) — как в slug задачи.
  */
-export type KkTask = { question: string; options?: string[]; solution?: string };
+import type { Figure } from "../../types";
+
+export type KkTask = { question: string; options?: string[]; solution?: string; /** рисунок с казахскими подписями (если в нём есть текст) */ figure?: Figure | Figure[] };
 export type KkTopic = { title: string; explanation?: string; tasks?: Record<string, KkTask> };
 
 export const KK_SUBJECTS: Record<string, { name: string }> = {

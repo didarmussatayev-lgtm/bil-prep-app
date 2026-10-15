@@ -109,7 +109,7 @@ async function seedTopic(sectionId: string, sectionSlug: string, t: SeedTopic, o
     const kt = kk?.tasks?.[`${purpose === "test" ? "t" : "p"}:${x.n}`];
     const fields = {
       ...d, correctAnswerJson: json(d.correctAnswerJson), imageParamsJson: json(d.imageParamsJson),
-      i18n: kkBag(kt && { question: kt.question, ...(kt.options ? { options: kt.options } : {}), ...(kt.solution ? { solution: kt.solution } : {}) }),
+      i18n: kkBag(kt && { question: kt.question, ...(kt.options ? { options: kt.options } : {}), ...(kt.solution ? { solution: kt.solution } : {}), ...(kt.figure ? { figure: kt.figure } : {}) }),
     };
     const { slug: taskSlug, ...rest } = fields;
     const task = await prisma.task.upsert({ where: { slug: taskSlug }, update: rest, create: { slug: taskSlug, ...rest } });

@@ -140,6 +140,6 @@ export function toPublicTask(row: {
       row.type === "open" && (row.answerType === "integer" || row.answerType === "decimal" || row.answerType === "fraction" || row.answerType === "mixed" || row.answerType === "sequence" || row.answerType === "set" || row.answerType === "text")
         ? row.answerType
         : null,
-    figures: parseFigures(row.imageParamsJson),
+    figures: parseFigures(pick(row.i18n, lang, "figure", row.imageParamsJson)),
   };
 }
