@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LangProvider } from "@/lib/i18n/client";
+import { getLang } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
   title: "Подготовка в БИЛ",
@@ -9,13 +11,14 @@ export const metadata: Metadata = {
 // Выставляет тему до первой отрисовки, чтобы не было вспышки при тёмной теме.
 const themeInit = `try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}`;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const lang = await getLang();
   return (
-    <html lang="ru" suppressHydrationWarning>
+    <html lang={lang === "kk" ? "kk" : "ru"} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInit }} />
       </head>
-      <body>{children}</body>
+      <body><LangProvider lang={lang}>{children}</LangProvider></body>
     </html>
   );
 }

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { LogoutButton } from "@/components/auth/LogoutButton";
+import { LangSwitch } from "@/components/auth/LangSwitch";
 import { ThemeToggle } from "@/components/auth/ThemeToggle";
 import { SessionWatcher } from "@/components/auth/SessionWatcher";
 import ui from "@/components/student/ui.module.css";
+import { getT } from "@/lib/i18n/server";
 import { requireSession } from "@/lib/auth/guards";
 
 // Заменяет layout из шага 3: та же проверка сессии + оформление и шапка.
@@ -11,12 +13,14 @@ import { requireSession } from "@/lib/auth/guards";
 export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const { user, expiresAt } = await requireSession();
 
+  const t = await getT();
   return (
     <div className={ui.shell}>
       <header className={ui.header}>
-        <Link href="/" className={ui.brand}>Подготовка в БИЛ</Link>
+        <Link href="/" className={ui.brand}>{t("Подготовка в БИЛ")}</Link>
         <div className={ui.headerRight}>
           <span className={ui.who}>{user.login}</span>
+          <LangSwitch className={ui.iconBtn} />
           <ThemeToggle className={ui.iconBtn} />
           <LogoutButton className={ui.btnGhost} />
         </div>

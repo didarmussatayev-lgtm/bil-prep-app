@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useT } from "@/lib/i18n/client";
 import ui from "./ui.module.css";
 
 export function StartTestButton({
@@ -20,6 +21,7 @@ export function StartTestButton({
   disabled?: boolean;
 }) {
   const router = useRouter();
+  const t = useT();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,13 +36,13 @@ export function StartTestButton({
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError(data.error ?? "Не удалось начать тест");
+        setError(data.error ?? t("Не удалось начать тест"));
         setBusy(false);
         return;
       }
       router.push(`/bil/${subject}/test/${data.id}`);
     } catch {
-      setError("Нет связи с сервером. Повторите позже.");
+      setError(t("Нет связи с сервером. Повторите позже."));
       setBusy(false);
     }
   }
@@ -48,7 +50,7 @@ export function StartTestButton({
   return (
     <div>
       <button className={ui.btn} onClick={start} disabled={disabled || busy}>
-        {busy ? "Готовим вопросы…" : label}
+        {busy ? t("Готовим вопросы…") : label}
       </button>
       {error && <p className={ui.error} role="alert">{error}</p>}
     </div>

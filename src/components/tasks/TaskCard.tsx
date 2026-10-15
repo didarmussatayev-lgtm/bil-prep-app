@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { PublicTask } from "@/lib/content/types";
 import { RichText, renderRichInline } from "@/components/content/RichText";
+import { useT } from "@/lib/i18n/client";
 import ui from "@/components/student/ui.module.css";
 import { AnswerInput, type AnswerDraft } from "./AnswerInput";
 import { TaskContent } from "./TaskContent";
@@ -61,6 +62,7 @@ export function TaskCard({
   onSolved?: () => void;
   onFlagChange?: (flagged: boolean) => void;
 }) {
+  const t = useT();
   const [draft, setDraft] = useState<AnswerDraft>({});
   const [status, setStatus] = useState<"idle" | "checking" | "correct" | "wrong">(solved ? "correct" : "idle");
   const [error, setError] = useState("");
@@ -77,7 +79,7 @@ export function TaskCard({
     if (!canAnswer) return;
     const answer = draftToAnswer(task.answerType!, draft);
     if (!answer) {
-      setError("Заполните ответ полностью");
+      setError(t("Заполните ответ полностью"));
       return;
     }
     setError("");
@@ -90,7 +92,7 @@ export function TaskCard({
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError(data.error ?? "Не получилось проверить ответ");
+        setError(data.error ?? t("Не получилось проверить ответ"));
         setStatus("idle");
         return;
       }
@@ -101,7 +103,7 @@ export function TaskCard({
         onFlagChange?.(false);
       }
     } catch {
-      setError("Нет связи с сервером");
+      setError(t("Нет связи с сервером"));
       setStatus("idle");
     }
   }
@@ -131,7 +133,7 @@ export function TaskCard({
       setFlag("sent");
       onFlagChange?.(true);
     } catch {
-      setFlagError("Не получилось отправить, попробуйте ещё раз");
+      setFlagError(t("Не получилось отправить, попробуйте ещё раз"));
       setFlag("form");
     }
   }
@@ -145,18 +147,18 @@ export function TaskCard({
       setNote("");
       onFlagChange?.(false);
     } catch {
-      setFlagError("Не получилось снять отметку");
+      setFlagError(t("Не получилось снять отметку"));
     }
   }
 
   const hint: Record<NonNullable<PublicTask["answerType"]>, string> = {
-    integer: "Введите целое число",
-    decimal: "Введите десятичную дробь (можно с запятой)",
-    fraction: "Введите дробь: числитель и знаменатель",
-    mixed: "Введите смешанное число: целая часть, числитель, знаменатель",
-    sequence: "Введите ответ по порядку через пробел (например: B A C)",
-    set: "Введите все подходящие числа через пробел (например: 5 6 7)",
-    text: "Введите ответ выражением",
+    integer: t("Введите целое число"),
+    decimal: t("Введите десятичную дробь (можно с запятой)"),
+    fraction: t("Введите дробь: числитель и знаменатель"),
+    mixed: t("Введите смешанное число: целая часть, числитель, знаменатель"),
+    sequence: t("Введите ответ по порядку через пробел (например: B A C)"),
+    set: t("Введите все подходящие числа через пробел (например: 5 6 7)"),
+    text: t("Введите ответ выражением"),
   };
 
   const cardCls = [ui.taskCard, status === "correct" ? ui.taskCardOk : status === "wrong" ? ui.taskCardBad : ""].filter(Boolean).join(" ");
@@ -164,15 +166,15 @@ export function TaskCard({
   return (
     <article className={cardCls}>
       <div className={ui.taskHead}>
-        <span>Задача {index}</span>
-        {status === "correct" && <span className={`${ui.badge} ${ui.badgeDone}`}>Решена</span>}
+        <span>{t("Задача {n}", { n: index })}</span>
+        {status === "correct" && <span className={`${ui.badge} ${ui.badgeDone}`}>{t("Решена")}</span>}
       </div>
 
       <TaskContent question={task.question} figures={task.figures} />
 
       {canAnswer ? (
         <div className={ui.answerBlock}>
-          <p className={ui.answerLabel}>Ваш ответ · {hint[task.answerType!]}</p>
+          <p className={ui.answerLabel}>{t("Ваш ответ")} · {hint[task.answerType!]}</p>
           <div className={ui.answerLine}>
             <AnswerInput
               answerType={task.answerType!}
@@ -188,58 +190,58 @@ export function TaskCard({
             />
             {status !== "correct" && (
               <button className={ui.btn} onClick={submit} disabled={status === "checking"}>
-                {status === "checking" ? "Проверяем…" : "Проверить"}
+                {status === "checking" ? t("Проверяем…") : t("Проверить")}
               </button>
             )}
           </div>
           <div className={ui.answerActions}>
-            {status === "correct" && <span className={`${ui.feedback} ${ui.feedbackOk}`}>✓ Верно! Отличная работа</span>}
-            {status === "wrong" && <span className={`${ui.feedback} ${ui.feedbackBad}`}>✗ Пока неверно — попробуйте ещё раз</span>}
+            {status === "correct" && <span className={`${ui.feedback} ${ui.feedbackOk}`}>{t("✓ Верно! Отличная работа")}</span>}
+            {status === "wrong" && <span className={`${ui.feedback} ${ui.feedbackBad}`}>{t("✗ Пока неверно — попробуйте ещё раз")}</span>}
             {error && <span className={`${ui.feedback} ${ui.feedbackErr}`}>{error}</span>}
           </div>
         </div>
       ) : (
-        <p className={ui.muted}>Тип ответа для этой задачи ещё не задан в контенте — проверить нельзя.</p>
+        <p className={ui.muted}>{t("Тип ответа для этой задачи ещё не задан в контенте — проверить нельзя.")}</p>
       )}
 
       {solution ? (
         <div className={ui.solutionPanel}>
           {solution.answer && (
             <p>
-              <strong>Ответ:</strong> {renderRichInline(["integer", "decimal", "fraction", "mixed"].includes(task.answerType ?? "") && solution.answer.includes("/") ? `{${solution.answer}}` : solution.answer, "ans")}
+              <strong>{t("Ответ")}:</strong> {renderRichInline(["integer", "decimal", "fraction", "mixed"].includes(task.answerType ?? "") && solution.answer.includes("/") ? `{${solution.answer}}` : solution.answer, "ans")}
             </p>
           )}
           {solution.solutionText && <RichText text={solution.solutionText} />}
         </div>
       ) : (
         <button className={ui.linkButton} onClick={revealSolution} disabled={solutionLoading}>
-          {solutionLoading ? "Загрузка…" : "💡 Показать решение"}
+          {solutionLoading ? t("Загрузка…") : t("💡 Показать решение")}
         </button>
       )}
 
       {status !== "correct" && flag === "none" && (
         <button className={ui.linkButton} onClick={() => setFlag("form")}>
-          🙋 Не смог решить
+          {t("🙋 Не смог решить")}
         </button>
       )}
       {flag === "form" || flag === "sending" ? (
         <div className={ui.helpBox}>
-          <strong>Отправить задачу на разбор</strong>
-          <p className={ui.muted}>Преподаватель разберёт её с вами при встрече. Можно коротко написать, что не получилось.</p>
-          <textarea value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} placeholder="Что не получилось? (необязательно)" aria-label="Что не получилось" />
+          <strong>{t("Отправить задачу на разбор")}</strong>
+          <p className={ui.muted}>{t("Преподаватель разберёт её с вами при встрече. Можно коротко написать, что не получилось.")}</p>
+          <textarea value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} placeholder={t("Что не получилось? (необязательно)")} aria-label={t("Что не получилось")} />
           <div className={ui.answerActions}>
             <button className={ui.btn} onClick={sendHelp} disabled={flag === "sending"}>
-              {flag === "sending" ? "Отправляем…" : "Отправить"}
+              {flag === "sending" ? t("Отправляем…") : t("Отправить")}
             </button>
-            <button className={ui.linkButton} onClick={() => setFlag("none")} disabled={flag === "sending"}>Отмена</button>
+            <button className={ui.linkButton} onClick={() => setFlag("none")} disabled={flag === "sending"}>{t("Отмена")}</button>
             {flagError && <span className={`${ui.feedback} ${ui.feedbackErr}`}>{flagError}</span>}
           </div>
         </div>
       ) : null}
       {flag === "sent" && (
         <p className={ui.helpFlag}>
-          ✋ Отмечено — разберём на встрече.{" "}
-          <button className={ui.linkButton} onClick={cancelHelp}>Снять отметку</button>
+          {t("✋ Отмечено — разберём на встрече.")}{" "}
+          <button className={ui.linkButton} onClick={cancelHelp}>{t("Снять отметку")}</button>
           {flagError && <span className={`${ui.feedback} ${ui.feedbackErr}`}> {flagError}</span>}
         </p>
       )}

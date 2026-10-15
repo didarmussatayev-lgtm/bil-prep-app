@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useT } from "@/lib/i18n/client";
 import ui from "./ui.module.css";
 
 export function MarkLearned({
@@ -15,6 +16,7 @@ export function MarkLearned({
   practiceHref: string;
   nextHref: string | null;
 }) {
+  const t = useT();
   const [learned, setLearned] = useState(initiallyLearned);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,7 +29,7 @@ export function MarkLearned({
       if (!res.ok) throw new Error();
       setLearned(true);
     } catch {
-      setError("Не удалось сохранить. Проверьте соединение и повторите.");
+      setError(t("Не удалось сохранить. Проверьте соединение и повторите."));
     } finally {
       setBusy(false);
     }
@@ -36,25 +38,25 @@ export function MarkLearned({
   return (
     <div className={ui.lessonFooter}>
       {learned ? (
-        <strong>Тема изучена</strong>
+        <strong>{t("Тема изучена")}</strong>
       ) : (
         <>
-          <strong>Дочитали до конца?</strong>
-          <p className={ui.muted}>Отметьте тему изученной — она появится в вашем прогрессе.</p>
+          <strong>{t("Дочитали до конца?")}</strong>
+          <p className={ui.muted}>{t("Отметьте тему изученной — она появится в вашем прогрессе.")}</p>
         </>
       )}
 
       <div className={ui.actions}>
         {!learned && (
           <button className={ui.btn} onClick={mark} disabled={busy}>
-            {busy ? "Сохраняем…" : "Отметить изученной"}
+            {busy ? t("Сохраняем…") : t("Отметить изученной")}
           </button>
         )}
         {learned && (
-          <Link href={practiceHref} className={ui.btn}>Закрепить тему</Link>
+          <Link href={practiceHref} className={ui.btn}>{t("Закрепить тему")}</Link>
         )}
         {learned && nextHref && (
-          <Link href={nextHref} className={ui.btnGhost}>Следующая тема</Link>
+          <Link href={nextHref} className={ui.btnGhost}>{t("Следующая тема")}</Link>
         )}
       </div>
       {error && <p className={ui.error} role="alert">{error}</p>}

@@ -1,5 +1,7 @@
 import "server-only";
 import { prisma } from "@/lib/prisma";
+import { getLang } from "@/lib/i18n/server";
+import { pick } from "@/lib/i18n/content";
 import { hasPendingFigure, parseFigures } from "@/lib/content/types";
 
 export type TopicRow = {
@@ -27,19 +29,25 @@ export function practiceStatus(t: TopicRow): Status {
   return t.practiceSolved >= t.practiceTotal ? "done" : "in_progress";
 }
 
-export function getSubjectBySlug(slug: string) {
-  return prisma.subject.findUnique({ where: { slug }, select: { id: true, name: true, slug: true } });
+export async function getSubjectBySlug(slug: string) {
+  const [lang, s] = await Promise.all([
+    getLang(),
+    prisma.subject.findUnique({ where: { slug }, select: { id: true, name: true, slug: true, i18n: true } }),
+  ]);
+  return s && { id: s.id, slug: s.slug, name: pick(s.i18n, lang, "name", s.name) };
 }
 
-export function listSubjects() {
-  return prisma.subject.findMany({
-    orderBy: { order: "asc" },
-    select: { id: true, name: true, slug: true },
-  });
+export async function listSubjects() {
+  const [lang, rows] = await Promise.all([
+    getLang(),
+    prisma.subject.findMany({ orderBy: { order: "asc" }, select: { id: true, name: true, slug: true, i18n: true } }),
+  ]);
+  return rows.map((s) => ({ id: s.id, slug: s.slug, name: pick(s.i18n, lang, "name", s.name) }));
 }
 
 /** Оглавление предмета (разделы → темы) с прогрессом конкретного ученика. */
 export async function getCourseTree(subjectId: string, userId: string): Promise<SectionRow[]> {
+  const lang = await getLang();
   const sections = await prisma.section.findMany({
     where: { subjectId },
     orderBy: { order: "asc" },
@@ -47,7 +55,8 @@ export async function getCourseTree(subjectId: string, userId: string): Promise<
       id: true,
       title: true,
       level: true,
-      topics: { orderBy: { order: "asc" }, select: { id: true, title: true } },
+      i18n: true,
+      topics: { orderBy: { order: "asc" }, select: { id: true, title: true, i18n: true } },
     },
   });
 
@@ -86,11 +95,11 @@ export async function getCourseTree(subjectId: string, userId: string): Promise<
 
   return sections.map((s) => ({
     id: s.id,
-    title: s.title,
+    title: pick(s.i18n, lang, "title", s.title),
     level: s.level,
     topics: s.topics.map((t) => ({
       id: t.id,
-      title: t.title,
+      title: pick(t.i18n, lang, "title", t.title),
       learned: learned.has(t.id),
       practiceTotal: practiceTotal.get(t.id) ?? 0,
       practiceSolved: solved.get(t.id) ?? 0,

@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import { StartTestButton } from "@/components/student/StartTestButton";
 import ui from "@/components/student/ui.module.css";
 import { prisma } from "@/lib/prisma";
+import { getLang, getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { formatDateTime, formatDuration } from "@/lib/student/format";
 import { flattenTopics, getCourseTree, getSubjectBySlug } from "@/lib/student/progress";
@@ -11,6 +12,7 @@ import { finishAttempt, TEST_CONFIG } from "@/lib/student/tests";
 
 export default async function TestIndexPage({ params }: { params: Promise<{ subject: string }> }) {
   const user = await requireUser();
+  const [lang, t] = [await getLang(), await getT()];
   const { subject: slug } = await params;
   const subject = await getSubjectBySlug(slug);
   if (!subject) notFound();
@@ -37,10 +39,10 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
   const topicTitle = new Map(topics.map((t) => [t.id, t.title]));
   const label = (a: (typeof attempts)[number]) =>
     a.scope === "full"
-      ? "Сборный тест"
+      ? t("Сборный тест")
       : a.scope === "section"
-        ? (sectionTitle.get(a.sectionId ?? "") ?? "Тест по разделу")
-        : (topicTitle.get(a.topicId ?? "") ?? "Тест по теме");
+        ? (sectionTitle.get(a.sectionId ?? "") ?? t("Тест по разделу"))
+        : (topicTitle.get(a.topicId ?? "") ?? t("Тест по теме"));
 
   const learned = topics.filter((t) => t.learned);
   const fullPool = learned.reduce((n, t) => n + t.testTotal, 0);
@@ -54,49 +56,49 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
     <main className={ui.container}>
       <Breadcrumbs
         items={[
-          { label: "Подготовка в БИЛ", href: "/bil" },
+          { label: t("Подготовка в БИЛ"), href: "/bil" },
           { label: subject.name, href: `/bil/${slug}` },
-          { label: "Пробное тестирование" },
+          { label: t("Пробное тестирование") },
         ]}
       />
-      <h1 className={ui.h1}>Пробное тестирование</h1>
-      <p className={ui.lead}>Каждый раз вопросы подбираются случайно. Разбор ответов доступен после завершения.</p>
+      <h1 className={ui.h1}>{t("Пробное тестирование")}</h1>
+      <p className={ui.lead}>{t("Каждый раз вопросы подбираются случайно. Разбор ответов доступен после завершения.")}</p>
 
       {open.length > 0 && (
         <section className={ui.callout}>
-          <strong>Незавершённые тесты</strong>
+          <strong>{t("Незавершённые тесты")}</strong>
           <ul className={ui.historyList}>
             {open.map((a) => (
               <li key={a.id}>
-                <span>{label(a)}, начат {formatDateTime(a.startedAt)}</span>
-                <Link href={`/bil/${slug}/test/${a.id}`}>Продолжить</Link>
+                <span>{t("{name}, начат {date}", { name: label(a), date: formatDateTime(a.startedAt, lang) })}</span>
+                <Link href={`/bil/${slug}/test/${a.id}`}>{t("Продолжить")}</Link>
               </li>
             ))}
           </ul>
         </section>
       )}
 
-      <h2 className={ui.h2}>Сборный тест по всей программе</h2>
+      <h2 className={ui.h2}>{t("Сборный тест по всей программе")}</h2>
       <div className={ui.example}>
         <p className={ui.tileText}>
-          Вопросы берутся из тем, которые вы уже изучили (сейчас тем: {learned.length}).
-          {fullCfg.timeLimitSeconds ? ` Время: ${formatDuration(fullCfg.timeLimitSeconds)}, как на экзамене.` : ""}
+          {t("Вопросы берутся из тем, которые вы уже изучили (сейчас тем: {n}).", { n: learned.length })}
+          {fullCfg.timeLimitSeconds ? " " + t("Время: {d}, как на экзамене.", { d: formatDuration(fullCfg.timeLimitSeconds, lang) }) : ""}
         </p>
-        <p className={ui.tileMeta}>Вопросов в тесте: {fullQuestions}</p>
+        <p className={ui.tileMeta}>{t("Вопросов в тесте: {n}", { n: fullQuestions })}</p>
         <div className={ui.actions}>
           <StartTestButton
             subject={slug}
             scope="full"
-            label="Начать сборный тест"
+            label={t("Начать сборный тест")}
             disabled={learned.length === 0 || fullQuestions === 0}
           />
         </div>
-        {learned.length === 0 && <p className={ui.muted}>Сначала изучите хотя бы одну тему.</p>}
+        {learned.length === 0 && <p className={ui.muted}>{t("Сначала изучите хотя бы одну тему.")}</p>}
       </div>
 
-      <h2 className={ui.h2}>Тест по разделу</h2>
+      <h2 className={ui.h2}>{t("Тест по разделу")}</h2>
       {tree.length === 0 ? (
-        <p className={ui.callout}>Разделы пока не добавлены.</p>
+        <p className={ui.callout}>{t("Разделы пока не добавлены.")}</p>
       ) : (
         <ul className={ui.topicList}>
           {tree.map((s) => {
@@ -106,8 +108,8 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
               <li key={s.id}>
                 <div className={ui.topicRow}>
                   <span className={ui.topicTitle}>{s.title}</span>
-                  <span className={ui.topicMeta}>{q > 0 ? `Вопросов: ${q}` : "Вопросов пока нет"}</span>
-                  {q > 0 && <StartTestButton subject={slug} scope="section" sectionId={s.id} label="Начать" />}
+                  <span className={ui.topicMeta}>{q > 0 ? t("Вопросов: {n}", { n: q }) : t("Вопросов пока нет")}</span>
+                  {q > 0 && <StartTestButton subject={slug} scope="section" sectionId={s.id} label={t("Начать")} />}
                 </div>
               </li>
             );
@@ -117,12 +119,12 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
 
       {done.length > 0 && (
         <>
-          <h2 className={ui.h2}>Прошлые результаты</h2>
+          <h2 className={ui.h2}>{t("Прошлые результаты")}</h2>
           <ul className={ui.historyList}>
             {done.map((a) => (
               <li key={a.id}>
-                <span>{label(a)}, {formatDateTime(a.finishedAt!)}</span>
-                <Link href={`/bil/${slug}/test/${a.id}`}>{a.score} из {a.total}, разбор</Link>
+                <span>{label(a)}, {formatDateTime(a.finishedAt!, lang)}</span>
+                <Link href={`/bil/${slug}/test/${a.id}`}>{t("{a} из {b}, разбор", { a: a.score ?? 0, b: a.total })}</Link>
               </li>
             ))}
           </ul>

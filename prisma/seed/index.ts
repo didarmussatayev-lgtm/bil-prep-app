@@ -21,6 +21,7 @@ import { M4_SECTION_2 } from "./data/math4/section-2";
 import { LOGIC_SECTION_1 } from "./data/logic/section-1";
 import { LOGIC_SECTION_2 } from "./data/logic/section-2b";
 import { LOGIC_SECTION_3 } from "./data/logic/section-3";
+import { KK_SECTIONS, KK_SUBJECTS, KK_TOPICS } from "./data/kk";
 
 const prisma = new PrismaClient();
 
@@ -82,14 +83,20 @@ function buildTask(topicId: string, topicSlug: string, t: SeedTask, purpose: "pr
   return data;
 }
 
+/** Казахский перевод пишем с пометкой reviewed:false — пока носитель не проверит. null = перевода нет. */
+const kkBag = (fields: Record<string, unknown> | undefined) =>
+  fields ? ({ kk: { ...fields, reviewed: false } } as Prisma.InputJsonValue) : Prisma.JsonNull;
+
 const json = (v: unknown) => (v === undefined ? Prisma.JsonNull : (v as Prisma.InputJsonValue));
 
 async function seedTopic(sectionId: string, sectionSlug: string, t: SeedTopic, order: number, report: string[]) {
   const slug = `${sectionSlug}.${t.code}`;
+  const kk = KK_TOPICS[slug];
+  const topicI18n = kkBag(kk && { title: `${t.code} ${kk.title}`, ...(kk.explanation ? { explanation: kk.explanation } : {}) });
   const topic = await prisma.topic.upsert({
     where: { slug },
-    update: { title: `${t.code} ${t.title}`, order, explanationContent: t.explanation },
-    create: { slug, sectionId, title: `${t.code} ${t.title}`, order, explanationContent: t.explanation },
+    update: { title: `${t.code} ${t.title}`, order, explanationContent: t.explanation, i18n: topicI18n },
+    create: { slug, sectionId, title: `${t.code} ${t.title}`, order, explanationContent: t.explanation, i18n: topicI18n },
   });
 
   const all = [
@@ -99,8 +106,10 @@ async function seedTopic(sectionId: string, sectionSlug: string, t: SeedTopic, o
   const ids = new Map<string, string>();
   for (const { x, purpose, i } of all) {
     const d = buildTask(topic.id, slug, x, purpose, i) as any;
+    const kt = kk?.tasks?.[`${purpose === "test" ? "t" : "p"}:${x.n}`];
     const fields = {
       ...d, correctAnswerJson: json(d.correctAnswerJson), imageParamsJson: json(d.imageParamsJson),
+      i18n: kkBag(kt && { question: kt.question, ...(kt.options ? { options: kt.options } : {}), ...(kt.solution ? { solution: kt.solution } : {}) }),
     };
     const { slug: taskSlug, ...rest } = fields;
     const task = await prisma.task.upsert({ where: { slug: taskSlug }, update: rest, create: { slug: taskSlug, ...rest } });
@@ -126,15 +135,15 @@ async function main() {
   for (const subjectDef of SUBJECTS) {
     const subject = await prisma.subject.upsert({
       where: { name: subjectDef.name },
-      update: { slug: subjectDef.slug, order: subjectDef.order },
-      create: { name: subjectDef.name, slug: subjectDef.slug, order: subjectDef.order },
+      update: { slug: subjectDef.slug, order: subjectDef.order, i18n: kkBag(KK_SUBJECTS[subjectDef.slug]) },
+      create: { name: subjectDef.name, slug: subjectDef.slug, order: subjectDef.order, i18n: kkBag(KK_SUBJECTS[subjectDef.slug]) },
     });
     console.log(`\n=== ${subjectDef.name} ===`);
     for (const s of subjectDef.sections) {
       const section = await prisma.section.upsert({
         where: { slug: s.slug },
-        update: { title: s.title, order: s.order, level: (s as { level?: number }).level ?? 1, subjectId: subject.id },
-        create: { slug: s.slug, subjectId: subject.id, title: s.title, order: s.order, level: (s as { level?: number }).level ?? 1 },
+        update: { title: s.title, order: s.order, level: (s as { level?: number }).level ?? 1, subjectId: subject.id, i18n: kkBag(KK_SECTIONS[s.slug]) },
+        create: { slug: s.slug, subjectId: subject.id, title: s.title, order: s.order, level: (s as { level?: number }).level ?? 1, i18n: kkBag(KK_SECTIONS[s.slug]) },
       });
       console.log(`${s.title}:`);
       for (const [i, t] of s.topics.entries()) pending.push(...(await seedTopic(section.id, s.slug, t, i + 1, review)));

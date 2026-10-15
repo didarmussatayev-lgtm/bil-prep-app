@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { NextResponse } from "next/server";
 import type { Role } from "./config";
 import { getSession } from "./session";
+import { getT } from "@/lib/i18n/server";
 
 /* ───────── Для страниц и server components ───────── */
 
@@ -42,10 +43,11 @@ export async function requireApiUser(role?: Role) {
   return s.user;
 }
 
-export function handleApiError(e: unknown) {
+export async function handleApiError(e: unknown) {
+  const t = await getT();
   if (e instanceof ApiError) {
-    return NextResponse.json({ error: e.message, reason: e.reason }, { status: e.status });
+    return NextResponse.json({ error: t(e.message), reason: e.reason }, { status: e.status });
   }
   console.error(e);
-  return NextResponse.json({ error: "Внутренняя ошибка сервера" }, { status: 500 });
+  return NextResponse.json({ error: t("Внутренняя ошибка сервера") }, { status: 500 });
 }

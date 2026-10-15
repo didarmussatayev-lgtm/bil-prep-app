@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { TaskContent } from "@/components/tasks/TaskContent";
 import { RichText } from "@/components/content/RichText";
 import type { PublicTask } from "@/lib/content/types";
+import { useT } from "@/lib/i18n/client";
 import ui from "./ui.module.css";
 
 const jsonHeaders = { "Content-Type": "application/json" };
@@ -29,6 +30,7 @@ export function TestRunner({
   serverNow: string;
 }) {
   const router = useRouter();
+  const t = useT();
   const [answers, setAnswers] = useState(initialAnswers);
   const answersRef = useRef(initialAnswers);
   const chain = useRef<Promise<void>>(Promise.resolve());
@@ -76,9 +78,9 @@ export function TestRunner({
     } catch {
       finishing.current = false;
       setBusy(false);
-      setFinishError("Не удалось завершить тест. Ответы сохранены — повторите попытку.");
+      setFinishError(t("Не удалось завершить тест. Ответы сохранены — повторите попытку."));
     }
-  }, [attemptId, router]);
+  }, [attemptId, router, t]);
 
   // Таймер. Считаем по времени сервера (поправка на часы устройства).
   useEffect(() => {
@@ -99,34 +101,34 @@ export function TestRunner({
   const unanswered = questions.length - answered;
 
   function onFinishClick() {
-    if (unanswered > 0 && !window.confirm(`Без ответа осталось вопросов: ${unanswered}. Завершить тест?`)) return;
+    if (unanswered > 0 && !window.confirm(t("Без ответа осталось вопросов: {n}. Завершить тест?", { n: unanswered }))) return;
     void finish();
   }
 
   return (
     <div>
       <div className={ui.testBar}>
-        <span className={ui.testBarInfo}>Отвечено: {answered} из {questions.length}</span>
+        <span className={ui.testBarInfo}>{t("Отвечено: {a} из {b}", { a: answered, b: questions.length })}</span>
         {left !== null && (
-          <span className={`${ui.timer} ${left <= 300 ? ui.timerLow : ""}`} aria-label="Осталось времени">
+          <span className={`${ui.timer} ${left <= 300 ? ui.timerLow : ""}`} aria-label={t("Осталось времени")}>
             {fmt(left)}
           </span>
         )}
         <button className={ui.btn} onClick={onFinishClick} disabled={busy}>
-          {busy ? "Считаем…" : "Завершить тест"}
+          {busy ? t("Считаем…") : t("Завершить тест")}
         </button>
       </div>
 
       {saveError && (
         <p className={ui.error} role="alert">
-          Ответы не сохраняются — проверьте соединение. Выбранное ещё раз отправится при следующем выборе.
+          {t("Ответы не сохраняются — проверьте соединение. Выбранное ещё раз отправится при следующем выборе.")}
         </p>
       )}
       {finishError && <p className={ui.error} role="alert">{finishError}</p>}
 
       {questions.map((q, i) => (
         <fieldset key={q.id} className={ui.question}>
-          <legend className={ui.questionNum}>Вопрос {i + 1}</legend>
+          <legend className={ui.questionNum}>{t("Вопрос {n}", { n: i + 1 })}</legend>
           <TaskContent question={q.question} figures={q.figures} />
           <div className={ui.options}>
             {(q.options ?? []).map((o) => (
