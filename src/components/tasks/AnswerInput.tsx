@@ -1,6 +1,7 @@
 "use client";
 
 import ui from "@/components/student/ui.module.css";
+import { useT } from "@/lib/i18n/client";
 
 export type AnswerDraft = Record<string, string>;
 
@@ -25,6 +26,7 @@ export function AnswerInput({
   disabled?: boolean;
   invalid?: boolean;
 }) {
+  const t = useT();
   const field = (key: string, label: string, opts: { mode?: "numeric" | "decimal"; cls?: string; autoFocus?: boolean } = {}) => (
     <input
       key={key}
@@ -37,8 +39,8 @@ export function AnswerInput({
         if (e.key === "Enter") onSubmit?.();
       }}
       disabled={disabled}
-      aria-label={label}
-      title={label}
+      aria-label={t(label)}
+      title={t(label)}
     />
   );
 

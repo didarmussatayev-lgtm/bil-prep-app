@@ -1,3 +1,4 @@
+import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
@@ -11,7 +12,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const user = await requireApiUser();
     const { id } = await params;
     const task = await prisma.task.findUnique({ where: { id }, select: { id: true } });
-    if (!task) return NextResponse.json({ error: "Задача не найдена" }, { status: 404 });
+    if (!task) return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });
 
     const body = await req.json().catch(() => null);
     const note = typeof body?.note === "string" ? body.note.trim().slice(0, 1000) : "";

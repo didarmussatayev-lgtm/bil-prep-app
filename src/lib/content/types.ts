@@ -3,6 +3,9 @@
 // либо это уже готовый ExplanationBlock[] (JSON), либо строка Markdown, как её кладёт
 // seed-скрипт (шаг 4) — см. docs/content-format.md. parseExplanation() понимает оба варианта.
 
+import { pick } from "@/lib/i18n/content";
+import type { Lang } from "@/lib/i18n/config";
+
 export type FigureSpec = { kind: string } & Record<string, unknown>;
 
 export type ChoiceOption = { key: string; text: string };
@@ -125,17 +128,18 @@ export function toPublicTask(row: {
   options: unknown;
   answerType?: string | null;
   imageParamsJson: unknown;
-}): PublicTask {
+  i18n?: unknown;
+}, lang: Lang = "ru"): PublicTask {
   return {
     id: row.id,
     topicId: row.topicId,
     type: row.type === "open" ? "open" : "test_choice",
-    question: row.question,
-    options: row.type === "open" ? null : parseOptions(row.options),
+    question: pick(row.i18n, lang, "question", row.question),
+    options: row.type === "open" ? null : parseOptions(pick(row.i18n, lang, "options", row.options)),
     answerType:
       row.type === "open" && (row.answerType === "integer" || row.answerType === "decimal" || row.answerType === "fraction" || row.answerType === "mixed" || row.answerType === "sequence" || row.answerType === "set" || row.answerType === "text")
         ? row.answerType
         : null,
-    figures: parseFigures(row.imageParamsJson),
+    figures: parseFigures(pick(row.i18n, lang, "figure", row.imageParamsJson)),
   };
 }

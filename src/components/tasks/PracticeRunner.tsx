@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { PublicTask } from "@/lib/content/types";
 import ui from "@/components/student/ui.module.css";
 import { TaskCard } from "./TaskCard";
+import { useT } from "@/lib/i18n/client";
 
 const Arrow = ({ dir }: { dir: "left" | "right" }) => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -25,6 +26,7 @@ export function PracticeRunner({
   solvedIds: string[];
   flaggedIds: string[];
 }) {
+  const t = useT();
   const [current, setCurrent] = useState(0);
   const [solved, setSolved] = useState(() => new Set(solvedIds));
   const [flagged, setFlagged] = useState(() => new Set(flaggedIds));
@@ -84,49 +86,49 @@ export function PracticeRunner({
   return (
     <div className={ui.practice}>
       <div className={ui.practiceStat}>
-        <span>Решено {solved.size} из {total}</span>
-        <div className={ui.bar} role="progressbar" aria-label="Решено задач" aria-valuemin={0} aria-valuemax={100} aria-valuenow={percent}>
+        <span>{t("Решено {a} из {b}", { a: solved.size, b: total })}</span>
+        <div className={ui.bar} role="progressbar" aria-label={t("Решено задач")} aria-valuemin={0} aria-valuemax={100} aria-valuenow={percent}>
           <div className={`${ui.barFill} ${ui.barFillOk}`} style={{ width: `${percent}%` }} />
         </div>
       </div>
 
-      {tasks.map((t, i) => (
-        <div key={t.id} hidden={i !== current}>
+      {tasks.map((task, i) => (
+        <div key={task.id} hidden={i !== current}>
           <TaskCard
             index={i + 1}
-            task={t}
-            solved={solved.has(t.id)}
-            flagged={flagged.has(t.id)}
-            onSolved={() => markSolved(t.id)}
-            onFlagChange={(on) => setFlag(t.id, on)}
+            task={task}
+            solved={solved.has(task.id)}
+            flagged={flagged.has(task.id)}
+            onSolved={() => markSolved(task.id)}
+            onFlagChange={(on) => setFlag(task.id, on)}
           />
         </div>
       ))}
 
-      <nav className={ui.navDock} aria-label="Номера задач">
+      <nav className={ui.navDock} aria-label={t("Номера задач")}>
         <div className={ui.navInner}>
-          <button type="button" className={ui.navArrow} onClick={() => go(current - 1)} disabled={current === 0} aria-label="Предыдущая задача">
+          <button type="button" className={ui.navArrow} onClick={() => go(current - 1)} disabled={current === 0} aria-label={t("Предыдущая задача")}>
             <Arrow dir="left" />
           </button>
 
           <div className={ui.navStrip} ref={stripRef}>
-            {tasks.map((t, i) => {
+            {tasks.map((task, i) => {
               const cls = [
                 ui.navChip,
-                solved.has(t.id) ? ui.navChipSolved : "",
-                flagged.has(t.id) && !solved.has(t.id) ? ui.navChipFlag : "",
+                solved.has(task.id) ? ui.navChipSolved : "",
+                flagged.has(task.id) && !solved.has(task.id) ? ui.navChipFlag : "",
                 i === current ? ui.navChipCurrent : "",
               ]
                 .filter(Boolean)
                 .join(" ");
               return (
                 <button
-                  key={t.id}
+                  key={task.id}
                   type="button"
                   className={cls}
                   onClick={() => go(i)}
                   aria-current={i === current ? "true" : undefined}
-                  aria-label={`Задача ${i + 1}${solved.has(t.id) ? ", решена" : ""}`}
+                  aria-label={t("Задача {n}", { n: i + 1 }) + (solved.has(task.id) ? ", " + t("решена") : "")}
                 >
                   {i + 1}
                 </button>
@@ -139,7 +141,7 @@ export function PracticeRunner({
             className={`${ui.navArrow} ${ui.navArrowPrimary}`}
             onClick={() => go(current + 1)}
             disabled={current === total - 1}
-            aria-label="Следующая задача"
+            aria-label={t("Следующая задача")}
           >
             <Arrow dir="right" />
           </button>

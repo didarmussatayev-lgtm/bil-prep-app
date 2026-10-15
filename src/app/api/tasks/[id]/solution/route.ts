@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getLang, getT } from "@/lib/i18n/server";
+import { pick } from "@/lib/i18n/content";
 import { prisma } from "@/lib/prisma";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
 import { formatAnswer, type AnswerType } from "@/lib/student/answerCheck";
@@ -10,9 +12,9 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
     const { id } = await params;
     const task = await prisma.task.findUnique({
       where: { id },
-      select: { type: true, solutionText: true, correctOption: true, answerType: true, correctAnswerJson: true },
+      select: { type: true, i18n: true, solutionText: true, correctOption: true, answerType: true, correctAnswerJson: true },
     });
-    if (!task) return NextResponse.json({ error: "Задача не найдена" }, { status: 404 });
+    if (!task) return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });
 
     const answer =
       task.type === "test_choice"
@@ -21,7 +23,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
           ? formatAnswer(task.answerType as AnswerType, task.correctAnswerJson as any)
           : null;
 
-    return NextResponse.json({ solutionText: task.solutionText ?? "", answer });
+    return NextResponse.json({ solutionText: pick(task.i18n, await getLang(), "solution", task.solutionText ?? ""), answer });
   } catch (e) {
     return handleApiError(e);
   }

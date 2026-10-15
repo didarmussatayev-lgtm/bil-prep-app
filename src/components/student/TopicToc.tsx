@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { learnStatus, practiceStatus, SUBJECT_LEVELS, type SectionRow, type Status, type TopicRow } from "@/lib/student/progress";
+import { getT } from "@/lib/i18n/server";
 import ui from "./ui.module.css";
 
 const LABEL: Record<Status, string> = {
@@ -17,7 +18,9 @@ const TONE: Record<Status, string> = {
 
 type Mode = "learn" | "practice";
 
-function TopicList({ topics, mode, basePath }: { topics: TopicRow[]; mode: Mode; basePath: string }) {
+type Tr = (ru: string, vars?: Record<string, string | number>) => string;
+
+function TopicList({ topics, mode, basePath, t: tt }: { topics: TopicRow[]; mode: Mode; basePath: string; t: Tr }) {
   return (
     <ul className={ui.topicList}>
       {topics.map((t) => {
@@ -27,9 +30,9 @@ function TopicList({ topics, mode, basePath }: { topics: TopicRow[]; mode: Mode;
           <>
             <span className={ui.topicTitle}>{t.title}</span>
             {mode === "practice" && t.practiceTotal > 0 && (
-              <span className={ui.topicMeta}>{t.practiceSolved} из {t.practiceTotal}</span>
+              <span className={ui.topicMeta}>{tt("{a} из {b}", { a: t.practiceSolved, b: t.practiceTotal })}</span>
             )}
-            <span className={`${ui.badge} ${TONE[status]}`}>{LABEL[status]}</span>
+            <span className={`${ui.badge} ${TONE[status]}`}>{tt(LABEL[status])}</span>
           </>
         );
         return (
@@ -47,20 +50,20 @@ function TopicList({ topics, mode, basePath }: { topics: TopicRow[]; mode: Mode;
 }
 
 /** «5 из 13» — сколько тем пройдено (обучение) или задач решено (закрепление) в наборе тем. */
-function counter(topics: TopicRow[], mode: Mode) {
-  if (mode === "learn") return `${topics.filter((t) => t.learned).length} из ${topics.length} тем`;
+function counter(topics: TopicRow[], mode: Mode, tt: Tr) {
+  if (mode === "learn") return tt("{a} из {b} тем", { a: topics.filter((t) => t.learned).length, b: topics.length });
   const total = topics.reduce((n, t) => n + t.practiceTotal, 0);
-  return `${topics.reduce((n, t) => n + t.practiceSolved, 0)} из ${total} задач`;
+  return tt("{a} из {b} задач", { a: topics.reduce((n, t) => n + t.practiceSolved, 0), b: total });
 }
 
-function SectionBlock({ section, mode, basePath, open }: { section: SectionRow; mode: Mode; basePath: string; open?: boolean }) {
+function SectionBlock({ section, mode, basePath, open, t }: { section: SectionRow; mode: Mode; basePath: string; open?: boolean; t: Tr }) {
   return (
     <details className={ui.sectionBox} open={open}>
       <summary className={ui.sectionSummary}>
         <span className={ui.topicTitle}>{section.title}</span>
-        <span className={ui.topicMeta}>{counter(section.topics, mode)}</span>
+        <span className={ui.topicMeta}>{counter(section.topics, mode, t)}</span>
       </summary>
-      <TopicList topics={section.topics} mode={mode} basePath={basePath} />
+      <TopicList topics={section.topics} mode={mode} basePath={basePath} t={t} />
     </details>
   );
 }
@@ -70,7 +73,7 @@ function SectionBlock({ section, mode, basePath, open }: { section: SectionRow; 
  * Для предметов с уровнями (математика: «Математика 1–4») — раскрывающиеся уровни, внутри
  * раскрывающиеся разделы с названиями; для остальных — плоский список разделов, как раньше.
  */
-export function TopicToc({
+export async function TopicToc({
   sections,
   mode,
   basePath,
@@ -81,16 +84,17 @@ export function TopicToc({
   basePath: string; // ссылка на тему = `${basePath}/${topic.id}`
   subjectSlug?: string;
 }) {
+  const t = await getT();
   const levels = subjectSlug ? SUBJECT_LEVELS[subjectSlug] : undefined;
 
   if (!levels) {
-    if (sections.length === 0) return <p className={ui.callout}>Материалы по этому предмету пока не добавлены.</p>;
+    if (sections.length === 0) return <p className={ui.callout}>{t("Материалы по этому предмету пока не добавлены.")}</p>;
     return (
       <>
         {sections.map((section) => (
           <section key={section.id} aria-labelledby={`sec-${section.id}`}>
             <h2 className={ui.h2} id={`sec-${section.id}`}>{section.title}</h2>
-            <TopicList topics={section.topics} mode={mode} basePath={basePath} />
+            <TopicList topics={section.topics} mode={mode} basePath={basePath} t={t} />
           </section>
         ))}
       </>
@@ -108,15 +112,15 @@ export function TopicToc({
         return (
           <details key={level} className={ui.levelBox} open={level === firstFilled}>
             <summary className={ui.levelSummary}>
-              <span className={ui.levelTitle}>{title}</span>
-              {own.length > 0 && <span className={ui.topicMeta}>{counter(topics, mode)}</span>}
+              <span className={ui.levelTitle}>{t(title)}</span>
+              {own.length > 0 && <span className={ui.topicMeta}>{counter(topics, mode, t)}</span>}
             </summary>
             {own.length === 0 ? (
-              <p className={ui.levelSoon}>Материалы этого уровня появятся позже.</p>
+              <p className={ui.levelSoon}>{t("Материалы этого уровня появятся позже.")}</p>
             ) : (
               <div className={ui.levelBody}>
                 {own.map((s) => (
-                  <SectionBlock key={s.id} section={s} mode={mode} basePath={basePath} />
+                  <SectionBlock key={s.id} section={s} mode={mode} basePath={basePath} t={t} />
                 ))}
               </div>
             )}

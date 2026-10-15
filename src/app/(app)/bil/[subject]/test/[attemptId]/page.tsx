@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import { TestResult } from "@/components/student/TestResult";
 import { TestRunner } from "@/components/student/TestRunner";
 import ui from "@/components/student/ui.module.css";
+import { getLang, getT } from "@/lib/i18n/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth/guards";
 import { toPublicTask } from "@/lib/content/types";
@@ -15,6 +16,7 @@ export default async function AttemptPage({
   params: Promise<{ subject: string; attemptId: string }>;
 }) {
   const user = await requireUser();
+  const [lang, t] = [await getLang(), await getT()];
   const { subject: slug, attemptId } = await params;
 
   const subject = await getSubjectBySlug(slug);
@@ -31,16 +33,16 @@ export default async function AttemptPage({
   }
 
   const crumbs = [
-    { label: "Подготовка в БИЛ", href: "/bil" },
+    { label: t("Подготовка в БИЛ"), href: "/bil" },
     { label: subject.name, href: `/bil/${slug}` },
-    { label: "Пробное тестирование", href: `/bil/${slug}/test` },
+    { label: t("Пробное тестирование"), href: `/bil/${slug}/test` },
   ];
 
   if (attempt.finishedAt) {
     return (
       <main className={ui.container}>
-        <Breadcrumbs items={[...crumbs, { label: "Результат" }]} />
-        <h1 className={ui.h1}>Результат теста</h1>
+        <Breadcrumbs items={[...crumbs, { label: t("Результат") }]} />
+        <h1 className={ui.h1}>{t("Результат теста")}</h1>
         <TestResult attempt={attempt} slug={slug} />
       </main>
     );
@@ -50,18 +52,18 @@ export default async function AttemptPage({
   const ids = attempt.questionIds as string[];
   const rows = await prisma.task.findMany({
     where: { id: { in: ids } },
-    select: { id: true, topicId: true, type: true, question: true, options: true, imageParamsJson: true },
+    select: { id: true, topicId: true, type: true, question: true, options: true, imageParamsJson: true, i18n: true },
   });
   const byId = new Map(rows.map((r) => [r.id, r]));
   const questions = ids.flatMap((id) => {
     const r = byId.get(id);
-    return r ? [toPublicTask(r)] : [];
+    return r ? [toPublicTask(r, lang)] : [];
   });
 
   return (
     <main className={ui.container}>
-      <Breadcrumbs items={[...crumbs, { label: "Тест" }]} />
-      <h1 className={ui.h1}>Тест</h1>
+      <Breadcrumbs items={[...crumbs, { label: t("Тест") }]} />
+      <h1 className={ui.h1}>{t("Тест")}</h1>
       <TestRunner
         attemptId={attempt.id}
         questions={questions}

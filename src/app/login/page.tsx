@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth/session";
+import { getT } from "@/lib/i18n/server";
 import { LoginForm } from "./LoginForm";
 
 const NOTICES: Record<string, string> = {
@@ -19,5 +20,6 @@ export default async function LoginPage({
   if (s.ok) redirect(s.user.role === "admin" ? "/admin" : "/");
 
   const { reason } = await searchParams;
-  return <LoginForm notice={reason ? NOTICES[reason] : undefined} />;
+  const t = await getT();
+  return <LoginForm notice={reason && NOTICES[reason] ? t(NOTICES[reason]) : undefined} />;
 }

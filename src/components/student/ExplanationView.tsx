@@ -1,11 +1,15 @@
+"use client";
+
 import { Figure } from "@/components/content/Figure";
 import { RichText, renderRichInline } from "@/components/content/RichText";
 import type { ExplanationBlock } from "@/lib/content/types";
+import { useT } from "@/lib/i18n/client";
 import ui from "./ui.module.css";
 
 export function ExplanationView({ blocks }: { blocks: ExplanationBlock[] }) {
+  const t = useT();
   if (blocks.length === 0) {
-    return <p className={ui.callout}>Объяснение к этой теме пока не добавлено.</p>;
+    return <p className={ui.callout}>{t("Объяснение к этой теме пока не добавлено.")}</p>;
   }
 
   return (
@@ -34,7 +38,7 @@ export function ExplanationView({ blocks }: { blocks: ExplanationBlock[] }) {
           case "example":
             return (
               <div key={i} className={ui.example}>
-                <p className={ui.exampleTitle}>{b.title ?? "Пример"}</p>
+                <p className={ui.exampleTitle}>{b.title ?? t("Пример")}</p>
                 <RichText text={b.text} />
                 {b.solution && (
                   <div className={ui.solution}>

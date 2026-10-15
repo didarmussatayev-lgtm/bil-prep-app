@@ -2,11 +2,13 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import { TopicToc } from "@/components/student/TopicToc";
 import ui from "@/components/student/ui.module.css";
+import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { getCourseTree, getSubjectBySlug } from "@/lib/student/progress";
 
 export default async function PracticeTocPage({ params }: { params: Promise<{ subject: string }> }) {
   const user = await requireUser();
+  const t = await getT();
   const { subject: slug } = await params;
   const subject = await getSubjectBySlug(slug);
   if (!subject) notFound();
@@ -17,13 +19,13 @@ export default async function PracticeTocPage({ params }: { params: Promise<{ su
     <main className={ui.container}>
       <Breadcrumbs
         items={[
-          { label: "Подготовка в БИЛ", href: "/bil" },
+          { label: t("Подготовка в БИЛ"), href: "/bil" },
           { label: subject.name, href: `/bil/${slug}` },
-          { label: "Закрепление" },
+          { label: t("Закрепление") },
         ]}
       />
-      <h1 className={ui.h1}>Закрепление</h1>
-      <p className={ui.lead}>Выберите тему, чтобы решать задачи по ней.</p>
+      <h1 className={ui.h1}>{t("Закрепление")}</h1>
+      <p className={ui.lead}>{t("Выберите тему, чтобы решать задачи по ней.")}</p>
       <TopicToc sections={sections} subjectSlug={slug} mode="practice" basePath={`/bil/${slug}/practice`} />
     </main>
   );

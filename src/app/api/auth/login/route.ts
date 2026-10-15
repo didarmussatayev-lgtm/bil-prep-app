@@ -1,3 +1,4 @@
+import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getDummyHash, verifyPassword } from "@/lib/auth/password";
@@ -10,7 +11,7 @@ export async function POST(req: Request) {
   const password = typeof body?.password === "string" ? body.password : "";
 
   if (!login || !password || login.length > 64 || password.length > 200) {
-    return NextResponse.json({ error: "Введите логин и пароль" }, { status: 400 });
+    return NextResponse.json({ error: (await getT())("Введите логин и пароль") }, { status: 400 });
   }
 
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
@@ -31,7 +32,7 @@ export async function POST(req: Request) {
 
   if (!user || !valid) {
     registerLoginFailure(rateKey);
-    return NextResponse.json({ error: "Неверный логин или пароль" }, { status: 401 });
+    return NextResponse.json({ error: (await getT())("Неверный логин или пароль") }, { status: 401 });
   }
 
   resetLoginFailures(rateKey);

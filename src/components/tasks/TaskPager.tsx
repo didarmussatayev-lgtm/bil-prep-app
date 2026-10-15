@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { PublicTask } from "@/lib/content/types";
 import ui from "@/components/student/ui.module.css";
 import { TaskCard } from "./TaskCard";
+import { useT } from "@/lib/i18n/client";
 
 export type PagerItem = { task: PublicTask; solved: boolean; flagged: boolean };
 
@@ -13,6 +14,7 @@ export type PagerItem = { task: PublicTask; solved: boolean; flagged: boolean };
  * Все карточки остаются в DOM (скрыты), поэтому недописанные ответы не пропадают при переключении.
  */
 export function TaskPager({ items }: { items: PagerItem[] }) {
+  const t = useT();
   const [solvedIds, setSolvedIds] = useState<Set<string>>(() => new Set(items.filter((i) => i.solved).map((i) => i.task.id)));
   const firstOpen = items.findIndex((i) => !i.solved);
   const [current, setCurrent] = useState(firstOpen === -1 ? 0 : firstOpen);
@@ -23,10 +25,10 @@ export function TaskPager({ items }: { items: PagerItem[] }) {
   return (
     <div>
       <p className={ui.lead}>
-        Решено задач: {solvedCount} из {total}. Выберите номер задачи.
+        {t("Решено задач: {a} из {b}. Выберите номер задачи.", { a: solvedCount, b: total })}
       </p>
 
-      <nav className={ui.pager} aria-label="Номера задач">
+      <nav className={ui.pager} aria-label={t("Номера задач")}>
         {items.map((it, i) => {
           const cls = [ui.pagerNum, solvedIds.has(it.task.id) ? ui.pagerNumDone : "", i === current ? ui.pagerNumCur : ""].filter(Boolean).join(" ");
           return (
@@ -36,7 +38,7 @@ export function TaskPager({ items }: { items: PagerItem[] }) {
               className={cls}
               onClick={() => setCurrent(i)}
               aria-current={i === current ? "true" : undefined}
-              title={solvedIds.has(it.task.id) ? `Задача ${i + 1} — решена` : `Задача ${i + 1}`}
+              title={solvedIds.has(it.task.id) ? t("Задача {n} — решена", { n: i + 1 }) : t("Задача {n}", { n: i + 1 })}
             >
               {i + 1}
             </button>
@@ -58,10 +60,10 @@ export function TaskPager({ items }: { items: PagerItem[] }) {
 
       <div className={ui.actions}>
         <button type="button" className={ui.btn} onClick={() => setCurrent((c) => Math.max(0, c - 1))} disabled={current === 0}>
-          ← Предыдущая
+          {t("← Предыдущая")}
         </button>
         <button type="button" className={ui.btn} onClick={() => setCurrent((c) => Math.min(total - 1, c + 1))} disabled={current === total - 1}>
-          Следующая →
+          {t("Следующая →")}
         </button>
       </div>
     </div>

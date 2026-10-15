@@ -1,7 +1,7 @@
 const TZ = "Asia/Almaty";
 
-export function formatDateTime(d: Date): string {
-  return d.toLocaleString("ru-RU", {
+export function formatDateTime(d: Date, lang: "ru" | "kk" = "ru"): string {
+  return d.toLocaleString(lang === "kk" ? "kk-KZ" : "ru-RU", {
     timeZone: TZ,
     day: "numeric",
     month: "long",
@@ -10,7 +10,7 @@ export function formatDateTime(d: Date): string {
   });
 }
 
-export function formatDuration(seconds: number): string {
+export function formatDuration(seconds: number, lang: "ru" | "kk" = "ru"): string {
   const m = Math.round(seconds / 60);
-  return `${m} мин`;
+  return `${m} ${lang === "kk" ? "мин" : "мин"}`;
 }

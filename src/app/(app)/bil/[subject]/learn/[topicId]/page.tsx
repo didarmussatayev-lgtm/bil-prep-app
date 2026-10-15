@@ -3,6 +3,9 @@ import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import { ExplanationView } from "@/components/student/ExplanationView";
 import { MarkLearned } from "@/components/student/MarkLearned";
 import ui from "@/components/student/ui.module.css";
+import { getLang, getT } from "@/lib/i18n/server";
+import { pick } from "@/lib/i18n/content";
+import { KkNote } from "@/components/student/KkNote";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth/guards";
 import { parseExplanation } from "@/lib/content/types";
@@ -14,6 +17,7 @@ export default async function TopicLearnPage({
   params: Promise<{ subject: string; topicId: string }>;
 }) {
   const user = await requireUser();
+  const [lang, t] = [await getLang(), await getT()];
   const { subject: slug, topicId } = await params;
 
   const subject = await getSubjectBySlug(slug);
@@ -22,10 +26,11 @@ export default async function TopicLearnPage({
   // тема должна принадлежать именно этому предмету
   const topic = await prisma.topic.findFirst({
     where: { id: topicId, section: { subjectId: subject.id } },
-    select: { id: true, title: true, explanationContent: true },
+    select: { id: true, title: true, explanationContent: true, i18n: true },
   });
   if (!topic) notFound();
 
+  const title = pick(topic.i18n, lang, "title", topic.title);
   const flat = flattenTopics(await getCourseTree(subject.id, user.id));
   const idx = flat.findIndex((t) => t.id === topic.id);
   const next = idx >= 0 ? flat[idx + 1] : undefined;
@@ -34,15 +39,16 @@ export default async function TopicLearnPage({
     <main className={ui.container}>
       <Breadcrumbs
         items={[
-          { label: "Подготовка в БИЛ", href: "/bil" },
+          { label: t("Подготовка в БИЛ"), href: "/bil" },
           { label: subject.name, href: `/bil/${slug}` },
-          { label: "Обучение", href: `/bil/${slug}/learn` },
-          { label: topic.title },
+          { label: t("Обучение"), href: `/bil/${slug}/learn` },
+          { label: title },
         ]}
       />
-      <h1 className={ui.h1}>{topic.title}</h1>
+      <h1 className={ui.h1}>{title}</h1>
+      {lang === "kk" && <KkNote />}
 
-      <ExplanationView blocks={parseExplanation(topic.explanationContent)} />
+      <ExplanationView blocks={parseExplanation(pick(topic.i18n, lang, "explanation", topic.explanationContent))} />
 
       <MarkLearned
         topicId={topic.id}

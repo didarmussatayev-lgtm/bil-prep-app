@@ -1,3 +1,4 @@
+import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
@@ -18,13 +19,13 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       select: { id: true, topicId: true, type: true, answerType: true, correctAnswerJson: true, allowUnreduced: true },
     });
     if (!task || task.type !== "open" || !task.answerType) {
-      return NextResponse.json({ error: "Задача не найдена" }, { status: 404 });
+      return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });
     }
 
     const body = await req.json().catch(() => null);
     const answerType = task.answerType as AnswerType;
     if (!isWellFormedAnswer(answerType, body?.answer)) {
-      return NextResponse.json({ error: "Заполните ответ полностью" }, { status: 400 });
+      return NextResponse.json({ error: (await getT())("Заполните ответ полностью") }, { status: 400 });
     }
 
     const correct = checkAnswer({

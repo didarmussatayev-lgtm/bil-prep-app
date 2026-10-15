@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { getLang, getT } from "@/lib/i18n/server";
+import { pick } from "@/lib/i18n/content";
 import { RichText, renderRichInline } from "@/components/content/RichText";
 import { TaskContent } from "@/components/tasks/TaskContent";
 import { parseFigures, parseOptions } from "@/lib/content/types";
@@ -18,15 +20,23 @@ type Attempt = {
 const pct = (c: number, t: number) => (t ? Math.round((c / t) * 100) : 0);
 
 export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: string }) {
+  const [lang, tr] = [await getLang(), await getT()];
   const ids = attempt.questionIds as string[];
   const answers = (attempt.answers ?? {}) as Record<string, string>;
-  const breakdown = ((attempt.breakdown ?? []) as BreakdownRow[])
-    .map((b) => ({ ...b, percent: pct(b.correct, b.total) }))
+  const rawBreakdown = (attempt.breakdown ?? []) as BreakdownRow[];
+  // названия тем берём из БД на нужном языке (в breakdown лежит русское название на момент завершения)
+  const topicRows = await prisma.topic.findMany({
+    where: { id: { in: rawBreakdown.map((b) => b.topicId) } },
+    select: { id: true, title: true, i18n: true },
+  });
+  const topicTitle = new Map(topicRows.map((x) => [x.id, pick(x.i18n, lang, "title", x.title)]));
+  const breakdown = rawBreakdown
+    .map((b) => ({ ...b, title: topicTitle.get(b.topicId) ?? b.title, percent: pct(b.correct, b.total) }))
     .sort((a, b) => a.percent - b.percent); // слабые места — сверху
 
   const tasks = await prisma.task.findMany({
     where: { id: { in: ids } },
-    select: { id: true, question: true, options: true, imageParamsJson: true, correctOption: true, solutionText: true },
+    select: { id: true, question: true, options: true, imageParamsJson: true, correctOption: true, solutionText: true, i18n: true },
   });
   const byId = new Map(tasks.map((t) => [t.id, t]));
 
@@ -37,19 +47,19 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
   return (
     <div>
       <section className={ui.score}>
-        <p className={ui.scoreBig}>{score} из {total}</p>
-        <p className={ui.muted}>Верных ответов: {pct(score, total)}%</p>
-        <ProgressBar value={pct(score, total)} label="Результат теста" tone={pct(score, total) >= WEAK_THRESHOLD_PERCENT ? "ok" : "weak"} />
+        <p className={ui.scoreBig}>{tr("{a} из {b}", { a: score, b: total })}</p>
+        <p className={ui.muted}>{tr("Верных ответов: {p}%", { p: pct(score, total) })}</p>
+        <ProgressBar value={pct(score, total)} label={tr("Результат теста")} tone={pct(score, total) >= WEAK_THRESHOLD_PERCENT ? "ok" : "weak"} />
       </section>
 
       {breakdown.length > 0 && (
         <section>
-          <h2 className={ui.h2}>Результат по темам</h2>
+          <h2 className={ui.h2}>{tr("Результат по темам")}</h2>
           {breakdown.map((b) => (
             <div key={b.topicId} className={ui.breakRow}>
               <span className={ui.breakTitle}>{b.title}</span>
               <ProgressBar value={b.percent} label={b.title} tone={b.percent < WEAK_THRESHOLD_PERCENT ? "weak" : "ok"} />
-              <span className={ui.breakNum}>{b.correct} из {b.total}</span>
+              <span className={ui.breakNum}>{tr("{a} из {b}", { a: b.correct, b: b.total })}</span>
             </div>
           ))}
         </section>
@@ -57,7 +67,7 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
 
       {weak.length > 0 && (
         <section className={ui.callout}>
-          <strong>Что стоит повторить</strong>
+          <strong>{tr("Что стоит повторить")}</strong>
           <ul style={{ margin: "8px 0 0", paddingLeft: 20 }}>
             {weak.map((b) => (
               <li key={b.topicId}>
@@ -68,31 +78,31 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
         </section>
       )}
 
-      <h2 className={ui.h2}>Разбор вопросов</h2>
+      <h2 className={ui.h2}>{tr("Разбор вопросов")}</h2>
       {ids.map((id, i) => {
         const t = byId.get(id);
         if (!t) return null;
-        const options = parseOptions(t.options);
+        const options = parseOptions(pick(t.i18n, lang, "options", t.options));
         const mine = answers[id];
         const ok = !!mine && mine === t.correctOption;
         const text = (key?: string) => options.find((o) => o.key === key);
 
         return (
           <article key={id} className={`${ui.review} ${ok ? ui.reviewOk : ui.reviewBad}`}>
-            <p className={ui.questionNum}>Вопрос {i + 1}: {ok ? "верно" : mine ? "неверно" : "нет ответа"}</p>
-            <TaskContent question={t.question} figures={parseFigures(t.imageParamsJson)} />
+            <p className={ui.questionNum}>{tr("Вопрос {n}", { n: i + 1 })}: {ok ? tr("верно") : mine ? tr("неверно") : tr("нет ответа")}</p>
+            <TaskContent question={pick(t.i18n, lang, "question", t.question)} figures={parseFigures(t.imageParamsJson)} />
             {!ok && (
               <p className={ui.reviewLine}>
-                Ваш ответ: {mine ? <>{mine}. {renderRichInline(text(mine)?.text ?? "", `m${i}`)}</> : "не выбран"}
+                {tr("Ваш ответ")}: {mine ? <>{mine}. {renderRichInline(text(mine)?.text ?? "", `m${i}`)}</> : tr("не выбран")}
               </p>
             )}
             <p className={ui.reviewLine}>
-              Правильный ответ: {t.correctOption}. {renderRichInline(text(t.correctOption ?? undefined)?.text ?? "", `c${i}`)}
+              {tr("Правильный ответ")}: {t.correctOption}. {renderRichInline(text(t.correctOption ?? undefined)?.text ?? "", `c${i}`)}
             </p>
-            {t.solutionText && (
+            {pick<string>(t.i18n, lang, "solution", t.solutionText ?? "") && (
               <details>
-                <summary>Показать решение</summary>
-                <RichText text={t.solutionText} />
+                <summary>{tr("Показать решение")}</summary>
+                <RichText text={pick<string>(t.i18n, lang, "solution", t.solutionText ?? "")} />
               </details>
             )}
           </article>
@@ -100,8 +110,8 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
       })}
 
       <div className={ui.actions}>
-        <Link href={`/bil/${slug}/test`} className={ui.btn}>К выбору тестов</Link>
-        <Link href={`/bil/${slug}`} className={ui.btnGhost}>К предмету</Link>
+        <Link href={`/bil/${slug}/test`} className={ui.btn}>{tr("К выбору тестов")}</Link>
+        <Link href={`/bil/${slug}`} className={ui.btnGhost}>{tr("К предмету")}</Link>
       </div>
     </div>
   );

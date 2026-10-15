@@ -70,6 +70,8 @@ model Subject {
   sections     Section[]
   testAttempts TestAttempt[]
 
+  i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
+
   @@map("subjects")
 }
 
@@ -85,6 +87,8 @@ model Section {
   topics  Topic[]
 
   @@index([subjectId])
+  i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
+
   @@map("sections")
 }
 
@@ -103,6 +107,8 @@ model Topic {
   progress Progress[]
 
   @@index([sectionId])
+  i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
+
   @@map("topics")
 }
 
@@ -145,6 +151,8 @@ model Task {
   helpRequests HelpRequest[]
 
   @@index([topicId])
+  i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
+
   @@map("tasks")
 }
 
