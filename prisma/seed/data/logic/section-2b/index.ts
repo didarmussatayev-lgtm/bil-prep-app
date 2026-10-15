@@ -7,10 +7,11 @@ import t11 from "./topic-11";
 import t12 from "./topic-12";
 import t13 from "./topic-13";
 import t14 from "./topic-14";
+import t15 from "./topic-15";
 
 export const LOGIC_SECTION_2 = {
   slug: "logic-2",
   title: "Фигуры",
   order: 2,
-  topics: [t7, t8, t9, t10, t11, t12, t13, t14] as SeedTopic[],
+  topics: [t7, t8, t9, t10, t11, t12, t13, t14, t15] as SeedTopic[],
 };
