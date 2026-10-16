@@ -13,6 +13,7 @@ const sim = (a: string, b: string) => {
   const A = words(a), B = new Set(words(b));
   return A.length ? A.filter((w) => B.has(w)).length / A.length : 1;
 };
+const nums = (s: string) => (s.match(/\d+(?:[.,]\d+)?/g) ?? []).map((x) => x.replace(",", ".")).sort().join(" ");
 const braces = (s: string) => (s.match(/[{}]/g) ?? []).length;
 
 (async () => {
@@ -35,6 +36,9 @@ const braces = (s: string) => (s.match(/[{}]/g) ?? []).length;
       if (kk) {
         const k = kk.tasks?.[`${key}:${t.n}`];
         if (!k) { bad.push(`${key}:${t.n} нет перевода`); continue; }
+        if (nums(k.question) !== nums(t.q)) bad.push(`${key}:${t.n} ЧИСЛА в вопросе ru≠kk: «${nums(t.q)}» / «${nums(k.question)}»`);
+        if (t.choice && k.options && nums(k.options.join(" ")) !== nums(t.choice.options.join(" "))) bad.push(`${key}:${t.n} ЧИСЛА в вариантах ru≠kk`);
+        if (t.solution && k.solution && nums(k.solution) !== nums(t.solution)) bad.push(`${key}:${t.n} ЧИСЛА в решении ru≠kk`);
         if (braces(k.question) !== braces(t.q)) bad.push(`${key}:${t.n} скобки { } в вопросе не совпали`);
         if (t.choice && (!k.options || k.options.length !== t.choice.options.length)) bad.push(`${key}:${t.n} число вариантов в kk не совпало`);
         if (t.choice && k.options) t.choice.options.forEach((op, i) => { if (braces(op) !== braces(k.options[i])) bad.push(`${key}:${t.n} скобки в варианте ${i} не совпали`); });
