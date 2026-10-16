@@ -3,7 +3,7 @@ import t11 from "./v2/topic-1-1";
 import t12 from "./v2/topic-1-2";
 import t13 from "./v2/topic-1-3";
 import t14 from "./v2/topic-1-4";
-import t15 from "./topic-1-5-figs";
+import t15 from "./v2/topic-1-5";
 import t16 from "./v2/topic-1-6";
 import t17 from "./v2/topic-1-7";
 import t18 from "./v2/topic-1-8";

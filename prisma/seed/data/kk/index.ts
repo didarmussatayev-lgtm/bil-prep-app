@@ -10,6 +10,7 @@ import m1_1 from "./math-1/1.1";
 import m1_2 from "./math-1/1.2";
 import m1_3 from "./math-1/1.3";
 import m1_4 from "./math-1/1.4";
+import m1_5 from "./math-1/1.5";
 import m1_6 from "./math-1/1.6";
 import m1_7 from "./math-1/1.7";
 import m1_8 from "./math-1/1.8";
@@ -38,6 +39,7 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   "math-1.1.2": m1_2,
   "math-1.1.3": m1_3,
   "math-1.1.4": m1_4,
+  "math-1.1.5": m1_5,
   "math-1.1.6": m1_6,
   "math-1.1.7": m1_7,
   "math-1.1.8": m1_8,
