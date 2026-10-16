@@ -30,7 +30,8 @@ const toNum = (s: string) => { const m = s.match(/^(?:(\d+) )?(\d+)\/(\d+)$/); r
       const g = got[k];
       if (g === undefined || g === null || /^skip/i.test(String(g))) { skip++; continue; }
       const exp = x.choice ? x.choice.correct : fmt(x.ans!);
-      const eq = norm(String(g)) === norm(exp) || (x.ans && ["int", "dec", "frac", "mixed"].includes(x.ans.t) && Math.abs(toNum(norm(String(g))) - toNum(norm(exp))) < 1e-9);
+      const srt = (v: string) => (x.ans?.t === "set" ? norm(v).split(" ").sort().join(" ") : norm(v));
+      const eq = srt(String(g)) === srt(exp) || (x.ans && ["int", "dec", "frac", "mixed"].includes(x.ans.t) && Math.abs(toNum(norm(String(g))) - toNum(norm(exp))) < 1e-9);
       if (eq) ok++; else bad.push(`${k}: эталон «${exp}», проверяющий «${g}»`);
     }
     console.log(`совпало ${ok}, пропущено ${skip}, расхождений ${bad.length}`);
