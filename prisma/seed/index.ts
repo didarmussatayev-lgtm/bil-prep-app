@@ -5,6 +5,7 @@
  *
  * Запуск: npx prisma db seed   (см. "prisma.seed" в package.json)
  */
+import { spawnSync } from "node:child_process";
 import { Prisma, PrismaClient } from "@prisma/client";
 import { ENTITIES } from "../../src/lib/content-schemas";
 import { Ans, Figure, SeedTask, SeedTopic } from "./types";
@@ -128,7 +129,15 @@ async function seedTopic(sectionId: string, sectionSlug: string, t: SeedTopic, o
   return t.pending.map((p) => `[${t.code}] стр. ${p.page}, №${p.n}: ${p.why}`);
 }
 
+/** Приводит схему БД в соответствие с schema.prisma (безопасно: только добавляет таблицы/колонки). Без этого новый деплой падает на «column does not exist». */
+function syncSchema() {
+  if (process.env.SEED_SKIP_DB_PUSH === "1") return;
+  const r = spawnSync("npx", ["prisma", "db", "push", "--skip-generate"], { stdio: "inherit" });
+  if (r.status !== 0) throw new Error("prisma db push не выполнился — seed остановлен");
+}
+
 async function main() {
+  syncSchema();
   const review: string[] = [];
   const pending: string[] = [];
 
