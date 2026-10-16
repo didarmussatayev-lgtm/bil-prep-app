@@ -6,6 +6,7 @@
  * Ключи задач: "p:<n>" (закрепление) и "t:<n>" (тест) — как в slug задачи.
  */
 import type { Figure } from "../../types";
+import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
 import m3_3 from "./math-3/3.3";
@@ -67,6 +68,7 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   "math-3.3.10": m3_10,
   "math-3.3.11": m3_11,
   "math-3.3.12": m3_12,
+  "math-3.3.13": m3_13,
   "math-2.2.1": m2_1,
   "math-2.2.2": m2_2,
   "math-2.2.3": m2_3,
