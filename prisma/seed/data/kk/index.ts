@@ -79,6 +79,25 @@ import m1_10 from "./math-1/1.10";
 import m1_11 from "./math-1/1.11";
 import m1_12 from "./math-1/1.12";
 import m1_13 from "./math-1/1.13";
+import m3_1_1 from "./math3-1/1.1";
+import m3_1_2 from "./math3-1/1.2";
+import m3_1_3 from "./math3-1/1.3";
+import m3_1_4 from "./math3-1/1.4";
+import m3_1_5 from "./math3-1/1.5";
+import m3_1_6 from "./math3-1/1.6";
+import m3_1_7 from "./math3-1/1.7";
+import m3_1_8 from "./math3-1/1.8";
+import m3_1_9 from "./math3-1/1.9";
+import m3_1_10 from "./math3-1/1.10";
+import m3_1_11 from "./math3-1/1.11";
+import m3_1_12 from "./math3-1/1.12";
+import m3_1_13 from "./math3-1/1.13";
+import m3_2_1 from "./math3-2/2.1";
+import m3_2_2 from "./math3-2/2.2";
+import m3_2_3 from "./math3-2/2.3";
+import m3_2_4 from "./math3-2/2.4";
+import m3_2_5 from "./math3-2/2.5";
+import m3_2_6 from "./math3-2/2.6";
 
 export type KkTask = { question: string; options?: string[]; solution?: string; /** рисунок с казахскими подписями (если в нём есть текст) */ figure?: Figure | Figure[] };
 export type KkTopic = { title: string; explanation?: string; tasks?: Record<string, KkTask> };
@@ -96,6 +115,8 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "math-3": { title: "III бөлім. Ұзындық, периметр, аудан және көлем" },
   "math-2": { title: "II бөлім. Дәреже, бөлінгіштік, ЕҮОБ және ЕКОЕ" },
   "math-1": { title: "I бөлім. Бөлшектер, пайыздар және пропорциялар" },
+  "math3-1": { title: "Математика 3. 1-бөлім" },
+  "math3-2": { title: "Математика 3. 2-бөлім — Қайталауға арналған тесттер" },
 };
 
 /** "<slug раздела>.<код темы>" → перевод темы */
@@ -173,4 +194,23 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   "math-1.1.11": m1_11,
   "math-1.1.12": m1_12,
   "math-1.1.13": m1_13,
+  "math3-1.1.1": m3_1_1,
+  "math3-1.1.2": m3_1_2,
+  "math3-1.1.3": m3_1_3,
+  "math3-1.1.4": m3_1_4,
+  "math3-1.1.5": m3_1_5,
+  "math3-1.1.6": m3_1_6,
+  "math3-1.1.7": m3_1_7,
+  "math3-1.1.8": m3_1_8,
+  "math3-1.1.9": m3_1_9,
+  "math3-1.1.10": m3_1_10,
+  "math3-1.1.11": m3_1_11,
+  "math3-1.1.12": m3_1_12,
+  "math3-1.1.13": m3_1_13,
+  "math3-2.2.1": m3_2_1,
+  "math3-2.2.2": m3_2_2,
+  "math3-2.2.3": m3_2_3,
+  "math3-2.2.4": m3_2_4,
+  "math3-2.2.5": m3_2_5,
+  "math3-2.2.6": m3_2_6,
 };
