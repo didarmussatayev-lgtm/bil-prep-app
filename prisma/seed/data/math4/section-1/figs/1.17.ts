@@ -1,0 +1,4 @@
+import type { Figure } from "../../../../types";
+
+/** Сохранённые рисунки темы 1.17 (ключ: "p:<n>" — закрепление, "t:<n>" — тест). */
+export const F: Record<string, Figure | Figure[]> = {"p:Р1":{"kind":"image","src":"/figures/math4/t117_p1.jpg","alt":"Буквы M, N, U, V, X с осями симметрии (задание 1)","width":260},"p:Т13":{"kind":"image","src":"/figures/math4/t117_t13.jpg","alt":"Буквы A, D, H, T, U (тест 13)","width":240},"t:1":{"kind":"image","src":"/figures/math4/t117_t1.jpg","alt":"Четыре пары букв с осями (тест 1)","width":300},"t:13":{"kind":"image","src":"/figures/math4/t117_t13.jpg","alt":"Буквы A, D, H, T, U (тест 13)","width":240},"t:18":{"kind":"image","src":"/figures/math4/t117_t18.jpg","alt":"Слово «Мектеп» и пять вариантов отражения (тест 18)","width":300},"t:20":{"kind":"image","src":"/figures/math4/t117_t20.jpg","alt":"Лошадка и пять вариантов её отражения в зеркале (тест 20)","width":300}};
