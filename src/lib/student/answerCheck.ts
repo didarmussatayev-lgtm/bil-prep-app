@@ -41,8 +41,16 @@ export function splitItems(raw: string): string[] {
     .filter(Boolean);
 }
 
+/** Казахские названия дней недели → русские (ответы в базе хранятся по-русски; длинные названия идут раньше «сенбі»). */
+const KK_WEEKDAYS: [string, string][] = [
+  ["дүйсенбі", "понедельник"], ["сейсенбі", "вторник"], ["сәрсенбі", "среда"], ["бейсенбі", "четверг"],
+  ["жексенбі", "воскресенье"], ["жұма", "пятница"], ["жума", "пятница"], ["сенбі", "суббота"],
+];
+
 function normText(s: string): string {
-  return s.trim().toLowerCase().replace(/\s+/g, "").replace(/[·*×]/g, "*").replace(/,/g, ".").replace(/[−–—]/g, "-");
+  let r = s.toLowerCase();
+  for (const [kk, ru] of KK_WEEKDAYS) r = r.split(kk).join(ru);
+  return r.trim().replace(/\s+/g, "").replace(/[·*×]/g, "*").replace(/,/g, ".").replace(/[−–—]/g, "-");
 }
 
 /** Приводит любой из четырёх видов ответа к паре [числитель, знаменатель] неправильной дроби. */
