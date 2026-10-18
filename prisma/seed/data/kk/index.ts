@@ -98,6 +98,34 @@ import m3_2_3 from "./math3-2/2.3";
 import m3_2_4 from "./math3-2/2.4";
 import m3_2_5 from "./math3-2/2.5";
 import m3_2_6 from "./math3-2/2.6";
+import m4_1_1 from "./math4-1/1.1";
+import m4_1_2 from "./math4-1/1.2";
+import m4_1_3 from "./math4-1/1.3";
+import m4_1_4 from "./math4-1/1.4";
+import m4_1_5 from "./math4-1/1.5";
+import m4_1_6 from "./math4-1/1.6";
+import m4_1_7 from "./math4-1/1.7";
+import m4_1_8 from "./math4-1/1.8";
+import m4_1_9 from "./math4-1/1.9";
+import m4_1_10 from "./math4-1/1.10";
+import m4_1_11 from "./math4-1/1.11";
+import m4_1_12 from "./math4-1/1.12";
+import m4_1_13 from "./math4-1/1.13";
+import m4_1_14 from "./math4-1/1.14";
+import m4_1_15 from "./math4-1/1.15";
+import m4_1_16 from "./math4-1/1.16";
+import m4_1_17 from "./math4-1/1.17";
+import m4_1_18 from "./math4-1/1.18";
+import m4_1_19 from "./math4-1/1.19";
+import m4_2_1 from "./math4-2/2.1";
+import m4_2_2 from "./math4-2/2.2";
+import m4_2_3 from "./math4-2/2.3";
+import m4_2_4 from "./math4-2/2.4";
+import m4_2_5 from "./math4-2/2.5";
+import m4_2_6 from "./math4-2/2.6";
+import m4_2_7 from "./math4-2/2.7";
+import m4_2_8 from "./math4-2/2.8";
+import m4_2_9 from "./math4-2/2.9";
 
 export type KkTask = { question: string; options?: string[]; solution?: string; /** рисунок с казахскими подписями (если в нём есть текст) */ figure?: Figure | Figure[] };
 export type KkTopic = { title: string; explanation?: string; tasks?: Record<string, KkTask> };
@@ -117,6 +145,8 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "math-1": { title: "I бөлім. Бөлшектер, пайыздар және пропорциялар" },
   "math3-1": { title: "Математика 3. 1-бөлім" },
   "math3-2": { title: "Математика 3. 2-бөлім — Қайталауға арналған тесттер" },
+  "math4-1": { title: "Математика 4. 1-бөлім" },
+  "math4-2": { title: "Математика 4. 2-бөлім — Қайталау және тесттер" },
 };
 
 /** "<slug раздела>.<код темы>" → перевод темы */
@@ -213,4 +243,32 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   "math3-2.2.4": m3_2_4,
   "math3-2.2.5": m3_2_5,
   "math3-2.2.6": m3_2_6,
+  "math4-1.1.1": m4_1_1,
+  "math4-1.1.2": m4_1_2,
+  "math4-1.1.3": m4_1_3,
+  "math4-1.1.4": m4_1_4,
+  "math4-1.1.5": m4_1_5,
+  "math4-1.1.6": m4_1_6,
+  "math4-1.1.7": m4_1_7,
+  "math4-1.1.8": m4_1_8,
+  "math4-1.1.9": m4_1_9,
+  "math4-1.1.10": m4_1_10,
+  "math4-1.1.11": m4_1_11,
+  "math4-1.1.12": m4_1_12,
+  "math4-1.1.13": m4_1_13,
+  "math4-1.1.14": m4_1_14,
+  "math4-1.1.15": m4_1_15,
+  "math4-1.1.16": m4_1_16,
+  "math4-1.1.17": m4_1_17,
+  "math4-1.1.18": m4_1_18,
+  "math4-1.1.19": m4_1_19,
+  "math4-2.2.1": m4_2_1,
+  "math4-2.2.2": m4_2_2,
+  "math4-2.2.3": m4_2_3,
+  "math4-2.2.4": m4_2_4,
+  "math4-2.2.5": m4_2_5,
+  "math4-2.2.6": m4_2_6,
+  "math4-2.2.7": m4_2_7,
+  "math4-2.2.8": m4_2_8,
+  "math4-2.2.9": m4_2_9,
 };
