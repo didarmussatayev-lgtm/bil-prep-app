@@ -1,10 +1,10 @@
 import { SeedTopic } from "../../../types";
-import t1 from "./topic-1";
-import t2 from "./topic-2";
-import t3 from "./topic-3";
-import t4 from "./topic-4";
-import t5 from "./topic-5";
-import t6 from "./topic-6";
+import t1 from "./v2/topic-1";
+import t2 from "./v2/topic-2";
+import t3 from "./v2/topic-3";
+import t4 from "./v2/topic-4";
+import t5 from "./v2/topic-5";
+import t6 from "./v2/topic-6";
 
 export const LOGIC_SECTION_1 = {
   slug: "logic-1",
