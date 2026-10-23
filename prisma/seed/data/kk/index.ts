@@ -126,6 +126,32 @@ import m4_2_6 from "./math4-2/2.6";
 import m4_2_7 from "./math4-2/2.7";
 import m4_2_8 from "./math4-2/2.8";
 import m4_2_9 from "./math4-2/2.9";
+import lg1_1 from "./logic-1/1";
+import lg1_2 from "./logic-1/2";
+import lg1_3 from "./logic-1/3";
+import lg1_4 from "./logic-1/4";
+import lg1_5 from "./logic-1/5";
+import lg1_6 from "./logic-1/6";
+import lg2_7 from "./logic-2/7";
+import lg2_8 from "./logic-2/8";
+import lg2_9 from "./logic-2/9";
+import lg2_10 from "./logic-2/10";
+import lg2_11 from "./logic-2/11";
+import lg2_12 from "./logic-2/12";
+import lg2_13 from "./logic-2/13";
+import lg2_14 from "./logic-2/14";
+import lg2_15 from "./logic-2/15";
+import lg2_16 from "./logic-2/16";
+import lg2_17 from "./logic-2/17";
+import lg2_18 from "./logic-2/18";
+import lg3_19 from "./logic-3/19";
+import lg3_20 from "./logic-3/20";
+import lg3_21 from "./logic-3/21";
+import lg3_22 from "./logic-3/22";
+import lg3_23 from "./logic-3/23";
+import lg3_24 from "./logic-3/24";
+import lg3_25 from "./logic-3/25";
+import lg3_26 from "./logic-3/26";
 
 export type KkTask = { question: string; options?: string[]; solution?: string; /** рисунок с казахскими подписями (если в нём есть текст) */ figure?: Figure | Figure[] };
 export type KkTopic = { title: string; explanation?: string; tasks?: Record<string, KkTask> };
@@ -147,6 +173,9 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "math3-2": { title: "Математика 3. 2-бөлім — Қайталауға арналған тесттер" },
   "math4-1": { title: "Математика 4. 1-бөлім" },
   "math4-2": { title: "Математика 4. 2-бөлім — Қайталау және тесттер" },
+  "logic-1": { title: "Сандар, әріптер және кестелер" },
+  "logic-2": { title: "Фигуралар" },
+  "logic-3": { title: "Логикалық есептер және кодтар" },
 };
 
 /** "<slug раздела>.<код темы>" → перевод темы */
@@ -271,4 +300,30 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   "math4-2.2.7": m4_2_7,
   "math4-2.2.8": m4_2_8,
   "math4-2.2.9": m4_2_9,
+  "logic-1.1": lg1_1,
+  "logic-1.2": lg1_2,
+  "logic-1.3": lg1_3,
+  "logic-1.4": lg1_4,
+  "logic-1.5": lg1_5,
+  "logic-1.6": lg1_6,
+  "logic-2.7": lg2_7,
+  "logic-2.8": lg2_8,
+  "logic-2.9": lg2_9,
+  "logic-2.10": lg2_10,
+  "logic-2.11": lg2_11,
+  "logic-2.12": lg2_12,
+  "logic-2.13": lg2_13,
+  "logic-2.14": lg2_14,
+  "logic-2.15": lg2_15,
+  "logic-2.16": lg2_16,
+  "logic-2.17": lg2_17,
+  "logic-2.18": lg2_18,
+  "logic-3.19": lg3_19,
+  "logic-3.20": lg3_20,
+  "logic-3.21": lg3_21,
+  "logic-3.22": lg3_22,
+  "logic-3.23": lg3_23,
+  "logic-3.24": lg3_24,
+  "logic-3.25": lg3_25,
+  "logic-3.26": lg3_26,
 };

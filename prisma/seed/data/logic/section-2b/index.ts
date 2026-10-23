@@ -1,16 +1,16 @@
 import { SeedTopic } from "../../../types";
-import t7 from "./topic-7";
-import t8 from "./topic-8";
-import t9 from "./topic-9";
-import t10 from "./topic-10";
-import t11 from "./topic-11";
-import t12 from "./topic-12";
-import t13 from "./topic-13";
-import t14 from "./topic-14";
-import t15 from "./topic-15";
-import t16 from "./topic-16";
-import t17 from "./topic-17";
-import t18 from "./topic-18";
+import t7 from "./v2/topic-7";
+import t8 from "./v2/topic-8";
+import t9 from "./v2/topic-9";
+import t10 from "./v2/topic-10";
+import t11 from "./v2/topic-11";
+import t12 from "./v2/topic-12";
+import t13 from "./v2/topic-13";
+import t14 from "./v2/topic-14";
+import t15 from "./v2/topic-15";
+import t16 from "./v2/topic-16";
+import t17 from "./v2/topic-17";
+import t18 from "./v2/topic-18";
 
 export const LOGIC_SECTION_2 = {
   slug: "logic-2",
