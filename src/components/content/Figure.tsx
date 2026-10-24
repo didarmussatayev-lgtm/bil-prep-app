@@ -26,6 +26,51 @@ function FractionBar({ parts, shaded }: { parts: number; shaded: number[] }) {
   );
 }
  
+/** Прыжки по числовой прямой (kind="number_jump"): start — откуда, steps — слагаемые ±d. Дуга над осью для каждого шага,
+ *  положительные — вправо (синие), отрицательные — влево (красные). Так показывают сложение и вычитание целых чисел. */
+function NumberJump({ from, to, start, steps }: { from: number; to: number; start: number; steps: number[] }) {
+  const n = Math.max(to - from, 1);
+  const unit = Math.min(34, 330 / n);
+  const pad = 20;
+  const width = pad * 2 + n * unit;
+  const height = 120;
+  const axis = 88;
+  const X = (v: number) => pad + (v - from) * unit;
+  const fmt = (v: number) => (v < 0 ? `\u2212${Math.abs(v)}` : String(v));
+  let pos = start;
+  const arcs = steps.map((d, i) => {
+    const a = pos;
+    const b = pos + d;
+    pos = b;
+    const x1 = X(a);
+    const x2 = X(b);
+    const h = 16 + Math.min(Math.abs(d) * 3, 30) + (i % 2) * 6;
+    const col = d >= 0 ? "var(--pen, #2f5bea)" : "#d6455b";
+    const dir = x2 >= x1 ? 1 : -1;
+    return (
+      <g key={i}>
+        <path d={`M ${x1} ${axis} Q ${(x1 + x2) / 2} ${axis - h * 2} ${x2} ${axis}`} fill="none" stroke={col} strokeWidth={2} />
+        <polygon points={`${x2},${axis} ${x2 - dir * 7},${axis - 7} ${x2 - dir * 2},${axis - 8}`} fill={col} />
+        <text x={(x1 + x2) / 2} y={axis - h - 4} fontSize={12} fontWeight={700} textAnchor="middle" fill={col}>{d >= 0 ? `+${d}` : fmt(d)}</text>
+      </g>
+    );
+  });
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
+      <line x1={pad - 6} y1={axis} x2={width - pad + 6} y2={axis} stroke="var(--ink, #1b2a4a)" />
+      {Array.from({ length: n + 1 }, (_, i) => from + i).map((v) => (
+        <g key={v}>
+          <line x1={X(v)} x2={X(v)} y1={axis - 4} y2={axis + 4} stroke="var(--ink, #1b2a4a)" />
+          <text x={X(v)} y={axis + 18} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)" fontWeight={v === 0 ? 700 : 400}>{fmt(v)}</text>
+        </g>
+      ))}
+      <circle cx={X(start)} cy={axis} r={4} fill="var(--ink, #1b2a4a)" />
+      <circle cx={X(pos)} cy={axis} r={5} fill="#16a34a" stroke="#fff" strokeWidth={1.5} />
+      {arcs}
+    </svg>
+  );
+}
+
 /** «Стена дробей»: полосы одинаковой длины друг под другом, у каждой своё число долей.
  *  Сразу видно, что {1/2} = {2/4} = {3/6}, и какая из дробей больше (kind="fraction_wall"). */
 function FractionWall({ rows }: { rows: { parts: number; shaded?: number; label?: string }[] }) {
@@ -795,6 +840,9 @@ export function Figure({ spec }: { spec: FigureSpec }) {
           arrows={spec.arrows === true}
         />
       );
+      break;
+    case "number_jump":
+      content = <NumberJump from={Number(spec.from) || 0} to={Number(spec.to) || 10} start={Number(spec.start) || 0} steps={(spec.steps as number[]) ?? []} />;
       break;
     case "fraction_wall":
       content = <FractionWall rows={(spec.rows as { parts: number; shaded?: number; label?: string }[]) ?? []} />;
