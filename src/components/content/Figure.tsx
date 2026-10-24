@@ -74,6 +74,86 @@ function NumberJump({ from, to, start, steps }: { from: number; to: number; star
   );
 }
 
+/** Столбчатая диаграмма (kind="bar_chart"): labels — подписи под столбцами, values — высоты, max — верх шкалы (по умолчанию — «круглое» число выше максимума). */
+function BarChart({ labels, values, max, unit }: { labels: string[]; values: number[]; max?: number; unit?: string }) {
+  const n = Math.max(values.length, 1);
+  const top = max ?? (() => { const m = Math.max(...values, 1); const step = m <= 10 ? 2 : m <= 50 ? 10 : m <= 100 ? 20 : Math.pow(10, Math.floor(Math.log10(m))); return Math.ceil(m / step) * step; })();
+  const padL = 34, padB = 40, padT = 14;
+  const bw = Math.min(40, 260 / n);
+  const gap = bw * 0.6;
+  const W = padL + n * (bw + gap) + 8;
+  const H = 190;
+  const plotH = H - padT - padB;
+  const y = (v: number) => padT + plotH - (v / top) * plotH;
+  const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => t * top);
+  const fmt = (v: number) => String(+v.toFixed(2)).replace(".", ",");
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      {ticks.map((t, i) => (
+        <g key={i}>
+          <line x1={padL} x2={W - 4} y1={y(t)} y2={y(t)} stroke="#d5dbe8" strokeWidth={1} />
+          <text x={padL - 5} y={y(t) + 4} fontSize={10} textAnchor="end" fill="var(--ink, #1b2a4a)">{fmt(t)}</text>
+        </g>
+      ))}
+      {values.map((v, i) => {
+        const c = paletteColor(i);
+        const x = padL + gap / 2 + i * (bw + gap);
+        return (
+          <g key={i}>
+            <rect x={x} y={y(v)} width={bw} height={y(0) - y(v)} fill={c.fill} stroke={c.stroke} strokeWidth={1.5} />
+            <text x={x + bw / 2} y={y(v) - 4} fontSize={11} fontWeight={700} textAnchor="middle" fill="var(--ink, #1b2a4a)">{fmt(v)}</text>
+            <text x={x + bw / 2} y={H - padB + 15} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">{plainFrac(labels[i] ?? "")}</text>
+          </g>
+        );
+      })}
+      <line x1={padL} x2={padL} y1={padT} y2={y(0)} stroke="var(--ink, #1b2a4a)" />
+      <line x1={padL} x2={W - 4} y1={y(0)} y2={y(0)} stroke="var(--ink, #1b2a4a)" />
+      {unit && <text x={4} y={10} fontSize={10} fill="var(--ink, #1b2a4a)">{unit}</text>}
+    </svg>
+  );
+}
+
+/** Круговая диаграмма (kind="pie_chart"): сектора пропорциональны values, подписи — labels и доля в процентах. */
+function PieChart({ labels, values }: { labels: string[]; values: number[] }) {
+  const total = values.reduce((a, b) => a + b, 0) || 1;
+  const R = 70, cx = 80, cy = 80;
+  let a0 = -90;
+  const slices = values.map((v, i) => {
+    const ang = (v / total) * 360;
+    const a1 = a0 + ang;
+    const rad = (a: number) => (a * Math.PI) / 180;
+    const x0 = cx + R * Math.cos(rad(a0)), y0 = cy + R * Math.sin(rad(a0));
+    const x1 = cx + R * Math.cos(rad(a1)), y1 = cy + R * Math.sin(rad(a1));
+    const mid = rad((a0 + a1) / 2);
+    const d = values.length === 1 ? undefined : `M ${cx} ${cy} L ${x0} ${y0} A ${R} ${R} 0 ${ang > 180 ? 1 : 0} 1 ${x1} ${y1} Z`;
+    const c = paletteColor(i);
+    const pct = Math.round((v / total) * 1000) / 10;
+    const out = (
+      <g key={i}>
+        {d ? <path d={d} fill={c.fill} stroke={c.stroke} strokeWidth={1.5} /> : <circle cx={cx} cy={cy} r={R} fill={c.fill} stroke={c.stroke} strokeWidth={1.5} />}
+        {ang >= 18 && <text x={cx + R * 0.62 * Math.cos(mid)} y={cy + R * 0.62 * Math.sin(mid) + 4} fontSize={11} fontWeight={700} textAnchor="middle" fill="var(--ink, #1b2a4a)">{String(pct).replace(".", ",")}%</text>}
+      </g>
+    );
+    a0 = a1;
+    return out;
+  });
+  const legendX = cx + R + 22;
+  return (
+    <svg viewBox={`0 0 ${legendX + 120} 160`} width={legendX + 120} height={160}>
+      {slices}
+      {values.map((v, i) => {
+        const c = paletteColor(i);
+        return (
+          <g key={i}>
+            <rect x={legendX} y={14 + i * 22} width={14} height={14} fill={c.fill} stroke={c.stroke} />
+            <text x={legendX + 20} y={25 + i * 22} fontSize={12} fill="var(--ink, #1b2a4a)">{plainFrac(labels[i] ?? "")}</text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 /** «Стена дробей»: полосы одинаковой длины друг под другом, у каждой своё число долей.
  *  Сразу видно, что {1/2} = {2/4} = {3/6}, и какая из дробей больше (kind="fraction_wall"). */
 function FractionWall({ rows }: { rows: { parts: number; shaded?: number; label?: string }[] }) {
@@ -843,6 +923,12 @@ export function Figure({ spec }: { spec: FigureSpec }) {
           arrows={spec.arrows === true}
         />
       );
+      break;
+    case "bar_chart":
+      content = <BarChart labels={(spec.labels as string[]) ?? []} values={(spec.values as number[]) ?? []} max={typeof spec.max === "number" ? spec.max : undefined} unit={typeof spec.unit === "string" ? spec.unit : undefined} />;
+      break;
+    case "pie_chart":
+      content = <PieChart labels={(spec.labels as string[]) ?? []} values={(spec.values as number[]) ?? []} />;
       break;
     case "number_jump":
       content = <NumberJump from={Number(spec.from) || 0} to={Number(spec.to) || 10} start={Number(spec.start) || 0} steps={(spec.steps as number[]) ?? []} />;
