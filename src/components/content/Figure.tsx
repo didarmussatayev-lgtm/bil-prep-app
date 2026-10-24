@@ -3,6 +3,9 @@ import ui from "@/components/student/ui.module.css";
 import { renderRichInline } from "@/components/content/RichText";
 import { FigureImage } from "./FigureImage";
  
+/** В SVG-подписях дроби {a/b} и {w a/b} показываем как обычный текст «a/b» (внутри <text> вёрстку дробей не сделать). */
+const plainFrac = (s: string) => s.replace(/\{([^{}]+)\}/g, "$1");
+
 /** Прямоугольник, поделённый на равные вертикальные доли — dольные полосы (kind="fraction_bar"). */
 function FractionBar({ parts, shaded }: { parts: number; shaded: number[] }) {
   const width = 220;
@@ -217,7 +220,7 @@ function NumberLine({
             <circle cx={x(v)} cy={mid} r={4.5} fill={m.hollow ? "#fff" : c} stroke={c} strokeWidth={m.hollow ? 2 : 0} />
             {m.label && (
               <text x={x(v)} y={mid + 20} fontSize={12} fontWeight={700} textAnchor="middle" fill="var(--ink, #1b2a4a)">
-                {m.label}
+                {plainFrac(m.label)}
               </text>
             )}
           </g>
@@ -235,7 +238,7 @@ function FigureTableEl({ rows }: { rows: string[][] }) {
         {rows.map((row, i) => (
           <tr key={i}>
             {row.map((cell, j) => (
-              <td key={j}>{cell}</td>
+              <td key={j}>{renderRichInline(String(cell), `td${i}-${j}`)}</td>
             ))}
           </tr>
         ))}
@@ -770,7 +773,7 @@ function Scene({ width, height, items, scale = 26, color = 1 }: { width: number;
           return <polyline key={i} points={`${P(it.x + dx * m, it.y)} ${P(it.x + dx * m, it.y + dy * m)} ${P(it.x, it.y + dy * m)}`} fill="none" stroke={base.stroke} strokeWidth={1.6} />;
         }
         const c = it.color !== undefined ? sceneColor(it.color, color).stroke : base.stroke;
-        return <text key={i} x={padX + S(it.x)} y={padY + S(it.y)} textAnchor={it.anchor ?? "middle"} fontSize={it.size ?? 14} fontWeight={700} fill={c}>{it.s}</text>;
+        return <text key={i} x={padX + S(it.x)} y={padY + S(it.y)} textAnchor={it.anchor ?? "middle"} fontSize={it.size ?? 14} fontWeight={700} fill={c}>{plainFrac(it.s)}</text>;
       })}
     </svg>
   );
