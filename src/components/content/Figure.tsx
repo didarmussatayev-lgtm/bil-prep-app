@@ -26,6 +26,37 @@ function FractionBar({ parts, shaded }: { parts: number; shaded: number[] }) {
   );
 }
  
+/** «Стена дробей»: полосы одинаковой длины друг под другом, у каждой своё число долей.
+ *  Сразу видно, что {1/2} = {2/4} = {3/6}, и какая из дробей больше (kind="fraction_wall"). */
+function FractionWall({ rows }: { rows: { parts: number; shaded?: number; label?: string }[] }) {
+  const labelW = 46;
+  const width = 300;
+  const barW = width - labelW;
+  const rowH = 30;
+  const gap = 6;
+  const height = rows.length * (rowH + gap) - gap;
+  return (
+    <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
+      {rows.map((r, ri) => {
+        const parts = Math.max(Number(r.parts) || 1, 1);
+        const seg = barW / parts;
+        const k = r.shaded ?? 0;
+        const y = ri * (rowH + gap);
+        return (
+          <g key={ri}>
+            <text x={labelW - 8} y={y + rowH / 2 + 4} fontSize={12} textAnchor="end" fill="var(--ink, #1b2a4a)">
+              {r.label ?? (k ? `${k}/${parts}` : `1/${parts}`)}
+            </text>
+            {Array.from({ length: parts }, (_, i) => (
+              <rect key={i} x={labelW + i * seg} y={y} width={seg} height={rowH} fill={i < k ? "var(--pen, #2f5bea)" : "#fff"} stroke="var(--ink, #1b2a4a)" />
+            ))}
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
 /** Круг, поделённый на равные секторы (kind="circle"). */
 function FractionCircle({ parts, shaded }: { parts: number; shaded: number[] }) {
   const size = 96;
@@ -764,6 +795,9 @@ export function Figure({ spec }: { spec: FigureSpec }) {
           arrows={spec.arrows === true}
         />
       );
+      break;
+    case "fraction_wall":
+      content = <FractionWall rows={(spec.rows as { parts: number; shaded?: number; label?: string }[]) ?? []} />;
       break;
     case "table":
       content = <FigureTableEl rows={(spec.rows as string[][]) ?? []} />;

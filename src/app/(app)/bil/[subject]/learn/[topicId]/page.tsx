@@ -9,6 +9,8 @@ import { KkNote } from "@/components/student/KkNote";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth/guards";
 import { parseExplanation } from "@/lib/content/types";
+import { StartTestButton } from "@/components/student/StartTestButton";
+import { TEST_CONFIG } from "@/lib/student/tests";
 import { flattenTopics, getCourseTree, getSubjectBySlug } from "@/lib/student/progress";
 
 export default async function TopicLearnPage({
@@ -34,6 +36,7 @@ export default async function TopicLearnPage({
   const flat = flattenTopics(await getCourseTree(subject.id, user.id));
   const idx = flat.findIndex((t) => t.id === topic.id);
   const next = idx >= 0 ? flat[idx + 1] : undefined;
+  const testQuestions = Math.min(flat[idx]?.testTotal ?? 0, TEST_CONFIG.topic.questions);
 
   return (
     <main className={ui.container}>
@@ -56,6 +59,16 @@ export default async function TopicLearnPage({
         practiceHref={`/bil/${slug}/practice/${topic.id}`}
         nextHref={next ? `/bil/${slug}/learn/${next.id}` : null}
       />
+
+      {testQuestions > 0 && (
+        <section className={ui.testCard}>
+          <strong>{t("Тест по теме")}</strong>
+          <p className={ui.muted}>{t("Вопросов: {n}. Без таймера, разбор — после завершения.", { n: testQuestions })}</p>
+          <div className={ui.actions}>
+            <StartTestButton subject={slug} scope="topic" topicId={topic.id} label={t("Пройти тест по теме")} />
+          </div>
+        </section>
+      )}
     </main>
   );
 }

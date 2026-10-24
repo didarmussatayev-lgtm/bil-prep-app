@@ -22,6 +22,8 @@ export const text = (s: string): Ans => ({ t: "text", s });
 /** Параметры рисунков → параметрические SVG-компоненты (пункт 6). */
 export type Figure =
   | { kind: "fraction_bar"; parts: number; shaded: number[]; caption?: string }
+  /** «Стена дробей»: rows[i].shaded — сколько первых долей закрашено, label — подпись слева (по умолчанию "k/n"). */
+  | { kind: "fraction_wall"; rows: { parts: number; shaded?: number; label?: string }[]; caption?: string }
   | { kind: "circle"; parts: number; shaded: number[]; caption?: string }
   | { kind: "grid"; rows: number; cols: number; shaded: [number, number][]; caption?: string }
   /** labelTicks — подписать каждое деление; arrows — стрелки на концах; mark.hollow — пустая точка; mark.color — индекс палитры 0-5. */
