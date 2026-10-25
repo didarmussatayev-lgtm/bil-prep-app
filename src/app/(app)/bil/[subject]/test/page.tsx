@@ -7,6 +7,7 @@ import { prisma } from "@/lib/prisma";
 import { getLang, getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { formatDateTime, formatDuration } from "@/lib/student/format";
+import { accessibleTaskIds, getAccess } from "@/lib/student/access";
 import { flattenTopics, getCourseTree, getSubjectBySlug } from "@/lib/student/progress";
 import { finishAttempt, TEST_CONFIG } from "@/lib/student/tests";
 
@@ -24,15 +25,22 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
   });
   for (const a of stale) await finishAttempt(user.id, a.id);
 
-  const [tree, attempts] = await Promise.all([
+  const [tree, allAttempts, access] = await Promise.all([
     getCourseTree(subject.id, user.id),
     prisma.testAttempt.findMany({
       where: { userId: user.id, subjectId: subject.id },
       orderBy: { startedAt: "desc" },
       take: 15,
-      select: { id: true, scope: true, sectionId: true, topicId: true, startedAt: true, finishedAt: true, score: true, total: true },
+      select: { id: true, scope: true, sectionId: true, topicId: true, questionIds: true, startedAt: true, finishedAt: true, score: true, total: true },
     }),
+    getAccess(user.id),
   ]);
+  if (access.restricted && tree.length === 0) notFound();
+  // попытки по закрытым сейчас книгам в истории не показываем
+  const okTasks = access.restricted
+    ? await accessibleTaskIds(user.id, allAttempts.flatMap((a) => a.questionIds as string[]))
+    : null;
+  const attempts = okTasks ? allAttempts.filter((a) => (a.questionIds as string[]).every((id) => okTasks.has(id))) : allAttempts;
 
   const topics = flattenTopics(tree);
   const sectionTitle = new Map(tree.map((s) => [s.id, s.title]));

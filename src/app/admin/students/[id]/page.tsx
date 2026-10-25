@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { AccessEditor } from "@/components/admin/AccessEditor";
 import { useEffect, useState } from "react";
 
 type Data = {
@@ -36,6 +37,8 @@ export default function StudentPage({ params }: { params: { id: string } }) {
       <p><Link href="/admin/students">← Все ученики</Link></p>
       <h1>{data.user.login}</h1>
       <p className="muted">Изучено тем: {learnedCount} из {data.topics.length}</p>
+      <h2>Доступ к книгам</h2>
+      <AccessEditor studentId={id} />
       <h2>Темы</h2>
       <div className="scroll"><table>
         <thead><tr><th>Тема</th><th>Изучена</th><th>Закрепление</th><th>Статус</th><th>Последняя попытка</th></tr></thead>

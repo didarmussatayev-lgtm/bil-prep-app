@@ -31,3 +31,12 @@
 .adm .list button{display:block;width:100%;text-align:left;margin-bottom:4px}
 .adm .list button[aria-current=true]{border-color:var(--accent);box-shadow:inset 3px 0 var(--accent)}
 .adm label{display:block;margin:8px 0 2px;color:var(--muted);font-size:13px}
+.adm .books{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.adm .chip{display:inline-flex;align-items:center;gap:8px;margin:0;min-height:44px;padding:0 14px;border:1px solid var(--line);border-radius:22px;color:var(--ink);font-size:15px;cursor:pointer;background:var(--card)}
+.adm .chip.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.adm .chip input{width:18px;height:18px;padding:0;margin:0}
+.adm .seg{display:flex;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.adm .seg button{flex:1;border:0;border-radius:0;min-height:44px;background:var(--card)}
+.adm .seg button.on{background:var(--accent);color:#fff}
+.adm .bulk{position:sticky;bottom:0;z-index:5;margin-top:12px}
+.adm .tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;background:var(--bg);border:1px solid var(--line);color:var(--muted)}

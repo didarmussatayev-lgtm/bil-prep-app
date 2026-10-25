@@ -4,6 +4,7 @@ import { TopicToc } from "@/components/student/TopicToc";
 import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
+import { allowedLevels, getAccess } from "@/lib/student/access";
 import { getCourseTree, getSubjectBySlug } from "@/lib/student/progress";
 
 export default async function PracticeTocPage({ params }: { params: Promise<{ subject: string }> }) {
@@ -13,7 +14,8 @@ export default async function PracticeTocPage({ params }: { params: Promise<{ su
   const subject = await getSubjectBySlug(slug);
   if (!subject) notFound();
 
-  const sections = await getCourseTree(subject.id, user.id);
+  const [sections, access] = await Promise.all([getCourseTree(subject.id, user.id), getAccess(user.id)]);
+  if (access.restricted && sections.length === 0) notFound();
 
   return (
     <main className={ui.container}>
@@ -26,7 +28,7 @@ export default async function PracticeTocPage({ params }: { params: Promise<{ su
       />
       <h1 className={ui.h1}>{t("Закрепление")}</h1>
       <p className={ui.lead}>{t("Выберите тему, чтобы решать задачи по ней.")}</p>
-      <TopicToc sections={sections} subjectSlug={slug} mode="practice" basePath={`/bil/${slug}/practice`} />
+      <TopicToc sections={sections} subjectSlug={slug} allowedLevels={allowedLevels(access, subject.id)} mode="practice" basePath={`/bil/${slug}/practice`} />
     </main>
   );
 }

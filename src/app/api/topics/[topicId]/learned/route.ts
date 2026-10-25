@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sectionFilter } from "@/lib/student/access";
 import { ApiError, handleApiError, requireApiUser } from "@/lib/auth/guards";
 
 // POST /api/topics/:topicId/learned — отметить тему изученной
@@ -8,7 +9,10 @@ export async function POST(_req: Request, { params }: { params: Promise<{ topicI
     const user = await requireApiUser();
     const { topicId } = await params;
 
-    const topic = await prisma.topic.findUnique({ where: { id: topicId }, select: { id: true } });
+    const topic = await prisma.topic.findFirst({
+      where: { id: topicId, section: await sectionFilter(user.id) },
+      select: { id: true },
+    });
     if (!topic) throw new ApiError(404, "Тема не найдена");
 
     const now = new Date();

@@ -32,7 +32,10 @@ model User {
   passwordHash String   @map("password_hash")
   role         Role     @default(student)
   createdAt    DateTime @default(now()) @map("created_at")
+  // false — ученику открыт весь материал; true — только книги из bookAccess
+  restrictAccess Boolean @default(false) @map("restrict_access")
 
+  bookAccess   UserBookAccess[]
   sessions     Session[]
   progress     Progress[]
   taskResults  TaskResult[]
@@ -40,6 +43,19 @@ model User {
   helpRequests HelpRequest[]
 
   @@map("users")
+}
+
+// «Книга» = пара (предмет, Section.level): Математика 1–4 — level 1–4, Логика — level 1.
+// Хранится пара, а не список разделов, поэтому новые разделы книги открываются автоматически.
+model UserBookAccess {
+  userId    String  @map("user_id")
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subjectId String  @map("subject_id")
+  subject   Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  level     Int
+
+  @@id([userId, subjectId, level])
+  @@map("user_book_access")
 }
 
 model Session {
@@ -69,6 +85,7 @@ model Subject {
 
   sections     Section[]
   testAttempts TestAttempt[]
+  bookAccess   UserBookAccess[]
 
   i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
 
