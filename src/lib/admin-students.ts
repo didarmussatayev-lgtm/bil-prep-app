@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { SHARED_DEVICES_THRESHOLD, SHARED_KICKS_THRESHOLD } from "@/lib/auth/config";
 import { bookKey } from "@/lib/student/access";
 import { getProgressForUsers } from "@/lib/student/progress";
 
@@ -32,11 +33,14 @@ export type StudentRow = {
   restricted: boolean;
   books: string[];
   openHelp: number;
+  devices7: number; // разных устройств за 7 дней
+  kicks7: number; // входов за 7 дней, оборвавших чужую сессию
+  shared: boolean; // подозрение на общий аккаунт
 };
 
 /** Все ученики с прогрессом и активностью — фиксированное число запросов, не зависит от их количества. */
 export async function loadStudents(): Promise<StudentRow[]> {
-  const [users, helps] = await Promise.all([
+  const [users, helps, logins] = await Promise.all([
     prisma.user.findMany({
       where: { role: "student" },
       select: {
@@ -46,7 +50,14 @@ export async function loadStudents(): Promise<StudentRow[]> {
       },
     }),
     prisma.helpRequest.groupBy({ by: ["userId"], where: { status: "open" }, _count: true }),
+    prisma.loginEvent.findMany({ where: { createdAt: { gte: new Date(Date.now() - 7 * 86_400_000) } }, select: { userId: true, device: true, kicked: true } }),
   ]);
+  const devicesBy = new Map<string, Set<string>>();
+  const kicksBy = new Map<string, number>();
+  for (const l of logins) {
+    devicesBy.set(l.userId, (devicesBy.get(l.userId) ?? new Set()).add(l.device));
+    if (l.kicked > 0) kicksBy.set(l.userId, (kicksBy.get(l.userId) ?? 0) + 1);
+  }
   const ids = users.map((u) => u.id);
   const [progress, active] = await Promise.all([getProgressForUsers(ids), getLastActive(ids)]);
   const helpBy = new Map(helps.map((h) => [h.userId, h._count]));
@@ -60,6 +71,9 @@ export async function loadStudents(): Promise<StudentRow[]> {
     restricted: u.restrictAccess,
     books: u.bookAccess.map(bookKey),
     openHelp: helpBy.get(u.id) ?? 0,
+    devices7: devicesBy.get(u.id)?.size ?? 0,
+    kicks7: kicksBy.get(u.id) ?? 0,
+    shared: (devicesBy.get(u.id)?.size ?? 0) >= SHARED_DEVICES_THRESHOLD || (kicksBy.get(u.id) ?? 0) >= SHARED_KICKS_THRESHOLD,
   }));
 }
 

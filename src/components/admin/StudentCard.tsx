@@ -9,6 +9,8 @@ import { ago, call, ConfirmDialog, fmtDateTime, Pct } from "./common";
 type Topic = { id: string; title: string; learned: boolean; practiceSolved: number; practiceTotal: number; lastAttemptAt: string | null };
 type Detail = {
   user: { id: string; login: string; createdAt: string; online: boolean; lastActiveAt: string | null; restricted: boolean; books: string[] };
+  logins: { id: string; ip: string | null; device: string; kicked: boolean; createdAt: string }[];
+  sharedSignals: { devices: number; kicks: number; ips: number };
   summary: { topics: number; learned: number; tasks: number; solved: number; percent: number } | undefined;
   sections: { id: string; title: string; level: number; closed: boolean; topics: Topic[] }[];
   attempts: { id: string; scope: string; score: number; total: number; percent: number; finishedAt: string; title: string | null; weak: string[] }[];
@@ -18,7 +20,7 @@ type Detail = {
 };
 
 const TABS = [
-  ["progress", "Прогресс"], ["weak", "Слабые места"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["notes", "Заметки"], ["access", "Доступ"],
+    ["progress", "Прогресс"], ["weak", "Слабые места"], ["logins", "Входы"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["notes", "Заметки"], ["access", "Доступ"],
 ] as const;
 const SCOPE: Record<string, string> = { topic: "Тест по теме", section: "Тест по разделу", full: "Сборный тест" };
 
@@ -77,6 +79,7 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
 
       {tab === "progress" && <ProgressTab d={d} />}
       {tab === "weak" && <WeakTab id={id} />}
+      {tab === "logins" && <LoginsTab d={d} />}
       {tab === "tests" && <TestsTab d={d} />}
       {tab === "mistakes" && <MistakesTab d={d} />}
       {tab === "help" && <HelpTab d={d} reload={load} />}
@@ -302,6 +305,34 @@ function NotesTab({ id }: { id: string }) {
       {del && (
         <ConfirmDialog title="Удалить заметку?" text="Заметка пропадёт без возможности восстановить." confirmLabel="Удалить заметку" onCancel={() => setDel(null)}
           onConfirm={() => { const n = del; setDel(null); void run(() => call(`/api/admin/students/${id}/notes/${n.id}`, "DELETE")); }} />
+      )}
+    </>
+  );
+}
+
+function LoginsTab({ d }: { d: Detail }) {
+  const s = d.sharedSignals;
+  const suspect = s.devices >= 3 || s.kicks >= 4;
+  return (
+    <>
+      <div className={`card ${suspect ? "" : ""}`} style={{ marginBottom: 12, borderColor: suspect ? "var(--warn)" : undefined }}>
+        <b>{suspect ? "⚠️ Похоже, аккаунтом пользуются несколько человек" : "Признаков общего аккаунта нет"}</b>
+        <div className="meta" style={{ marginTop: 6 }}>
+          <span>за 7 дней: устройств {s.devices}</span><span>разных IP {s.ips}</span><span>перехватов сессии {s.kicks}</span>
+        </div>
+        <p className="muted" style={{ margin: "6px 0 0", fontSize: 14 }}>Одновременно в аккаунте может быть только одна сессия: новый вход выкидывает прежний. «Перехват» — вход, который прервал чужую активную сессию. Если их много и устройства разные, пароль, скорее всего, делят.</p>
+      </div>
+      {d.logins.length === 0 ? <p className="card muted">Входов ещё не было (история ведётся с момента обновления).</p> : (
+        <div className="stack">
+          {d.logins.map((l) => (
+            <div key={l.id} className="card" style={{ padding: "10px 14px" }}>
+              <div className="head" style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
+                <b>{l.device}</b><span className="muted">{fmtDateTime(l.createdAt)}</span>
+              </div>
+              <div className="meta"><span>IP {l.ip ?? "—"}</span>{l.kicked && <span className="tag warn">прервал активную сессию</span>}</div>
+            </div>
+          ))}
+        </div>
       )}
     </>
   );
