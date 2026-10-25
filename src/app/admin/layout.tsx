@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { LogoutButton } from "@/components/auth/LogoutButton";
 import { SessionWatcher } from "@/components/auth/SessionWatcher";
+import { AdminNav } from "@/components/admin/AdminNav";
 import { requireAdmin, requireSession } from "@/lib/auth/guards";
 import { prisma } from "@/lib/prisma";
 import "./admin.css";
@@ -13,14 +12,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   const openHelp = await prisma.helpRequest.count({ where: { status: "open" } });
   return (
     <div className="adm">
-      <nav>
-        <Link href="/admin/students">Ученики</Link>
-        <Link href="/admin/help">Разобрать{openHelp > 0 ? ` (${openHelp})` : ""}</Link>
-        <Link href="/admin/content">Контент</Link>
-        <Link href="/admin/stats">Статистика</Link>
-        <span className="grow" />
-        <LogoutButton />
-      </nav>
+      <AdminNav openHelp={openHelp} />
       <SessionWatcher expiresAt={expiresAt.toISOString()} />
       <main>{children}</main>
     </div>

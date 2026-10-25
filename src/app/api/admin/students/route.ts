@@ -3,31 +3,45 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin, generatePassword } from "@/lib/admin";
 import { hashPassword } from "@/lib/auth/password";
-import { getOverallProgress } from "@/lib/student/progress";
+import { isInactive, loadStudents } from "@/lib/admin-students";
 import { bookKey, parseBookKeys, setStudentAccess } from "@/lib/student/access";
 
-export async function GET() {
+// GET /api/admin/students?q=&book=&activity=all|inactive|never|online&progress=all|low|mid|high&sort=new|name|progress|activity&page=1
+// Поиск, фильтры, сортировка и пагинация — на сервере (учеников 100+).
+const PAGE_SIZE = 20;
+
+export async function GET(req: Request) {
   const g = await requireAdmin(); if (g.error) return g.error;
-  const users = await prisma.user.findMany({
-    where: { role: "student" },
-    orderBy: { createdAt: "desc" },
-    select: {
-      id: true, login: true, createdAt: true, restrictAccess: true,
-      bookAccess: { select: { subjectId: true, level: true } },
-      sessions: { where: { revoked: false, expiresAt: { gt: new Date() } }, select: { id: true } },
-    },
-  });
-  // Общий % курса — та же формула, что видит сам ученик на главной (lib/student/progress.ts).
-  const withProgress = await Promise.all(
-    users.map(async (u) => ({
-      id: u.id, login: u.login, createdAt: u.createdAt,
-      online: u.sessions.length > 0,
-      restricted: u.restrictAccess,
-      books: u.bookAccess.map(bookKey),
-      progressPct: (await getOverallProgress(u.id)).percent,
-    })),
+  const sp = new URL(req.url).searchParams;
+  const q = (sp.get("q") ?? "").trim().toLowerCase();
+  const book = sp.get("book") ?? "";
+  const activity = sp.get("activity") ?? "all";
+  const progress = sp.get("progress") ?? "all";
+  const sort = sp.get("sort") ?? "new";
+  const page = Math.max(1, Number(sp.get("page")) || 1);
+
+  let rows = await loadStudents();
+  if (q) rows = rows.filter((s) => s.login.includes(q));
+  if (book) rows = rows.filter((s) => !s.restricted || s.books.includes(book));
+  if (activity === "inactive") rows = rows.filter((s) => isInactive(s));
+  if (activity === "never") rows = rows.filter((s) => !s.lastActiveAt);
+  if (activity === "online") rows = rows.filter((s) => s.online);
+  if (progress === "low") rows = rows.filter((s) => s.progressPct < 30);
+  if (progress === "mid") rows = rows.filter((s) => s.progressPct >= 30 && s.progressPct < 70);
+  if (progress === "high") rows = rows.filter((s) => s.progressPct >= 70);
+
+  const ts = (d: Date | null) => d?.getTime() ?? 0;
+  rows.sort(
+    sort === "name" ? (a, b) => a.login.localeCompare(b.login)
+    : sort === "progress" ? (a, b) => a.progressPct - b.progressPct
+    : sort === "activity" ? (a, b) => ts(a.lastActiveAt) - ts(b.lastActiveAt)
+    : (a, b) => ts(b.createdAt) - ts(a.createdAt),
   );
-  return NextResponse.json(withProgress);
+
+  const total = rows.length;
+  const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  const cur = Math.min(page, pages);
+  return NextResponse.json({ items: rows.slice((cur - 1) * PAGE_SIZE, cur * PAGE_SIZE), total, page: cur, pages });
 }
 
 // Логины хранятся в нижнем регистре (см. step3-auth-README, п. 4) — приводим при создании.

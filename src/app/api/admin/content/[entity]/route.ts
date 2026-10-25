@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/admin";
 import { autoSlug, ENTITIES } from "@/lib/content-schemas";
+import { recalcTopicCounts } from "@/lib/student/topic-counts";
 
 type Ctx = { params: Promise<{ entity: string }> };
 const delegate = (model: string) => (prisma as any)[model];
@@ -25,5 +26,7 @@ export async function POST(req: Request, { params }: Ctx) {
   // slug обязателен в БД, а в форме админки его нет — подставляем случайный на создании.
   const data = { ...(parsed.data as Record<string, unknown>) };
   if (cfg.slugPrefix && !data.slug) data.slug = autoSlug(cfg.slugPrefix);
-  return NextResponse.json(await delegate(cfg.model).create({ data }), { status: 201 });
+  const created = await delegate(cfg.model).create({ data });
+  if ((await params).entity === "tasks") await recalcTopicCounts([created.topicId]);
+  return NextResponse.json(created, { status: 201 });
 }
