@@ -13,10 +13,15 @@ export type ChoiceOption = { key: string; text: string };
 export type ExplanationBlock =
   | { type: "heading"; text: string }
   | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] }
+  | { type: "list"; items: string[]; ordered?: boolean }
   | { type: "rule"; title?: string; text: string } // правило / определение
   | { type: "example"; title?: string; text: string; solution?: string }
-  | { type: "figure"; figure: FigureSpec; caption?: string };
+  | { type: "figure"; figure: FigureSpec; caption?: string }
+  /** Цветная врезка из `:::kind Заголовок … :::`; после строки `---`: в check — скрытый ответ, в example — решение. */
+  | { type: "callout"; kind: CalloutKind; title?: string; children: ExplanationBlock[]; answer?: ExplanationBlock[] };
+
+export type CalloutKind = "rule" | "tip" | "warn" | "remember" | "check" | "fun" | "steps" | "example";
+const CALLOUT_KINDS = new Set<string>(["rule", "tip", "warn", "remember", "check", "fun", "steps", "example"]);
 
 /** Задача в том виде, в каком её можно отдавать в браузер: БЕЗ ответа и решения. */
 export type PublicTask = {
@@ -55,33 +60,62 @@ export function parseExplanation(raw: unknown): ExplanationBlock[] {
 
   const blocks: ExplanationBlock[] = [];
   let buf: string[] = [];
+  let list: { items: string[]; ordered: boolean } | null = null;
   const flushParagraph = () => {
     const text = buf.join("\n").trim();
     if (text) blocks.push({ type: "paragraph", text });
     buf = [];
   };
+  const flushList = () => {
+    if (list) blocks.push({ type: "list", items: list.items, ordered: list.ordered });
+    list = null;
+  };
+  const flush = () => { flushParagraph(); flushList(); };
 
-  for (const rawLine of raw.split("\n")) {
+  const lines = raw.split("\n");
+  for (let i = 0; i < lines.length; i++) {
+    const rawLine = lines[i];
     const line = rawLine.trim();
+    const container = /^:::([a-z]+)(?:\s+(.*))?$/.exec(line);
     if (line.startsWith("### ")) {
-      flushParagraph();
+      flush();
       blocks.push({ type: "heading", text: line.slice(4).trim() });
     } else if (line.startsWith(":::figure")) {
       const figure = safeParseJsonObject(line.slice(":::figure".length).trim());
       if (figure && typeof figure.kind === "string") {
-        flushParagraph();
+        flush();
         const { caption, ...spec } = figure as FigureSpec & { caption?: string };
         blocks.push({ type: "figure", figure: spec as FigureSpec, caption });
       } else {
         buf.push(rawLine); // не похоже на валидный рисунок — оставляем как обычный текст
       }
-    } else if (line === "") {
+    } else if (container && CALLOUT_KINDS.has(container[1])) {
+      flush();
+      const body: string[] = [];
+      while (++i < lines.length && lines[i].trim() !== ":::") body.push(lines[i]);
+      const sep = body.findIndex((l) => l.trim() === "---");
+      const kind = container[1] as CalloutKind;
+      blocks.push({
+        type: "callout",
+        kind,
+        title: container[2]?.trim() || undefined,
+        children: parseExplanation((sep >= 0 ? body.slice(0, sep) : body).join("\n")),
+        answer: sep >= 0 ? parseExplanation(body.slice(sep + 1).join("\n")) : undefined,
+      });
+    } else if (/^[-•] /.test(line) || /^\d+[.)] /.test(line)) {
       flushParagraph();
+      const ordered = /^\d/.test(line);
+      if (list && list.ordered !== ordered) flushList();
+      list ??= { items: [], ordered };
+      list.items.push(line.replace(/^([-•]|\d+[.)]) /, ""));
+    } else if (line === "") {
+      flush();
     } else {
+      flushList();
       buf.push(rawLine);
     }
   }
-  flushParagraph();
+  flush();
   return blocks;
 }
 

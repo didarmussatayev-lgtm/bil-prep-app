@@ -11,7 +11,7 @@ const issues: { level: Level; where: string; message: string }[] = [];
 const err = (where: string, message: string) => issues.push({ level: "error", where, message });
 const warn = (where: string, message: string) => issues.push({ level: "warn", where, message });
 
-const FIGURE_KINDS = new Set(["fraction_bar", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "cubes", "scene", "image", "placeholder"]);
+const FIGURE_KINDS = new Set(["fraction_bar", "fraction_wall", "number_jump", "bar_chart", "pie_chart", "circle", "grid", "number_line", "table", "cross", "circle_numbers", "chain", "rectangle", "square", "triangle", "circle_measure", "path_shape", "box3d", "cubes", "scene", "image", "placeholder"]);
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 function checkFigure(where: string, f: Figure) {

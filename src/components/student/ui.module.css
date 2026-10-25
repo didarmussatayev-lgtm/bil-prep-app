@@ -109,6 +109,30 @@ a.topicRow:hover { background: var(--surface-2); }
 .example { margin: 18px 0; padding: 16px 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
 .exampleTitle { margin: 0 0 6px; font-weight: 650; }
 .solution { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border-strong); }
+.prose ol { margin: 0 0 14px; padding-left: 24px; }
+.prose li { margin: 0 0 6px; }
+
+/* врезки в теории: :::rule / tip / warn / remember / check / fun / steps / example */
+.callBox { --c: var(--accent); --c-soft: var(--accent-soft); margin: 18px 0; padding: 14px 18px 12px; background: var(--c-soft); border-left: 4px solid var(--c); border-radius: 4px 14px 14px 4px; }
+.callTitle { margin: 0 0 8px !important; font-weight: 700; color: var(--c); letter-spacing: -0.005em; }
+.callBody > :last-child { margin-bottom: 0; }
+.callBody p { margin: 0 0 10px; }
+.callBody figure { margin: 12px 0 !important; }
+.cRule { --c: var(--accent); --c-soft: var(--accent-soft); }
+.cTip { --c: var(--ok); --c-soft: var(--ok-soft); }
+.cWarn { --c: var(--bad); --c-soft: var(--bad-soft); }
+.cRemember { --c: var(--warn); --c-soft: var(--warn-soft); }
+.cCheck { --c: #8a4fff; --c-soft: color-mix(in srgb, #8a4fff 10%, var(--surface)); }
+.cFun { --c: #0f8f9d; --c-soft: color-mix(in srgb, #0f8f9d 11%, var(--surface)); }
+.cSteps { --c: var(--accent); --c-soft: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--c); }
+.cSteps ol { list-style: none; counter-reset: st; padding: 0; margin: 0; }
+.cSteps li { counter-increment: st; position: relative; margin: 0 0 10px; padding-left: 38px; min-height: 28px; }
+.cSteps li::before { content: counter(st); position: absolute; left: 0; top: 0; width: 26px; height: 26px; display: grid; place-items: center; font-weight: 700; font-size: 0.85rem; color: var(--on-accent); background: var(--c); border-radius: 50%; }
+.cExample { --c: var(--text); --c-soft: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); box-shadow: var(--shadow-sm); }
+.cExample .callTitle { color: var(--text); }
+.spoiler { margin-top: 8px; }
+.spoiler summary { cursor: pointer; font-weight: 600; color: var(--c); }
+.spoiler[open] summary { margin-bottom: 8px; }
 
 /* рисунки всегда на светлой подложке со светлой палитрой — они нарисованы под белый фон */
 .figure, .figureBox {
@@ -120,6 +144,8 @@ a.topicRow:hover { background: var(--surface-2); }
 .richText { white-space: pre-line; }
 
 .lessonFooter { margin-top: 36px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.testCard { margin: 0 0 24px; padding: 18px 22px; background: var(--accent-soft); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 4px var(--radius) var(--radius) 4px; }
+.testCard + .lessonFooter, .lessonFooter + .testCard { margin-top: 16px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
 
 /* ───────── задачи ───────── */
@@ -326,3 +352,7 @@ details[open] > .levelSummary::before, details[open] > .sectionSummary::before {
   .navArrow { width: 40px; height: 40px; }
   .navChip { min-width: 38px; height: 38px; }
 }
+
+.prose figure { margin: 0 0 14px; }
+.prose figure > div { margin-bottom: 4px; }
+.prose figcaption { margin: 0 0 6px; text-align: center; }

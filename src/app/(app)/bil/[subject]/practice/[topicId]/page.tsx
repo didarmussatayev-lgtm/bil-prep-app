@@ -65,6 +65,15 @@ export default async function TopicPracticePage({
       />
       <h1 className={ui.h1}>{title}</h1>
       {lang === "kk" && <KkNote />}
+      {testQuestions > 0 && (
+        <section className={ui.testCard}>
+          <strong>{t("Тест по теме")}</strong>
+          <p className={ui.muted}>{t("Вопросов: {n}. Без таймера, разбор — после завершения.", { n: testQuestions })}</p>
+          <div className={ui.actions}>
+            <StartTestButton subject={slug} scope="topic" topicId={topic.id} label={t("Пройти тест по теме")} />
+          </div>
+        </section>
+      )}
       {tasks.length === 0 ? (
         <p className={ui.callout}>{t("Задач по этой теме пока нет.")}</p>
       ) : (
@@ -75,15 +84,6 @@ export default async function TopicPracticePage({
         />
       )}
 
-      {testQuestions > 0 && (
-        <section className={ui.lessonFooter}>
-          <strong>{t("Тест по теме")}</strong>
-          <p className={ui.muted}>{t("Вопросов: {n}. Без таймера, разбор — после завершения.", { n: testQuestions })}</p>
-          <div className={ui.actions}>
-            <StartTestButton subject={slug} scope="topic" topicId={topic.id} label={t("Пройти тест по теме")} />
-          </div>
-        </section>
-      )}
     </main>
   );
 }

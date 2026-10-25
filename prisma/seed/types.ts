@@ -22,6 +22,14 @@ export const text = (s: string): Ans => ({ t: "text", s });
 /** Параметры рисунков → параметрические SVG-компоненты (пункт 6). */
 export type Figure =
   | { kind: "fraction_bar"; parts: number; shaded: number[]; caption?: string }
+  /** «Стена дробей»: rows[i].shaded — сколько первых долей закрашено, label — подпись слева (по умолчанию "k/n"). */
+  | { kind: "fraction_wall"; rows: { parts: number; shaded?: number; label?: string }[]; caption?: string }
+  /** Прыжки по числовой прямой: из start делаем шаги steps (±), дуги над осью; зелёная точка — результат. */
+  | { kind: "number_jump"; from: number; to: number; start: number; steps: number[]; caption?: string }
+  /** Столбчатая диаграмма: labels — подписи, values — высоты, max — верх шкалы, unit — подпись оси. */
+  | { kind: "bar_chart"; labels: string[]; values: number[]; max?: number; unit?: string; caption?: string }
+  /** Круговая диаграмма: сектора пропорциональны values. */
+  | { kind: "pie_chart"; labels: string[]; values: number[]; caption?: string }
   | { kind: "circle"; parts: number; shaded: number[]; caption?: string }
   | { kind: "grid"; rows: number; cols: number; shaded: [number, number][]; caption?: string }
   /** labelTicks — подписать каждое деление; arrows — стрелки на концах; mark.hollow — пустая точка; mark.color — индекс палитры 0-5. */
