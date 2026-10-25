@@ -1,4 +1,4 @@
-import { LOGIN_MAX_ATTEMPTS, LOGIN_WINDOW_MS } from "./config";
+import { LOGIN_WINDOW_MS } from "./config";
 
 // In-memory лимитер. Для одного Railway-инстанса этого достаточно;
 // счётчики сбрасываются при редеплое. Если появится несколько реплик — вынести в БД/Redis.
@@ -10,13 +10,12 @@ function sweep(now: number) {
   for (const [k, b] of buckets) if (b.resetAt <= now) buckets.delete(k);
 }
 
-export function checkLoginRate(key: string): { allowed: boolean; retryAfterSec: number } {
+/** Проверка без учёта попытки. max — потолок неудач за окно для этого ключа. */
+export function checkLoginRate(key: string, max: number): { allowed: boolean; retryAfterSec: number } {
   const now = Date.now();
   const b = buckets.get(key);
   if (!b || b.resetAt <= now) return { allowed: true, retryAfterSec: 0 };
-  if (b.count >= LOGIN_MAX_ATTEMPTS) {
-    return { allowed: false, retryAfterSec: Math.ceil((b.resetAt - now) / 1000) };
-  }
+  if (b.count >= max) return { allowed: false, retryAfterSec: Math.ceil((b.resetAt - now) / 1000) };
   return { allowed: true, retryAfterSec: 0 };
 }
 

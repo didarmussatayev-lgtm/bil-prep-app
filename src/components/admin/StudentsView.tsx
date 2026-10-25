@@ -6,7 +6,7 @@ import { ago, call, Pct } from "./common";
 
 type Student = {
   id: string; login: string; online: boolean; lastActiveAt: string | null; progressPct: number;
-  restricted: boolean; books: string[]; openHelp: number;
+  restricted: boolean; books: string[]; openHelp: number; shared: boolean; devices7: number; kicks7: number;
 };
 type Page = { items: Student[]; total: number; page: number; pages: number };
 type Creds = { login: string; password: string };
@@ -113,6 +113,7 @@ export function StudentsView({ initial }: { initial: { activity: string; progres
           <option value="online">Сейчас в сети</option>
           <option value="inactive">Не заходили 3+ дня</option>
           <option value="never">Ни разу не занимались</option>
+          <option value="shared">Подозрение на общий аккаунт</option>
         </select>
         <select value={progress} onChange={(e) => setProgress(e.target.value)} aria-label="Прогресс">
           <option value="all">Любой прогресс</option>
@@ -145,6 +146,7 @@ export function StudentsView({ initial }: { initial: { activity: string; progres
                 <span className={`dot ${s.online ? "on" : ""}`} title={s.online ? "в сети" : "не в сети"} />
                 <b>{s.login}</b>
                 {s.openHelp > 0 && <span className="tag bad">заявок: {s.openHelp}</span>}
+                {s.shared && <span className="tag warn" title={`За 7 дней: устройств ${s.devices7}, перехватов сессии ${s.kicks7}`}>общий аккаунт?</span>}
               </div>
               <Pct value={s.progressPct} />
               <div className="meta" style={{ marginTop: 6 }}>

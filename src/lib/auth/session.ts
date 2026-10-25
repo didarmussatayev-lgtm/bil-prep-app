@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { createHash, randomBytes } from "node:crypto";
 import { cache } from "react";
 import { prisma } from "@/lib/prisma";
+import { deviceLabel } from "./device";
 import {
   SESSION_COOKIE,
   SESSION_TTL_MS,
@@ -26,7 +27,7 @@ export async function createSession(
   const token = randomBytes(32).toString("base64url");
   const expiresAt = new Date(Date.now() + SESSION_TTL_MS);
 
-  await prisma.$transaction([
+  const [, kicked] = await prisma.$transaction([
     // чистим давно истёкшие сессии этого пользователя, чтобы таблица не росла
     prisma.session.deleteMany({ where: { userId, expiresAt: { lt: new Date() } } }),
     // инвалидируем все активные
@@ -44,6 +45,12 @@ export async function createSession(
       },
     }),
   ]);
+
+  // журнал входов: нужен, чтобы видеть «один пароль — много людей» (сессии сами чистятся)
+  await prisma.loginEvent.create({
+    data: { userId, ip: meta.ip ?? null, device: deviceLabel(meta.userAgent), kicked: kicked.count },
+  });
+  await prisma.loginEvent.deleteMany({ where: { userId, createdAt: { lt: new Date(Date.now() - 60 * 86_400_000) } } });
 
   (await cookies()).set(SESSION_COOKIE, token, {
     httpOnly: true,
@@ -107,6 +114,16 @@ export async function revokeUserSessions(
   const { count } = await prisma.session.updateMany({
     where: { userId, revoked: false },
     data: { revoked: true, revokedReason: reason },
+  });
+  return count;
+}
+
+/** Завершает все сессии пользователя, КРОМЕ текущей (смена пароля самим пользователем). */
+export async function revokeOtherSessions(userId: string): Promise<number> {
+  const token = (await cookies()).get(SESSION_COOKIE)?.value;
+  const { count } = await prisma.session.updateMany({
+    where: { userId, revoked: false, ...(token ? { tokenHash: { not: hashToken(token) } } : {}) },
+    data: { revoked: true, revokedReason: "password_reset" satisfies SessionEndReason },
   });
   return count;
 }
