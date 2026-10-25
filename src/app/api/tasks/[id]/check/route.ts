@@ -16,7 +16,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const { id } = await params;
 
     const task = await prisma.task.findFirst({
-      where: { id, topic: { section: await sectionFilter(user.id) } },
+      where: { id, hidden: false, topic: { hidden: false, section: await sectionFilter(user.id) } },
       select: { id: true, topicId: true, type: true, answerType: true, correctAnswerJson: true, allowUnreduced: true },
     });
     if (!task || task.type !== "open" || !task.answerType) {

@@ -62,7 +62,7 @@ export async function startAttempt(
 
   if (input.scope === "topic") {
     const topic = await prisma.topic.findFirst({
-      where: { id: input.topicId ?? "", section: { subjectId: subject.id, ...access } },
+      where: { id: input.topicId ?? "", hidden: false, section: { subjectId: subject.id, ...access } },
       select: { id: true },
     });
     if (!topic) throw new ApiError(404, "Тема не найдена");
@@ -71,7 +71,7 @@ export async function startAttempt(
   } else if (input.scope === "section") {
     const section = await prisma.section.findFirst({
       where: { id: input.sectionId ?? "", subjectId: subject.id, ...access },
-      select: { id: true, topics: { select: { id: true } } },
+      select: { id: true, topics: { where: { hidden: false }, select: { id: true } } },
     });
     if (!section) throw new ApiError(404, "Раздел не найден");
     sectionId = section.id;
@@ -79,7 +79,7 @@ export async function startAttempt(
   } else {
     // сборный тест — только из тем, которые ученик уже прошёл
     const learned = await prisma.progress.findMany({
-      where: { userId, learnedAt: { not: null }, topic: { section: { subjectId: subject.id, ...access } } },
+      where: { userId, learnedAt: { not: null }, topic: { hidden: false, section: { subjectId: subject.id, ...access } } },
       select: { topicId: true },
     });
     if (learned.length === 0) {
@@ -90,7 +90,7 @@ export async function startAttempt(
 
   // Вопросы с ещё не готовым рисунком (kind="placeholder") в тест не попадают.
   const poolRows = await prisma.task.findMany({
-    where: { topicId: { in: topicIds }, type: "test_choice" },
+    where: { topicId: { in: topicIds }, type: "test_choice", hidden: false },
     select: { id: true, topicId: true, imageParamsJson: true },
   });
   const pool = poolRows.filter((t) => !hasPendingFigure(parseFigures(t.imageParamsJson)));

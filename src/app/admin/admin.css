@@ -94,3 +94,38 @@
 @media (max-width:800px){.adm .cols{grid-template-columns:1fr}}
 .adm .list button{display:block;width:100%;text-align:left;margin-bottom:4px}
 .adm .list button[aria-current=true]{border-color:var(--accent);box-shadow:inset 3px 0 var(--accent)}
+
+/* редактор контента */
+.adm .ce{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+.adm .ce-main,.adm .ce-tree{min-width:0}
+.adm .savebar{position:sticky;bottom:calc(var(--nav-h) + 8px);background:var(--bg);padding:8px 0}
+@media (min-width:720px){.adm .savebar{bottom:0}}
+.adm .ce.has-topic .ce-tree{display:none}
+.adm .ce:not(.has-topic) .ce-main{display:none}
+@media (min-width:1000px){
+  .adm .ce{grid-template-columns:340px minmax(0,1fr);align-items:start}
+  .adm .ce.has-topic .ce-tree,.adm .ce:not(.has-topic) .ce-main{display:block}
+  .adm .ce-tree{position:sticky;top:76px;max-height:calc(100vh - 96px);overflow:auto}
+}
+.adm .ce-tree .card{margin-bottom:10px}
+.adm .ce-sec{margin:6px 0;border-top:1px solid var(--line);padding-top:4px}
+.adm .ce-sec>summary{display:flex;gap:8px;cursor:pointer;min-height:40px;align-items:center}
+.adm .ce-topic{display:flex;gap:6px;align-items:stretch;margin:4px 0}
+.adm .ce-topic .ce-pick{flex:1;min-width:0;text-align:left;display:block;border-radius:10px}
+.adm .ce-topic.on .ce-pick{border-color:var(--accent);box-shadow:inset 3px 0 var(--accent)}
+.adm .ce-topic .meta{margin-top:2px;font-size:12px}
+.adm .ce-move{display:flex;flex-direction:column;gap:4px}
+.adm .ce-move button{min-height:20px;padding:0 10px}
+.adm .preview{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-height:200px}
+.adm .snippets{display:flex;gap:6px;overflow-x:auto;margin:0 0 8px;padding-bottom:4px;scrollbar-width:none}
+.adm .snippets button{flex:none}
+.adm .switch{display:inline-flex;align-items:center;gap:8px;margin:0;color:var(--ink);font-size:15px;cursor:pointer;min-height:44px}
+/* таблица задач: на телефоне превращается в карточки */
+.adm table.rt{border:0;background:transparent}
+@media (max-width:719px){
+  .adm table.rt thead{display:none}
+  .adm table.rt,.adm table.rt tbody,.adm table.rt tr,.adm table.rt td{display:block;width:100%}
+  .adm table.rt tr{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;margin-bottom:10px}
+  .adm table.rt td{border:0;padding:3px 0}
+  .adm table.rt td[data-label]::before{content:attr(data-label) ": ";color:var(--muted);font-size:13px}
+}
