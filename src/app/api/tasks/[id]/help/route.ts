@@ -13,7 +13,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const user = await requireApiUser();
     const { id } = await params;
     const task = await prisma.task.findFirst({
-      where: { id, topic: { section: await sectionFilter(user.id) } },
+      where: { id, hidden: false, topic: { hidden: false, section: await sectionFilter(user.id) } },
       select: { id: true },
     });
     if (!task) return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });

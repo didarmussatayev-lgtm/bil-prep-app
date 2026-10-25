@@ -26,7 +26,7 @@ export default async function TopicPracticePage({
   if (!subject) notFound();
 
   const topic = await prisma.topic.findFirst({
-    where: { id: topicId, section: { subjectId: subject.id, ...(await sectionFilter(user.id)) } },
+    where: { id: topicId, hidden: false, section: { subjectId: subject.id, ...(await sectionFilter(user.id)) } },
     select: { id: true, title: true, i18n: true },
   });
   if (!topic) notFound();
@@ -34,7 +34,7 @@ export default async function TopicPracticePage({
   // Только поля БЕЗ ответа и решения — правильные ответы в браузер не уходят.
   // Задачи, для которых рисунок ещё не сделан (kind="placeholder"), скрываем от учеников.
   const allTasks = await prisma.task.findMany({
-    where: { topicId: topic.id, type: "open" },
+    where: { topicId: topic.id, type: "open", hidden: false },
     orderBy: { order: "asc" },
     select: { id: true, topicId: true, type: true, question: true, options: true, answerType: true, imageParamsJson: true, i18n: true },
   });

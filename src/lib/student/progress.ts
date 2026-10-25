@@ -58,7 +58,7 @@ export async function getCourseTree(subjectId: string, userId: string): Promise<
       title: true,
       level: true,
       i18n: true,
-      topics: { orderBy: { order: "asc" }, select: { id: true, title: true, i18n: true, practiceCount: true, testCount: true } },
+      topics: { where: { hidden: false }, orderBy: { order: "asc" }, select: { id: true, title: true, i18n: true, practiceCount: true, testCount: true } },
     },
   });
 
@@ -123,6 +123,7 @@ export async function getProgressForUsers(userIds: string[]): Promise<Map<string
   await ensureTopicCounts();
   const [topics, users, learnedRows, solvedRows] = await Promise.all([
     prisma.topic.findMany({
+      where: { hidden: false },
       select: { id: true, practiceCount: true, section: { select: { subjectId: true, level: true } } },
     }),
     prisma.user.findMany({

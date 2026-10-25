@@ -8,7 +8,7 @@ import { hasPendingFigure, parseFigures } from "@/lib/content/types";
  */
 export async function recalcTopicCounts(topicIds?: string[]) {
   const tasks = await prisma.task.findMany({
-    where: topicIds ? { topicId: { in: topicIds } } : {},
+    where: { hidden: false, ...(topicIds ? { topicId: { in: topicIds } } : {}) },
     select: { topicId: true, type: true, imageParamsJson: true },
   });
   const counts = new Map<string, { p: number; t: number }>();

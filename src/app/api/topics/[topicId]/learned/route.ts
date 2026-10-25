@@ -10,7 +10,7 @@ export async function POST(_req: Request, { params }: { params: Promise<{ topicI
     const { topicId } = await params;
 
     const topic = await prisma.topic.findFirst({
-      where: { id: topicId, section: await sectionFilter(user.id) },
+      where: { id: topicId, hidden: false, section: await sectionFilter(user.id) },
       select: { id: true },
     });
     if (!topic) throw new ApiError(404, "Тема не найдена");

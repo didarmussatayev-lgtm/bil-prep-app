@@ -28,7 +28,7 @@ export default async function TopicLearnPage({
 
   // тема должна принадлежать именно этому предмету
   const topic = await prisma.topic.findFirst({
-    where: { id: topicId, section: { subjectId: subject.id, ...(await sectionFilter(user.id)) } },
+    where: { id: topicId, hidden: false, section: { subjectId: subject.id, ...(await sectionFilter(user.id)) } },
     select: { id: true, title: true, explanationContent: true, i18n: true },
   });
   if (!topic) notFound();

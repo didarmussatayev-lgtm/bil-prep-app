@@ -118,6 +118,7 @@ model Topic {
   // ExplanationBlock[] (см. src/lib/content/types.ts) ИЛИ строка Markdown
   // (заголовки ###, **жирный**, :::figure {json}) — обе формы разбирает parseExplanation().
   explanationContent Json?  @map("explanation_content")
+  hidden             Boolean @default(false) // скрыта от учеников (быстрое «скрыть» в админке)
   // Кэш числа видимых ученику задач (без «ждущих рисунка»): open → practiceCount, test_choice → testCount.
   // null = ещё не посчитано; пересчёт — lib/student/topic-counts.ts (seed и правки контента в админке).
   practiceCount      Int?   @map("practice_count")
@@ -144,6 +145,7 @@ model Task {
   id      String   @id @default(cuid())
   topicId String   @map("topic_id")
   type    TaskType
+  hidden  Boolean  @default(false) // скрыта от учеников: не в закреплении, не в тестах
   slug    String?  @unique // "math-1.1.1:p:1a" / "math-1.1.1:t:3" — у задач из админки может быть null
   number  String? // номер как в книге: "1a", "7"
   order   Int      @default(0)
