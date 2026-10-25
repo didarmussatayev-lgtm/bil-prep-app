@@ -1,6 +1,7 @@
 import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sectionFilter } from "@/lib/student/access";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
 import { checkAnswer, isWellFormedAnswer, type AnswerType } from "@/lib/student/answerCheck";
 
@@ -14,8 +15,8 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const user = await requireApiUser();
     const { id } = await params;
 
-    const task = await prisma.task.findUnique({
-      where: { id },
+    const task = await prisma.task.findFirst({
+      where: { id, topic: { section: await sectionFilter(user.id) } },
       select: { id: true, topicId: true, type: true, answerType: true, correctAnswerJson: true, allowUnreduced: true },
     });
     if (!task || task.type !== "open" || !task.answerType) {

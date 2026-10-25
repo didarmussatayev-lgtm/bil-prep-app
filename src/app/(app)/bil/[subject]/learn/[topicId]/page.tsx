@@ -7,6 +7,7 @@ import { getLang, getT } from "@/lib/i18n/server";
 import { pick } from "@/lib/i18n/content";
 import { KkNote } from "@/components/student/KkNote";
 import { prisma } from "@/lib/prisma";
+import { sectionFilter } from "@/lib/student/access";
 import { requireUser } from "@/lib/auth/guards";
 import { parseExplanation } from "@/lib/content/types";
 import { StartTestButton } from "@/components/student/StartTestButton";
@@ -27,7 +28,7 @@ export default async function TopicLearnPage({
 
   // тема должна принадлежать именно этому предмету
   const topic = await prisma.topic.findFirst({
-    where: { id: topicId, section: { subjectId: subject.id } },
+    where: { id: topicId, section: { subjectId: subject.id, ...(await sectionFilter(user.id)) } },
     select: { id: true, title: true, explanationContent: true, i18n: true },
   });
   if (!topic) notFound();

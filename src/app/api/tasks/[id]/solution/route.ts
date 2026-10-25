@@ -2,16 +2,17 @@ import { NextResponse } from "next/server";
 import { getLang, getT } from "@/lib/i18n/server";
 import { pick } from "@/lib/i18n/content";
 import { prisma } from "@/lib/prisma";
+import { sectionFilter } from "@/lib/student/access";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
 import { formatAnswer, type AnswerType } from "@/lib/student/answerCheck";
 
 /** «Показать решение» — отдаёт разбор и эталонный ответ по запросу (не вместе с условием задачи). */
 export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    await requireApiUser();
+    const user = await requireApiUser();
     const { id } = await params;
-    const task = await prisma.task.findUnique({
-      where: { id },
+    const task = await prisma.task.findFirst({
+      where: { id, topic: { section: await sectionFilter(user.id) } },
       select: { type: true, i18n: true, solutionText: true, correctOption: true, answerType: true, correctAnswerJson: true },
     });
     if (!task) return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });

@@ -2,6 +2,7 @@ import "server-only";
 import { prisma } from "@/lib/prisma";
 import { getLang } from "@/lib/i18n/server";
 import { pick } from "@/lib/i18n/content";
+import { sectionFilter } from "@/lib/student/access";
 import { hasPendingFigure, parseFigures } from "@/lib/content/types";
 
 export type TopicRow = {
@@ -47,9 +48,9 @@ export async function listSubjects() {
 
 /** Оглавление предмета (разделы → темы) с прогрессом конкретного ученика. */
 export async function getCourseTree(subjectId: string, userId: string): Promise<SectionRow[]> {
-  const lang = await getLang();
+  const [lang, access] = await Promise.all([getLang(), sectionFilter(userId)]);
   const sections = await prisma.section.findMany({
-    where: { subjectId },
+    where: { subjectId, ...access },
     orderBy: { order: "asc" },
     select: {
       id: true,

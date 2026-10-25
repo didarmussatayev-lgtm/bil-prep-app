@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
+import { allowedLevels, getAccess } from "@/lib/student/access";
 import { getCourseTree, getSubjectBySlug, summarize } from "@/lib/student/progress";
 
 export default async function SubjectHubPage({ params }: { params: Promise<{ subject: string }> }) {
@@ -13,7 +14,9 @@ export default async function SubjectHubPage({ params }: { params: Promise<{ sub
   const subject = await getSubjectBySlug(slug);
   if (!subject) notFound();
 
-  const sum = summarize(await getCourseTree(subject.id, user.id));
+  const [tree, access] = await Promise.all([getCourseTree(subject.id, user.id), getAccess(user.id)]);
+  if (access.restricted && tree.length === 0) notFound(); // книги предмета ученику не открыты
+  const sum = summarize(tree);
   const base = `/bil/${slug}`;
 
   return (

@@ -3,12 +3,13 @@ import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
+import { getAccess } from "@/lib/student/access";
 import { getCourseTree, listSubjects, summarize } from "@/lib/student/progress";
 
 export default async function SubjectsPage() {
   const user = await requireUser();
   const t = await getT();
-  const subjects = await listSubjects();
+  const [subjects, access] = await Promise.all([listSubjects(), getAccess(user.id)]);
   const items = await Promise.all(
     subjects.map(async (s) => ({ s, sum: summarize(await getCourseTree(s.id, user.id)) })),
   );
@@ -30,7 +31,7 @@ export default async function SubjectsPage() {
           ) : (
             <div key={s.id} className={`${ui.tile} ${ui.tileDisabled}`}>
               <h2 className={ui.tileTitle}>{s.name}</h2>
-              <p className={ui.tileText}>{t("Материалы появятся позже")}</p>
+              <p className={ui.tileText}>{access.restricted ? t("Доступ не открыт") : t("Материалы появятся позже")}</p>
             </div>
           ),
         )}

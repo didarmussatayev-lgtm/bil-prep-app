@@ -78,14 +78,18 @@ export async function TopicToc({
   mode,
   basePath,
   subjectSlug,
+  allowedLevels,
 }: {
   sections: SectionRow[];
   mode: Mode;
   basePath: string; // ссылка на тему = `${basePath}/${topic.id}`
   subjectSlug?: string;
+  allowedLevels?: number[]; // у ученика с ограниченным доступом — только открытые книги (уровни)
 }) {
   const t = await getT();
-  const levels = subjectSlug ? SUBJECT_LEVELS[subjectSlug] : undefined;
+  const levels = (subjectSlug ? SUBJECT_LEVELS[subjectSlug] : undefined)?.filter(
+    (l) => !allowedLevels || allowedLevels.includes(l.level),
+  );
 
   if (!levels) {
     if (sections.length === 0) return <p className={ui.callout}>{t("Материалы по этому предмету пока не добавлены.")}</p>;

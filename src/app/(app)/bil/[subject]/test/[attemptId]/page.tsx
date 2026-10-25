@@ -7,6 +7,7 @@ import { getLang, getT } from "@/lib/i18n/server";
 import { prisma } from "@/lib/prisma";
 import { requireUser } from "@/lib/auth/guards";
 import { toPublicTask } from "@/lib/content/types";
+import { accessibleTaskIds, getAccess } from "@/lib/student/access";
 import { getSubjectBySlug } from "@/lib/student/progress";
 import { finishAttempt } from "@/lib/student/tests";
 
@@ -26,6 +27,11 @@ export default async function AttemptPage({
     where: { id: attemptId, userId: user.id, subjectId: subject.id },
   });
   if (!attempt) notFound();
+  if ((await getAccess(user.id)).restricted) {
+    const ids = attempt.questionIds as string[];
+    const ok = await accessibleTaskIds(user.id, ids);
+    if (!ids.every((id) => ok.has(id))) notFound(); // книга закрыта после начала теста
+  }
 
   // таймер истёк, а тест не завершён — закрываем и считаем
   if (!attempt.finishedAt && attempt.deadlineAt && attempt.deadlineAt.getTime() <= Date.now()) {
