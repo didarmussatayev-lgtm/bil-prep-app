@@ -17,11 +17,28 @@ export async function GET(req: Request) {
       user: { select: { id: true, login: true } },
       task: {
         select: {
-          id: true, number: true, question: true, answerType: true, correctAnswerJson: true,
-          topic: { select: { title: true, section: { select: { title: true, level: true } } } },
+          id: true, number: true, question: true, answerType: true, correctAnswerJson: true, type: true, options: true, correctOption: true, solutionText: true, imageParamsJson: true,
+          topic: { select: { id: true, title: true, section: { select: { title: true, level: true, subjectId: true } } } },
         },
       },
     },
   });
   return NextResponse.json(rows);
+}
+
+/** Разбор пачкой: PATCH { ids: string[], status: "open" | "resolved" } */
+export async function PATCH(req: Request) {
+  const g = await requireAdmin();
+  if (g.error) return g.error;
+  const body = await req.json().catch(() => null);
+  const ids: string[] = Array.isArray(body?.ids) ? body.ids.filter((x: unknown) => typeof x === "string").slice(0, 500) : [];
+  if (!ids.length || (body?.status !== "open" && body?.status !== "resolved")) {
+    return NextResponse.json({ error: "Нужны ids и status (open | resolved)" }, { status: 400 });
+  }
+  const open = body.status === "open";
+  const res = await prisma.helpRequest.updateMany({
+    where: { id: { in: ids } },
+    data: { status: body.status, autoResolved: false, resolvedAt: open ? null : new Date() },
+  });
+  return NextResponse.json({ updated: res.count });
 }

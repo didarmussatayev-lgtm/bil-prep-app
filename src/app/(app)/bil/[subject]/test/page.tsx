@@ -8,6 +8,7 @@ import { getLang, getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { formatDateTime, formatDuration } from "@/lib/student/format";
 import { accessibleTaskIds, getAccess } from "@/lib/student/access";
+import { WeakPlaces } from "@/components/student/WeakPlaces";
 import { flattenTopics, getCourseTree, getSubjectBySlug } from "@/lib/student/progress";
 import { finishAttempt, TEST_CONFIG } from "@/lib/student/tests";
 
@@ -71,6 +72,8 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
       />
       <h1 className={ui.h1}>{t("Пробное тестирование")}</h1>
       <p className={ui.lead}>{t("Каждый раз вопросы подбираются случайно. Разбор ответов доступен после завершения.")}</p>
+
+      <WeakPlaces userId={user.id} subjectSlug={slug} />
 
       {open.length > 0 && (
         <section className={ui.callout}>
