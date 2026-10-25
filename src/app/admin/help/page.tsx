@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 type Row = {
   id: string;
   note: string | null;
+  source: "practice" | "test";
   status: "open" | "resolved";
   autoResolved: boolean;
   createdAt: string;
@@ -86,7 +87,7 @@ export default function HelpPage() {
             <tr key={r.id}>
               <td><Link href={`/admin/students/${r.user.id}`}>{r.user.login}</Link></td>
               <td>
-                <div className="muted">{r.task.topic.section.title} · {r.task.topic.title}</div>
+                <div className="muted"><span className="tag">{r.source === "test" ? "Тест" : "Закрепление"}</span> {r.task.topic.section.title} · {r.task.topic.title}</div>
                 <div>{r.task.number ? <b>№{r.task.number}. </b> : null}{plain(r.task.question).slice(0, 220)}</div>
               </td>
               <td>{r.note ?? <span className="muted">—</span>}</td>

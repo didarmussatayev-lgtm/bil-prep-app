@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { HelpFlag } from "@/components/tasks/HelpFlag";
 import { TaskContent } from "@/components/tasks/TaskContent";
 import { RichText } from "@/components/content/RichText";
 import type { PublicTask } from "@/lib/content/types";
@@ -20,12 +21,14 @@ export function TestRunner({
   attemptId,
   questions,
   initialAnswers,
+  flaggedIds = [],
   deadlineAt,
   serverNow,
 }: {
   attemptId: string;
   questions: PublicTask[];
   initialAnswers: Record<string, string>;
+  flaggedIds?: string[]; // вопросы, уже отмеченные «Не смог решить»
   deadlineAt: string | null;
   serverNow: string;
 }) {
@@ -146,6 +149,7 @@ export function TestRunner({
               </label>
             ))}
           </div>
+          <HelpFlag taskId={q.id} from={{ source: "test", attemptId }} initiallyFlagged={flaggedIds.includes(q.id)} />
         </fieldset>
       ))}
     </div>

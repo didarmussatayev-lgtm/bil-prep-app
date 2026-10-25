@@ -13,7 +13,7 @@ export async function GET(req: Request) {
     orderBy: [{ createdAt: "desc" }],
     take: 500,
     select: {
-      id: true, note: true, status: true, autoResolved: true, createdAt: true, resolvedAt: true,
+      id: true, note: true, source: true, attemptId: true, status: true, autoResolved: true, createdAt: true, resolvedAt: true,
       user: { select: { id: true, login: true } },
       task: {
         select: {

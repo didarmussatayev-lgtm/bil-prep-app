@@ -210,6 +210,11 @@ enum HelpStatus {
   resolved // разобрано (админом или ученик потом решил сам)
 }
 
+enum HelpSource {
+  practice // закрепление темы
+  test // пробный тест (вопрос во время теста или на экране разбора)
+}
+
 // Заявка «Не смог решить»: одна на пару ученик+задача (повторная отметка снова открывает её)
 model HelpRequest {
   id           String     @id @default(cuid())
@@ -217,6 +222,8 @@ model HelpRequest {
   user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   taskId       String     @map("task_id")
   task         Task       @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  source       HelpSource @default(practice)
+  attemptId    String?    @map("attempt_id") // для source=test: попытка теста
   note         String?    @db.Text // что не получилось (необязательно)
   status       HelpStatus @default(open)
   autoResolved Boolean    @default(false) @map("auto_resolved") // закрыта, потому что ученик сам потом решил верно
