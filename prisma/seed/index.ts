@@ -5,6 +5,7 @@
  *
  * Запуск: npx prisma db seed   (см. "prisma.seed" в package.json)
  */
+import { recalcTopicCounts } from "../../src/lib/student/topic-counts";
 import { spawnSync } from "node:child_process";
 import { Prisma, PrismaClient } from "@prisma/client";
 import { ENTITIES } from "../../src/lib/content-schemas";
@@ -163,4 +164,4 @@ async function main() {
   if (pending.length) console.log(`\nЕщё не загружено (${pending.length}):\n` + pending.map((r) => " - " + r).join("\n"));
 }
 
-main().catch((e) => { console.error(e); process.exit(1); }).finally(() => prisma.$disconnect());
+main().then(() => recalcTopicCounts()).catch((e) => { console.error(e); process.exit(1); }).finally(() => prisma.$disconnect());

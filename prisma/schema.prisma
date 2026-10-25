@@ -118,6 +118,10 @@ model Topic {
   // ExplanationBlock[] (см. src/lib/content/types.ts) ИЛИ строка Markdown
   // (заголовки ###, **жирный**, :::figure {json}) — обе формы разбирает parseExplanation().
   explanationContent Json?  @map("explanation_content")
+  // Кэш числа видимых ученику задач (без «ждущих рисунка»): open → practiceCount, test_choice → testCount.
+  // null = ещё не посчитано; пересчёт — lib/student/topic-counts.ts (seed и правки контента в админке).
+  practiceCount      Int?   @map("practice_count")
+  testCount          Int?   @map("test_count")
 
   section  Section    @relation(fields: [sectionId], references: [id], onDelete: Cascade)
   tasks    Task[]
