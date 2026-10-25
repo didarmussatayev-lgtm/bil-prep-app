@@ -3,6 +3,7 @@ import { ProgressBar } from "@/components/student/ProgressBar";
 import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
+import { WeakPlaces } from "@/components/student/WeakPlaces";
 import { getOverallProgress } from "@/lib/student/progress";
 
 export default async function HomePage() {
@@ -28,6 +29,8 @@ export default async function HomePage() {
           </p>
         </section>
       )}
+
+      <WeakPlaces userId={user.id} />
 
       <Link href="/bil" className={ui.btnLarge}>{t("Подготовка в БИЛ")}</Link>
     </main>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { AccessEditor } from "./AccessEditor";
+import { WeakList } from "./Reports";
 import { ago, call, ConfirmDialog, fmtDateTime, Pct } from "./common";
 
 type Topic = { id: string; title: string; learned: boolean; practiceSolved: number; practiceTotal: number; lastAttemptAt: string | null };
@@ -17,7 +18,7 @@ type Detail = {
 };
 
 const TABS = [
-  ["progress", "Прогресс"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["access", "Доступ"],
+  ["progress", "Прогресс"], ["weak", "Слабые места"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["access", "Доступ"],
 ] as const;
 const SCOPE: Record<string, string> = { topic: "Тест по теме", section: "Тест по разделу", full: "Сборный тест" };
 
@@ -63,6 +64,7 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
       </div>
 
       {tab === "progress" && <ProgressTab d={d} />}
+      {tab === "weak" && <WeakTab id={id} />}
       {tab === "tests" && <TestsTab d={d} />}
       {tab === "mistakes" && <MistakesTab d={d} />}
       {tab === "help" && <HelpTab d={d} reload={load} />}
@@ -225,6 +227,18 @@ function Account({ d, onDeleted, reload }: { d: Detail; onDeleted: () => void; r
           onCancel={() => setConfirm(null)}
           onConfirm={() => { setConfirm(null); void run(async () => { await call(`/api/admin/students/${d.user.id}`, "DELETE"); onDeleted(); }); }} />
       )}
+    </>
+  );
+}
+
+function WeakTab({ id }: { id: string }) {
+  const [rows, setRows] = useState<Parameters<typeof WeakList>[0]["rows"] | null>(null);
+  useEffect(() => { call(`/api/admin/reports?type=weak&userId=${id}`).then(setRows).catch(() => setRows([])); }, [id]);
+  if (!rows) return <p className="muted">Считаем…</p>;
+  return (
+    <>
+      <p className="muted" style={{ marginTop: 0 }}>Темы, где верных ответов меньше 60% (тесты и закрепление вместе).</p>
+      <WeakList rows={rows} perStudent />
     </>
   );
 }
