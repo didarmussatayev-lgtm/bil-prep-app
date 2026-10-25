@@ -2,6 +2,7 @@ import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sectionFilter } from "@/lib/student/access";
+import { queueHelpNotification } from "@/lib/telegram";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
 
 /**
@@ -14,7 +15,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const { id } = await params;
     const task = await prisma.task.findFirst({
       where: { id, hidden: false, topic: { hidden: false, section: await sectionFilter(user.id) } },
-      select: { id: true },
+      select: { id: true, number: true, question: true, topic: { select: { title: true } } },
     });
     if (!task) return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });
 
@@ -35,11 +36,21 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       attemptId = attempt.id;
     }
 
+    const before = await prisma.helpRequest.findUnique({ where: { userId_taskId: { userId: user.id, taskId: task.id } }, select: { status: true } });
     await prisma.helpRequest.upsert({
       where: { userId_taskId: { userId: user.id, taskId: task.id } },
       update: { status: "open", note: note || null, source, attemptId, autoResolved: false, resolvedAt: null, createdAt: new Date() },
       create: { userId: user.id, taskId: task.id, note: note || null, source, attemptId },
     });
+    // уведомление админу в Telegram — только о новой или заново открытой заявке (правка заметки не в счёт)
+    if (before?.status !== "open") {
+      queueHelpNotification(
+        user.id,
+        user.login,
+        { topic: task.topic.title, number: task.number, question: task.question, source, note: note || null },
+        () => prisma.helpRequest.count({ where: { status: "open" } }),
+      );
+    }
     return NextResponse.json({ ok: true });
   } catch (e) {
     return handleApiError(e);
