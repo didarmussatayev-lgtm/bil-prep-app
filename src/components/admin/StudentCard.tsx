@@ -20,7 +20,7 @@ type Detail = {
 };
 
 const TABS = [
-  ["progress", "Прогресс"], ["weak", "Слабые места"], ["logins", "Входы"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["access", "Доступ"],
+    ["progress", "Прогресс"], ["weak", "Слабые места"], ["logins", "Входы"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["notes", "Заметки"], ["access", "Доступ"],
 ] as const;
 const SCOPE: Record<string, string> = { topic: "Тест по теме", section: "Тест по разделу", full: "Сборный тест" };
 
@@ -28,6 +28,7 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
   const router = useRouter();
   const [d, setD] = useState<Detail | null>(null);
   const [error, setError] = useState("");
+  const [pdfLang, setPdfLang] = useState<"ru" | "kk">("ru");
   const [tab, setTab] = useState(TABS.some(([k]) => k === initialTab) ? initialTab : "progress");
 
   const load = useCallback(() => call(`/api/admin/students/${id}/detail`).then(setD).catch((e) => setError(e.message)), [id]);
@@ -55,6 +56,17 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
             <p className="muted" style={{ margin: "6px 0 0" }}>Тем: {d.summary.learned} из {d.summary.topics} · задач: {d.summary.solved} из {d.summary.tasks}</p>
           </>
         )}
+        <div className="row" style={{ margin: "12px 0 0" }}>
+          <label htmlFor="pdflang" style={{ margin: 0 }}>Язык PDF:</label>
+          <select id="pdflang" value={pdfLang} onChange={(e) => setPdfLang(e.target.value as "ru" | "kk")} aria-label="Язык PDF-отчёта">
+            <option value="ru">Русский</option>
+            <option value="kk">Қазақша</option>
+          </select>
+        </div>
+        <div className="row" style={{ margin: "8px 0 0" }}>
+          <a className="pdf" href={`/api/admin/students/${id}/report?lang=${pdfLang}`} download>📄 PDF-отчёт</a>
+          <a className="pdf" href={`/api/admin/students/${id}/report?notes=1&lang=${pdfLang}`} download>📄 PDF с заметками</a>
+        </div>
       </div>
 
       <div className="subtabs" role="tablist">
@@ -71,6 +83,7 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
       {tab === "tests" && <TestsTab d={d} />}
       {tab === "mistakes" && <MistakesTab d={d} />}
       {tab === "help" && <HelpTab d={d} reload={load} />}
+      {tab === "notes" && <NotesTab id={id} />}
       {tab === "access" && (
         <>
           <h2 style={{ marginTop: 0 }}>Доступ к книгам</h2>
@@ -242,6 +255,57 @@ function WeakTab({ id }: { id: string }) {
     <>
       <p className="muted" style={{ marginTop: 0 }}>Темы, где верных ответов меньше 60% (тесты и закрепление вместе).</p>
       <WeakList rows={rows} perStudent />
+    </>
+  );
+}
+
+type Note = { id: string; text: string; createdAt: string };
+function NotesTab({ id }: { id: string }) {
+  const [notes, setNotes] = useState<Note[] | null>(null);
+  const [text, setText] = useState("");
+  const [editing, setEditing] = useState<string | null>(null);
+  const [del, setDel] = useState<Note | null>(null);
+  const [err, setErr] = useState("");
+  const load = useCallback(() => call(`/api/admin/students/${id}/notes`).then(setNotes).catch((e) => setErr(e.message)), [id]);
+  useEffect(() => { void load(); }, [load]);
+  const run = async (fn: () => Promise<unknown>) => { setErr(""); try { await fn(); await load(); } catch (e) { setErr((e as Error).message); } };
+
+  async function save() {
+    if (!text.trim()) return;
+    await run(async () => {
+      if (editing) await call(`/api/admin/students/${id}/notes/${editing}`, "PUT", { text });
+      else await call(`/api/admin/students/${id}/notes`, "POST", { text });
+      setText(""); setEditing(null);
+    });
+  }
+
+  return (
+    <>
+      <p className="muted" style={{ marginTop: 0 }}>Заметки видите только вы. В обычный PDF-отчёт они не попадают — только в «PDF с заметками».</p>
+      <label htmlFor="note">{editing ? "Правка заметки" : "Новая заметка"}</label>
+      <textarea id="note" value={text} onChange={(e) => setText(e.target.value)} maxLength={4000} placeholder="Например: слабо с дробями, договорились про дополнительные задачи до пятницы" />
+      <div className="row" style={{ marginTop: 8 }}>
+        <button className="primary" onClick={save} disabled={!text.trim()}>{editing ? "Сохранить заметку" : "Добавить заметку"}</button>
+        {editing && <button onClick={() => { setEditing(null); setText(""); }}>Отмена</button>}
+      </div>
+      {err && <p className="err" role="alert">{err}</p>}
+      {notes?.length === 0 && <p className="card muted">Заметок пока нет.</p>}
+      <div className="stack">
+        {notes?.map((n) => (
+          <div key={n.id} className="card">
+            <div className="muted" style={{ fontSize: 13 }}>{fmtDateTime(n.createdAt)}</div>
+            <div style={{ whiteSpace: "pre-wrap", margin: "4px 0 8px" }}>{n.text}</div>
+            <div className="row" style={{ margin: 0 }}>
+              <button className="sm" onClick={() => { setEditing(n.id); setText(n.text); window.scrollTo({ top: 0, behavior: "smooth" }); }}>Изменить</button>
+              <button className="sm danger" onClick={() => setDel(n)}>Удалить</button>
+            </div>
+          </div>
+        ))}
+      </div>
+      {del && (
+        <ConfirmDialog title="Удалить заметку?" text="Заметка пропадёт без возможности восстановить." confirmLabel="Удалить заметку" onCancel={() => setDel(null)}
+          onConfirm={() => { const n = del; setDel(null); void run(() => call(`/api/admin/students/${id}/notes/${n.id}`, "DELETE")); }} />
+      )}
     </>
   );
 }
