@@ -1,0 +1,2 @@
+DejaVu Sans (c) Bitstream, Inc. / Tavmjong Bah. Свободная лицензия (Bitstream Vera + public domain changes), распространение и встраивание в PDF разрешены.
+https://dejavu-fonts.github.io/License.html

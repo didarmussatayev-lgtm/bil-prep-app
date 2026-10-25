@@ -36,6 +36,7 @@ model User {
   restrictAccess Boolean @default(false) @map("restrict_access")
 
   bookAccess   UserBookAccess[]
+  notes        StudentNote[]
   sessions     Session[]
   progress     Progress[]
   taskResults  TaskResult[]
@@ -56,6 +57,19 @@ model UserBookAccess {
 
   @@id([userId, subjectId, level])
   @@map("user_book_access")
+}
+
+// Заметки администратора об ученике (видны только в админке; в PDF для родителей не попадают, если не включить явно).
+model StudentNote {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  text      String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([userId, createdAt])
+  @@map("student_notes")
 }
 
 model Session {
