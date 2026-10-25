@@ -17,6 +17,6 @@ export const M3_SECTION_1 = {
   slug: "math3-1",
   title: "Математика 3. Раздел 1",
   level: 3,
-  order: 1,
+  order: 7,
   topics: [t11, t12, t13, t14, t15, t16, t17, t18, t19, t110, t111, t112, t113] as SeedTopic[],
 };

@@ -10,6 +10,6 @@ export const M3_SECTION_2 = {
   slug: "math3-2",
   title: "Математика 3. Раздел 2 — Тесты для повторения",
   level: 3,
-  order: 2,
+  order: 8,
   topics: [t21, t22, t23, t24, t25, t26] as SeedTopic[],
 };
