@@ -7,12 +7,12 @@ jobs:
   backup:
     runs-on: ubuntu-latest
     steps:
-      - name: Install pg client 17
+      - name: Install pg client 18
         run: |
           sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
           wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo tee /etc/apt/trusted.gpg.d/pgdg.asc >/dev/null
           sudo apt-get update -qq
-          sudo apt-get install -y -qq postgresql-client-17
+          sudo apt-get install -y -qq postgresql-client-18
       - name: Dump and encrypt
         env:
           DATABASE_PUBLIC_URL: ${{ secrets.DATABASE_PUBLIC_URL }}
@@ -20,7 +20,7 @@ jobs:
         run: |
           set -euo pipefail
           F="bil-$(date -u +%Y%m%d-%H%M).dump"
-          pg_dump "$DATABASE_PUBLIC_URL" -Fc --no-owner --no-privileges -f "$F"
+          /usr/lib/postgresql/18/bin/pg_dump "$DATABASE_PUBLIC_URL" -Fc --no-owner --no-privileges -f "$F"
           test -s "$F"
           gpg --batch --yes --pinentry-mode loopback --passphrase "$BACKUP_PASSPHRASE" \
               --symmetric --cipher-algo AES256 -o "$F.gpg" "$F"
