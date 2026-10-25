@@ -8,7 +8,7 @@ import t26 from "./v2/topic-2-6";
 
 export const SECTION_2 = {
   slug: "math-2",
-  title: "II раздел. Степень, делимость, НОД и НОК",
+  title: "Математика 1. II раздел. Степень, делимость, НОД и НОК",
   level: 1,
   order: 2,
   topics: [t21, t22, t23, t24, t25, t26] as SeedTopic[],

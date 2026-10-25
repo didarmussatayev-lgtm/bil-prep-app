@@ -17,8 +17,8 @@ import t115 from "./v2/topic-1-15";
 
 export const M2_SECTION_1 = {
   slug: "math2-1",
-  title: "I раздел. Целые числа",
+  title: "Математика 2. I раздел. Целые числа",
   level: 2,
-  order: 1,
+  order: 4,
   topics: [t11, t12, t13, t14, t15, t16, t17, t18, t19, t110, t111, t112, t113, t114, t115] as SeedTopic[],
 };

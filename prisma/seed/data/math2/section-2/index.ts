@@ -23,8 +23,8 @@ import t221 from "./v2/topic-2-21";
 
 export const M2_SECTION_2 = {
   slug: "math2-2",
-  title: "II раздел. Рациональные числа",
+  title: "Математика 2. II раздел. Рациональные числа",
   level: 2,
-  order: 2,
+  order: 5,
   topics: [t21, t22, t23, t24, t25, t26, t27, t28, t29, t210, t211, t212, t213, t214, t215, t216, t217, t218, t219, t220, t221] as SeedTopic[],
 };

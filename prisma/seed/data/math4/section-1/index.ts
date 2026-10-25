@@ -23,6 +23,6 @@ export const M4_SECTION_1 = {
   slug: "math4-1",
   title: "Математика 4. Раздел 1",
   level: 4,
-  order: 1,
+  order: 9,
   topics: [t11, t12, t13, t14, t15, t16, t17, t18, t19, t110, t111, t112, t113, t114, t115, t116, t117, t118, t119] as SeedTopic[],
 };
