@@ -36,6 +36,7 @@ model User {
   restrictAccess Boolean @default(false) @map("restrict_access")
 
   bookAccess   UserBookAccess[]
+  loginEvents  LoginEvent[]
   sessions     Session[]
   progress     Progress[]
   taskResults  TaskResult[]
@@ -56,6 +57,20 @@ model UserBookAccess {
 
   @@id([userId, subjectId, level])
   @@map("user_book_access")
+}
+
+// Журнал успешных входов (сессии живут 8 часов и чистятся, а для выявления «одного пароля на нескольких людей» нужна история).
+model LoginEvent {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ip        String?
+  device    String // «Chrome · Android» — по User-Agent
+  kicked    Int      @default(0) // сколько ещё действующих сессий этот вход оборвал
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([userId, createdAt])
+  @@map("login_events")
 }
 
 model Session {

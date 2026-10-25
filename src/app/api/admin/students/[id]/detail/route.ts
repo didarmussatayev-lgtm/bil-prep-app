@@ -27,7 +27,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
     (await prisma.section.findMany({ where: sectionWhereFor(access), select: { id: true } })).map((s) => s.id),
   );
 
-  const [sections, progressRows, solvedRows, attempts, practiceMistakes, helps, overall, active] = await Promise.all([
+  const [sections, progressRows, solvedRows, attempts, practiceMistakes, helps, overall, active, logins] = await Promise.all([
     prisma.section.findMany({
       orderBy: [{ subject: { order: "asc" } }, { order: "asc" }],
       select: {
@@ -59,6 +59,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
     }),
     getProgressForUsers([id]),
     getLastActive([id]),
+    prisma.loginEvent.findMany({ where: { userId: id }, orderBy: { createdAt: "desc" }, take: 40, select: { id: true, ip: true, device: true, kicked: true, createdAt: true } }),
   ]);
 
   const byTopic = new Map(progressRows.map((p) => [p.topicId, p]));
@@ -91,6 +92,11 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
       books: user.bookAccess.map(bookKey),
     },
     summary: overall.get(id),
+    logins: logins.map((l) => ({ id: l.id, ip: l.ip, device: l.device, kicked: l.kicked > 0, createdAt: l.createdAt })),
+    sharedSignals: (() => {
+      const week = logins.filter((l) => l.createdAt.getTime() > Date.now() - 7 * 86_400_000);
+      return { devices: new Set(week.map((l) => l.device)).size, kicks: week.filter((l) => l.kicked > 0).length, ips: new Set(week.map((l) => l.ip)).size };
+    })(),
     sections: sections.map((s) => ({
       id: s.id, title: s.title, level: s.level, closed: !openSections.has(s.id),
       topics: s.topics.map((t) => ({

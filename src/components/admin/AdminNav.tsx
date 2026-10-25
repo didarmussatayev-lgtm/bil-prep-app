@@ -29,6 +29,7 @@ export function AdminNav({ openHelp }: { openHelp: number }) {
       <header className="top">
         <span className="brand">БИЛ · админка</span>
         <nav className="tabs" aria-label="Разделы">{ITEMS.map((i) => link(i, false))}</nav>
+        <Link href="/account/password" className="sm" style={{ marginRight: 8 }}>Пароль</Link>
         <LogoutButton />
       </header>
       <nav className="bottom" aria-label="Разделы">{ITEMS.map((i) => link(i, true))}</nav>
