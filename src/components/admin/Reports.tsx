@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useBooks } from "./books";
 import { call, Pct } from "./common";
+import { PdfButtons } from "./PdfButtons";
 import { StudentPicker } from "./StudentPicker";
 
 type Weak = { topicId: string; title: string; bookTitle: string; percent: number; testC: number; testT: number; prS: number; prA: number; students?: number; weakStudents?: number; help: number };
@@ -51,6 +52,14 @@ export function Reports() {
 
   return (
     <>
+      <div className="card" style={{ marginBottom: 14 }}>
+        <b>PDF-отчёт по ученику</b>
+        <div className="row" style={{ margin: "8px 0 0" }}>
+          <StudentPicker value={student} onChange={setStudent} />
+        </div>
+        {!student && <p className="muted" style={{ margin: "4px 0 0", fontSize: 14 }}>Выберите ученика, затем язык и скачайте PDF. Выбранный ученик также фильтрует отчёты ниже.</p>}
+        <PdfButtons studentId={student?.id ?? null} />
+      </div>
       <div className="subtabs" role="tablist">
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} className={tab === k ? "on" : ""} onClick={() => setTab(k)}>{l}</button>)}
       </div>
@@ -58,7 +67,6 @@ export function Reports() {
         <select value={book} onChange={(e) => setBook(e.target.value)} aria-label="Книга">
           <option value="">Все книги</option>{books.map((b) => <option key={b.key} value={b.key}>{b.title}</option>)}
         </select>
-        <StudentPicker value={student} onChange={setStudent} />
       </div>
       {error && <p className="err" role="alert">{error}</p>}
       {!data && !error && <p className="muted">Считаем…</p>}
