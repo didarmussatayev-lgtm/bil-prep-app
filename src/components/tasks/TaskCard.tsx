@@ -6,6 +6,7 @@ import { RichText, renderRichInline } from "@/components/content/RichText";
 import { useT } from "@/lib/i18n/client";
 import ui from "@/components/student/ui.module.css";
 import { AnswerInput, type AnswerDraft } from "./AnswerInput";
+import { HelpFlag } from "./HelpFlag";
 import { TaskContent } from "./TaskContent";
 
 type Num = number | null;
@@ -68,10 +69,6 @@ export function TaskCard({
   const [error, setError] = useState("");
   const [solution, setSolution] = useState<{ solutionText: string; answer: string | null } | null>(null);
   const [solutionLoading, setSolutionLoading] = useState(false);
-  // «Не смог решить»: отметка уходит админу на разбор при встрече
-  const [flag, setFlag] = useState<"none" | "form" | "sending" | "sent">(flagged && !solved ? "sent" : "none");
-  const [note, setNote] = useState("");
-  const [flagError, setFlagError] = useState("");
 
   const canAnswer = task.type === "open" && !!task.answerType;
 
@@ -98,7 +95,7 @@ export function TaskCard({
       }
       setStatus(data.correct ? "correct" : "wrong");
       if (data.correct) {
-        setFlag("none"); // верное решение закрывает заявку на сервере
+        // верное решение закрывает заявку на сервере (кнопка при этом скрывается)
         onSolved?.();
         onFlagChange?.(false);
       }
@@ -117,37 +114,6 @@ export function TaskCard({
       if (res.ok) setSolution(data);
     } finally {
       setSolutionLoading(false);
-    }
-  }
-
-  async function sendHelp() {
-    setFlag("sending");
-    setFlagError("");
-    try {
-      const res = await fetch(`/api/tasks/${task.id}/help`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ note }),
-      });
-      if (!res.ok) throw new Error();
-      setFlag("sent");
-      onFlagChange?.(true);
-    } catch {
-      setFlagError(t("Не получилось отправить, попробуйте ещё раз"));
-      setFlag("form");
-    }
-  }
-
-  async function cancelHelp() {
-    setFlagError("");
-    try {
-      const res = await fetch(`/api/tasks/${task.id}/help`, { method: "DELETE" });
-      if (!res.ok) throw new Error();
-      setFlag("none");
-      setNote("");
-      onFlagChange?.(false);
-    } catch {
-      setFlagError(t("Не получилось снять отметку"));
     }
   }
 
@@ -219,32 +185,7 @@ export function TaskCard({
         </button>
       )}
 
-      {status !== "correct" && flag === "none" && (
-        <button className={ui.linkButton} onClick={() => setFlag("form")}>
-          {t("🙋 Не смог решить")}
-        </button>
-      )}
-      {flag === "form" || flag === "sending" ? (
-        <div className={ui.helpBox}>
-          <strong>{t("Отправить задачу на разбор")}</strong>
-          <p className={ui.muted}>{t("Преподаватель разберёт её с вами при встрече. Можно коротко написать, что не получилось.")}</p>
-          <textarea value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} placeholder={t("Что не получилось? (необязательно)")} aria-label={t("Что не получилось")} />
-          <div className={ui.answerActions}>
-            <button className={ui.btn} onClick={sendHelp} disabled={flag === "sending"}>
-              {flag === "sending" ? t("Отправляем…") : t("Отправить")}
-            </button>
-            <button className={ui.linkButton} onClick={() => setFlag("none")} disabled={flag === "sending"}>{t("Отмена")}</button>
-            {flagError && <span className={`${ui.feedback} ${ui.feedbackErr}`}>{flagError}</span>}
-          </div>
-        </div>
-      ) : null}
-      {flag === "sent" && (
-        <p className={ui.helpFlag}>
-          {t("✋ Отмечено — разберём на встрече.")}{" "}
-          <button className={ui.linkButton} onClick={cancelHelp}>{t("Снять отметку")}</button>
-          {flagError && <span className={`${ui.feedback} ${ui.feedbackErr}`}> {flagError}</span>}
-        </p>
-      )}
+      <HelpFlag taskId={task.id} from={{ source: "practice" }} initiallyFlagged={flagged && !solved} hidden={status === "correct"} onChange={onFlagChange} />
     </article>
   );
 }

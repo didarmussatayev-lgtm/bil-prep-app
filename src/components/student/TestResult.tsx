@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getLang, getT } from "@/lib/i18n/server";
 import { pick } from "@/lib/i18n/content";
 import { RichText, renderRichInline } from "@/components/content/RichText";
+import { HelpFlag } from "@/components/tasks/HelpFlag";
 import { TaskContent } from "@/components/tasks/TaskContent";
 import { parseFigures, parseOptions } from "@/lib/content/types";
 import { WEAK_THRESHOLD_PERCENT, type BreakdownRow } from "@/lib/student/tests";
@@ -10,6 +11,8 @@ import { ProgressBar } from "./ProgressBar";
 import ui from "./ui.module.css";
 
 type Attempt = {
+  id: string;
+  userId: string;
   questionIds: unknown;
   answers: unknown;
   score: number | null;
@@ -39,6 +42,12 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
     select: { id: true, question: true, options: true, imageParamsJson: true, correctOption: true, solutionText: true, i18n: true },
   });
   const byId = new Map(tasks.map((t) => [t.id, t]));
+  const flagged = new Set(
+    (await prisma.helpRequest.findMany({
+      where: { userId: attempt.userId, status: "open", taskId: { in: ids } },
+      select: { taskId: true },
+    })).map((h) => h.taskId),
+  );
 
   const score = attempt.score ?? 0;
   const total = attempt.total;
@@ -104,6 +113,9 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
                 <summary>{tr("Показать решение")}</summary>
                 <RichText text={pick<string>(t.i18n, lang, "solution", t.solutionText ?? "")} />
               </details>
+            )}
+            {(!ok || flagged.has(id)) && (
+              <HelpFlag taskId={id} from={{ source: "test", attemptId: attempt.id }} initiallyFlagged={flagged.has(id)} />
             )}
           </article>
         );

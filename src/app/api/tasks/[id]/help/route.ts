@@ -21,10 +21,24 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const body = await req.json().catch(() => null);
     const note = typeof body?.note === "string" ? body.note.trim().slice(0, 1000) : "";
 
+    // Источник заявки: закрепление (по умолчанию) или тест — тогда попытка должна быть этого ученика и содержать задачу
+    let source: "practice" | "test" = "practice";
+    let attemptId: string | null = null;
+    if (body?.source === "test") {
+      const attempt = typeof body.attemptId === "string"
+        ? await prisma.testAttempt.findFirst({ where: { id: body.attemptId, userId: user.id }, select: { id: true, questionIds: true } })
+        : null;
+      if (!attempt || !(attempt.questionIds as string[]).includes(task.id)) {
+        return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });
+      }
+      source = "test";
+      attemptId = attempt.id;
+    }
+
     await prisma.helpRequest.upsert({
       where: { userId_taskId: { userId: user.id, taskId: task.id } },
-      update: { status: "open", note: note || null, autoResolved: false, resolvedAt: null, createdAt: new Date() },
-      create: { userId: user.id, taskId: task.id, note: note || null },
+      update: { status: "open", note: note || null, source, attemptId, autoResolved: false, resolvedAt: null, createdAt: new Date() },
+      create: { userId: user.id, taskId: task.id, note: note || null, source, attemptId },
     });
     return NextResponse.json({ ok: true });
   } catch (e) {

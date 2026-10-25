@@ -66,6 +66,11 @@ export default async function AttemptPage({
     return r ? [toPublicTask(r, lang)] : [];
   });
 
+  const flagged = await prisma.helpRequest.findMany({
+    where: { userId: user.id, status: "open", taskId: { in: ids } },
+    select: { taskId: true },
+  });
+
   return (
     <main className={ui.container}>
       <Breadcrumbs items={[...crumbs, { label: t("Тест") }]} />
@@ -73,6 +78,7 @@ export default async function AttemptPage({
       <TestRunner
         attemptId={attempt.id}
         questions={questions}
+        flaggedIds={flagged.map((h) => h.taskId)}
         initialAnswers={(attempt.answers ?? {}) as Record<string, string>}
         deadlineAt={attempt.deadlineAt?.toISOString() ?? null}
         serverNow={new Date().toISOString()}
