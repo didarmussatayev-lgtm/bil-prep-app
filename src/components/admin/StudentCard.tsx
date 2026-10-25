@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { AccessEditor } from "./AccessEditor";
+import { PdfButtons } from "./PdfButtons";
 import { WeakList } from "./Reports";
 import { ago, call, ConfirmDialog, fmtDateTime, Pct } from "./common";
 
@@ -28,7 +29,6 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
   const router = useRouter();
   const [d, setD] = useState<Detail | null>(null);
   const [error, setError] = useState("");
-  const [pdfLang, setPdfLang] = useState<"ru" | "kk">("ru");
   const [tab, setTab] = useState(TABS.some(([k]) => k === initialTab) ? initialTab : "progress");
 
   const load = useCallback(() => call(`/api/admin/students/${id}/detail`).then(setD).catch((e) => setError(e.message)), [id]);
@@ -56,17 +56,7 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
             <p className="muted" style={{ margin: "6px 0 0" }}>Тем: {d.summary.learned} из {d.summary.topics} · задач: {d.summary.solved} из {d.summary.tasks}</p>
           </>
         )}
-        <div className="row" style={{ margin: "12px 0 0" }}>
-          <label htmlFor="pdflang" style={{ margin: 0 }}>Язык PDF:</label>
-          <select id="pdflang" value={pdfLang} onChange={(e) => setPdfLang(e.target.value as "ru" | "kk")} aria-label="Язык PDF-отчёта">
-            <option value="ru">Русский</option>
-            <option value="kk">Қазақша</option>
-          </select>
-        </div>
-        <div className="row" style={{ margin: "8px 0 0" }}>
-          <a className="pdf" href={`/api/admin/students/${id}/report?lang=${pdfLang}`} download>📄 PDF-отчёт</a>
-          <a className="pdf" href={`/api/admin/students/${id}/report?notes=1&lang=${pdfLang}`} download>📄 PDF с заметками</a>
-        </div>
+        <PdfButtons studentId={id} />
       </div>
 
       <div className="subtabs" role="tablist">
