@@ -8,7 +8,7 @@ import { StudentPicker } from "./StudentPicker";
 
 type Weak = { topicId: string; title: string; bookTitle: string; percent: number; testC: number; testT: number; prS: number; prA: number; students?: number; weakStudents?: number; help: number };
 type Flag = { taskId: string; number: string | null; question: string; topic: string; bookTitle: string; students: number; open: number; test: number; practice: number };
-type Week = { week: string; tests: number; avgPercent: number | null; activeStudents: number; help: number };
+export type Week = { week: string; tests: number; avgPercent: number | null; activeStudents: number; help: number; tasks: number; solved: number; learned: number };
 
 const TABS = [["weak", "Слабые места"], ["tasks", "Сложные задачи"], ["weeks", "Динамика"]] as const;
 
@@ -41,14 +41,15 @@ export function Reports() {
   const [tab, setTab] = useState<(typeof TABS)[number][0]>("weak");
   const [book, setBook] = useState("");
   const [student, setStudent] = useState<{ id: string; login: string } | null>(null);
-  const [data, setData] = useState<unknown[] | null>(null);
+  const [days, setDays] = useState(0);
+  const [data, setData] = useState<unknown | null>(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
     setData(null);
-    const p = new URLSearchParams({ type: tab, book, userId: student?.id ?? "" });
+    const p = new URLSearchParams({ type: tab, book, userId: student?.id ?? "", days: String(days) });
     call(`/api/admin/reports?${p}`).then((d) => { setData(d); setError(""); }).catch((e) => setError(e.message));
-  }, [tab, book, student]);
+  }, [tab, book, student, days]);
 
   return (
     <>
@@ -64,6 +65,14 @@ export function Reports() {
         {TABS.map(([k, l]) => <button key={k} role="tab" aria-selected={tab === k} className={tab === k ? "on" : ""} onClick={() => setTab(k)}>{l}</button>)}
       </div>
       <div className="row">
+        {tab !== "weeks" && (
+          <select value={days} onChange={(e) => setDays(Number(e.target.value))} aria-label="Период">
+            <option value={0}>За всё время</option>
+            <option value={7}>Последние 7 дней</option>
+            <option value={30}>Последние 30 дней</option>
+            <option value={90}>Последние 90 дней</option>
+          </select>
+        )}
         <select value={book} onChange={(e) => setBook(e.target.value)} aria-label="Книга">
           <option value="">Все книги</option>{books.map((b) => <option key={b.key} value={b.key}>{b.title}</option>)}
         </select>
@@ -75,6 +84,7 @@ export function Reports() {
         <>
           <p className="muted">Темы, где верных ответов меньше 60% (тесты и задачи закрепления вместе; нужно хотя бы несколько ответов).{student ? "" : " Сверху самые слабые у всех учеников."}</p>
           <WeakList rows={data as Weak[]} perStudent={!!student} />
+          {days > 0 && <p className="muted" style={{ fontSize: 13 }}>За период в задачах закрепления считаются все попытки, а не задачи: так видно, как ученик решает сейчас, а не по итогам с начала занятий.</p>}
         </>
       )}
       {data && tab === "tasks" && (
@@ -97,24 +107,31 @@ export function Reports() {
           </div>
         )
       )}
-      {data && tab === "weeks" && <Weeks rows={data as Week[]} />}
+      {data && tab === "weeks" && <Weeks rows={(data as { rows: Week[] }).rows} logStart={(data as { logStart: string | null }).logStart} />}
     </>
   );
 }
 
-function Weeks({ rows }: { rows: Week[] }) {
-  const max = Math.max(1, ...rows.map((r) => r.activeStudents));
+export function Weeks({ rows, logStart }: { rows: Week[]; logStart: string | null }) {
+  const max = Math.max(1, ...rows.map((r) => r.tasks));
   const fmt = (iso: string) => new Date(iso).toLocaleDateString("ru-RU", { day: "2-digit", month: "2-digit" });
   return (
     <div className="stack">
-      <p className="muted" style={{ margin: 0 }}>Последние 8 недель (с понедельника). Фильтр по книге учитывает только тесты по теме и разделу.</p>
+      <p className="muted" style={{ margin: 0 }}>
+        Последние 12 недель (с понедельника). Полоса — сколько задач закрепления проверено за неделю: тёмная часть верные, светлая неверные.
+        {logStart ? ` Подробная история задач ведётся с ${new Date(logStart).toLocaleDateString("ru-RU")}, раньше — только тесты и изученные темы.` : " Подробная история задач начнёт копиться, когда ученики начнут решать."}
+      </p>
       {rows.map((r) => (
         <div key={r.week} className="card">
           <div className="head" style={{ display: "flex", justifyContent: "space-between" }}><b>с {fmt(r.week)}</b><span className="muted">активных: {r.activeStudents}</span></div>
-          <div className="bar" aria-hidden="true"><i style={{ width: `${(r.activeStudents / max) * 100}%` }} /></div>
+          <div className="bar stacked" aria-label={`Задач: ${r.tasks}, верных: ${r.solved}`}>
+            <i style={{ width: `${(r.solved / max) * 100}%` }} />
+            <i className="soft" style={{ width: `${((r.tasks - r.solved) / max) * 100}%` }} />
+          </div>
           <div className="meta" style={{ marginTop: 6 }}>
-            <span>тестов: {r.tests}</span>
-            <span>средний балл: {r.avgPercent === null ? "—" : `${r.avgPercent}%`}</span>
+            <span>задач: {r.tasks} (верных {r.solved})</span>
+            <span>тем изучено: {r.learned}</span>
+            <span>тестов: {r.tests}{r.avgPercent === null ? "" : ` · ср. ${r.avgPercent}%`}</span>
             <span>заявок: {r.help}</span>
           </div>
         </div>

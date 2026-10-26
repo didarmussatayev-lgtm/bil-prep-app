@@ -25,6 +25,7 @@ export async function GET(req: Request) {
   if (book) rows = rows.filter((s) => !s.restricted || s.books.includes(book));
   if (activity === "inactive") rows = rows.filter((s) => isInactive(s));
   if (activity === "never") rows = rows.filter((s) => !s.lastActiveAt);
+  if (activity === "slowing") rows = rows.filter((s) => s.slowing);
   if (activity === "shared") rows = rows.filter((s) => s.shared);
   if (activity === "online") rows = rows.filter((s) => s.online);
   if (progress === "low") rows = rows.filter((s) => s.progressPct < 30);

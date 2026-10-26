@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/admin";
 import { getLastActive } from "@/lib/admin-students";
+import { paceForAll } from "@/lib/admin-activity";
 import { bookKey, getAccess, sectionWhereFor } from "@/lib/student/access";
 import { getProgressForUsers } from "@/lib/student/progress";
 import type { BreakdownRow } from "@/lib/student/tests";
@@ -92,6 +93,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
       books: user.bookAccess.map(bookKey),
     },
     summary: overall.get(id),
+    pace: (await paceForAll()).get(id) ?? { recent: 0, prevAvg: 0, slowing: false },
     logins: logins.map((l) => ({ id: l.id, ip: l.ip, device: l.device, kicked: l.kicked > 0, createdAt: l.createdAt })),
     sharedSignals: (() => {
       const week = logins.filter((l) => l.createdAt.getTime() > Date.now() - 7 * 86_400_000);

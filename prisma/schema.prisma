@@ -37,6 +37,7 @@ model User {
 
   bookAccess   UserBookAccess[]
   notes        StudentNote[]
+  taskAttempts TaskAttempt[]
   loginEvents  LoginEvent[]
   sessions     Session[]
   progress     Progress[]
@@ -201,6 +202,7 @@ model Task {
   topic   Topic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
   results TaskResult[]
   helpRequests HelpRequest[]
+  attemptsLog  TaskAttempt[]
 
   @@index([topicId])
   i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
@@ -238,6 +240,24 @@ model TaskResult {
   @@unique([userId, taskId])
   @@index([userId])
   @@map("task_results")
+}
+
+// Журнал попыток в закреплении: каждая проверка ответа — одна строка. TaskResult хранит только итог по паре
+// ученик+задача, поэтому периоды в отчётах, график «задач в неделю» и серии дней строятся по этой таблице.
+// История ведётся с момента появления таблицы.
+model TaskAttempt {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  taskId    String   @map("task_id")
+  task      Task     @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  topicId   String   @map("topic_id") // копия Task.topicId — чтобы считать по темам без join
+  correct   Boolean
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([userId, createdAt])
+  @@index([topicId, createdAt])
+  @@map("task_attempts")
 }
 
 enum HelpStatus {

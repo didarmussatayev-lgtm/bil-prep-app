@@ -35,6 +35,7 @@ export default async function TodayPage() {
   const now = Date.now();
   const inactive = students.filter((s) => isInactive(s, now)).sort((a, b) => (a.lastActiveAt?.getTime() ?? 0) - (b.lastActiveAt?.getTime() ?? 0));
   const shared = students.filter((s) => s.shared);
+  const slowing = students.filter((s) => s.slowing);
   const activeWeek = students.filter((s) => s.lastActiveAt && now - s.lastActiveAt.getTime() < 7 * 86_400_000).length;
   const SCOPE: Record<string, string> = { topic: "по теме", section: "по разделу", full: "сборный" };
 
@@ -45,6 +46,7 @@ export default async function TodayPage() {
         <Link href="/admin/help" className="card item"><b>{helpCount}</b><span className="muted">ждут разбора</span></Link>
         <Link href="/admin/students?activity=inactive" className="card item"><b>{inactive.length}</b><span className="muted">не заходили {INACTIVE_DAYS}+ дня</span></Link>
         <Link href="/admin/students" className="card item"><b>{students.length}</b><span className="muted">учеников</span></Link>
+        {slowing.length > 0 && <Link href="/admin/students?activity=slowing" className="card item"><b>{slowing.length}</b><span className="muted">снизили темп занятий</span></Link>}
         {shared.length > 0 && <Link href="/admin/students?activity=shared" className="card item"><b>{shared.length}</b><span className="muted">с признаками общего аккаунта</span></Link>}
         <div className="card"><b>{activeWeek}</b><span className="muted">активны за неделю</span></div>
       </div>
