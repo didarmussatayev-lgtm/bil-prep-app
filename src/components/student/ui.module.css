@@ -180,6 +180,12 @@ a.topicRow:hover { background: var(--surface-2); }
 .answerBox:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
 .answerBox:disabled { color: var(--ok); background: var(--ok-soft); border-color: color-mix(in srgb, var(--ok) 50%, transparent); opacity: 1; -webkit-text-fill-color: var(--ok); }
 .answerBoxBad, .answerBoxBad:hover:not(:disabled) { border-color: var(--bad); background: var(--bad-soft); }
+.minusBtn {
+  width: 48px; height: 48px; flex: none; font: inherit; font-size: 1.5rem; font-weight: 700; line-height: 1; color: var(--text);
+  background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: 12px; cursor: pointer; touch-action: manipulation;
+}
+.minusBtn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.minusBtn:disabled { opacity: 0.5; cursor: default; }
 .answerBoxWide { width: 180px; }
 .answerBoxWhole { width: 64px; }
 
