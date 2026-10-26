@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { PublicTask } from "@/lib/content/types";
 import { RichText, renderRichInline } from "@/components/content/RichText";
+import { refreshGamification } from "@/components/student/GamificationHost";
 import { useT } from "@/lib/i18n/client";
 import ui from "@/components/student/ui.module.css";
 import { AnswerInput, type AnswerDraft } from "./AnswerInput";
@@ -67,6 +68,7 @@ export function TaskCard({
   const [draft, setDraft] = useState<AnswerDraft>({});
   const [status, setStatus] = useState<"idle" | "checking" | "correct" | "wrong">(solved ? "correct" : "idle");
   const [error, setError] = useState("");
+  const [xp, setXp] = useState(0);
   const [solution, setSolution] = useState<{ solutionText: string; answer: string | null } | null>(null);
   const [solutionLoading, setSolutionLoading] = useState(false);
 
@@ -94,6 +96,8 @@ export function TaskCard({
         return;
       }
       setStatus(data.correct ? "correct" : "wrong");
+      setXp(data.xp ?? 0);
+      refreshGamification();
       if (data.correct) {
         // верное решение закрывает заявку на сервере (кнопка при этом скрывается)
         onSolved?.();
@@ -161,7 +165,7 @@ export function TaskCard({
             )}
           </div>
           <div className={ui.answerActions}>
-            {status === "correct" && <span className={`${ui.feedback} ${ui.feedbackOk}`}>{t("✓ Верно! Отличная работа")}</span>}
+            {status === "correct" && <span className={`${ui.feedback} ${ui.feedbackOk}`}>{t("✓ Верно! Отличная работа")}{xp > 0 ? ` +${xp} XP` : ""}</span>}
             {status === "wrong" && <span className={`${ui.feedback} ${ui.feedbackBad}`}>{t("✗ Пока неверно — попробуйте ещё раз")}</span>}
             {error && <span className={`${ui.feedback} ${ui.feedbackErr}`}>{error}</span>}
           </div>

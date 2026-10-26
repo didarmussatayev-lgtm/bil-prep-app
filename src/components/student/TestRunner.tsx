@@ -6,6 +6,7 @@ import { HelpFlag } from "@/components/tasks/HelpFlag";
 import { TaskContent } from "@/components/tasks/TaskContent";
 import { RichText } from "@/components/content/RichText";
 import type { PublicTask } from "@/lib/content/types";
+import { refreshGamification } from "./GamificationHost";
 import { useT } from "@/lib/i18n/client";
 import ui from "./ui.module.css";
 
@@ -77,6 +78,7 @@ export function TestRunner({
     try {
       const res = await fetch(`/api/tests/attempts/${attemptId}/finish`, { method: "POST" });
       if (!res.ok && res.status !== 409) throw new Error();
+      refreshGamification();
       router.refresh(); // страница увидит finishedAt и покажет результат
     } catch {
       finishing.current = false;

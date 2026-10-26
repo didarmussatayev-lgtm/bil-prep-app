@@ -1,0 +1,29 @@
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; min-height: 38px; border-radius: 999px; background: var(--surface-2); color: var(--text); text-decoration: none; font-size: 0.875rem; font-weight: 600; white-space: nowrap; }
+.chip:hover { background: var(--accent-soft); }
+.overlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(10, 14, 30, 0.55); }
+.modal { width: 100%; max-width: 360px; text-align: center; padding: 28px 22px 22px; border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-md); animation: pop 0.28s ease-out; }
+@keyframes pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .modal { animation: none; } }
+.bigIcon { font-size: 4rem; line-height: 1; margin-bottom: 6px; }
+.kicker { margin: 0; color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.title { margin: 6px 0 4px; font-size: 1.35rem; }
+.desc { margin: 0 0 10px; color: var(--muted); }
+.xpBadge { display: inline-block; margin-bottom: 14px; padding: 4px 12px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); font-weight: 700; }
+.panel { display: grid; gap: 14px; margin: 0 0 20px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-sm); }
+.row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.stat { flex: 1; min-width: 120px; padding: 12px 14px; border-radius: var(--radius-sm); background: var(--surface-2); }
+.statNum { display: block; font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
+.statLbl { color: var(--muted); font-size: 0.85rem; }
+.warn { color: var(--warn); font-weight: 600; margin: 0; }
+.goalRing { --p: 0; width: 64px; height: 64px; flex: none; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--accent) calc(var(--p) * 1%), var(--surface-2) 0); }
+.goalRing::before { content: attr(data-label); display: grid; place-items: center; width: 50px; height: 50px; border-radius: 50%; background: var(--surface); font-weight: 700; font-size: 0.9rem; }
+.goalDone { background: conic-gradient(var(--ok) 100%, var(--ok) 0); }
+.exam { border-color: var(--accent); background: var(--accent-soft); }
+.achGrid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); margin: 0; padding: 0; list-style: none; }
+.ach { padding: 14px 12px; text-align: center; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); }
+.achLocked { opacity: 0.5; filter: grayscale(1); }
+.achIcon { font-size: 2.2rem; line-height: 1.1; }
+.achTitle { margin: 6px 0 2px; font-weight: 700; font-size: 0.95rem; }
+.achDesc { margin: 0; color: var(--muted); font-size: 0.8rem; }
+
+@media (max-width: 440px) { .chip { padding: 4px 8px; min-height: 34px; gap: 6px; font-size: 0.8rem; } }

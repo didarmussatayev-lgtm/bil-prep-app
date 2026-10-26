@@ -2,6 +2,7 @@ import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sectionFilter } from "@/lib/student/access";
+import { onTaskChecked } from "@/lib/gamification/engine";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
 import { checkAnswer, isWellFormedAnswer, type AnswerType } from "@/lib/student/answerCheck";
 
@@ -36,6 +37,8 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       allowUnreduced: task.allowUnreduced,
     });
 
+    const prev = await prisma.taskResult.findUnique({ where: { userId_taskId: { userId: user.id, taskId: task.id } }, select: { correct: true } });
+
     await prisma.$transaction([
       // correct: "хотя бы раз решена верно" — при неверном ответе не затираем true, поставленный раньше.
       prisma.taskResult.upsert({
@@ -52,14 +55,23 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     ]);
 
     // Если ученик сам решил верно задачу, которую ранее отметил «не смог решить» — заявка закрывается.
+    let fixedFlag = false;
     if (correct) {
-      await prisma.helpRequest.updateMany({
+      const r = await prisma.helpRequest.updateMany({
         where: { userId: user.id, taskId: task.id, status: "open" },
         data: { status: "resolved", autoResolved: true, resolvedAt: new Date() },
       });
+      fixedFlag = r.count > 0;
     }
 
-    return NextResponse.json({ correct });
+    // XP и достижения: сбой геймификации не должен ломать проверку ответа
+    let xp = 0;
+    try {
+      xp = (await onTaskChecked(user.id, task.id, { correct, firstCorrect: correct && !prev?.correct, fixedFlag })).gained;
+    } catch (e) {
+      console.error("[gamification] check", e);
+    }
+    return NextResponse.json({ correct, xp });
   } catch (e) {
     return handleApiError(e);
   }

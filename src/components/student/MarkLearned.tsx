@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { refreshGamification } from "./GamificationHost";
 import { useT } from "@/lib/i18n/client";
 import ui from "./ui.module.css";
 
@@ -28,6 +29,7 @@ export function MarkLearned({
       const res = await fetch(`/api/topics/${topicId}/learned`, { method: "POST" });
       if (!res.ok) throw new Error();
       setLearned(true);
+      refreshGamification();
     } catch {
       setError(t("Не удалось сохранить. Проверьте соединение и повторите."));
     } finally {

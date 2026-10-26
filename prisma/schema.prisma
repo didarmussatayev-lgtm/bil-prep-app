@@ -38,6 +38,8 @@ model User {
   bookAccess   UserBookAccess[]
   notes        StudentNote[]
   taskAttempts TaskAttempt[]
+  xpEvents     XpEvent[]
+  achievements UserAchievement[]
   loginEvents  LoginEvent[]
   sessions     Session[]
   progress     Progress[]
@@ -258,6 +260,49 @@ model TaskAttempt {
   @@index([userId, createdAt])
   @@index([topicId, createdAt])
   @@map("task_attempts")
+}
+
+// ---------- Геймификация ----------
+
+// Журнал начисления XP. Уникальность (user, kind, ref) защищает от накрутки: за одну и ту же задачу,
+// тему или тест баллы начисляются один раз. Сумма XP = SUM(xp) по пользователю.
+model XpEvent {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind      String // task | topic | test | fix | achievement
+  ref       String // id задачи / темы / попытки теста / ключ достижения
+  xp        Int
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@unique([userId, kind, ref])
+  @@index([userId, createdAt])
+  @@map("xp_events")
+}
+
+// Полученные достижения. Ключ вида "streak_7", "book_done:<subjectId>:<level>", "lvl:5" (повышение уровня).
+// seenAt = null — ученик ещё не видел поздравление.
+model UserAchievement {
+  id        String    @id @default(cuid())
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  key       String
+  earnedAt  DateTime  @default(now()) @map("earned_at")
+  seenAt    DateTime? @map("seen_at")
+
+  @@unique([userId, key])
+  @@index([userId, seenAt])
+  @@map("user_achievements")
+}
+
+// Даты экзаменов для обратного отсчёта (редактирует админ). key: "bil" и т. д.
+model ExamTarget {
+  id    String   @id @default(cuid())
+  key   String   @unique
+  title String
+  date  DateTime @db.Date
+
+  @@map("exam_targets")
 }
 
 enum HelpStatus {
