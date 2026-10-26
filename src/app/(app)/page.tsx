@@ -3,6 +3,7 @@ import { ProgressBar } from "@/components/student/ProgressBar";
 import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
+import { GamiSummary } from "@/components/student/GamiSummary";
 import { WeakPlaces } from "@/components/student/WeakPlaces";
 import { getOverallProgress } from "@/lib/student/progress";
 
@@ -29,6 +30,8 @@ export default async function HomePage() {
           </p>
         </section>
       )}
+
+      {user.role === "student" && <GamiSummary userId={user.id} />}
 
       <WeakPlaces userId={user.id} />
 

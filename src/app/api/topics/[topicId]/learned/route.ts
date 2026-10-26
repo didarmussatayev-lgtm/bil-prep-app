@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { onTopicLearned } from "@/lib/gamification/engine";
 import { sectionFilter } from "@/lib/student/access";
 import { ApiError, handleApiError, requireApiUser } from "@/lib/auth/guards";
 
@@ -15,6 +16,7 @@ export async function POST(_req: Request, { params }: { params: Promise<{ topicI
     });
     if (!topic) throw new ApiError(404, "Тема не найдена");
 
+    const before = await prisma.progress.findUnique({ where: { userId_topicId: { userId: user.id, topicId } }, select: { learnedAt: true } });
     const now = new Date();
     await prisma.progress.upsert({
       where: { userId_topicId: { userId: user.id, topicId } },
@@ -27,7 +29,11 @@ export async function POST(_req: Request, { params }: { params: Promise<{ topicI
       data: { learnedAt: now },
     });
 
-    return NextResponse.json({ ok: true });
+    let xp = 0;
+    if (!before?.learnedAt) {
+      try { xp = (await onTopicLearned(user.id, topicId)).gained; } catch (e) { console.error("[gamification] learned", e); }
+    }
+    return NextResponse.json({ ok: true, xp });
   } catch (e) {
     return handleApiError(e);
   }

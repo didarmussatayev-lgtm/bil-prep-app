@@ -2,6 +2,7 @@ import "server-only";
 import { randomInt } from "node:crypto";
 import { prisma } from "@/lib/prisma";
 import { ApiError } from "@/lib/auth/guards";
+import { onTestFinished } from "@/lib/gamification/engine";
 import { sectionFilter } from "@/lib/student/access";
 import { hasPendingFigure, parseFigures, parseOptions } from "@/lib/content/types";
 
@@ -172,7 +173,7 @@ export async function finishAttempt(userId: string, attemptId: string) {
   const breakdown = [...perTopic.values()];
   const now = new Date();
 
-  await prisma.$transaction([
+  const [finished] = await prisma.$transaction([
     prisma.testAttempt.updateMany({
       where: { id: attempt.id, finishedAt: null },
       data: { finishedAt: now, score: correct, total, breakdown },
@@ -182,6 +183,11 @@ export async function finishAttempt(userId: string, attemptId: string) {
       data: { lastAttemptAt: now },
     }),
   ]);
+
+  // XP за тест — один раз (уникальность в XpEvent); только если именно этот вызов завершил попытку
+  if (finished.count > 0) {
+    try { await onTestFinished(userId, attempt.id, correct, total); } catch (e) { console.error("[gamification] test", e); }
+  }
 
   return prisma.testAttempt.findUniqueOrThrow({ where: { id: attempt.id } });
 }

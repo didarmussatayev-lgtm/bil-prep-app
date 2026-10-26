@@ -68,3 +68,17 @@ export function queueHelpNotification(userId: string, login: string, item: HelpN
   }, BATCH_MS) };
   pending.set(userId, entry);
 }
+
+// Достижения учеников: одним сообщением на ученика (окно 20 секунд).
+const achPending = new Map<string, { login: string; lines: string[]; timer: ReturnType<typeof setTimeout> }>();
+
+export function queueAchievementNotification(userId: string, login: string, lines: string[]) {
+  if (!telegramConfigured()) return;
+  const cur = achPending.get(userId);
+  if (cur) { cur.lines.push(...lines); return; }
+  const entry = { login, lines: [...lines], timer: setTimeout(() => {
+    achPending.delete(userId);
+    void notifyAdmins(`🏆 <b>${esc(entry.login)}</b> получил:\n${[...new Set(entry.lines)].map((l) => `• ${esc(l)}`).join("\n")}`);
+  }, BATCH_MS) };
+  achPending.set(userId, entry);
+}

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { requireAdmin } from "@/lib/admin";
 import { getLastActive } from "@/lib/admin-students";
+import { describeKey, getSummary } from "@/lib/gamification/engine";
 import { paceForAll } from "@/lib/admin-activity";
 import { bookKey, getAccess, sectionWhereFor } from "@/lib/student/access";
 import { getProgressForUsers } from "@/lib/student/progress";
@@ -93,6 +94,14 @@ export async function GET(_: Request, { params }: { params: Promise<{ id: string
       books: user.bookAccess.map(bookKey),
     },
     summary: overall.get(id),
+    gamification: await (async () => {
+      const g = await getSummary(id);
+      const items = (await Promise.all(g.achievements.filter((a) => !a.key.startsWith("lvl:")).map(async (a) => {
+        const d = await describeKey(a.key);
+        return d ? { key: a.key, icon: d.icon, title: d.title.ru, desc: d.desc.ru, earnedAt: a.earnedAt } : null;
+      }))).filter((x) => x !== null);
+      return { xp: g.xp, level: g.level, streak: g.streak, atRisk: g.atRisk, todayPoints: g.todayPoints, goal: g.goal, items };
+    })(),
     pace: (await paceForAll()).get(id) ?? { recent: 0, prevAvg: 0, slowing: false },
     logins: logins.map((l) => ({ id: l.id, ip: l.ip, device: l.device, kicked: l.kicked > 0, createdAt: l.createdAt })),
     sharedSignals: (() => {

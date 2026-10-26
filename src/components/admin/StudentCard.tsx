@@ -10,6 +10,7 @@ import { ago, call, ConfirmDialog, fmtDateTime, Pct } from "./common";
 type Topic = { id: string; title: string; learned: boolean; practiceSolved: number; practiceTotal: number; lastAttemptAt: string | null };
 type Detail = {
   user: { id: string; login: string; createdAt: string; online: boolean; lastActiveAt: string | null; restricted: boolean; books: string[] };
+  gamification: { xp: number; level: number; streak: number; atRisk: boolean; todayPoints: number; goal: number; items: { key: string; icon: string; title: string; desc: string; earnedAt: string }[] };
   pace: { recent: number; prevAvg: number; slowing: boolean } | null;
   logins: { id: string; ip: string | null; device: string; kicked: boolean; createdAt: string }[];
   sharedSignals: { devices: number; kicks: number; ips: number };
@@ -22,7 +23,7 @@ type Detail = {
 };
 
 const TABS = [
-    ["progress", "Прогресс"], ["weak", "Слабые места"], ["activity", "Активность"], ["logins", "Входы"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["notes", "Заметки"], ["access", "Доступ"],
+    ["progress", "Прогресс"], ["weak", "Слабые места"], ["activity", "Активность"], ["achievements", "Достижения"], ["logins", "Входы"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["notes", "Заметки"], ["access", "Доступ"],
 ] as const;
 const SCOPE: Record<string, string> = { topic: "Тест по теме", section: "Тест по разделу", full: "Сборный тест" };
 
@@ -71,6 +72,7 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
       {tab === "progress" && <ProgressTab d={d} />}
       {tab === "weak" && <WeakTab id={id} />}
       {tab === "activity" && <ActivityTab id={id} slowing={d.pace} />}
+      {tab === "achievements" && <AchievementsTab d={d} />}
       {tab === "logins" && <LoginsTab d={d} />}
       {tab === "tests" && <TestsTab d={d} />}
       {tab === "mistakes" && <MistakesTab d={d} />}
@@ -342,6 +344,34 @@ function ActivityTab({ id, slowing }: { id: string; slowing: Detail["pace"] }) {
         </div>
       )}
       {!data ? <p className="muted">Считаем…</p> : <Weeks rows={data.rows} logStart={data.logStart} />}
+    </>
+  );
+}
+
+function AchievementsTab({ d }: { d: Detail }) {
+  const g = d.gamification;
+  return (
+    <>
+      <div className="stats" style={{ marginBottom: 12 }}>
+        <div className="card"><b>⭐ {g.level}</b><span className="muted">уровень · {g.xp} XP</span></div>
+        <div className="card"><b>🔥 {g.streak}</b><span className="muted">дней подряд{g.atRisk ? " · сегодня ещё не занимался" : ""}</span></div>
+        <div className="card"><b>{Math.min(g.todayPoints, g.goal)}/{g.goal}</b><span className="muted">цель сегодня</span></div>
+        <div className="card"><b>{g.items.length}</b><span className="muted">достижений</span></div>
+      </div>
+      {g.items.length === 0 ? <p className="card muted">Достижений пока нет.</p> : (
+        <div className="stack">
+          {g.items.map((a) => (
+            <div key={a.key} className="card" style={{ display: "flex", gap: 12, alignItems: "center" }}>
+              <span style={{ fontSize: 30 }} aria-hidden="true">{a.icon}</span>
+              <div className="grow">
+                <b>{a.title}</b>
+                <div className="muted" style={{ fontSize: 14 }}>{a.desc}</div>
+                <div className="muted" style={{ fontSize: 13 }}>{fmtDateTime(a.earnedAt)}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }

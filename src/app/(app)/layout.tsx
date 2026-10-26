@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GamificationHost } from "@/components/student/GamificationHost";
 import { LogoutButton } from "@/components/auth/LogoutButton";
 import { LangSwitch } from "@/components/auth/LangSwitch";
 import { ThemeToggle } from "@/components/auth/ThemeToggle";
@@ -19,6 +20,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <header className={ui.header}>
         <Link href="/" className={ui.brand}>{t("Подготовка в БИЛ")}</Link>
         <div className={ui.headerRight}>
+          {user.role === "student" && <GamificationHost />}
           <Link href="/account/password" className={ui.who} title={t("Смена пароля")}>{user.login}</Link>
           <LangSwitch className={ui.iconBtn} />
           <ThemeToggle className={ui.iconBtn} />

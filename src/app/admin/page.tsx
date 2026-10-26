@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExamSettings } from "@/components/admin/ExamSettings";
 import { TelegramStatus } from "@/components/admin/TelegramStatus";
 import { prisma } from "@/lib/prisma";
 import { INACTIVE_DAYS, isInactive, loadStudents } from "@/lib/admin-students";
@@ -92,6 +93,7 @@ export default async function TodayPage() {
           })}
         </div>
       )}
+      <ExamSettings />
       <TelegramStatus />
     </>
   );

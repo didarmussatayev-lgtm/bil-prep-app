@@ -356,3 +356,11 @@ details[open] > .levelSummary::before, details[open] > .sectionSummary::before {
 .prose figure { margin: 0 0 14px; }
 .prose figure > div { margin-bottom: 4px; }
 .prose figcaption { margin: 0 0 6px; text-align: center; }
+
+/* узкие телефоны: шапка с чипом «серия · уровень» не должна выходить за экран */
+@media (max-width: 440px) {
+  .header { gap: 6px; padding: 0 10px; }
+  .brand { min-width: 0; gap: 6px; font-size: 0.8rem; line-height: 1.15; }
+  .headerRight { gap: 4px; }
+  .headerRight .btnGhost { padding: 0 10px; min-height: 36px; font-size: 0.85rem; }
+}
