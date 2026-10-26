@@ -131,10 +131,27 @@ export function TestRunner({
       )}
       {finishError && <p className={ui.error} role="alert">{finishError}</p>}
 
+      {questions.length > 12 && (
+        <nav className={ui.qMap} aria-label={t("Карта вопросов")}>
+          {questions.map((q, i) => (
+            <a key={q.id} href={`#q-${i + 1}`} className={`${ui.qChip} ${answers[q.id] ? ui.qChipDone : ""}`} aria-label={t("Вопрос {n}", { n: i + 1 })}>{i + 1}</a>
+          ))}
+        </nav>
+      )}
+
       {questions.map((q, i) => (
-        <fieldset key={q.id} className={ui.question}>
+        <fieldset key={q.id} id={`q-${i + 1}`} className={ui.question}>
           <legend className={ui.questionNum}>{t("Вопрос {n}", { n: i + 1 })}</legend>
           <TaskContent question={q.question} figures={q.figures} />
+          {/* вопросы-картинки: варианты нарисованы в самом условии, ученик выбирает только букву */}
+          {(q.options ?? []).length > 0 && (q.options ?? []).every((o) => !o.text.trim()) ? (
+            <div className={ui.letterRow} role="radiogroup" aria-label={t("Вопрос {n}", { n: i + 1 })}>
+              {(q.options ?? []).map((o) => (
+                <button key={o.key} type="button" role="radio" aria-checked={answers[q.id] === o.key}
+                  className={`${ui.letterBtn} ${answers[q.id] === o.key ? ui.letterBtnOn : ""}`} onClick={() => choose(q.id, o.key)}>{o.key}</button>
+              ))}
+            </div>
+          ) : (
           <div className={ui.options}>
             {(q.options ?? []).map((o) => (
               <label key={o.key} className={ui.option}>
@@ -151,6 +168,7 @@ export function TestRunner({
               </label>
             ))}
           </div>
+          )}
           <HelpFlag taskId={q.id} from={{ source: "test", attemptId }} initiallyFlagged={flaggedIds.includes(q.id)} />
         </fieldset>
       ))}

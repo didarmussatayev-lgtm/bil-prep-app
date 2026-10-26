@@ -13,13 +13,19 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
   try {
     const user = await requireApiUser();
     const { id } = await params;
+    const body = await req.json().catch(() => null);
+    // Вопросы пробных вариантов лежат в служебной скрытой теме: их можно отметить только из собственной попытки,
+    // где такой вопрос действительно есть. Обычные задачи — как раньше, только из доступных ученику книг.
+    const own = body?.source === "test" && typeof body.attemptId === "string"
+      ? await prisma.testAttempt.findFirst({ where: { id: body.attemptId, userId: user.id, scope: "paper" }, select: { questionIds: true } })
+      : null;
+    const inPaper = !!own && (own.questionIds as string[]).includes(id);
     const task = await prisma.task.findFirst({
-      where: { id, hidden: false, topic: { hidden: false, section: await sectionFilter(user.id) } },
+      where: inPaper ? { id } : { id, hidden: false, topic: { hidden: false, section: await sectionFilter(user.id) } },
       select: { id: true, number: true, question: true, topic: { select: { title: true } } },
     });
     if (!task) return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });
 
-    const body = await req.json().catch(() => null);
     const note = typeof body?.note === "string" ? body.note.trim().slice(0, 1000) : "";
 
     // Источник заявки: закрепление (по умолчанию) или тест — тогда попытка должна быть этого ученика и содержать задачу

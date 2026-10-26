@@ -6,6 +6,8 @@ import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { allowedLevels, getAccess } from "@/lib/student/access";
 import { getCourseTree, getSubjectBySlug, summarize } from "@/lib/student/progress";
+import { canOpenPapers } from "@/lib/student/tests";
+import { prisma } from "@/lib/prisma";
 
 export default async function SubjectHubPage({ params }: { params: Promise<{ subject: string }> }) {
   const user = await requireUser();
@@ -18,6 +20,7 @@ export default async function SubjectHubPage({ params }: { params: Promise<{ sub
   if (access.restricted && tree.length === 0) notFound(); // книги предмета ученику не открыты
   const sum = summarize(tree);
   const base = `/bil/${slug}`;
+  const papersCount = (await canOpenPapers(user.id, subject.id)) ? await prisma.examPaper.count({ where: { subjectId: subject.id, hidden: false } }) : 0;
 
   return (
     <main className={ui.container}>
@@ -40,6 +43,13 @@ export default async function SubjectHubPage({ params }: { params: Promise<{ sub
           <h2 className={ui.tileTitle}>{t("Пробное тестирование")}</h2>
           <p className={ui.tileText}>{t("Тест по разделу или сборный тест по всей программе.")}</p>
         </Link>
+        {papersCount > 0 && (
+          <Link href={`${base}/papers`} className={ui.tile}>
+            <h2 className={ui.tileTitle}>{t("Пробные варианты")}</h2>
+            <p className={ui.tileText}>{t("Полные варианты экзамена с таймером и общим баллом.")}</p>
+            <p className={ui.tileMeta}>{t("Вариантов: {n}", { n: papersCount })}</p>
+          </Link>
+        )}
       </div>
     </main>
   );

@@ -118,6 +118,7 @@ model Subject {
   sections     Section[]
   testAttempts TestAttempt[]
   bookAccess   UserBookAccess[]
+  examPapers   ExamPaper[]
 
   i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
 
@@ -339,6 +340,7 @@ enum TestScope {
   topic
   section
   full
+  paper // пробный вариант (ExamPaper): фиксированный набор вопросов
 }
 
 // Заменяет черновую TestAttempt: вопросы подбираются при старте и хранятся в самой попытке
@@ -351,6 +353,7 @@ model TestAttempt {
   scope       TestScope
   sectionId   String?   @map("section_id")
   topicId     String?   @map("topic_id")
+  paperId     String?   @map("paper_id") // для scope=paper
   questionIds Json      @map("question_ids") // string[] в порядке показа
   answers     Json      @default("{}") // { [taskId]: "B" }
   startedAt   DateTime  @default(now()) @map("started_at")
@@ -362,6 +365,28 @@ model TestAttempt {
 
   @@index([userId, subjectId, startedAt])
   @@map("test_attempts")
+}
+
+// Пробный вариант (тренировочный или прошлогодний): фиксированный набор вопросов в фиксированном порядке.
+// Вопросы — обычные Task (type=test_choice) в служебной скрытой теме; для вариантов-картинок текст и варианты пустые,
+// а условие целиком лежит в рисунке (kind="image"), правильная буква — в correctOption.
+model ExamPaper {
+  id               String   @id @default(cuid())
+  slug             String   @unique // "math-training-01"
+  subjectId        String   @map("subject_id")
+  subject          Subject  @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  groupKey         String   @default("training") @map("group_key") // training | past
+  title            String // «Тест 1»
+  year             Int? // для прошлогодних
+  order            Int      @default(0)
+  timeLimitSeconds Int?     @map("time_limit_seconds") // режим «Экзамен»; null — без таймера
+  hidden           Boolean  @default(false)
+  questionIds      Json     @map("question_ids") // string[] — id задач по порядку
+  i18n             Json? // {kk:{title}}
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  @@index([subjectId, groupKey, order])
+  @@map("exam_papers")
 }
 
 // ---------- Не используется с шага 5 (оставлено для справки) ----------
