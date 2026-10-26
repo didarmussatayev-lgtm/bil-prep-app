@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { SHARED_DEVICES_THRESHOLD, SHARED_KICKS_THRESHOLD } from "@/lib/auth/config";
 import { bookKey } from "@/lib/student/access";
+import { paceForAll } from "@/lib/admin-activity";
 import { getProgressForUsers } from "@/lib/student/progress";
 
 export const INACTIVE_DAYS = 3;
@@ -36,6 +37,9 @@ export type StudentRow = {
   devices7: number; // разных устройств за 7 дней
   kicks7: number; // входов за 7 дней, оборвавших чужую сессию
   shared: boolean; // подозрение на общий аккаунт
+  slowing: boolean; // снизил темп: за 7 дней меньше половины от обычного
+  paceRecent: number;
+  pacePrev: number;
 };
 
 /** Все ученики с прогрессом и активностью — фиксированное число запросов, не зависит от их количества. */
@@ -59,7 +63,7 @@ export async function loadStudents(): Promise<StudentRow[]> {
     if (l.kicked > 0) kicksBy.set(l.userId, (kicksBy.get(l.userId) ?? 0) + 1);
   }
   const ids = users.map((u) => u.id);
-  const [progress, active] = await Promise.all([getProgressForUsers(ids), getLastActive(ids)]);
+  const [progress, active, pace] = await Promise.all([getProgressForUsers(ids), getLastActive(ids), paceForAll()]);
   const helpBy = new Map(helps.map((h) => [h.userId, h._count]));
   return users.map((u) => ({
     id: u.id,
@@ -73,6 +77,9 @@ export async function loadStudents(): Promise<StudentRow[]> {
     openHelp: helpBy.get(u.id) ?? 0,
     devices7: devicesBy.get(u.id)?.size ?? 0,
     kicks7: kicksBy.get(u.id) ?? 0,
+    slowing: pace.get(u.id)?.slowing ?? false,
+    paceRecent: pace.get(u.id)?.recent ?? 0,
+    pacePrev: pace.get(u.id)?.prevAvg ?? 0,
     shared: (devicesBy.get(u.id)?.size ?? 0) >= SHARED_DEVICES_THRESHOLD || (kicksBy.get(u.id) ?? 0) >= SHARED_KICKS_THRESHOLD,
   }));
 }

@@ -4,12 +4,13 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { AccessEditor } from "./AccessEditor";
 import { PdfButtons } from "./PdfButtons";
-import { WeakList } from "./Reports";
+import { WeakList, Weeks, type Week } from "./Reports";
 import { ago, call, ConfirmDialog, fmtDateTime, Pct } from "./common";
 
 type Topic = { id: string; title: string; learned: boolean; practiceSolved: number; practiceTotal: number; lastAttemptAt: string | null };
 type Detail = {
   user: { id: string; login: string; createdAt: string; online: boolean; lastActiveAt: string | null; restricted: boolean; books: string[] };
+  pace: { recent: number; prevAvg: number; slowing: boolean } | null;
   logins: { id: string; ip: string | null; device: string; kicked: boolean; createdAt: string }[];
   sharedSignals: { devices: number; kicks: number; ips: number };
   summary: { topics: number; learned: number; tasks: number; solved: number; percent: number } | undefined;
@@ -21,7 +22,7 @@ type Detail = {
 };
 
 const TABS = [
-    ["progress", "Прогресс"], ["weak", "Слабые места"], ["logins", "Входы"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["notes", "Заметки"], ["access", "Доступ"],
+    ["progress", "Прогресс"], ["weak", "Слабые места"], ["activity", "Активность"], ["logins", "Входы"], ["tests", "Тесты"], ["mistakes", "Ошибки"], ["help", "Не смог решить"], ["notes", "Заметки"], ["access", "Доступ"],
 ] as const;
 const SCOPE: Record<string, string> = { topic: "Тест по теме", section: "Тест по разделу", full: "Сборный тест" };
 
@@ -69,6 +70,7 @@ export function StudentCard({ id, initialTab }: { id: string; initialTab: string
 
       {tab === "progress" && <ProgressTab d={d} />}
       {tab === "weak" && <WeakTab id={id} />}
+      {tab === "activity" && <ActivityTab id={id} slowing={d.pace} />}
       {tab === "logins" && <LoginsTab d={d} />}
       {tab === "tests" && <TestsTab d={d} />}
       {tab === "mistakes" && <MistakesTab d={d} />}
@@ -324,6 +326,22 @@ function LoginsTab({ d }: { d: Detail }) {
           ))}
         </div>
       )}
+    </>
+  );
+}
+
+function ActivityTab({ id, slowing }: { id: string; slowing: Detail["pace"] }) {
+  const [data, setData] = useState<{ rows: Week[]; logStart: string | null } | null>(null);
+  useEffect(() => { call(`/api/admin/reports?type=weeks&userId=${id}`).then(setData).catch(() => setData({ rows: [], logStart: null })); }, [id]);
+  return (
+    <>
+      {slowing && (
+        <div className="card" style={{ marginBottom: 12, borderColor: slowing.slowing ? "var(--warn)" : undefined }}>
+          <b>{slowing.slowing ? "⚠️ Темп снизился" : "Темп в норме"}</b>
+          <p className="muted" style={{ margin: "4px 0 0" }}>За последние 7 дней: {slowing.recent} «действий», в предыдущие 3 недели в среднем {slowing.prevAvg} в неделю (задача — 1, тема — 5, тест — 10).</p>
+        </div>
+      )}
+      {!data ? <p className="muted">Считаем…</p> : <Weeks rows={data.rows} logStart={data.logStart} />}
     </>
   );
 }

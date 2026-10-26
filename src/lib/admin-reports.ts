@@ -17,12 +17,23 @@ const sample = (s: Stat) => s.testT + s.prA;
  * Статистика «ученик × тема»: верные/всего в тестах (TestAttempt.breakdown) и
  * решено/пробовал в закреплении (TaskResult.correct, attempts>0). Процент по теме — общий по обоим источникам.
  */
-export async function collectStats(userIds?: string[]) {
+export async function collectStats(userIds?: string[], since?: Date) {
+  // За период практику берём из журнала попыток (по каждой проверке ответа), за всё время — из итогов TaskResult,
+  // куда попали и данные до появления журнала.
+  const practiceQuery = since
+    ? prisma.$queryRaw<{ user_id: string; topic_id: string; attempted: number; solved: number }[]>`
+      SELECT a.user_id, a.topic_id, COUNT(*)::int AS attempted, (COUNT(*) FILTER (WHERE a.correct))::int AS solved
+      FROM task_attempts a JOIN users u ON u.id = a.user_id
+      WHERE a.created_at >= ${since} AND u.role = 'student'
+        ${userIds ? Prisma.sql`AND a.user_id IN (${Prisma.join(userIds)})` : Prisma.empty}
+      GROUP BY a.user_id, a.topic_id`
+    : null;
   const [attempts, rows] = await Promise.all([
     prisma.testAttempt.findMany({
-      where: { finishedAt: { not: null }, ...(userIds ? { userId: { in: userIds } } : { user: { role: "student" } }) },
+      where: { finishedAt: since ? { gte: since } : { not: null }, ...(userIds ? { userId: { in: userIds } } : { user: { role: "student" } }) },
       select: { userId: true, breakdown: true },
     }),
+    practiceQuery ??
     prisma.$queryRaw<{ user_id: string; topic_id: string; attempted: number; solved: number }[]>`
       SELECT r.user_id, t.topic_id, COUNT(*)::int AS attempted, (COUNT(*) FILTER (WHERE r.correct))::int AS solved
       FROM task_results r JOIN tasks t ON t.id = r.task_id JOIN users u ON u.id = r.user_id
@@ -70,11 +81,14 @@ export type WeakRow = {
 };
 
 /** Слабые темы одного ученика (userId) или всех учеников сразу; можно ограничить книгой. */
-export async function weakTopics(opts: { userId?: string; book?: string }): Promise<WeakRow[]> {
+export const sinceDays = (days?: number) => (days && days > 0 ? new Date(Date.now() - days * 86_400_000) : undefined);
+
+export async function weakTopics(opts: { userId?: string; book?: string; days?: number }): Promise<WeakRow[]> {
+  const since = sinceDays(opts.days);
   const [stats, meta, helps] = await Promise.all([
-    collectStats(opts.userId ? [opts.userId] : undefined),
+    collectStats(opts.userId ? [opts.userId] : undefined, since),
     topicMeta(),
-    prisma.helpRequest.groupBy({ by: ["taskId"], where: opts.userId ? { userId: opts.userId } : {}, _count: true }),
+    prisma.helpRequest.groupBy({ by: ["taskId"], where: { ...(opts.userId ? { userId: opts.userId } : {}), ...(since ? { createdAt: { gte: since } } : {}) }, _count: true }),
   ]);
   const taskTopic = new Map(
     (await prisma.task.findMany({ where: { id: { in: helps.map((h) => h.taskId) } }, select: { id: true, topicId: true } })).map((t) => [t.id, t.topicId]),
@@ -138,10 +152,11 @@ export type FlaggedRow = {
 };
 
 /** Задачи, которые чаще всего отмечают «Не смог решить» (все статусы). */
-export async function flaggedTasks(opts: { book?: string; userId?: string }): Promise<FlaggedRow[]> {
+export async function flaggedTasks(opts: { book?: string; userId?: string; days?: number }): Promise<FlaggedRow[]> {
+  const since = sinceDays(opts.days);
   const [reqs, meta] = await Promise.all([
     prisma.helpRequest.findMany({
-      where: opts.userId ? { userId: opts.userId } : {},
+      where: { ...(opts.userId ? { userId: opts.userId } : {}), ...(since ? { createdAt: { gte: since } } : {}) },
       select: { taskId: true, status: true, source: true, task: { select: { number: true, question: true, topicId: true } } },
     }),
     topicMeta(),
@@ -162,9 +177,9 @@ export async function flaggedTasks(opts: { book?: string; userId?: string }): Pr
   return [...by.values()].sort((a, b) => b.students - a.students || b.open - a.open).slice(0, 30);
 }
 
-export type WeekRow = { week: string; tests: number; avgPercent: number | null; activeStudents: number; help: number };
+export type WeekRow = { week: string; tests: number; avgPercent: number | null; activeStudents: number; help: number; tasks: number; solved: number; learned: number };
 
-const WEEKS = 8;
+const WEEKS = 12;
 const weekStart = (d: Date) => {
   const x = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
   x.setUTCDate(x.getUTCDate() - ((x.getUTCDay() + 6) % 7)); // понедельник
@@ -175,7 +190,7 @@ const weekStart = (d: Date) => {
 export async function weeklyDynamics(opts: { book?: string; userId?: string }): Promise<WeekRow[]> {
   const since = weekStart(new Date(Date.now() - (WEEKS - 1) * 7 * 86_400_000));
   const userWhere = opts.userId ? { userId: opts.userId } : { user: { role: "student" as const } };
-  const [attempts, sessions, helps, meta, sections] = await Promise.all([
+  const [attempts, sessions, helps, meta, sections, taskLog, learnedRows] = await Promise.all([
     prisma.testAttempt.findMany({
       where: { ...userWhere, startedAt: { gte: since } },
       select: { userId: true, scope: true, sectionId: true, topicId: true, startedAt: true, finishedAt: true, score: true, total: true },
@@ -184,6 +199,8 @@ export async function weeklyDynamics(opts: { book?: string; userId?: string }): 
     prisma.helpRequest.findMany({ where: { ...userWhere, createdAt: { gte: since } }, select: { createdAt: true, task: { select: { topicId: true } } } }),
     topicMeta(),
     prisma.section.findMany({ select: { id: true, level: true, subjectId: true } }),
+    prisma.taskAttempt.findMany({ where: { ...userWhere, createdAt: { gte: since } }, select: { userId: true, topicId: true, correct: true, createdAt: true } }),
+    prisma.progress.findMany({ where: { ...userWhere, learnedAt: { gte: since } }, select: { userId: true, topicId: true, learnedAt: true } }),
   ]);
   const sectionBook = new Map(sections.map((s) => [s.id, bookKey(s)]));
   const inBook = (a: (typeof attempts)[number]) =>
@@ -191,7 +208,7 @@ export async function weeklyDynamics(opts: { book?: string; userId?: string }): 
 
   const weeks = Array.from({ length: WEEKS }, (_, i) => {
     const d = new Date(since); d.setUTCDate(d.getUTCDate() + i * 7);
-    return { key: d.toISOString().slice(0, 10), tests: 0, score: 0, total: 0, active: new Set<string>(), help: 0 };
+    return { key: d.toISOString().slice(0, 10), tests: 0, score: 0, total: 0, active: new Set<string>(), help: 0, tasks: 0, solved: 0, learned: 0 };
   });
   const slot = (d: Date) => weeks[Math.floor((weekStart(d).getTime() - since.getTime()) / (7 * 86_400_000))];
   for (const a of attempts) {
@@ -202,7 +219,18 @@ export async function weeklyDynamics(opts: { book?: string; userId?: string }): 
       if (w) { w.tests += 1; w.score += a.score ?? 0; w.total += a.total; }
     }
   }
+  for (const a of taskLog) {
+    if (opts.book && meta.get(a.topicId)?.book !== opts.book) continue;
+    const w = slot(a.createdAt);
+    if (!w) continue;
+    w.tasks += 1; if (a.correct) w.solved += 1; w.active.add(a.userId);
+  }
+  for (const l of learnedRows) {
+    if (opts.book && meta.get(l.topicId)?.book !== opts.book) continue;
+    const w = l.learnedAt ? slot(l.learnedAt) : undefined;
+    if (w) { w.learned += 1; w.active.add(l.userId); }
+  }
   if (!opts.book) for (const s of sessions) slot(s.createdAt)?.active.add(s.userId);
   for (const h of helps) if (!opts.book || meta.get(h.task.topicId)?.book === opts.book) { const w = slot(h.createdAt); if (w) w.help += 1; }
-  return weeks.map((w) => ({ week: w.key, tests: w.tests, avgPercent: w.total ? pct(w.score, w.total) : null, activeStudents: w.active.size, help: w.help }));
+  return weeks.map((w) => ({ week: w.key, tests: w.tests, avgPercent: w.total ? pct(w.score, w.total) : null, activeStudents: w.active.size, help: w.help, tasks: w.tasks, solved: w.solved, learned: w.learned }));
 }

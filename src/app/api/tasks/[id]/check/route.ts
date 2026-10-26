@@ -43,6 +43,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
         update: { correct: correct ? true : undefined, attempts: { increment: 1 }, lastAnswer: body.answer },
         create: { userId: user.id, taskId: task.id, correct, attempts: 1, lastAnswer: body.answer },
       }),
+      prisma.taskAttempt.create({ data: { userId: user.id, taskId: task.id, topicId: task.topicId, correct } }),
       prisma.progress.upsert({
         where: { userId_topicId: { userId: user.id, topicId: task.topicId } },
         update: { lastAttemptAt: new Date() },
