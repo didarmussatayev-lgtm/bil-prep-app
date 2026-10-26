@@ -1,0 +1,27 @@
+name: CI
+
+# Проверка каждого PR и каждого слияния в main: сломанная схема или сборка не должны доезжать до Railway.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      # prisma generate и сборка не подключаются к базе, нужен только формально корректный адрес
+      DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Схема Prisma валидна
+        run: npx prisma validate
+      - name: Типы (tsc)
+        run: npx tsc --noEmit
+      - name: Сборка (как на Railway)
+        run: npm run build
