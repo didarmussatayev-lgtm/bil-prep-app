@@ -42,13 +42,15 @@ export function Reports() {
   const [book, setBook] = useState("");
   const [student, setStudent] = useState<{ id: string; login: string } | null>(null);
   const [days, setDays] = useState(0);
-  const [data, setData] = useState<unknown | null>(null);
+  // данные хранятся вместе с вкладкой, для которой загружены: при переключении старый ответ не подставляется в чужой отчёт
+  const [loaded, setLoaded] = useState<{ tab: string; data: unknown } | null>(null);
+  const data = loaded?.tab === tab ? loaded.data : null;
   const [error, setError] = useState("");
 
   useEffect(() => {
-    setData(null);
+    setLoaded(null);
     const p = new URLSearchParams({ type: tab, book, userId: student?.id ?? "", days: String(days) });
-    call(`/api/admin/reports?${p}`).then((d) => { setData(d); setError(""); }).catch((e) => setError(e.message));
+    call(`/api/admin/reports?${p}`).then((d) => { setLoaded({ tab, data: d }); setError(""); }).catch((e) => setError(e.message));
   }, [tab, book, student, days]);
 
   return (
