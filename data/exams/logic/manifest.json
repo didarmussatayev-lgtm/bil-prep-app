@@ -1,0 +1,2335 @@
+{
+ "subject": "logic",
+ "papers": [
+  {
+   "slug": "logic-training-01",
+   "group": "training",
+   "number": 1,
+   "title": "Тест 1",
+   "titleKk": "1-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "C",
+     "image": "/exams/logic/t01/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "A",
+     "image": "/exams/logic/t01/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "E",
+     "image": "/exams/logic/t01/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "D",
+     "image": "/exams/logic/t01/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "D",
+     "image": "/exams/logic/t01/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "D",
+     "image": "/exams/logic/t01/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "A",
+     "image": "/exams/logic/t01/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "A",
+     "image": "/exams/logic/t01/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "D",
+     "image": "/exams/logic/t01/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "E",
+     "image": "/exams/logic/t01/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "B",
+     "image": "/exams/logic/t01/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "B",
+     "image": "/exams/logic/t01/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "C",
+     "image": "/exams/logic/t01/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "C",
+     "image": "/exams/logic/t01/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "D",
+     "image": "/exams/logic/t01/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "A",
+     "image": "/exams/logic/t01/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "E",
+     "image": "/exams/logic/t01/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "C",
+     "image": "/exams/logic/t01/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "C",
+     "image": "/exams/logic/t01/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "A",
+     "image": "/exams/logic/t01/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "A",
+     "image": "/exams/logic/t01/q21.webp"
+    },
+    {
+     "n": 22,
+     "answer": "C",
+     "image": "/exams/logic/t01/q22.webp"
+    },
+    {
+     "n": 23,
+     "answer": "B",
+     "image": "/exams/logic/t01/q23.webp"
+    },
+    {
+     "n": 24,
+     "answer": "B",
+     "image": "/exams/logic/t01/q24.webp"
+    },
+    {
+     "n": 25,
+     "answer": "B",
+     "image": "/exams/logic/t01/q25.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-02",
+   "group": "training",
+   "number": 2,
+   "title": "Тест 2",
+   "titleKk": "2-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "D",
+     "image": "/exams/logic/t02/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "C",
+     "image": "/exams/logic/t02/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "A",
+     "image": "/exams/logic/t02/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "B",
+     "image": "/exams/logic/t02/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "E",
+     "image": "/exams/logic/t02/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "C",
+     "image": "/exams/logic/t02/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "C",
+     "image": "/exams/logic/t02/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "E",
+     "image": "/exams/logic/t02/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "A",
+     "image": "/exams/logic/t02/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "B",
+     "image": "/exams/logic/t02/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "C",
+     "image": "/exams/logic/t02/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "D",
+     "image": "/exams/logic/t02/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "E",
+     "image": "/exams/logic/t02/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "D",
+     "image": "/exams/logic/t02/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "E",
+     "image": "/exams/logic/t02/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "D",
+     "image": "/exams/logic/t02/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "A",
+     "image": "/exams/logic/t02/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "C",
+     "image": "/exams/logic/t02/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "B",
+     "image": "/exams/logic/t02/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "C",
+     "image": "/exams/logic/t02/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-03",
+   "group": "training",
+   "number": 3,
+   "title": "Тест 3",
+   "titleKk": "3-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "E",
+     "image": "/exams/logic/t03/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "E",
+     "image": "/exams/logic/t03/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "B",
+     "image": "/exams/logic/t03/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "D",
+     "image": "/exams/logic/t03/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "D",
+     "image": "/exams/logic/t03/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "A",
+     "image": "/exams/logic/t03/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "E",
+     "image": "/exams/logic/t03/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t03/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "E",
+     "image": "/exams/logic/t03/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "B",
+     "image": "/exams/logic/t03/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "B",
+     "image": "/exams/logic/t03/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "C",
+     "image": "/exams/logic/t03/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "C",
+     "image": "/exams/logic/t03/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "C",
+     "image": "/exams/logic/t03/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "C",
+     "image": "/exams/logic/t03/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "A",
+     "image": "/exams/logic/t03/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "B",
+     "image": "/exams/logic/t03/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "E",
+     "image": "/exams/logic/t03/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "A",
+     "image": "/exams/logic/t03/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "D",
+     "image": "/exams/logic/t03/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-04",
+   "group": "training",
+   "number": 4,
+   "title": "Тест 4",
+   "titleKk": "4-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "E",
+     "image": "/exams/logic/t04/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "C",
+     "image": "/exams/logic/t04/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "D",
+     "image": "/exams/logic/t04/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "C",
+     "image": "/exams/logic/t04/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "A",
+     "image": "/exams/logic/t04/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "D",
+     "image": "/exams/logic/t04/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "B",
+     "image": "/exams/logic/t04/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t04/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "C",
+     "image": "/exams/logic/t04/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "E",
+     "image": "/exams/logic/t04/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "E",
+     "image": "/exams/logic/t04/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "E",
+     "image": "/exams/logic/t04/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "A",
+     "image": "/exams/logic/t04/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "E",
+     "image": "/exams/logic/t04/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "B",
+     "image": "/exams/logic/t04/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "E",
+     "image": "/exams/logic/t04/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "C",
+     "image": "/exams/logic/t04/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "B",
+     "image": "/exams/logic/t04/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "C",
+     "image": "/exams/logic/t04/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "B",
+     "image": "/exams/logic/t04/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "B",
+     "image": "/exams/logic/t04/q21.webp"
+    },
+    {
+     "n": 22,
+     "answer": "A",
+     "image": "/exams/logic/t04/q22.webp"
+    },
+    {
+     "n": 23,
+     "answer": "C",
+     "image": "/exams/logic/t04/q23.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-05",
+   "group": "training",
+   "number": 5,
+   "title": "Тест 5",
+   "titleKk": "5-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "D",
+     "image": "/exams/logic/t05/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "D",
+     "image": "/exams/logic/t05/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "A",
+     "image": "/exams/logic/t05/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "B",
+     "image": "/exams/logic/t05/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "B",
+     "image": "/exams/logic/t05/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "D",
+     "image": "/exams/logic/t05/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "B",
+     "image": "/exams/logic/t05/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t05/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "C",
+     "image": "/exams/logic/t05/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "B",
+     "image": "/exams/logic/t05/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "D",
+     "image": "/exams/logic/t05/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "D",
+     "image": "/exams/logic/t05/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "C",
+     "image": "/exams/logic/t05/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "B",
+     "image": "/exams/logic/t05/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "A",
+     "image": "/exams/logic/t05/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "D",
+     "image": "/exams/logic/t05/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "A",
+     "image": "/exams/logic/t05/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "A",
+     "image": "/exams/logic/t05/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "E",
+     "image": "/exams/logic/t05/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "E",
+     "image": "/exams/logic/t05/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-06",
+   "group": "training",
+   "number": 6,
+   "title": "Тест 6",
+   "titleKk": "6-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "D",
+     "image": "/exams/logic/t06/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "C",
+     "image": "/exams/logic/t06/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "D",
+     "image": "/exams/logic/t06/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "E",
+     "image": "/exams/logic/t06/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "B",
+     "image": "/exams/logic/t06/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "C",
+     "image": "/exams/logic/t06/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "B",
+     "image": "/exams/logic/t06/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t06/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "A",
+     "image": "/exams/logic/t06/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "A",
+     "image": "/exams/logic/t06/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "B",
+     "image": "/exams/logic/t06/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "E",
+     "image": "/exams/logic/t06/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "A",
+     "image": "/exams/logic/t06/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "C",
+     "image": "/exams/logic/t06/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "A",
+     "image": "/exams/logic/t06/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "A",
+     "image": "/exams/logic/t06/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "E",
+     "image": "/exams/logic/t06/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "D",
+     "image": "/exams/logic/t06/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "A",
+     "image": "/exams/logic/t06/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "E",
+     "image": "/exams/logic/t06/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-07",
+   "group": "training",
+   "number": 7,
+   "title": "Тест 7",
+   "titleKk": "7-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "B",
+     "image": "/exams/logic/t07/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "D",
+     "image": "/exams/logic/t07/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t07/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "C",
+     "image": "/exams/logic/t07/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "B",
+     "image": "/exams/logic/t07/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "C",
+     "image": "/exams/logic/t07/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "E",
+     "image": "/exams/logic/t07/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "B",
+     "image": "/exams/logic/t07/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "B",
+     "image": "/exams/logic/t07/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "A",
+     "image": "/exams/logic/t07/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "B",
+     "image": "/exams/logic/t07/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "E",
+     "image": "/exams/logic/t07/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "E",
+     "image": "/exams/logic/t07/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "A",
+     "image": "/exams/logic/t07/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "E",
+     "image": "/exams/logic/t07/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "B",
+     "image": "/exams/logic/t07/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "C",
+     "image": "/exams/logic/t07/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "A",
+     "image": "/exams/logic/t07/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "B",
+     "image": "/exams/logic/t07/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "D",
+     "image": "/exams/logic/t07/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-08",
+   "group": "training",
+   "number": 8,
+   "title": "Тест 8",
+   "titleKk": "8-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "B",
+     "image": "/exams/logic/t08/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "E",
+     "image": "/exams/logic/t08/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t08/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "E",
+     "image": "/exams/logic/t08/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "E",
+     "image": "/exams/logic/t08/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "D",
+     "image": "/exams/logic/t08/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "D",
+     "image": "/exams/logic/t08/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t08/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "C",
+     "image": "/exams/logic/t08/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "E",
+     "image": "/exams/logic/t08/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "B",
+     "image": "/exams/logic/t08/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "A",
+     "image": "/exams/logic/t08/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "C",
+     "image": "/exams/logic/t08/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "C",
+     "image": "/exams/logic/t08/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "E",
+     "image": "/exams/logic/t08/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "C",
+     "image": "/exams/logic/t08/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "C",
+     "image": "/exams/logic/t08/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "D",
+     "image": "/exams/logic/t08/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "E",
+     "image": "/exams/logic/t08/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "A",
+     "image": "/exams/logic/t08/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-09",
+   "group": "training",
+   "number": 9,
+   "title": "Тест 9",
+   "titleKk": "9-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "C",
+     "image": "/exams/logic/t09/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "B",
+     "image": "/exams/logic/t09/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t09/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "E",
+     "image": "/exams/logic/t09/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "E",
+     "image": "/exams/logic/t09/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "C",
+     "image": "/exams/logic/t09/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "A",
+     "image": "/exams/logic/t09/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t09/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "D",
+     "image": "/exams/logic/t09/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "C",
+     "image": "/exams/logic/t09/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "C",
+     "image": "/exams/logic/t09/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "C",
+     "image": "/exams/logic/t09/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "E",
+     "image": "/exams/logic/t09/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "C",
+     "image": "/exams/logic/t09/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "A",
+     "image": "/exams/logic/t09/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "C",
+     "image": "/exams/logic/t09/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "D",
+     "image": "/exams/logic/t09/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "D",
+     "image": "/exams/logic/t09/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "E",
+     "image": "/exams/logic/t09/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "E",
+     "image": "/exams/logic/t09/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "C",
+     "image": "/exams/logic/t09/q21.webp"
+    },
+    {
+     "n": 22,
+     "answer": "E",
+     "image": "/exams/logic/t09/q22.webp"
+    },
+    {
+     "n": 23,
+     "answer": "A",
+     "image": "/exams/logic/t09/q23.webp"
+    },
+    {
+     "n": 24,
+     "answer": "B",
+     "image": "/exams/logic/t09/q24.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-10",
+   "group": "training",
+   "number": 10,
+   "title": "Тест 10",
+   "titleKk": "10-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "B",
+     "image": "/exams/logic/t10/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "D",
+     "image": "/exams/logic/t10/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "D",
+     "image": "/exams/logic/t10/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "C",
+     "image": "/exams/logic/t10/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "D",
+     "image": "/exams/logic/t10/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "B",
+     "image": "/exams/logic/t10/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "C",
+     "image": "/exams/logic/t10/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "E",
+     "image": "/exams/logic/t10/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "C",
+     "image": "/exams/logic/t10/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "C",
+     "image": "/exams/logic/t10/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "E",
+     "image": "/exams/logic/t10/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "B",
+     "image": "/exams/logic/t10/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "C",
+     "image": "/exams/logic/t10/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "B",
+     "image": "/exams/logic/t10/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "B",
+     "image": "/exams/logic/t10/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "B",
+     "image": "/exams/logic/t10/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "A",
+     "image": "/exams/logic/t10/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "D",
+     "image": "/exams/logic/t10/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "B",
+     "image": "/exams/logic/t10/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "B",
+     "image": "/exams/logic/t10/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "E",
+     "image": "/exams/logic/t10/q21.webp"
+    },
+    {
+     "n": 22,
+     "answer": "D",
+     "image": "/exams/logic/t10/q22.webp"
+    },
+    {
+     "n": 23,
+     "answer": "C",
+     "image": "/exams/logic/t10/q23.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-11",
+   "group": "training",
+   "number": 11,
+   "title": "Тест 11",
+   "titleKk": "11-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "E",
+     "image": "/exams/logic/t11/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "C",
+     "image": "/exams/logic/t11/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "E",
+     "image": "/exams/logic/t11/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "E",
+     "image": "/exams/logic/t11/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "D",
+     "image": "/exams/logic/t11/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "D",
+     "image": "/exams/logic/t11/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "E",
+     "image": "/exams/logic/t11/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "E",
+     "image": "/exams/logic/t11/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "C",
+     "image": "/exams/logic/t11/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "C",
+     "image": "/exams/logic/t11/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "D",
+     "image": "/exams/logic/t11/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "A",
+     "image": "/exams/logic/t11/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "E",
+     "image": "/exams/logic/t11/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "A",
+     "image": "/exams/logic/t11/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "E",
+     "image": "/exams/logic/t11/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "A",
+     "image": "/exams/logic/t11/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "E",
+     "image": "/exams/logic/t11/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "E",
+     "image": "/exams/logic/t11/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "D",
+     "image": "/exams/logic/t11/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "B",
+     "image": "/exams/logic/t11/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-12",
+   "group": "training",
+   "number": 12,
+   "title": "Тест 12",
+   "titleKk": "12-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "E",
+     "image": "/exams/logic/t12/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "C",
+     "image": "/exams/logic/t12/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "B",
+     "image": "/exams/logic/t12/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "C",
+     "image": "/exams/logic/t12/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "C",
+     "image": "/exams/logic/t12/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "A",
+     "image": "/exams/logic/t12/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "D",
+     "image": "/exams/logic/t12/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "D",
+     "image": "/exams/logic/t12/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "E",
+     "image": "/exams/logic/t12/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "A",
+     "image": "/exams/logic/t12/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "A",
+     "image": "/exams/logic/t12/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "C",
+     "image": "/exams/logic/t12/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "B",
+     "image": "/exams/logic/t12/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "E",
+     "image": "/exams/logic/t12/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "B",
+     "image": "/exams/logic/t12/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "C",
+     "image": "/exams/logic/t12/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "B",
+     "image": "/exams/logic/t12/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "D",
+     "image": "/exams/logic/t12/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "B",
+     "image": "/exams/logic/t12/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "C",
+     "image": "/exams/logic/t12/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "C",
+     "image": "/exams/logic/t12/q21.webp"
+    },
+    {
+     "n": 22,
+     "answer": "C",
+     "image": "/exams/logic/t12/q22.webp"
+    },
+    {
+     "n": 23,
+     "answer": "B",
+     "image": "/exams/logic/t12/q23.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-13",
+   "group": "training",
+   "number": 13,
+   "title": "Тест 13",
+   "titleKk": "13-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "B",
+     "image": "/exams/logic/t13/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "C",
+     "image": "/exams/logic/t13/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t13/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "C",
+     "image": "/exams/logic/t13/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "A",
+     "image": "/exams/logic/t13/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "C",
+     "image": "/exams/logic/t13/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "A",
+     "image": "/exams/logic/t13/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "D",
+     "image": "/exams/logic/t13/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "C",
+     "image": "/exams/logic/t13/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "A",
+     "image": "/exams/logic/t13/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "D",
+     "image": "/exams/logic/t13/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "C",
+     "image": "/exams/logic/t13/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "C",
+     "image": "/exams/logic/t13/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "E",
+     "image": "/exams/logic/t13/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "B",
+     "image": "/exams/logic/t13/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "E",
+     "image": "/exams/logic/t13/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "C",
+     "image": "/exams/logic/t13/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "B",
+     "image": "/exams/logic/t13/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "C",
+     "image": "/exams/logic/t13/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "B",
+     "image": "/exams/logic/t13/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "A",
+     "image": "/exams/logic/t13/q21.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-14",
+   "group": "training",
+   "number": 14,
+   "title": "Тест 14",
+   "titleKk": "14-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "C",
+     "image": "/exams/logic/t14/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "E",
+     "image": "/exams/logic/t14/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t14/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "B",
+     "image": "/exams/logic/t14/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "E",
+     "image": "/exams/logic/t14/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "E",
+     "image": "/exams/logic/t14/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "A",
+     "image": "/exams/logic/t14/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "A",
+     "image": "/exams/logic/t14/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "A",
+     "image": "/exams/logic/t14/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "D",
+     "image": "/exams/logic/t14/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "E",
+     "image": "/exams/logic/t14/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "A",
+     "image": "/exams/logic/t14/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "A",
+     "image": "/exams/logic/t14/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "B",
+     "image": "/exams/logic/t14/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "E",
+     "image": "/exams/logic/t14/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "C",
+     "image": "/exams/logic/t14/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "E",
+     "image": "/exams/logic/t14/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "B",
+     "image": "/exams/logic/t14/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "D",
+     "image": "/exams/logic/t14/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "E",
+     "image": "/exams/logic/t14/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "C",
+     "image": "/exams/logic/t14/q21.webp"
+    },
+    {
+     "n": 22,
+     "answer": "B",
+     "image": "/exams/logic/t14/q22.webp"
+    },
+    {
+     "n": 23,
+     "answer": "A",
+     "image": "/exams/logic/t14/q23.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-15",
+   "group": "training",
+   "number": 15,
+   "title": "Тест 15",
+   "titleKk": "15-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "B",
+     "image": "/exams/logic/t15/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "D",
+     "image": "/exams/logic/t15/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t15/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "B",
+     "image": "/exams/logic/t15/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "D",
+     "image": "/exams/logic/t15/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "E",
+     "image": "/exams/logic/t15/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "E",
+     "image": "/exams/logic/t15/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t15/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "E",
+     "image": "/exams/logic/t15/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "B",
+     "image": "/exams/logic/t15/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "B",
+     "image": "/exams/logic/t15/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "D",
+     "image": "/exams/logic/t15/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "D",
+     "image": "/exams/logic/t15/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "C",
+     "image": "/exams/logic/t15/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "C",
+     "image": "/exams/logic/t15/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "C",
+     "image": "/exams/logic/t15/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "D",
+     "image": "/exams/logic/t15/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "D",
+     "image": "/exams/logic/t15/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "D",
+     "image": "/exams/logic/t15/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "D",
+     "image": "/exams/logic/t15/q20.webp"
+    },
+    {
+     "n": 21,
+     "answer": "B",
+     "image": "/exams/logic/t15/q21.webp"
+    },
+    {
+     "n": 22,
+     "answer": "A",
+     "image": "/exams/logic/t15/q22.webp"
+    },
+    {
+     "n": 23,
+     "answer": "C",
+     "image": "/exams/logic/t15/q23.webp"
+    },
+    {
+     "n": 24,
+     "answer": "A",
+     "image": "/exams/logic/t15/q24.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-16",
+   "group": "training",
+   "number": 16,
+   "title": "Тест 16",
+   "titleKk": "16-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "C",
+     "image": "/exams/logic/t16/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "E",
+     "image": "/exams/logic/t16/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t16/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "A",
+     "image": "/exams/logic/t16/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "C",
+     "image": "/exams/logic/t16/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "D",
+     "image": "/exams/logic/t16/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "A",
+     "image": "/exams/logic/t16/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "B",
+     "image": "/exams/logic/t16/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "B",
+     "image": "/exams/logic/t16/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "A",
+     "image": "/exams/logic/t16/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "C",
+     "image": "/exams/logic/t16/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "B",
+     "image": "/exams/logic/t16/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "B",
+     "image": "/exams/logic/t16/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "E",
+     "image": "/exams/logic/t16/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "D",
+     "image": "/exams/logic/t16/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "C",
+     "image": "/exams/logic/t16/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "C",
+     "image": "/exams/logic/t16/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "B",
+     "image": "/exams/logic/t16/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "D",
+     "image": "/exams/logic/t16/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "A",
+     "image": "/exams/logic/t16/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-17",
+   "group": "training",
+   "number": 17,
+   "title": "Тест 17",
+   "titleKk": "17-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "C",
+     "image": "/exams/logic/t17/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "D",
+     "image": "/exams/logic/t17/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "D",
+     "image": "/exams/logic/t17/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "E",
+     "image": "/exams/logic/t17/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "C",
+     "image": "/exams/logic/t17/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "C",
+     "image": "/exams/logic/t17/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "B",
+     "image": "/exams/logic/t17/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "B",
+     "image": "/exams/logic/t17/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "A",
+     "image": "/exams/logic/t17/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "A",
+     "image": "/exams/logic/t17/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "B",
+     "image": "/exams/logic/t17/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "C",
+     "image": "/exams/logic/t17/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "E",
+     "image": "/exams/logic/t17/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "A",
+     "image": "/exams/logic/t17/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "A",
+     "image": "/exams/logic/t17/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "D",
+     "image": "/exams/logic/t17/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "D",
+     "image": "/exams/logic/t17/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "E",
+     "image": "/exams/logic/t17/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "B",
+     "image": "/exams/logic/t17/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "C",
+     "image": "/exams/logic/t17/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-18",
+   "group": "training",
+   "number": 18,
+   "title": "Тест 18",
+   "titleKk": "18-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "B",
+     "image": "/exams/logic/t18/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "E",
+     "image": "/exams/logic/t18/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "A",
+     "image": "/exams/logic/t18/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "A",
+     "image": "/exams/logic/t18/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "D",
+     "image": "/exams/logic/t18/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "B",
+     "image": "/exams/logic/t18/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "A",
+     "image": "/exams/logic/t18/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "A",
+     "image": "/exams/logic/t18/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "D",
+     "image": "/exams/logic/t18/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "B",
+     "image": "/exams/logic/t18/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "D",
+     "image": "/exams/logic/t18/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "C",
+     "image": "/exams/logic/t18/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "B",
+     "image": "/exams/logic/t18/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "B",
+     "image": "/exams/logic/t18/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "D",
+     "image": "/exams/logic/t18/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "A",
+     "image": "/exams/logic/t18/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "D",
+     "image": "/exams/logic/t18/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "A",
+     "image": "/exams/logic/t18/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "C",
+     "image": "/exams/logic/t18/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "D",
+     "image": "/exams/logic/t18/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-19",
+   "group": "training",
+   "number": 19,
+   "title": "Тест 19",
+   "titleKk": "19-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "E",
+     "image": "/exams/logic/t19/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "B",
+     "image": "/exams/logic/t19/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "C",
+     "image": "/exams/logic/t19/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "D",
+     "image": "/exams/logic/t19/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "C",
+     "image": "/exams/logic/t19/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "D",
+     "image": "/exams/logic/t19/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "B",
+     "image": "/exams/logic/t19/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "C",
+     "image": "/exams/logic/t19/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "B",
+     "image": "/exams/logic/t19/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "D",
+     "image": "/exams/logic/t19/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "C",
+     "image": "/exams/logic/t19/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "D",
+     "image": "/exams/logic/t19/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "A",
+     "image": "/exams/logic/t19/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "E",
+     "image": "/exams/logic/t19/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "A",
+     "image": "/exams/logic/t19/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "E",
+     "image": "/exams/logic/t19/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "C",
+     "image": "/exams/logic/t19/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "B",
+     "image": "/exams/logic/t19/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "C",
+     "image": "/exams/logic/t19/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "D",
+     "image": "/exams/logic/t19/q20.webp"
+    }
+   ]
+  },
+  {
+   "slug": "logic-training-20",
+   "group": "training",
+   "number": 20,
+   "title": "Тест 20",
+   "titleKk": "20-тест",
+   "timeMinutes": 60,
+   "questions": [
+    {
+     "n": 1,
+     "answer": "C",
+     "image": "/exams/logic/t20/q01.webp"
+    },
+    {
+     "n": 2,
+     "answer": "A",
+     "image": "/exams/logic/t20/q02.webp"
+    },
+    {
+     "n": 3,
+     "answer": "B",
+     "image": "/exams/logic/t20/q03.webp"
+    },
+    {
+     "n": 4,
+     "answer": "C",
+     "image": "/exams/logic/t20/q04.webp"
+    },
+    {
+     "n": 5,
+     "answer": "B",
+     "image": "/exams/logic/t20/q05.webp"
+    },
+    {
+     "n": 6,
+     "answer": "A",
+     "image": "/exams/logic/t20/q06.webp"
+    },
+    {
+     "n": 7,
+     "answer": "B",
+     "image": "/exams/logic/t20/q07.webp"
+    },
+    {
+     "n": 8,
+     "answer": "A",
+     "image": "/exams/logic/t20/q08.webp"
+    },
+    {
+     "n": 9,
+     "answer": "A",
+     "image": "/exams/logic/t20/q09.webp"
+    },
+    {
+     "n": 10,
+     "answer": "C",
+     "image": "/exams/logic/t20/q10.webp"
+    },
+    {
+     "n": 11,
+     "answer": "C",
+     "image": "/exams/logic/t20/q11.webp"
+    },
+    {
+     "n": 12,
+     "answer": "C",
+     "image": "/exams/logic/t20/q12.webp"
+    },
+    {
+     "n": 13,
+     "answer": "C",
+     "image": "/exams/logic/t20/q13.webp"
+    },
+    {
+     "n": 14,
+     "answer": "A",
+     "image": "/exams/logic/t20/q14.webp"
+    },
+    {
+     "n": 15,
+     "answer": "A",
+     "image": "/exams/logic/t20/q15.webp"
+    },
+    {
+     "n": 16,
+     "answer": "B",
+     "image": "/exams/logic/t20/q16.webp"
+    },
+    {
+     "n": 17,
+     "answer": "B",
+     "image": "/exams/logic/t20/q17.webp"
+    },
+    {
+     "n": 18,
+     "answer": "A",
+     "image": "/exams/logic/t20/q18.webp"
+    },
+    {
+     "n": 19,
+     "answer": "C",
+     "image": "/exams/logic/t20/q19.webp"
+    },
+    {
+     "n": 20,
+     "answer": "B",
+     "image": "/exams/logic/t20/q20.webp"
+    }
+   ]
+  }
+ ]
+}
