@@ -1,9 +1,13 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
-  "build": { "builder": "RAILPACK" },
+  "build": {
+    "builder": "RAILPACK"
+  },
   "deploy": {
-    "preDeployCommand": ["npx prisma db push --skip-generate"],
-    "startCommand": "npm start",
+    "preDeployCommand": [
+      "npx prisma db push --skip-generate"
+    ],
+    "startCommand": "npx prisma db push --skip-generate && npm start",
     "healthcheckPath": "/api/health",
     "healthcheckTimeout": 120,
     "restartPolicyType": "ON_FAILURE",
