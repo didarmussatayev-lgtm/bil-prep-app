@@ -13,7 +13,7 @@ import { TaskContent } from "./TaskContent";
 type Num = number | null;
 const toNum = (s: string | undefined): Num => {
   if (s === undefined || s.trim() === "") return null;
-  const v = Number(s.replace(",", "."));
+  const v = Number(s.replace(/[−–—]/g, "-").replace(",", "."));
   return Number.isFinite(v) ? v : null;
 };
 
