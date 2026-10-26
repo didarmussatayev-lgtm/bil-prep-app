@@ -3,10 +3,10 @@ import { randomInt } from "node:crypto";
 import { prisma } from "@/lib/prisma";
 import { ApiError } from "@/lib/auth/guards";
 import { onTestFinished } from "@/lib/gamification/engine";
-import { sectionFilter } from "@/lib/student/access";
+import { getAccess, sectionFilter } from "@/lib/student/access";
 import { hasPendingFigure, parseFigures, parseOptions } from "@/lib/content/types";
 
-export type TestScope = "topic" | "section" | "full";
+export type TestScope = "topic" | "section" | "full"; // + "paper" — отдельно (startPaperAttempt)
 
 // Параметры тестов. Значения ориентировочные — подстройте под реальный формат экзамена БИЛ.
 export const TEST_CONFIG: Record<TestScope, { questions: number; timeLimitSeconds: number | null }> = {
@@ -47,6 +47,39 @@ function pickBalanced(pool: { id: string; topicId: string }[], n: number): strin
     }
   }
   return shuffle(picked);
+}
+
+/** Доступен ли ученику вариант предмета: админу и ученикам без ограничений — всегда, иначе нужна хотя бы одна открытая книга предмета. */
+export async function canOpenPapers(userId: string, subjectId: string) {
+  const a = await getAccess(userId);
+  return !a.restricted || a.books.some((b) => b.subjectId === subjectId);
+}
+
+/** Пробный вариант: вопросы и их порядок фиксированы. mode "exam" — с таймером варианта, "practice" — без. */
+export async function startPaperAttempt(
+  userId: string,
+  input: { subjectSlug: string; paperId: string; mode: "exam" | "practice" },
+) {
+  const subject = await prisma.subject.findUnique({ where: { slug: input.subjectSlug }, select: { id: true } });
+  if (!subject) throw new ApiError(404, "Предмет не найден");
+  const paper = await prisma.examPaper.findFirst({ where: { id: input.paperId, subjectId: subject.id, hidden: false } });
+  if (!paper || !(await canOpenPapers(userId, subject.id))) throw new ApiError(404, "Вариант не найден");
+  const questionIds = paper.questionIds as string[];
+  if (questionIds.length === 0) throw new ApiError(400, "В этом варианте пока нет вопросов", "NO_QUESTIONS");
+
+  const limit = input.mode === "exam" ? paper.timeLimitSeconds : null;
+  return prisma.testAttempt.create({
+    data: {
+      userId,
+      subjectId: subject.id,
+      scope: "paper",
+      paperId: paper.id,
+      questionIds,
+      total: questionIds.length,
+      deadlineAt: limit ? new Date(Date.now() + limit * 1000) : null,
+    },
+    select: { id: true },
+  });
 }
 
 export async function startAttempt(
@@ -170,7 +203,8 @@ export async function finishAttempt(userId: string, attemptId: string) {
     if (ok) row.correct += 1;
     perTopic.set(t.topic.id, row);
   }
-  const breakdown = [...perTopic.values()];
+  // у пробного варианта все вопросы лежат в служебной теме — разбивка по темам не нужна и испортила бы отчёты
+  const breakdown = attempt.scope === "paper" ? [] : [...perTopic.values()];
   const now = new Date();
 
   const [finished] = await prisma.$transaction([

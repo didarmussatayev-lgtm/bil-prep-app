@@ -11,6 +11,7 @@ import { ProgressBar } from "./ProgressBar";
 import ui from "./ui.module.css";
 
 type Attempt = {
+  scope?: string;
   id: string;
   userId: string;
   questionIds: unknown;
@@ -61,6 +62,21 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
         <ProgressBar value={pct(score, total)} label={tr("Результат теста")} tone={pct(score, total) >= WEAK_THRESHOLD_PERCENT ? "ok" : "weak"} />
       </section>
 
+      {attempt.scope === "paper" && (
+        <section>
+          <h2 className={ui.h2}>{tr("Результат по вопросам")}</h2>
+          <ul className={ui.resGrid}>
+            {ids.map((id, i) => {
+              const t = byId.get(id);
+              const mine = answers[id];
+              const cls = !mine ? ui.resNone : mine === t?.correctOption ? ui.resOk : ui.resBad;
+              return <li key={id}><a href={`#r-${i + 1}`} className={`${ui.resChip} ${cls}`}>{i + 1}</a></li>;
+            })}
+          </ul>
+          <p className={ui.muted}>{tr("Зелёные — верно, красные — неверно, серые — без ответа. Нажмите на номер, чтобы открыть разбор вопроса.")}</p>
+        </section>
+      )}
+
       {breakdown.length > 0 && (
         <section>
           <h2 className={ui.h2}>{tr("Результат по темам")}</h2>
@@ -97,7 +113,7 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
         const text = (key?: string) => options.find((o) => o.key === key);
 
         return (
-          <article key={id} className={`${ui.review} ${ok ? ui.reviewOk : ui.reviewBad}`}>
+          <article key={id} id={`r-${i + 1}`} className={`${ui.review} ${ok ? ui.reviewOk : ui.reviewBad}`}>
             <p className={ui.questionNum}>{tr("Вопрос {n}", { n: i + 1 })}: {ok ? tr("верно") : mine ? tr("неверно") : tr("нет ответа")}</p>
             <TaskContent question={pick(t.i18n, lang, "question", t.question)} figures={parseFigures(t.imageParamsJson)} />
             {!ok && (
@@ -122,7 +138,7 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
       })}
 
       <div className={ui.actions}>
-        <Link href={`/bil/${slug}/test`} className={ui.btn}>{tr("К выбору тестов")}</Link>
+        <Link href={attempt.scope === "paper" ? `/bil/${slug}/papers` : `/bil/${slug}/test`} className={ui.btn}>{attempt.scope === "paper" ? tr("К вариантам") : tr("К выбору тестов")}</Link>
         <Link href={`/bil/${slug}`} className={ui.btnGhost}>{tr("К предмету")}</Link>
       </div>
     </div>

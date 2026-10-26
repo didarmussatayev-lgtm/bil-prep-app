@@ -29,7 +29,7 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
   const [tree, allAttempts, access] = await Promise.all([
     getCourseTree(subject.id, user.id),
     prisma.testAttempt.findMany({
-      where: { userId: user.id, subjectId: subject.id },
+      where: { userId: user.id, subjectId: subject.id, scope: { not: "paper" } },
       orderBy: { startedAt: "desc" },
       take: 15,
       select: { id: true, scope: true, sectionId: true, topicId: true, questionIds: true, startedAt: true, finishedAt: true, score: true, total: true },

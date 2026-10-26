@@ -55,7 +55,10 @@ export function ContentEditor() {
 
   return (
     <>
-      <h1>Контент</h1>
+      <div className="row" style={{ justifyContent: "space-between" }}>
+        <h1 style={{ margin: 0 }}>Контент</h1>
+        <a href="/admin/papers" className="pdf">📝 Пробные варианты</a>
+      </div>
       {error && <p className="err" role="alert">{error}</p>}
       <div className={`ce ${topicId ? "has-topic" : ""}`}>
         <aside className="ce-tree" aria-label="Дерево книг">
