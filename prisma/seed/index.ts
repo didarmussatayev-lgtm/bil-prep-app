@@ -29,11 +29,15 @@ import { KK_SECTIONS, KK_SUBJECTS, KK_TOPICS } from "./data/kk";
 
 const prisma = new PrismaClient();
 
-const SUBJECTS = [
+const ALL_SUBJECTS = [
   { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2, SECTION_3, M2_SECTION_1, M2_SECTION_2, M2_SECTION_3, M3_SECTION_1, M3_SECTION_2, M4_SECTION_1, M4_SECTION_2] },
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1, LOGIC_SECTION_2, LOGIC_SECTION_3] },
   { name: "5 класс", slug: "grade5", order: 2, sections: [G5_CHAPTER_4, G5_CHAPTER_5] },
 ];
+
+/** SEED_ONLY="grade5,logic" — загрузить только эти предметы (по slug); пусто = все. Нужен автозапуску из GitHub Actions. */
+const ONLY = (process.env.SEED_ONLY ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+const SUBJECTS = ONLY.length ? ALL_SUBJECTS.filter((x) => ONLY.includes(x.slug)) : ALL_SUBJECTS;
 
 const fmtAns = (a: Ans) =>
   a.t === "int" ? String(a.v)
