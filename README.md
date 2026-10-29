@@ -205,3 +205,6 @@ DATABASE_URL='postgresql://…' npm run seed
 Seed обновляет темы и задачи по их `slug` (id не меняются, прогресс учеников сохраняется), но **перезаписывает** объяснения и задачи, которые вы правили в админке. Новые разделы сначала грузите скрытыми и включайте после просмотра.
 
 На каждый PR запускается проверка (`.github/workflows/ci.yml`): `prisma validate`, `tsc`, `next build`. Включите в GitHub → Settings → Branches правило для `main`: «Require status checks to pass» → `check`.
+
+### Автозагрузка контента
+`.github/workflows/seed.yml` сам запускает seed после слияния в `main`, если менялись файлы в `prisma/seed/`, — только для предметов, чьи файлы изменились (`math`, `logic`, `grade5`). Берёт адрес базы из секрета GitHub `DATABASE_PUBLIC_URL` (тот же, что у бэкапа). Вручную: Actions → Seed content → Run workflow (можно указать предметы или оставить пусто = все). Локально то же самое: `SEED_ONLY=grade5 DATABASE_URL='…' npm run db:seed`.
