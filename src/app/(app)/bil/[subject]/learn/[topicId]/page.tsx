@@ -8,6 +8,7 @@ import { pick } from "@/lib/i18n/content";
 import { KkNote } from "@/components/student/KkNote";
 import { prisma } from "@/lib/prisma";
 import { sectionFilter } from "@/lib/student/access";
+import { bilCrumb } from "@/lib/student/nav";
 import { requireUser } from "@/lib/auth/guards";
 import { parseExplanation } from "@/lib/content/types";
 import { StartTestButton } from "@/components/student/StartTestButton";
@@ -43,7 +44,7 @@ export default async function TopicLearnPage({
     <main className={ui.container}>
       <Breadcrumbs
         items={[
-          { label: t("Подготовка в БИЛ"), href: "/bil" },
+          ...bilCrumb(slug, t),
           { label: subject.name, href: `/bil/${slug}` },
           { label: t("Обучение"), href: `/bil/${slug}/learn` },
           { label: title },

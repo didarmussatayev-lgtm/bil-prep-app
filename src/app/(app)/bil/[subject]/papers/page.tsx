@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import { StartPaperButtons } from "@/components/student/StartPaperButtons";
 import ui from "@/components/student/ui.module.css";
+import { bilCrumb } from "@/lib/student/nav";
 import { requireUser } from "@/lib/auth/guards";
 import { pick } from "@/lib/i18n/content";
 import { getLang, getT } from "@/lib/i18n/server";
@@ -41,7 +42,7 @@ export default async function PapersPage({ params }: { params: Promise<{ subject
 
   return (
     <main className={ui.container}>
-      <Breadcrumbs items={[{ label: t("Подготовка в БИЛ"), href: "/bil" }, { label: subject.name, href: `/bil/${slug}` }, { label: t("Пробные варианты") }]} />
+      <Breadcrumbs items={[...bilCrumb(slug, t), { label: subject.name, href: `/bil/${slug}` }, { label: t("Пробные варианты") }]} />
       <h1 className={ui.h1}>{t("Пробные варианты")}</h1>
       <p className={ui.lead}>{t("Полные варианты в том же порядке, как на экзамене. «Экзамен» идёт с таймером, результат сохраняется; «Тренировка» — без ограничения времени.")}</p>
 
