@@ -11,6 +11,10 @@ import g5_1_4_2 from "./grade5-1-4/4.2";
 import g5_1_4_3 from "./grade5-1-4/4.3";
 import g5_1_4_4 from "./grade5-1-4/4.4";
 import g5_1_4_5 from "./grade5-1-4/4.5";
+import g5_1_5_1 from "./grade5-1-5/5.1";
+import g5_1_5_2 from "./grade5-1-5/5.2";
+import g5_1_5_3 from "./grade5-1-5/5.3";
+import g5_1_5_4 from "./grade5-1-5/5.4";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -188,6 +192,10 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
 
 /** "<slug раздела>.<код темы>" → перевод темы */
 export const KK_TOPICS: Record<string, KkTopic> = {
+  "g5-1-5.5.1": g5_1_5_1,
+  "g5-1-5.5.2": g5_1_5_2,
+  "g5-1-5.5.3": g5_1_5_3,
+  "g5-1-5.5.4": g5_1_5_4,
   "g5-1-4.4.1": g5_1_4_1,
   "g5-1-4.4.2": g5_1_4_2,
   "g5-1-4.4.3": g5_1_4_3,
