@@ -6,6 +6,15 @@
  * Ключи задач: "p:<n>" (закрепление) и "t:<n>" (тест) — как в slug задачи.
  */
 import type { Figure } from "../../types";
+import g5_2_4_1 from "./grade5-2-4/4.1";
+import g5_2_4_2 from "./grade5-2-4/4.2";
+import g5_2_4_3 from "./grade5-2-4/4.3";
+import g5_2_4_4 from "./grade5-2-4/4.4";
+import g5_2_4_5 from "./grade5-2-4/4.5";
+import g5_2_5_1 from "./grade5-2-5/5.1";
+import g5_2_5_2 from "./grade5-2-5/5.2";
+import g5_2_5_3 from "./grade5-2-5/5.3";
+import g5_2_5_4 from "./grade5-2-5/5.4";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -159,6 +168,7 @@ export type KkTopic = { title: string; explanation?: string; tasks?: Record<stri
 export const KK_SUBJECTS: Record<string, { name: string }> = {
   math: { name: "Математика" },
   logic: { name: "Логика" },
+  grade5: { name: "5-сынып" },
 };
 
 /** slug раздела → название */
@@ -173,6 +183,8 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "math3-2": { title: "Математика 3. 2-бөлім — Қайталауға арналған тесттер" },
   "math4-1": { title: "Математика 4. 1-бөлім" },
   "math4-2": { title: "Математика 4. 2-бөлім — Қайталау және тесттер" },
+  "g5-2-4": { title: "Математика 2. 4-тарау. Ондық бөлшектер" },
+  "g5-2-5": { title: "Математика 2. 5-тарау. Мәтінді есептер, тізбектер, жиындар, пайыз" },
   "logic-1": { title: "Сандар, әріптер және кестелер" },
   "logic-2": { title: "Фигуралар" },
   "logic-3": { title: "Логикалық есептер және кодтар" },
@@ -180,6 +192,15 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
 
 /** "<slug раздела>.<код темы>" → перевод темы */
 export const KK_TOPICS: Record<string, KkTopic> = {
+  "g5-2-5.5.1": g5_2_5_1,
+  "g5-2-5.5.2": g5_2_5_2,
+  "g5-2-5.5.3": g5_2_5_3,
+  "g5-2-5.5.4": g5_2_5_4,
+  "g5-2-4.4.1": g5_2_4_1,
+  "g5-2-4.4.2": g5_2_4_2,
+  "g5-2-4.4.3": g5_2_4_3,
+  "g5-2-4.4.4": g5_2_4_4,
+  "g5-2-4.4.5": g5_2_4_5,
   "math2-1.1.1": m2_1_1,
   "math2-1.1.2": m2_1_2,
   "math2-1.1.3": m2_1_3,
