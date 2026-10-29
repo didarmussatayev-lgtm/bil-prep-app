@@ -159,6 +159,7 @@ export type KkTopic = { title: string; explanation?: string; tasks?: Record<stri
 export const KK_SUBJECTS: Record<string, { name: string }> = {
   math: { name: "Математика" },
   logic: { name: "Логика" },
+  grade5: { name: "5-сынып" },
 };
 
 /** slug раздела → название */
@@ -173,6 +174,8 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "math3-2": { title: "Математика 3. 2-бөлім — Қайталауға арналған тесттер" },
   "math4-1": { title: "Математика 4. 1-бөлім" },
   "math4-2": { title: "Математика 4. 2-бөлім — Қайталау және тесттер" },
+  "g5-1-4": { title: "Математика 1. 4-тарау. Ондық бөлшектер" },
+  "g5-1-5": { title: "Математика 1. 5-тарау. Мәтінді есептер, тізбектер, жиындар, пайыз" },
   "logic-1": { title: "Сандар, әріптер және кестелер" },
   "logic-2": { title: "Фигуралар" },
   "logic-3": { title: "Логикалық есептер және кодтар" },
