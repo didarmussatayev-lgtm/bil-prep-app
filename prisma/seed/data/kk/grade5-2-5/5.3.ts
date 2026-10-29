@@ -1,6 +1,6 @@
 import type { KkTopic } from "../index";
 import type { Figure } from "../../../types";
-import { venn1, venn2, vennNested } from "../../grade5/book-1/chapter-5/v2/venn-53";
+import { venn1, venn2, vennNested } from "../../grade5/book-2/chapter-5/v2/venn-53";
 
 const fig = (f: Figure) => ":::figure " + JSON.stringify(f);
 

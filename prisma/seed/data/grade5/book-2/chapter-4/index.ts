@@ -6,9 +6,9 @@ import t44 from "./v2/topic-4-4";
 import t45 from "./v2/topic-4-5";
 
 export const G5_CHAPTER_4 = {
-  slug: "g5-1-4",
-  title: "Математика 1. Глава 4. Десятичные дроби",
-  level: 1,
+  slug: "g5-2-4",
+  title: "Математика 2. Глава 4. Десятичные дроби",
+  level: 2,
   order: 20,
   topics: [t41, t42, t43, t44, t45] as SeedTopic[],
 };
