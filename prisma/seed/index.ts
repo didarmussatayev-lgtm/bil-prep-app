@@ -20,6 +20,7 @@ import { M3_SECTION_1 } from "./data/math3/section-1";
 import { M3_SECTION_2 } from "./data/math3/section-2";
 import { M4_SECTION_1 } from "./data/math4/section-1";
 import { M4_SECTION_2 } from "./data/math4/section-2";
+import { G5_CHAPTER_4 } from "./data/grade5/book-1/chapter-4";
 import { LOGIC_SECTION_1 } from "./data/logic/section-1";
 import { LOGIC_SECTION_2 } from "./data/logic/section-2b";
 import { LOGIC_SECTION_3 } from "./data/logic/section-3";
@@ -30,6 +31,7 @@ const prisma = new PrismaClient();
 const SUBJECTS = [
   { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2, SECTION_3, M2_SECTION_1, M2_SECTION_2, M2_SECTION_3, M3_SECTION_1, M3_SECTION_2, M4_SECTION_1, M4_SECTION_2] },
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1, LOGIC_SECTION_2, LOGIC_SECTION_3] },
+  { name: "5 класс", slug: "grade5", order: 2, sections: [G5_CHAPTER_4] },
 ];
 
 const fmtAns = (a: Ans) =>

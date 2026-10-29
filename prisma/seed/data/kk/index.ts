@@ -6,6 +6,11 @@
  * Ключи задач: "p:<n>" (закрепление) и "t:<n>" (тест) — как в slug задачи.
  */
 import type { Figure } from "../../types";
+import g5_1_4_1 from "./grade5-1-4/4.1";
+import g5_1_4_2 from "./grade5-1-4/4.2";
+import g5_1_4_3 from "./grade5-1-4/4.3";
+import g5_1_4_4 from "./grade5-1-4/4.4";
+import g5_1_4_5 from "./grade5-1-4/4.5";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -183,6 +188,11 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
 
 /** "<slug раздела>.<код темы>" → перевод темы */
 export const KK_TOPICS: Record<string, KkTopic> = {
+  "g5-1-4.4.1": g5_1_4_1,
+  "g5-1-4.4.2": g5_1_4_2,
+  "g5-1-4.4.3": g5_1_4_3,
+  "g5-1-4.4.4": g5_1_4_4,
+  "g5-1-4.4.5": g5_1_4_5,
   "math2-1.1.1": m2_1_1,
   "math2-1.1.2": m2_1_2,
   "math2-1.1.3": m2_1_3,
