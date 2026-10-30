@@ -141,6 +141,9 @@ a.topicRow:hover { background: var(--surface-2); }
   background: #fff; border: 1px solid var(--border); border-radius: 14px;
 }
 .figure { border-style: dashed; }
+/* рисунки не должны вылезать за рамку: на узких экранах сжимаются по ширине (пропорции задаёт viewBox),
+   а мелкие выступы подписей и линий за край холста (до ~20px) остаются видимыми внутри отступа рамки */
+.figureBox svg { max-width: 100%; height: auto; overflow: visible; }
 .richText { white-space: pre-line; }
 
 .lessonFooter { margin-top: 36px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
@@ -223,7 +226,7 @@ a.topicRow:hover { background: var(--surface-2); }
 }
 
 /* фигура-таблица (docs/content-format.md, kind="table") */
-.figureTable { border-collapse: collapse; margin: 0 auto; }
+.figureTable { border-collapse: collapse; margin: 0 auto; display: block; width: fit-content; max-width: 100%; overflow-x: auto; }
 .figureTable td { padding: 6px 12px; border: 1px solid #1b2a4a; text-align: center; font-size: 0.9rem; }
 
 /* ───────── тест ───────── */
