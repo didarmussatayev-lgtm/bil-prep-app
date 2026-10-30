@@ -44,6 +44,8 @@ import g5_2_6_5 from "./grade5-2-6/6.5";
 import g5_2_6_6 from "./grade5-2-6/6.6";
 import g5_2_6_7 from "./grade5-2-6/6.7";
 import nis1_1 from "./nis-1/1.1";
+import nis1_2 from "./nis-1/1.2";
+import nis1_3 from "./nis-1/1.3";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -228,6 +230,8 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
 /** "<slug раздела>.<код темы>" → перевод темы */
 export const KK_TOPICS: Record<string, KkTopic> = {
   "nis-1.1.1": nis1_1,
+  "nis-1.1.2": nis1_2,
+  "nis-1.1.3": nis1_3,
   "g5-1-3.3.1": g5_1_3_1,
   "g5-1-3.3.2": g5_1_3_2,
   "g5-1-3.3.3": g5_1_3_3,
