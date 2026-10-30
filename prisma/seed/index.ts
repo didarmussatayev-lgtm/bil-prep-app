@@ -100,6 +100,23 @@ function buildTask(topicId: string, topicSlug: string, t: SeedTask, purpose: "pr
   return data;
 }
 
+/**
+ * Естествознание (НИШ): в файлах тем верный вариант чаще стоит на втором месте, поэтому при загрузке
+ * переставляем его по кругу (порядок остальных вариантов сохраняется), чтобы буквы A–E встречались поровну.
+ * Одна и та же перестановка применяется к русским и казахским вариантам.
+ */
+const NIS_SHUFFLE = /^nis-/;
+function shiftTarget(topicSlug: string, i: number, len: number) {
+  let h = 0;
+  for (const ch of topicSlug) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return (i + h) % len;
+}
+function moveTo<T>(arr: T[], from: number, to: number): T[] {
+  const rest = arr.filter((_, j) => j !== from);
+  rest.splice(to, 0, arr[from]);
+  return rest;
+}
+
 /** Казахский перевод пишем с пометкой reviewed:false — пока носитель не проверит. null = перевода нет. */
 const kkBag = (fields: Record<string, unknown> | undefined) =>
   fields ? ({ kk: { ...fields, reviewed: false } } as Prisma.InputJsonValue) : Prisma.JsonNull;
@@ -121,9 +138,17 @@ async function seedTopic(sectionId: string, sectionSlug: string, t: SeedTopic, o
     ...t.test.map((x, i) => ({ x, purpose: "test" as const, i })),
   ];
   const ids = new Map<string, string>();
-  for (const { x, purpose, i } of all) {
+  let testIdx = 0;
+  for (const { x: x0, purpose, i } of all) {
+    let x = x0;
+    let kt = kk?.tasks?.[`${purpose === "test" ? "t" : "p"}:${x0.n}`];
+    if (NIS_SHUFFLE.test(slug) && x0.choice) {
+      const from = "ABCDE".indexOf(x0.choice.correct);
+      const to = shiftTarget(slug, testIdx++, x0.choice.options.length);
+      x = { ...x0, choice: { options: moveTo(x0.choice.options, from, to), correct: "ABCDE"[to] as "A" | "B" | "C" | "D" | "E" } };
+      if (kt?.options && kt.options.length === x0.choice.options.length) kt = { ...kt, options: moveTo(kt.options, from, to) };
+    }
     const d = buildTask(topic.id, slug, x, purpose, i) as any;
-    const kt = kk?.tasks?.[`${purpose === "test" ? "t" : "p"}:${x.n}`];
     const fields = {
       ...d, correctAnswerJson: json(d.correctAnswerJson), imageParamsJson: json(d.imageParamsJson),
       i18n: kkBag(kt && { question: kt.question, ...(kt.options ? { options: kt.options } : {}), ...(kt.solution ? { solution: kt.solution } : {}), ...(kt.figure ? { figure: kt.figure } : {}) }),

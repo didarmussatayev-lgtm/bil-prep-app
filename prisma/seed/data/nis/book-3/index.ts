@@ -5,11 +5,12 @@ import t33 from "./topic-3-3";
 import t34 from "./topic-3-4";
 import t35 from "./topic-3-5";
 import t36 from "./topic-3-6";
+import t37 from "./topic-3-7";
 
 export const NIS_BOOK_3 = {
   slug: "nis-3",
   title: "Естествознание 3. Живые организмы (биология)",
   level: 3,
   order: 3,
-  topics: [t31, t32, t33, t34, t35, t36] as SeedTopic[],
+  topics: [t31, t32, t33, t34, t35, t36, t37] as SeedTopic[],
 };
