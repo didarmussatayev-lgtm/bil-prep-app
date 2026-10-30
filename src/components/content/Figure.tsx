@@ -78,11 +78,25 @@ function NumberJump({ from, to, start, steps }: { from: number; to: number; star
 function BarChart({ labels, values, max, unit }: { labels: string[]; values: number[]; max?: number; unit?: string }) {
   const n = Math.max(values.length, 1);
   const top = max ?? (() => { const m = Math.max(...values, 1); const step = m <= 10 ? 2 : m <= 50 ? 10 : m <= 100 ? 20 : Math.pow(10, Math.floor(Math.log10(m))); return Math.ceil(m / step) * step; })();
-  const padL = 34, padB = 40, padT = 14;
   const bw = Math.min(40, 260 / n);
   const gap = bw * 0.6;
+  // длинные подписи под столбцами переносим по словам (≈5,6px на символ при шрифте 11)
+  const maxChars = Math.max(6, Math.floor((bw + gap) / 5.6));
+  const wrap = (text: string): string[] => {
+    const words = text.split(/\s+/).filter(Boolean);
+    const lines: string[] = [];
+    for (const w of words) {
+      const last = lines[lines.length - 1];
+      if (last !== undefined && (last + " " + w).length <= maxChars) lines[lines.length - 1] = last + " " + w;
+      else lines.push(w);
+    }
+    return lines.length ? lines : [""];
+  };
+  const wrapped = values.map((_, i) => wrap(plainFrac(labels[i] ?? "")));
+  const maxLines = Math.max(...wrapped.map((l) => l.length), 1);
+  const padL = 34, padB = Math.max(40, 26 + 14 * maxLines), padT = unit ? 28 : 14; // сверху место под единицу измерения
   const W = padL + n * (bw + gap) + 8;
-  const H = 190;
+  const H = padT + 136 + padB;
   const plotH = H - padT - padB;
   const y = (v: number) => padT + plotH - (v / top) * plotH;
   const ticks = [0, 0.25, 0.5, 0.75, 1].map((t) => t * top);
@@ -102,13 +116,15 @@ function BarChart({ labels, values, max, unit }: { labels: string[]; values: num
           <g key={i}>
             <rect x={x} y={y(v)} width={bw} height={y(0) - y(v)} fill={c.fill} stroke={c.stroke} strokeWidth={1.5} />
             <text x={x + bw / 2} y={y(v) - 4} fontSize={11} fontWeight={700} textAnchor="middle" fill="var(--ink, #1b2a4a)">{fmt(v)}</text>
-            <text x={x + bw / 2} y={H - padB + 15} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">{plainFrac(labels[i] ?? "")}</text>
+            <text x={x + bw / 2} y={H - padB + 15} fontSize={11} textAnchor="middle" fill="var(--ink, #1b2a4a)">
+              {wrapped[i].map((ln, k) => <tspan key={k} x={x + bw / 2} dy={k === 0 ? 0 : 13}>{ln}</tspan>)}
+            </text>
           </g>
         );
       })}
       <line x1={padL} x2={padL} y1={padT} y2={y(0)} stroke="var(--ink, #1b2a4a)" />
       <line x1={padL} x2={W - 4} y1={y(0)} y2={y(0)} stroke="var(--ink, #1b2a4a)" />
-      {unit && <text x={4} y={10} fontSize={10} fill="var(--ink, #1b2a4a)">{unit}</text>}
+      {unit && <text x={4} y={11} fontSize={10} fill="var(--ink, #1b2a4a)">{unit}</text>}
     </svg>
   );
 }
@@ -264,11 +280,28 @@ function NumberLine({
   arrows?: boolean;
 }) {
   const width = labelTicks && divisions > 8 ? 360 : 260;
-  const height = 56;
   const pad = 18;
   const span = to - from || 1;
   const x = (v: number) => pad + ((v - from) / span) * (width - pad * 2);
   const valueOf = (at: number | [number, number]) => (Array.isArray(at) ? at[0] / at[1] : at);
+  // подписи близких точек раскладываем по уровням, чтобы не наезжали друг на друга
+  const labelLevel = new Map<number, number>();
+  {
+    const lastEnd: number[] = [];
+    marks
+      .map((m, i) => ({ i, m, cx: x(valueOf(m.at)) }))
+      .filter((o) => o.m.label)
+      .sort((a, b) => a.cx - b.cx)
+      .forEach(({ i, m, cx }) => {
+        const half = (plainFrac(m.label ?? "").length * 7.5 + 6) / 2;
+        let l = 0;
+        while (lastEnd[l] !== undefined && lastEnd[l] > cx - half) l++;
+        lastEnd[l] = cx + half;
+        labelLevel.set(i, l);
+      });
+  }
+  const levels = Math.max(0, ...labelLevel.values());
+  const height = 56 + levels * 15;
   const fmt = (v: number) => (Number.isInteger(v) ? String(v) : String(+v.toFixed(3)).replace(".", ","));
 
   const ticks = Array.from({ length: divisions + 1 }, (_, i) => from + (span * i) / divisions);
@@ -299,7 +332,7 @@ function NumberLine({
           <g key={i}>
             <circle cx={x(v)} cy={mid} r={4.5} fill={m.hollow ? "#fff" : c} stroke={c} strokeWidth={m.hollow ? 2 : 0} />
             {m.label && (
-              <text x={x(v)} y={mid + 20} fontSize={12} fontWeight={700} textAnchor="middle" fill="var(--ink, #1b2a4a)">
+              <text x={x(v)} y={mid + 20 + (labelLevel.get(i) ?? 0) * 15} fontSize={12} fontWeight={700} textAnchor="middle" fill="var(--ink, #1b2a4a)">
                 {plainFrac(m.label)}
               </text>
             )}
