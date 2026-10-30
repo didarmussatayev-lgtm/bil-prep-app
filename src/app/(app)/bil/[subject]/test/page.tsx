@@ -5,6 +5,7 @@ import { StartTestButton } from "@/components/student/StartTestButton";
 import ui from "@/components/student/ui.module.css";
 import { prisma } from "@/lib/prisma";
 import { getLang, getT } from "@/lib/i18n/server";
+import { bilCrumb } from "@/lib/student/nav";
 import { requireUser } from "@/lib/auth/guards";
 import { formatDateTime, formatDuration } from "@/lib/student/format";
 import { accessibleTaskIds, getAccess } from "@/lib/student/access";
@@ -65,7 +66,7 @@ export default async function TestIndexPage({ params }: { params: Promise<{ subj
     <main className={ui.container}>
       <Breadcrumbs
         items={[
-          { label: t("Подготовка в БИЛ"), href: "/bil" },
+          ...bilCrumb(slug, t),
           { label: subject.name, href: `/bil/${slug}` },
           { label: t("Пробное тестирование") },
         ]}

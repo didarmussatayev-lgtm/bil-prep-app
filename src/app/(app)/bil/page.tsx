@@ -5,13 +5,14 @@ import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { getAccess } from "@/lib/student/access";
 import { getCourseTree, listSubjects, summarize } from "@/lib/student/progress";
+import { STANDALONE_SUBJECTS } from "@/lib/student/nav";
 
 export default async function SubjectsPage() {
   const user = await requireUser();
   const t = await getT();
   const [subjects, access] = await Promise.all([listSubjects(), getAccess(user.id)]);
   const items = await Promise.all(
-    subjects.map(async (s) => ({ s, sum: summarize(await getCourseTree(s.id, user.id)) })),
+    subjects.filter((s) => !STANDALONE_SUBJECTS.includes(s.slug)).map(async (s) => ({ s, sum: summarize(await getCourseTree(s.id, user.id)) })),
   );
 
   return (

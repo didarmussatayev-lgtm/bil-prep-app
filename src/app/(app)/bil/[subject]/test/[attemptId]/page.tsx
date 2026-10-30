@@ -5,6 +5,7 @@ import { TestRunner } from "@/components/student/TestRunner";
 import ui from "@/components/student/ui.module.css";
 import { getLang, getT } from "@/lib/i18n/server";
 import { prisma } from "@/lib/prisma";
+import { bilCrumb } from "@/lib/student/nav";
 import { requireUser } from "@/lib/auth/guards";
 import { toPublicTask } from "@/lib/content/types";
 import { accessibleTaskIds, getAccess } from "@/lib/student/access";
@@ -41,7 +42,7 @@ export default async function AttemptPage({
   }
 
   const crumbs = [
-    { label: t("Подготовка в БИЛ"), href: "/bil" },
+    ...bilCrumb(slug, t),
     { label: subject.name, href: `/bil/${slug}` },
     attempt.scope === "paper"
       ? { label: t("Пробные варианты"), href: `/bil/${slug}/papers` }

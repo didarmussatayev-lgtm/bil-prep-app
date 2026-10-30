@@ -20,6 +20,8 @@ import { M3_SECTION_1 } from "./data/math3/section-1";
 import { M3_SECTION_2 } from "./data/math3/section-2";
 import { M4_SECTION_1 } from "./data/math4/section-1";
 import { M4_SECTION_2 } from "./data/math4/section-2";
+import { G5B1_CHAPTER_1 } from "./data/grade5/book-1/chapter-1";
+import { G5B1_CHAPTER_2 } from "./data/grade5/book-1/chapter-2";
 import { G5_CHAPTER_4 } from "./data/grade5/book-2/chapter-4";
 import { G5_CHAPTER_5 } from "./data/grade5/book-2/chapter-5";
 import { LOGIC_SECTION_1 } from "./data/logic/section-1";
@@ -32,7 +34,7 @@ const prisma = new PrismaClient();
 const ALL_SUBJECTS = [
   { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2, SECTION_3, M2_SECTION_1, M2_SECTION_2, M2_SECTION_3, M3_SECTION_1, M3_SECTION_2, M4_SECTION_1, M4_SECTION_2] },
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1, LOGIC_SECTION_2, LOGIC_SECTION_3] },
-  { name: "5 класс", slug: "grade5", order: 2, sections: [G5_CHAPTER_4, G5_CHAPTER_5] },
+  { name: "5 класс", slug: "grade5", order: 2, sections: [G5B1_CHAPTER_1, G5B1_CHAPTER_2, G5_CHAPTER_4, G5_CHAPTER_5] },
 ];
 
 /** SEED_ONLY="grade5,logic" — загрузить только эти предметы (по slug); пусто = все. Нужен автозапуску из GitHub Actions. */

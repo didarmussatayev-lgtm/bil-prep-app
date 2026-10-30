@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import { TopicToc } from "@/components/student/TopicToc";
 import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
+import { bilCrumb } from "@/lib/student/nav";
 import { requireUser } from "@/lib/auth/guards";
 import { allowedLevels, getAccess } from "@/lib/student/access";
 import { getCourseTree, getSubjectBySlug } from "@/lib/student/progress";
@@ -21,7 +22,7 @@ export default async function PracticeTocPage({ params }: { params: Promise<{ su
     <main className={ui.container}>
       <Breadcrumbs
         items={[
-          { label: t("Подготовка в БИЛ"), href: "/bil" },
+          ...bilCrumb(slug, t),
           { label: subject.name, href: `/bil/${slug}` },
           { label: t("Закрепление") },
         ]}

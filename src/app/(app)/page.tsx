@@ -5,12 +5,15 @@ import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { GamiSummary } from "@/components/student/GamiSummary";
 import { WeakPlaces } from "@/components/student/WeakPlaces";
-import { getOverallProgress } from "@/lib/student/progress";
+import { getCourseTree, getOverallProgress, listSubjects } from "@/lib/student/progress";
 
 export default async function HomePage() {
   const user = await requireUser();
   const t = await getT();
   const p = await getOverallProgress(user.id);
+  // «5 класс» — отдельная кнопка рядом с «Подготовкой в БИЛ»; показываем, только если ученику открыты его материалы
+  const grade5 = (await listSubjects()).find((s) => s.slug === "grade5");
+  const hasGrade5 = grade5 ? (await getCourseTree(grade5.id, user.id)).length > 0 : false;
 
   return (
     <main className={ui.container}>
@@ -35,7 +38,10 @@ export default async function HomePage() {
 
       <WeakPlaces userId={user.id} />
 
-      <Link href="/bil" className={ui.btnLarge}>{t("Подготовка в БИЛ")}</Link>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+        <Link href="/bil" className={ui.btnLarge}>{t("Подготовка в БИЛ")}</Link>
+        {hasGrade5 && <Link href="/bil/grade5" className={ui.btnLarge}>{grade5?.name}</Link>}
+      </div>
     </main>
   );
 }

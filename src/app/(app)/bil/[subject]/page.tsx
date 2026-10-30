@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/student/Breadcrumbs";
 import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
+import { bilCrumb } from "@/lib/student/nav";
 import { requireUser } from "@/lib/auth/guards";
 import { allowedLevels, getAccess } from "@/lib/student/access";
 import { getCourseTree, getSubjectBySlug, summarize } from "@/lib/student/progress";
@@ -24,7 +25,7 @@ export default async function SubjectHubPage({ params }: { params: Promise<{ sub
 
   return (
     <main className={ui.container}>
-      <Breadcrumbs items={[{ label: t("Подготовка в БИЛ"), href: "/bil" }, { label: subject.name }]} />
+      <Breadcrumbs items={[...bilCrumb(slug, t), { label: subject.name }]} />
       <h1 className={ui.h1}>{subject.name}</h1>
       <p className={ui.lead}>{t("Сначала изучите тему, затем закрепите её задачами и проверьте себя тестом.")}</p>
 
