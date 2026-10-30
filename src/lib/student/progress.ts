@@ -20,6 +20,7 @@ export type SectionRow = { id: string; title: string; level: number; topics: Top
 export const SUBJECT_LEVELS: Record<string, { level: number; title: string }[]> = {
   math: [1, 2, 3, 4].map((level) => ({ level, title: `Математика ${level}` })),
   grade5: [1, 2].map((level) => ({ level, title: `Математика ${level}` })),
+  "nis-science": [1, 2, 3].map((level) => ({ level, title: `Естествознание ${level}` })),
 };
 
 export type Status = "not_started" | "in_progress" | "done" | "empty";

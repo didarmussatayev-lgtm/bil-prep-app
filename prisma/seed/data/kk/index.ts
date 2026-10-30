@@ -43,6 +43,7 @@ import g5_2_6_4 from "./grade5-2-6/6.4";
 import g5_2_6_5 from "./grade5-2-6/6.5";
 import g5_2_6_6 from "./grade5-2-6/6.6";
 import g5_2_6_7 from "./grade5-2-6/6.7";
+import nis1_1 from "./nis-1/1.1";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -197,6 +198,7 @@ export const KK_SUBJECTS: Record<string, { name: string }> = {
   math: { name: "Математика" },
   logic: { name: "Логика" },
   grade5: { name: "5-сынып" },
+  "nis-science": { name: "Жаратылыстану" },
 };
 
 /** slug раздела → название */
@@ -217,6 +219,7 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "g5-2-6": { title: "Математика 2. 6-тарау. Бұрыштар, диаграммалар, графиктер, жазбалар" },
   "g5-2-4": { title: "Математика 2. 4-тарау. Ондық бөлшектер" },
   "g5-2-5": { title: "Математика 2. 5-тарау. Мәтінді есептер, тізбектер, жиындар, пайыз" },
+  "nis-1": { title: "Жаратылыстану 1. Жер және ғарыш (география)" },
   "logic-1": { title: "Сандар, әріптер және кестелер" },
   "logic-2": { title: "Фигуралар" },
   "logic-3": { title: "Логикалық есептер және кодтар" },
@@ -224,6 +227,7 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
 
 /** "<slug раздела>.<код темы>" → перевод темы */
 export const KK_TOPICS: Record<string, KkTopic> = {
+  "nis-1.1.1": nis1_1,
   "g5-1-3.3.1": g5_1_3_1,
   "g5-1-3.3.2": g5_1_3_2,
   "g5-1-3.3.3": g5_1_3_3,
