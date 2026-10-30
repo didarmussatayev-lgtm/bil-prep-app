@@ -58,6 +58,7 @@ import nis2_5 from "./nis-2/2.5";
 import nis2_6 from "./nis-2/2.6";
 import nis2_7 from "./nis-2/2.7";
 import nis2_8 from "./nis-2/2.8";
+import nis3_1 from "./nis-3/3.1";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -235,6 +236,7 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "g5-2-5": { title: "Математика 2. 5-тарау. Мәтінді есептер, тізбектер, жиындар, пайыз" },
   "nis-1": { title: "Жаратылыстану 1. Жер және ғарыш (география)" },
   "nis-2": { title: "Жаратылыстану 2. Заттар және материалдар (физика және химия)" },
+  "nis-3": { title: "Жаратылыстану 3. Тірі ағзалар (биология)" },
   "logic-1": { title: "Сандар, әріптер және кестелер" },
   "logic-2": { title: "Фигуралар" },
   "logic-3": { title: "Логикалық есептер және кодтар" },
@@ -257,6 +259,7 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   "nis-2.2.6": nis2_6,
   "nis-2.2.7": nis2_7,
   "nis-2.2.8": nis2_8,
+  "nis-3.3.1": nis3_1,
   "g5-1-3.3.1": g5_1_3_1,
   "g5-1-3.3.2": g5_1_3_2,
   "g5-1-3.3.3": g5_1_3_3,

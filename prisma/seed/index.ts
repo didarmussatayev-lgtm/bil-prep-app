@@ -31,6 +31,7 @@ import { LOGIC_SECTION_2 } from "./data/logic/section-2b";
 import { LOGIC_SECTION_3 } from "./data/logic/section-3";
 import { NIS_BOOK_1 } from "./data/nis/book-1";
 import { NIS_BOOK_2 } from "./data/nis/book-2";
+import { NIS_BOOK_3 } from "./data/nis/book-3";
 import { KK_SECTIONS, KK_SUBJECTS, KK_TOPICS } from "./data/kk";
 
 const prisma = new PrismaClient();
@@ -39,7 +40,7 @@ const ALL_SUBJECTS = [
   { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2, SECTION_3, M2_SECTION_1, M2_SECTION_2, M2_SECTION_3, M3_SECTION_1, M3_SECTION_2, M4_SECTION_1, M4_SECTION_2] },
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1, LOGIC_SECTION_2, LOGIC_SECTION_3] },
   { name: "5 класс", slug: "grade5", order: 2, sections: [G5B1_CHAPTER_1, G5B1_CHAPTER_2, G5B1_CHAPTER_3, G5_CHAPTER_4, G5_CHAPTER_5, G5_CHAPTER_6] },
-  { name: "Естествознание", slug: "nis-science", order: 3, sections: [NIS_BOOK_1, NIS_BOOK_2] },
+  { name: "Естествознание", slug: "nis-science", order: 3, sections: [NIS_BOOK_1, NIS_BOOK_2, NIS_BOOK_3] },
 ];
 
 /** SEED_ONLY="grade5,logic" — загрузить только эти предметы (по slug); пусто = все. Нужен автозапуску из GitHub Actions. */
