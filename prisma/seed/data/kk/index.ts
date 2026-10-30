@@ -59,6 +59,8 @@ import nis2_6 from "./nis-2/2.6";
 import nis2_7 from "./nis-2/2.7";
 import nis2_8 from "./nis-2/2.8";
 import nis3_1 from "./nis-3/3.1";
+import nis3_2 from "./nis-3/3.2";
+import nis3_3 from "./nis-3/3.3";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -260,6 +262,8 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   "nis-2.2.7": nis2_7,
   "nis-2.2.8": nis2_8,
   "nis-3.3.1": nis3_1,
+  "nis-3.3.2": nis3_2,
+  "nis-3.3.3": nis3_3,
   "g5-1-3.3.1": g5_1_3_1,
   "g5-1-3.3.2": g5_1_3_2,
   "g5-1-3.3.3": g5_1_3_3,
