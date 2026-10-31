@@ -6,6 +6,7 @@ import { requireUser } from "@/lib/auth/guards";
 import { GamiSummary } from "@/components/student/GamiSummary";
 import { WeakPlaces } from "@/components/student/WeakPlaces";
 import { getCourseTree, getOverallProgress, listSubjects } from "@/lib/student/progress";
+import { NIS_SUBJECTS } from "@/lib/student/nav";
 
 export default async function HomePage() {
   const user = await requireUser();
@@ -14,6 +15,9 @@ export default async function HomePage() {
   // «5 класс» — отдельная кнопка рядом с «Подготовкой в БИЛ»; показываем, только если ученику открыты его материалы
   const grade5 = (await listSubjects()).find((s) => s.slug === "grade5");
   const hasGrade5 = grade5 ? (await getCourseTree(grade5.id, user.id)).length > 0 : false;
+  // «Подготовка в НИШ» — третья кнопка; тоже только если ученику открыт хотя бы один её предмет
+  const nisSubjects = (await listSubjects()).filter((s) => NIS_SUBJECTS.includes(s.slug));
+  const hasNis = (await Promise.all(nisSubjects.map(async (s) => (await getCourseTree(s.id, user.id)).length > 0))).some(Boolean);
 
   return (
     <main className={ui.container}>
@@ -41,6 +45,7 @@ export default async function HomePage() {
       <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
         <Link href="/bil" className={ui.btnLarge}>{t("Подготовка в БИЛ")}</Link>
         {hasGrade5 && <Link href="/bil/grade5" className={ui.btnLarge}>{grade5?.name}</Link>}
+        {hasNis && <Link href="/nis" className={ui.btnLarge}>{t("Подготовка в НИШ")}</Link>}
       </div>
     </main>
   );

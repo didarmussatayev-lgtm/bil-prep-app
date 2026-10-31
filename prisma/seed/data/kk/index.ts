@@ -43,6 +43,28 @@ import g5_2_6_4 from "./grade5-2-6/6.4";
 import g5_2_6_5 from "./grade5-2-6/6.5";
 import g5_2_6_6 from "./grade5-2-6/6.6";
 import g5_2_6_7 from "./grade5-2-6/6.7";
+import nis1_1 from "./nis-1/1.1";
+import nis1_2 from "./nis-1/1.2";
+import nis1_3 from "./nis-1/1.3";
+import nis1_4 from "./nis-1/1.4";
+import nis1_5 from "./nis-1/1.5";
+import nis1_6 from "./nis-1/1.6";
+import nis1_7 from "./nis-1/1.7";
+import nis2_1 from "./nis-2/2.1";
+import nis2_2 from "./nis-2/2.2";
+import nis2_3 from "./nis-2/2.3";
+import nis2_4 from "./nis-2/2.4";
+import nis2_5 from "./nis-2/2.5";
+import nis2_6 from "./nis-2/2.6";
+import nis2_7 from "./nis-2/2.7";
+import nis2_8 from "./nis-2/2.8";
+import nis3_1 from "./nis-3/3.1";
+import nis3_2 from "./nis-3/3.2";
+import nis3_3 from "./nis-3/3.3";
+import nis3_4 from "./nis-3/3.4";
+import nis3_5 from "./nis-3/3.5";
+import nis3_6 from "./nis-3/3.6";
+import nis3_7 from "./nis-3/3.7";
 import m3_13 from "./math-3/3.13";
 import m3_1 from "./math-3/3.1";
 import m3_2 from "./math-3/3.2";
@@ -197,6 +219,7 @@ export const KK_SUBJECTS: Record<string, { name: string }> = {
   math: { name: "Математика" },
   logic: { name: "Логика" },
   grade5: { name: "5-сынып" },
+  "nis-science": { name: "Жаратылыстану" },
 };
 
 /** slug раздела → название */
@@ -217,6 +240,9 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "g5-2-6": { title: "Математика 2. 6-тарау. Бұрыштар, диаграммалар, графиктер, жазбалар" },
   "g5-2-4": { title: "Математика 2. 4-тарау. Ондық бөлшектер" },
   "g5-2-5": { title: "Математика 2. 5-тарау. Мәтінді есептер, тізбектер, жиындар, пайыз" },
+  "nis-1": { title: "Жаратылыстану 1. Жер және ғарыш (география)" },
+  "nis-2": { title: "Жаратылыстану 2. Заттар және материалдар (физика және химия)" },
+  "nis-3": { title: "Жаратылыстану 3. Тірі ағзалар (биология)" },
   "logic-1": { title: "Сандар, әріптер және кестелер" },
   "logic-2": { title: "Фигуралар" },
   "logic-3": { title: "Логикалық есептер және кодтар" },
@@ -224,6 +250,28 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
 
 /** "<slug раздела>.<код темы>" → перевод темы */
 export const KK_TOPICS: Record<string, KkTopic> = {
+  "nis-1.1.1": nis1_1,
+  "nis-1.1.2": nis1_2,
+  "nis-1.1.3": nis1_3,
+  "nis-1.1.4": nis1_4,
+  "nis-1.1.5": nis1_5,
+  "nis-1.1.6": nis1_6,
+  "nis-1.1.7": nis1_7,
+  "nis-2.2.1": nis2_1,
+  "nis-2.2.2": nis2_2,
+  "nis-2.2.3": nis2_3,
+  "nis-2.2.4": nis2_4,
+  "nis-2.2.5": nis2_5,
+  "nis-2.2.6": nis2_6,
+  "nis-2.2.7": nis2_7,
+  "nis-2.2.8": nis2_8,
+  "nis-3.3.1": nis3_1,
+  "nis-3.3.2": nis3_2,
+  "nis-3.3.3": nis3_3,
+  "nis-3.3.4": nis3_4,
+  "nis-3.3.5": nis3_5,
+  "nis-3.3.6": nis3_6,
+  "nis-3.3.7": nis3_7,
   "g5-1-3.3.1": g5_1_3_1,
   "g5-1-3.3.2": g5_1_3_2,
   "g5-1-3.3.3": g5_1_3_3,
