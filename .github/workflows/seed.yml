@@ -2,7 +2,7 @@ name: Seed content
 
 # Загружает учебный контент (prisma/seed) в базу на Railway.
 # Автоматически — после слияния в main, если менялись файлы контента; только для тех предметов, чьи файлы изменились.
-# Вручную — кнопка Run workflow: можно указать предметы (math, logic, grade5, nis-science) или оставить пусто = все.
+# Вручную — кнопка Run workflow: можно указать предметы (math, logic, grade5, nis-science, nis-english) или оставить пусто = все.
 on:
   push:
     branches: [main]
@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       subjects:
-        description: "Предметы через запятую: math, logic, grade5, nis-science (пусто = все)"
+        description: "Предметы через запятую: math, logic, grade5, nis-science, nis-english (пусто = все)"
         required: false
         default: ""
 
@@ -45,6 +45,7 @@ jobs:
             case "$f" in
               prisma/seed/data/grade5/*|prisma/seed/data/kk/grade5*) add grade5;;
               prisma/seed/data/nis/*|prisma/seed/data/kk/nis-*) add nis-science;;
+              prisma/seed/data/eng/*) add nis-english;;
               prisma/seed/data/logic/*|prisma/seed/data/kk/logic*) add logic;;
               prisma/seed/data/math*|prisma/seed/data/kk/math*) add math;;
             esac
