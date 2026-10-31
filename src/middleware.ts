@@ -8,7 +8,7 @@ import { SESSION_COOKIE } from "@/lib/auth/config";
  *
  * Next.js 16+: файл переименован в proxy.ts, а функция — в `proxy`.
  */
-const PUBLIC_PATHS = new Set(["/login", "/api/auth/login", "/api/lang", "/api/health", "/manifest.webmanifest", "/sw.js"]);
+const PUBLIC_PATHS = new Set(["/login", "/api/auth/login", "/api/auth/register","/api/lang", "/api/health", "/manifest.webmanifest", "/sw.js"]);
 
 export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;

@@ -11,12 +11,14 @@ export function LoginForm({ notice }: { notice?: string }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [mode, setMode] = useState<"in" | "up">("in");
+  const signUp = mode === "up";
 
   async function submit() {
     setError(null);
     setBusy(true);
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch(signUp ? "/api/auth/register" : "/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ login, password }),
@@ -39,7 +41,11 @@ export function LoginForm({ notice }: { notice?: string }) {
       <div className={styles.sheet}>
         <div style={{ textAlign: "right" }}><LangSwitch className={styles.lead} /></div>
         <h1 className={styles.title}>{t("Подготовка в БИЛ")}</h1>
-        <p className={styles.lead}>{t("Введите логин и пароль, которые выдал администратор.")}</p>
+        <p className={styles.lead}>
+          {signUp
+            ? t("Создайте аккаунт. Материалы откроются после того, как администратор выдаст доступ.")
+            : t("Введите логин и пароль, которые выдал администратор.")}
+        </p>
 
         {notice && <p className={styles.notice} role="status">{notice}</p>}
 
@@ -63,14 +69,22 @@ export function LoginForm({ notice }: { notice?: string }) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && submit()}
-            autoComplete="current-password"
+            autoComplete={signUp ? "new-password" : "current-password"}
           />
         </label>
 
         {error && <p className={styles.error} role="alert">{error}</p>}
 
         <button className={styles.button} onClick={submit} disabled={busy || !login || !password}>
-          {busy ? t("Входим…") : t("Войти")}
+          {busy ? (signUp ? t("Создаём…") : t("Входим…")) : signUp ? t("Зарегистрироваться") : t("Войти")}
+        </button>
+
+        <button
+          type="button"
+          className={styles.switch}
+          onClick={() => { setMode(signUp ? "in" : "up"); setError(null); }}
+        >
+          {signUp ? t("Уже есть аккаунт? Войти") : t("Нет аккаунта? Зарегистрироваться")}
         </button>
       </div>
     </main>

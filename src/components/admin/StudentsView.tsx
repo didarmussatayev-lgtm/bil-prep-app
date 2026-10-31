@@ -153,7 +153,9 @@ export function StudentsView({ initial }: { initial: { activity: string; progres
               <Pct value={s.progressPct} />
               <div className="meta" style={{ marginTop: 6 }}>
                 <span>{ago(s.lastActiveAt)}</span>
-                <span>{s.restricted ? (s.books.length ? s.books.map(bookTitle).join(", ") : "нет книг") : "все книги"}</span>
+                {s.restricted && !s.books.length
+                  ? <span className="tag warn" title="Доступ не открыт — откройте книги в карточке ученика">нет доступа</span>
+                  : <span>{s.restricted ? s.books.map(bookTitle).join(", ") : "все книги"}</span>}
               </div>
             </Link>
           </div>
