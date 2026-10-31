@@ -33,6 +33,7 @@ import { NIS_BOOK_1 } from "./data/nis/book-1";
 import { NIS_BOOK_2 } from "./data/nis/book-2";
 import { NIS_BOOK_3 } from "./data/nis/book-3";
 import { KK_SECTIONS, KK_SUBJECTS, KK_TOPICS } from "./data/kk";
+import { ENG_BOOK_1, ENG_BOOK_2, ENG_PAPERS } from "./data/eng";
 
 const prisma = new PrismaClient();
 
@@ -41,6 +42,7 @@ const ALL_SUBJECTS = [
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1, LOGIC_SECTION_2, LOGIC_SECTION_3] },
   { name: "5 класс", slug: "grade5", order: 2, sections: [G5B1_CHAPTER_1, G5B1_CHAPTER_2, G5B1_CHAPTER_3, G5_CHAPTER_4, G5_CHAPTER_5, G5_CHAPTER_6] },
   { name: "Естествознание", slug: "nis-science", order: 3, sections: [NIS_BOOK_1, NIS_BOOK_2, NIS_BOOK_3] },
+  { name: "Английский язык", slug: "nis-english", order: 4, sections: [ENG_BOOK_1, ENG_BOOK_2] },
 ];
 
 /** SEED_ONLY="grade5,logic" — загрузить только эти предметы (по slug); пусто = все. Нужен автозапуску из GitHub Actions. */
@@ -105,7 +107,7 @@ function buildTask(topicId: string, topicSlug: string, t: SeedTask, purpose: "pr
  * переставляем его по кругу (порядок остальных вариантов сохраняется), чтобы буквы A–E встречались поровну.
  * Одна и та же перестановка применяется к русским и казахским вариантам.
  */
-const NIS_SHUFFLE = /^nis-/;
+const NIS_SHUFFLE = /^(nis-|en-)/;
 function shiftTarget(topicSlug: string, i: number, len: number) {
   let h = 0;
   for (const ch of topicSlug) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
@@ -177,6 +179,39 @@ function syncSchema() {
   if (r.status !== 0) throw new Error("prisma db push не выполнился — seed остановлен");
 }
 
+/** Пробные варианты по английскому: вопросы — обычные test_choice-задачи в скрытой служебной теме, сами варианты — ExamPaper. */
+async function seedEngPapers() {
+  const subject = await prisma.subject.findUnique({ where: { slug: "nis-english" }, select: { id: true } });
+  if (!subject) return;
+  const section = await prisma.section.findFirst({ where: { subjectId: subject.id }, orderBy: { order: "desc" }, select: { id: true } });
+  if (!section) return;
+  const container = await prisma.topic.upsert({
+    where: { slug: "exam-papers-nis-english" },
+    update: {},
+    create: { slug: "exam-papers-nis-english", sectionId: section.id, title: "Пробные варианты (служебная тема)", order: 9999, hidden: true, explanationContent: "" },
+  });
+  console.log("\n=== Английский: пробные варианты ===");
+  for (const p of ENG_PAPERS) {
+    const ids: string[] = [];
+    for (const [i, q] of p.questions.entries()) {
+      const d = buildTask(container.id, `exam:${p.slug}`, { n: q.n, q: q.q, choice: q.choice, solution: q.sol.ru, figure: q.figure }, "test", i) as any;
+      const fields = {
+        ...d, correctAnswerJson: json(d.correctAnswerJson), imageParamsJson: json(d.imageParamsJson),
+        i18n: kkBag({ question: q.q, options: q.choice!.options, solution: q.sol.kk }), // фигуры общие для ru/kk
+      };
+      const { slug: taskSlug, ...rest } = fields;
+      const task = await prisma.task.upsert({ where: { slug: taskSlug }, update: rest, create: { slug: taskSlug, ...rest } });
+      ids.push(task.id);
+    }
+    const base = {
+      subjectId: subject.id, groupKey: p.group ?? "training", title: p.title.ru, year: null, order: p.number + (p.fixed ? 10 : 0),
+      timeLimitSeconds: p.timeMinutes * 60, questionIds: ids, i18n: { kk: { title: p.title.kk } } as Prisma.InputJsonValue,
+    };
+    await prisma.examPaper.upsert({ where: { slug: p.slug }, update: base, create: { slug: p.slug, ...base } });
+    console.log(`  ${p.title.ru}: вопросов ${ids.length}, ${p.timeMinutes} мин`);
+  }
+}
+
 async function main() {
   syncSchema();
   const review: string[] = [];
@@ -199,6 +234,8 @@ async function main() {
       for (const [i, t] of s.topics.entries()) pending.push(...(await seedTopic(section.id, s.slug, t, i + 1, review)));
     }
   }
+
+  if (!ONLY.length || ONLY.includes("nis-english")) await seedEngPapers();
 
   if (review.length) console.log(`\nПроверить вручную (${review.length}):\n` + review.map((r) => " - " + r).join("\n"));
   if (pending.length) console.log(`\nЕщё не загружено (${pending.length}):\n` + pending.map((r) => " - " + r).join("\n"));
