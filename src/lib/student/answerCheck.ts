@@ -50,6 +50,8 @@ const KK_WEEKDAYS: [string, string][] = [
 function normText(s: string): string {
   let r = s.toLowerCase();
   for (const [kk, ru] of KK_WEEKDAYS) r = r.split(kk).join(ru);
+  // типографские апострофы (’ ‘ ` ´) на телефонах → обычный ', иначе «don’t» ≠ «don't»
+  r = r.replace(/[’‘`´ʼ]/g, "'");
   return r.trim().replace(/\s+/g, "").replace(/[·*×]/g, "*").replace(/,/g, ".").replace(/[−–—]/g, "-");
 }
 

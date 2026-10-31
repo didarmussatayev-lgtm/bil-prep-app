@@ -211,6 +211,7 @@ import lg3_23 from "./logic-3/23";
 import lg3_24 from "./logic-3/24";
 import lg3_25 from "./logic-3/25";
 import lg3_26 from "./logic-3/26";
+import { ENG_KK_TOPICS } from "../eng";
 
 export type KkTask = { question: string; options?: string[]; solution?: string; /** рисунок с казахскими подписями (если в нём есть текст) */ figure?: Figure | Figure[] };
 export type KkTopic = { title: string; explanation?: string; tasks?: Record<string, KkTask> };
@@ -220,6 +221,7 @@ export const KK_SUBJECTS: Record<string, { name: string }> = {
   logic: { name: "Логика" },
   grade5: { name: "5-сынып" },
   "nis-science": { name: "Жаратылыстану" },
+  "nis-english": { name: "Ағылшын тілі" },
 };
 
 /** slug раздела → название */
@@ -243,6 +245,8 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "nis-1": { title: "Жаратылыстану 1. Жер және ғарыш (география)" },
   "nis-2": { title: "Жаратылыстану 2. Заттар және материалдар (физика және химия)" },
   "nis-3": { title: "Жаратылыстану 3. Тірі ағзалар (биология)" },
+  "en-1": { title: "Ағылшын тілі 1. Негізгі курс (Book 1)" },
+  "en-2": { title: "Ағылшын тілі 2. НЗМ емтиханы" },
   "logic-1": { title: "Сандар, әріптер және кестелер" },
   "logic-2": { title: "Фигуралар" },
   "logic-3": { title: "Логикалық есептер және кодтар" },
@@ -250,6 +254,7 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
 
 /** "<slug раздела>.<код темы>" → перевод темы */
 export const KK_TOPICS: Record<string, KkTopic> = {
+  ...ENG_KK_TOPICS,
   "nis-1.1.1": nis1_1,
   "nis-1.1.2": nis1_2,
   "nis-1.1.3": nis1_3,
