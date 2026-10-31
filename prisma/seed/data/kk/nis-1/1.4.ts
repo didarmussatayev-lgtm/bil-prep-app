@@ -24,10 +24,10 @@ const kk: KkTopic = {
 
 Бедердің ең ірі пішіндері — **материктер мен мұхит ойыстары**. Одан кейін тау жоталары, жазықтар және үстірттер келеді.
 
-:::figure {"kind": "image", "src": "/figures/nis/nis-1.4a.jpg", "alt": "Океанический и материковый рельеф", "width": 680, "caption": "Мұхиттық және материктік бедер"}
+:::figure {"kind": "image", "src": "/figures/nis/nis-kk-1.4a.jpg", "alt": "Океанический и материковый рельеф", "width": 680, "caption": "Мұхиттық және материктік бедер"}
 :::
 
-:::figure {"kind": "image", "src": "/figures/nis/nis-1.4b.jpg", "alt": "Крупнейшие горы на Земле", "width": 640, "caption": "Жердегі ең ірі таулар"}
+:::figure {"kind": "image", "src": "/figures/nis/nis-kk-1.4b.jpg", "alt": "Крупнейшие горы на Земле", "width": 640, "caption": "Жердегі ең ірі таулар"}
 :::
 
 
@@ -43,7 +43,7 @@ const kk: KkTopic = {
 Осылайша физикалық желдену тауларды бұзып, мысалы, Сарыарқадағыдай ғажайып жартас-«қалдықтар» түзеді.
 :::
 
-:::figure {"kind": "image", "src": "/figures/nis/nis-1.4c.jpg", "alt": "Виды выветривания", "width": 640, "caption": "Желденудің түрлері"}
+:::figure {"kind": "image", "src": "/figures/nis/nis-kk-1.4c.jpg", "alt": "Виды выветривания", "width": 640, "caption": "Желденудің түрлері"}
 :::
 
 
@@ -61,10 +61,10 @@ const kk: KkTopic = {
 4. Топырақтың құнарлы қабаты қалыптасады.
 :::
 
-:::figure {"kind": "image", "src": "/figures/nis/nis-1.4e.jpg", "alt": "Образование плодородного слоя почвы", "width": 420, "caption": "Топырақтың құнарлы қабатының түзілуі"}
+:::figure {"kind": "image", "src": "/figures/nis/nis-kk-1.4e.jpg", "alt": "Образование плодородного слоя почвы", "width": 420, "caption": "Топырақтың құнарлы қабатының түзілуі"}
 :::
 
-:::figure {"kind": "image", "src": "/figures/nis/nis-1.4d.jpg", "alt": "Процессы, участвующие в почвообразовании", "width": 520, "caption": "Топырақ түзілуіне қатысатын процестер"}
+:::figure {"kind": "image", "src": "/figures/nis/nis-kk-1.4d.jpg", "alt": "Процессы, участвующие в почвообразовании", "width": 520, "caption": "Топырақ түзілуіне қатысатын процестер"}
 :::
 
 
