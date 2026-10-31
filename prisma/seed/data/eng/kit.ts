@@ -75,3 +75,19 @@ export function toKk(t: EngTopic): KkTopic {
   for (const x of t.test) tasks[`t:${x.n}`] = { question: x.q, options: x.choice?.options, solution: x.sol.kk };
   return { title: t.title.kk, explanation: t.explanation.kk, tasks };
 }
+
+/**
+ * Вопрос реального варианта «как в книге»: порядок вариантов и буква ответа сохраняются.
+ * Если ключ книги явно противоречит тексту, в correct ставим верную по тексту букву, а bookKey — букву из ключа (для пометки в решении).
+ */
+export const ex = (n: string, q: string, options: string[], correct: "A" | "B" | "C" | "D" | "E", bookKey?: "A" | "B" | "C" | "D" | "E"): EngTask => ({
+  n, q, choice: { options, correct },
+  sol: bookKey && bookKey !== correct
+    ? { ru: `Верный ответ — ${correct} (по тексту). В ключе книги указано ${bookKey} — это расхождение, проверьте текст.`, kk: `Дұрыс жауап — ${correct} (мәтін бойынша). Кітаптың кілтінде ${bookKey} көрсетілген — бұл сәйкессіздік, мәтінді тексеріңіз.` }
+    : { ru: `Верный ответ — ${correct}.`, kk: `Дұрыс жауап — ${correct}.` },
+});
+
+/** Рисунок из страницы книги (public/figures/nis-english/…). */
+export const img = (name: string, alt: string, width = 560): Figure => ({ kind: "image", src: `/figures/nis-english/${name}.jpg`, alt, width });
+/** Добавляет рисунок к заданию. */
+export const withFig = (t: EngTask, ...f: Figure[]): EngTask => ({ ...t, figure: f.length === 1 ? f[0] : f });

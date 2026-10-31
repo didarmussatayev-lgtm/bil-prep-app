@@ -194,17 +194,17 @@ async function seedEngPapers() {
   for (const p of ENG_PAPERS) {
     const ids: string[] = [];
     for (const [i, q] of p.questions.entries()) {
-      const d = buildTask(container.id, `exam:${p.slug}`, { n: q.n, q: q.q, choice: q.choice, solution: q.sol.ru }, "test", i) as any;
+      const d = buildTask(container.id, `exam:${p.slug}`, { n: q.n, q: q.q, choice: q.choice, solution: q.sol.ru, figure: q.figure }, "test", i) as any;
       const fields = {
         ...d, correctAnswerJson: json(d.correctAnswerJson), imageParamsJson: json(d.imageParamsJson),
-        i18n: kkBag({ question: q.q, options: q.choice!.options, solution: q.sol.kk }),
+        i18n: kkBag({ question: q.q, options: q.choice!.options, solution: q.sol.kk }), // фигуры общие для ru/kk
       };
       const { slug: taskSlug, ...rest } = fields;
       const task = await prisma.task.upsert({ where: { slug: taskSlug }, update: rest, create: { slug: taskSlug, ...rest } });
       ids.push(task.id);
     }
     const base = {
-      subjectId: subject.id, groupKey: "training", title: p.title.ru, year: null, order: p.number,
+      subjectId: subject.id, groupKey: p.group ?? "training", title: p.title.ru, year: null, order: p.number + (p.fixed ? 10 : 0),
       timeLimitSeconds: p.timeMinutes * 60, questionIds: ids, i18n: { kk: { title: p.title.kk } } as Prisma.InputJsonValue,
     };
     await prisma.examPaper.upsert({ where: { slug: p.slug }, update: base, create: { slug: p.slug, ...base } });

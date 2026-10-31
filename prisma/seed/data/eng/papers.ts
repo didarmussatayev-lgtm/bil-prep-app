@@ -4,7 +4,13 @@
  */
 import { EngTask, mc } from "./kit";
 
-export type EngPaper = { slug: string; number: number; title: { ru: string; kk: string }; timeMinutes: number; questions: EngTask[] };
+export type EngPaper = {
+  slug: string; number: number; title: { ru: string; kk: string }; timeMinutes: number; questions: EngTask[];
+  /** training — свои тренировочные; past — реальные варианты НИШ («как в книге»). */
+  group?: "training" | "past";
+  /** true — порядок вариантов и буква ответа как в книге (не перемешивать). */
+  fixed?: boolean;
+};
 
 const A = "Text A\n";
 const B = "Text B\n";

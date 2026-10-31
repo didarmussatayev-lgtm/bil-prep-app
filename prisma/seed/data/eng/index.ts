@@ -2,6 +2,16 @@ import type { SeedTopic } from "../../types";
 import type { KkTopic } from "../kk";
 import { EngTopic, toKk, toSeed } from "./kit";
 import { PAPERS_DATA } from "./papers";
+import { V01 } from "./exams/v01";
+import { V02 } from "./exams/v02";
+import { V03 } from "./exams/v03";
+import { V04 } from "./exams/v04";
+import { V05 } from "./exams/v05";
+import { V06 } from "./exams/v06";
+import { V07 } from "./exams/v07";
+import { V08 } from "./exams/v08";
+import { V09 } from "./exams/v09";
+import { V10 } from "./exams/v10";
 import a01 from "./a/a01"; import a02 from "./a/a02"; import a03 from "./a/a03"; import a04 from "./a/a04"; import a05 from "./a/a05";
 import a06 from "./a/a06"; import a07 from "./a/a07"; import a08 from "./a/a08"; import a09 from "./a/a09"; import a10 from "./a/a10";
 import a11 from "./a/a11"; import a12 from "./a/a12"; import a13 from "./a/a13"; import a14 from "./a/a14"; import a15 from "./a/a15";
@@ -37,9 +47,9 @@ export const ENG_KK_TOPICS: Record<string, KkTopic> = Object.fromEntries([
  * Пробные варианты: правильный вариант в данных — первый, при сборке его циклически сдвигают, чтобы буквы A–D встречались поровну.
  * Одна и та же перестановка для всех языков (варианты общие, английские).
  */
-export const ENG_PAPERS = PAPERS_DATA.map((p) => ({
+export const ENG_PAPERS = [...PAPERS_DATA, V01, V02, V03, V04, V05, V06, V07, V08, V09, V10].map((p) => ({
   ...p,
-  questions: p.questions.map((q, i) => {
+  questions: p.fixed ? p.questions : p.questions.map((q, i) => {
     const opts = q.choice!.options;
     const to = (i + p.number) % opts.length;
     const rest = opts.slice(1);
