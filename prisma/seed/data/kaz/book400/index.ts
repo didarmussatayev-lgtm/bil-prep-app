@@ -4,4 +4,6 @@ import { C03 } from "./v03";
 import { C04 } from "./v04";
 import { C05 } from "./v05";
 import { C06 } from "./v06";
-export const COLL = [C01, C02, C03, C04, C05, C06];
+import { C07 } from "./v07";
+import { C08 } from "./v08";
+export const COLL = [C01, C02, C03, C04, C05, C06, C07, C08];
