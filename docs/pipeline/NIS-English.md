@@ -3,8 +3,8 @@
 Предмет `nis-english` («Английский язык» / «Ағылшын тілі») на вкладке «Подготовка в НИШ» (`/nis`) рядом с «Естествознанием». Открывается по обычным маршрутам `/bil/nis-english/...`.
 
 ## Источники (PDF в корне репозитория; сканы без текстового слоя)
-- `book 1 (5th grade) 01-50.pdf`, `51-98.pdf` — EduCon, английский для 5 класса, 5 юнитов: My House · Parts of the Body · Family & Friends · Professions · Creativity.
-- `NIS English 1 (2).pdf`, `NIS English 2 (1).pdf` — «English for Applicants to Nazarbayev Intellectual Schools» (Duisembay, Sharip, 2017): тесты по 20 вопросов (A–D), к каждому — таблица слов EN / KK / RU.
+- `book 1 (5th grade) 01-50.pdf`, `51-98.pdf` — EduCon, английский для 5 класса, 5 юнитов (файлы удалены из репозитория, остаются в истории git): My House · Parts of the Body · Family & Friends · Professions · Creativity.
+- `NIS English 1 (2).pdf`, `NIS English 2 (1).pdf` — «English for Applicants to Nazarbayev Intellectual Schools» (Duisembay, Sharip, 2017), тесты по 20 вопросов (файлы удалены, остаются в истории git).
 - `1-10 вариант НИШ Анг.яз.pdf` — 10 вариантов экзамена (полностью перенесены в `eng/exams/v01…v10.ts`, файл удалён из репозитория, остаётся в истории git).
 
 Контент разделов 1–2 (темы) **написан заново** «в стиле» книг (как в Естествознании). Десять вариантов из `1-10 вариант НИШ Анг.яз.pdf` (без авторских прав) загружены **как есть** — см. «Варианты НИШ» ниже.
