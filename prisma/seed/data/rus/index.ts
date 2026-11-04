@@ -5,6 +5,9 @@
 import type { SeedTopic } from "../../types";
 import type { KkTopic } from "../kk";
 import { EngTopic, count, pick, toKk, toSeed } from "../eng/kit";
+import { ex } from "../eng/kit";
+import type { EngPaper } from "../eng/papers";
+import { HL_DATA } from "./hl-data";
 import { V01 } from "./exams/v01";
 import { V02 } from "./exams/v02";
 import { V03 } from "./exams/v03";
@@ -66,4 +69,11 @@ export const RUS_BOOK_1 = {
 
 export const RUS_KK_TOPICS: Record<string, KkTopic> = { "ru-1.1.1": toKk(t11) };
 
-export const RUS_PAPERS = [V01, V02, V03, V04, V05, V06, V07, V08, V09, V10];
+/** 20 тренировочных вариантов из сборника «Русский язык» (Бузова, Сағидолда): порядок и буквы ответов как в книге. */
+const HL_PAPERS: EngPaper[] = HL_DATA.map((p) => ({
+  slug: `nis-russian-training-${String(p.number).padStart(2, "0")}`, number: p.number + 10, title: { ru: `Тренировочный вариант ${p.number}`, kk: `${p.number}-жаттығу нұсқасы` },
+  timeMinutes: 40, group: "training", fixed: true,
+  questions: p.questions.map(([n, q, opts, a]) => ex(n, q, opts, a as "A" | "B" | "C" | "D" | "E")),
+}));
+
+export const RUS_PAPERS = [V01, V02, V03, V04, V05, V06, V07, V08, V09, V10, ...HL_PAPERS];
