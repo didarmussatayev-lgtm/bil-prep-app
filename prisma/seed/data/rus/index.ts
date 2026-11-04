@@ -9,6 +9,8 @@ import { V01 } from "./exams/v01";
 import { V02 } from "./exams/v02";
 import { V03 } from "./exams/v03";
 import { V04 } from "./exams/v04";
+import { V05 } from "./exams/v05";
+import { V06 } from "./exams/v06";
 
 const t11: EngTopic = {
   code: "1.1",
@@ -60,4 +62,4 @@ export const RUS_BOOK_1 = {
 
 export const RUS_KK_TOPICS: Record<string, KkTopic> = { "ru-1.1.1": toKk(t11) };
 
-export const RUS_PAPERS = [V01, V02, V03, V04];
+export const RUS_PAPERS = [V01, V02, V03, V04, V05, V06];
