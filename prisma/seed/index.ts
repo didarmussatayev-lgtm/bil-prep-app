@@ -35,6 +35,7 @@ import { NIS_BOOK_3 } from "./data/nis/book-3";
 import { KK_SECTIONS, KK_SUBJECTS, KK_TOPICS } from "./data/kk";
 import { ENG_BOOK_1, ENG_BOOK_2, ENG_PAPERS } from "./data/eng";
 import { RUS_BOOK_1, RUS_PAPERS } from "./data/rus";
+import { KAZ_BOOK_1, KAZ_PAPERS } from "./data/kaz";
 
 const prisma = new PrismaClient();
 
@@ -45,6 +46,7 @@ const ALL_SUBJECTS = [
   { name: "Естествознание", slug: "nis-science", order: 3, sections: [NIS_BOOK_1, NIS_BOOK_2, NIS_BOOK_3] },
   { name: "Английский язык", slug: "nis-english", order: 4, sections: [ENG_BOOK_1, ENG_BOOK_2] },
   { name: "Русский язык", slug: "nis-russian", order: 5, sections: [RUS_BOOK_1] },
+  { name: "Казахский язык", slug: "nis-kazakh", order: 6, sections: [KAZ_BOOK_1] },
 ];
 
 /** SEED_ONLY="grade5,logic" — загрузить только эти предметы (по slug); пусто = все. Нужен автозапуску из GitHub Actions. */
@@ -239,6 +241,7 @@ async function main() {
 
   if (!ONLY.length || ONLY.includes("nis-english")) await seedPapers("nis-english", "Английский", ENG_PAPERS);
   if (!ONLY.length || ONLY.includes("nis-russian")) await seedPapers("nis-russian", "Русский", RUS_PAPERS as unknown as typeof ENG_PAPERS);
+  if (!ONLY.length || ONLY.includes("nis-kazakh")) await seedPapers("nis-kazakh", "Казахский", KAZ_PAPERS as unknown as typeof ENG_PAPERS);
 
   if (review.length) console.log(`\nПроверить вручную (${review.length}):\n` + review.map((r) => " - " + r).join("\n"));
   if (pending.length) console.log(`\nЕщё не загружено (${pending.length}):\n` + pending.map((r) => " - " + r).join("\n"));

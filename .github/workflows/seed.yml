@@ -47,6 +47,7 @@ jobs:
               prisma/seed/data/nis/*|prisma/seed/data/kk/nis-*) add nis-science;;
               prisma/seed/data/eng/*) add nis-english;;
               prisma/seed/data/rus/*) add nis-russian;;
+              prisma/seed/data/kaz/*) add nis-kazakh;;
               prisma/seed/data/logic/*|prisma/seed/data/kk/logic*) add logic;;
               prisma/seed/data/math*|prisma/seed/data/kk/math*) add math;;
             esac
