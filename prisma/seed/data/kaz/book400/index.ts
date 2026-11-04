@@ -17,4 +17,5 @@ import { C16 } from "./v16";
 import { C17 } from "./v17";
 import { C18 } from "./v18";
 import { C19 } from "./v19";
-export const COLL = [C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19];
+import { C20 } from "./v20";
+export const COLL = [C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20];
