@@ -34,6 +34,7 @@ import { NIS_BOOK_2 } from "./data/nis/book-2";
 import { NIS_BOOK_3 } from "./data/nis/book-3";
 import { KK_SECTIONS, KK_SUBJECTS, KK_TOPICS } from "./data/kk";
 import { ENG_BOOK_1, ENG_BOOK_2, ENG_PAPERS } from "./data/eng";
+import { RUS_BOOK_1, RUS_PAPERS } from "./data/rus";
 
 const prisma = new PrismaClient();
 
@@ -43,6 +44,7 @@ const ALL_SUBJECTS = [
   { name: "5 класс", slug: "grade5", order: 2, sections: [G5B1_CHAPTER_1, G5B1_CHAPTER_2, G5B1_CHAPTER_3, G5_CHAPTER_4, G5_CHAPTER_5, G5_CHAPTER_6] },
   { name: "Естествознание", slug: "nis-science", order: 3, sections: [NIS_BOOK_1, NIS_BOOK_2, NIS_BOOK_3] },
   { name: "Английский язык", slug: "nis-english", order: 4, sections: [ENG_BOOK_1, ENG_BOOK_2] },
+  { name: "Русский язык", slug: "nis-russian", order: 5, sections: [RUS_BOOK_1] },
 ];
 
 /** SEED_ONLY="grade5,logic" — загрузить только эти предметы (по slug); пусто = все. Нужен автозапуску из GitHub Actions. */
@@ -180,18 +182,18 @@ function syncSchema() {
 }
 
 /** Пробные варианты по английскому: вопросы — обычные test_choice-задачи в скрытой служебной теме, сами варианты — ExamPaper. */
-async function seedEngPapers() {
-  const subject = await prisma.subject.findUnique({ where: { slug: "nis-english" }, select: { id: true } });
+async function seedPapers(slug: string, label: string, papers: typeof ENG_PAPERS) {
+  const subject = await prisma.subject.findUnique({ where: { slug }, select: { id: true } });
   if (!subject) return;
   const section = await prisma.section.findFirst({ where: { subjectId: subject.id }, orderBy: { order: "desc" }, select: { id: true } });
   if (!section) return;
   const container = await prisma.topic.upsert({
-    where: { slug: "exam-papers-nis-english" },
+    where: { slug: `exam-papers-${slug}` },
     update: {},
-    create: { slug: "exam-papers-nis-english", sectionId: section.id, title: "Пробные варианты (служебная тема)", order: 9999, hidden: true, explanationContent: "" },
+    create: { slug: `exam-papers-${slug}`, sectionId: section.id, title: "Пробные варианты (служебная тема)", order: 9999, hidden: true, explanationContent: "" },
   });
-  console.log("\n=== Английский: пробные варианты ===");
-  for (const p of ENG_PAPERS) {
+  console.log(`\n=== ${label}: пробные варианты ===`);
+  for (const p of papers) {
     const ids: string[] = [];
     for (const [i, q] of p.questions.entries()) {
       const d = buildTask(container.id, `exam:${p.slug}`, { n: q.n, q: q.q, choice: q.choice, solution: q.sol.ru, figure: q.figure }, "test", i) as any;
@@ -235,7 +237,8 @@ async function main() {
     }
   }
 
-  if (!ONLY.length || ONLY.includes("nis-english")) await seedEngPapers();
+  if (!ONLY.length || ONLY.includes("nis-english")) await seedPapers("nis-english", "Английский", ENG_PAPERS);
+  if (!ONLY.length || ONLY.includes("nis-russian")) await seedPapers("nis-russian", "Русский", RUS_PAPERS as unknown as typeof ENG_PAPERS);
 
   if (review.length) console.log(`\nПроверить вручную (${review.length}):\n` + review.map((r) => " - " + r).join("\n"));
   if (pending.length) console.log(`\nЕщё не загружено (${pending.length}):\n` + pending.map((r) => " - " + r).join("\n"));
