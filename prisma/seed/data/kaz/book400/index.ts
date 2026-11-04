@@ -8,4 +8,5 @@ import { C07 } from "./v07";
 import { C08 } from "./v08";
 import { C09 } from "./v09";
 import { C10 } from "./v10";
-export const COLL = [C01, C02, C03, C04, C05, C06, C07, C08, C09, C10];
+import { C11 } from "./v11";
+export const COLL = [C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11];
