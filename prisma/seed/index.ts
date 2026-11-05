@@ -35,6 +35,7 @@ import { NIS_BOOK_3 } from "./data/nis/book-3";
 import { KK_SECTIONS, KK_SUBJECTS, KK_TOPICS } from "./data/kk";
 import { ENG_BOOK_1, ENG_BOOK_2, ENG_PAPERS } from "./data/eng";
 import { RUS_BOOK_1, RUS_PAPERS } from "./data/rus";
+import { SCI_PAPERS } from "./data/nis/papers";
 import { KAZ_BOOK_1, KAZ_PAPERS } from "./data/kaz";
 
 const prisma = new PrismaClient();
@@ -241,6 +242,7 @@ async function main() {
 
   if (!ONLY.length || ONLY.includes("nis-english")) await seedPapers("nis-english", "Английский", ENG_PAPERS);
   if (!ONLY.length || ONLY.includes("nis-russian")) await seedPapers("nis-russian", "Русский", RUS_PAPERS as unknown as typeof ENG_PAPERS);
+  if (!ONLY.length || ONLY.includes("nis-science")) await seedPapers("nis-science", "Естествознание", SCI_PAPERS as unknown as typeof ENG_PAPERS);
   if (!ONLY.length || ONLY.includes("nis-kazakh")) await seedPapers("nis-kazakh", "Казахский", KAZ_PAPERS as unknown as typeof ENG_PAPERS);
 
   if (review.length) console.log(`\nПроверить вручную (${review.length}):\n` + review.map((r) => " - " + r).join("\n"));
