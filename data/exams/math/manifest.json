@@ -7501,303 +7501,363 @@
    "questions": [
     {
      "n": 1,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q01.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q01.webp",
+     "imageKk": "/exams/math/ca/q03/q01.kk.webp"
     },
     {
      "n": 2,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q02.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q02.webp",
+     "imageKk": "/exams/math/ca/q03/q02.kk.webp"
     },
     {
      "n": 3,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q03.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q03.webp",
+     "imageKk": "/exams/math/ca/q03/q03.kk.webp"
     },
     {
      "n": 4,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q04.webp"
+     "answer": "C",
+     "image": "/exams/math/ca/q03/q04.webp",
+     "imageKk": "/exams/math/ca/q03/q04.kk.webp"
     },
     {
      "n": 5,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q05.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q05.webp",
+     "imageKk": "/exams/math/ca/q03/q05.kk.webp"
     },
     {
      "n": 6,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q06.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q06.webp",
+     "imageKk": "/exams/math/ca/q03/q06.kk.webp"
     },
     {
      "n": 7,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q07.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q07.webp",
+     "imageKk": "/exams/math/ca/q03/q07.kk.webp"
     },
     {
      "n": 8,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q08.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q08.webp",
+     "imageKk": "/exams/math/ca/q03/q08.kk.webp"
     },
     {
      "n": 9,
      "answer": "B",
-     "image": "/exams/math/ca/q03/q09.webp"
+     "image": "/exams/math/ca/q03/q09.webp",
+     "imageKk": "/exams/math/ca/q03/q09.kk.webp"
     },
     {
      "n": 10,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q10.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q10.webp",
+     "imageKk": "/exams/math/ca/q03/q10.kk.webp"
     },
     {
      "n": 11,
      "answer": "D",
-     "image": "/exams/math/ca/q03/q11.webp"
+     "image": "/exams/math/ca/q03/q11.webp",
+     "imageKk": "/exams/math/ca/q03/q11.kk.webp"
     },
     {
      "n": 12,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q12.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q12.webp",
+     "imageKk": "/exams/math/ca/q03/q12.kk.webp"
     },
     {
      "n": 13,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q13.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q13.webp",
+     "imageKk": "/exams/math/ca/q03/q13.kk.webp"
     },
     {
      "n": 14,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q14.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q14.webp",
+     "imageKk": "/exams/math/ca/q03/q14.kk.webp"
     },
     {
      "n": 15,
      "answer": "D",
-     "image": "/exams/math/ca/q03/q15.webp"
+     "image": "/exams/math/ca/q03/q15.webp",
+     "imageKk": "/exams/math/ca/q03/q15.kk.webp"
     },
     {
      "n": 16,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q16.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q16.webp",
+     "imageKk": "/exams/math/ca/q03/q16.kk.webp"
     },
     {
      "n": 17,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q17.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q17.webp",
+     "imageKk": "/exams/math/ca/q03/q17.kk.webp"
     },
     {
      "n": 18,
      "answer": "A",
-     "image": "/exams/math/ca/q03/q18.webp"
+     "image": "/exams/math/ca/q03/q18.webp",
+     "imageKk": "/exams/math/ca/q03/q18.kk.webp"
     },
     {
      "n": 19,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q19.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q19.webp",
+     "imageKk": "/exams/math/ca/q03/q19.kk.webp"
     },
     {
      "n": 20,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q20.webp"
+     "answer": "C",
+     "image": "/exams/math/ca/q03/q20.webp",
+     "imageKk": "/exams/math/ca/q03/q20.kk.webp"
     },
     {
      "n": 21,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q21.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q21.webp",
+     "imageKk": "/exams/math/ca/q03/q21.kk.webp"
     },
     {
      "n": 22,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q22.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q22.webp",
+     "imageKk": "/exams/math/ca/q03/q22.kk.webp"
     },
     {
      "n": 23,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q23.webp"
+     "answer": "D",
+     "image": "/exams/math/ca/q03/q23.webp",
+     "imageKk": "/exams/math/ca/q03/q23.kk.webp"
     },
     {
      "n": 24,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q24.webp"
+     "answer": "D",
+     "image": "/exams/math/ca/q03/q24.webp",
+     "imageKk": "/exams/math/ca/q03/q24.kk.webp"
     },
     {
      "n": 25,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q25.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q25.webp",
+     "imageKk": "/exams/math/ca/q03/q25.kk.webp"
     },
     {
      "n": 26,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q26.webp"
+     "answer": "C",
+     "image": "/exams/math/ca/q03/q26.webp",
+     "imageKk": "/exams/math/ca/q03/q26.kk.webp"
     },
     {
      "n": 27,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q27.webp"
+     "answer": "C",
+     "image": "/exams/math/ca/q03/q27.webp",
+     "imageKk": "/exams/math/ca/q03/q27.kk.webp"
     },
     {
      "n": 28,
      "answer": "B",
-     "image": "/exams/math/ca/q03/q28.webp"
+     "image": "/exams/math/ca/q03/q28.webp",
+     "imageKk": "/exams/math/ca/q03/q28.kk.webp"
     },
     {
      "n": 29,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q29.webp"
+     "answer": "D",
+     "image": "/exams/math/ca/q03/q29.webp",
+     "imageKk": "/exams/math/ca/q03/q29.kk.webp"
     },
     {
      "n": 30,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q30.webp"
+     "answer": "C",
+     "image": "/exams/math/ca/q03/q30.webp",
+     "imageKk": "/exams/math/ca/q03/q30.kk.webp"
     },
     {
      "n": 31,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q31.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q31.webp",
+     "imageKk": "/exams/math/ca/q03/q31.kk.webp"
     },
     {
      "n": 32,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q32.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q32.webp",
+     "imageKk": "/exams/math/ca/q03/q32.kk.webp"
     },
     {
      "n": 33,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q33.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q33.webp",
+     "imageKk": "/exams/math/ca/q03/q33.kk.webp"
     },
     {
      "n": 34,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q34.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q34.webp",
+     "imageKk": "/exams/math/ca/q03/q34.kk.webp"
     },
     {
      "n": 35,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q35.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q35.webp",
+     "imageKk": "/exams/math/ca/q03/q35.kk.webp"
     },
     {
      "n": 36,
      "answer": "A",
-     "image": "/exams/math/ca/q03/q36.webp"
+     "image": "/exams/math/ca/q03/q36.webp",
+     "imageKk": "/exams/math/ca/q03/q36.kk.webp"
     },
     {
      "n": 37,
      "answer": "D",
-     "image": "/exams/math/ca/q03/q37.webp"
+     "image": "/exams/math/ca/q03/q37.webp",
+     "imageKk": "/exams/math/ca/q03/q37.kk.webp"
     },
     {
      "n": 38,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q38.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q38.webp",
+     "imageKk": "/exams/math/ca/q03/q38.kk.webp"
     },
     {
      "n": 39,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q39.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q39.webp",
+     "imageKk": "/exams/math/ca/q03/q39.kk.webp"
     },
     {
      "n": 40,
      "answer": "A",
-     "image": "/exams/math/ca/q03/q40.webp"
+     "image": "/exams/math/ca/q03/q40.webp",
+     "imageKk": "/exams/math/ca/q03/q40.kk.webp"
     },
     {
      "n": 41,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q41.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q41.webp",
+     "imageKk": "/exams/math/ca/q03/q41.kk.webp"
     },
     {
      "n": 42,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q42.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q42.webp",
+     "imageKk": "/exams/math/ca/q03/q42.kk.webp"
     },
     {
      "n": 43,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q43.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q43.webp",
+     "imageKk": "/exams/math/ca/q03/q43.kk.webp"
     },
     {
      "n": 44,
      "answer": "D",
-     "image": "/exams/math/ca/q03/q44.webp"
+     "image": "/exams/math/ca/q03/q44.webp",
+     "imageKk": "/exams/math/ca/q03/q44.kk.webp"
     },
     {
      "n": 45,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q45.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q45.webp",
+     "imageKk": "/exams/math/ca/q03/q45.kk.webp"
     },
     {
      "n": 46,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q46.webp"
+     "answer": "D",
+     "image": "/exams/math/ca/q03/q46.webp",
+     "imageKk": "/exams/math/ca/q03/q46.kk.webp"
     },
     {
      "n": 47,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q47.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q47.webp",
+     "imageKk": "/exams/math/ca/q03/q47.kk.webp"
     },
     {
      "n": 48,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q48.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q48.webp",
+     "imageKk": "/exams/math/ca/q03/q48.kk.webp"
     },
     {
      "n": 49,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q49.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q49.webp",
+     "imageKk": "/exams/math/ca/q03/q49.kk.webp"
     },
     {
      "n": 50,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q50.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q50.webp",
+     "imageKk": "/exams/math/ca/q03/q50.kk.webp"
     },
     {
      "n": 51,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q51.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q51.webp",
+     "imageKk": "/exams/math/ca/q03/q51.kk.webp"
     },
     {
      "n": 52,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q52.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q52.webp",
+     "imageKk": "/exams/math/ca/q03/q52.kk.webp"
     },
     {
      "n": 53,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q53.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q53.webp",
+     "imageKk": "/exams/math/ca/q03/q53.kk.webp"
     },
     {
      "n": 54,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q54.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q54.webp",
+     "imageKk": "/exams/math/ca/q03/q54.kk.webp"
     },
     {
      "n": 55,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q55.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q55.webp",
+     "imageKk": "/exams/math/ca/q03/q55.kk.webp"
     },
     {
      "n": 56,
-     "answer": "C",
-     "image": "/exams/math/ca/q03/q56.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q56.webp",
+     "imageKk": "/exams/math/ca/q03/q56.kk.webp"
     },
     {
      "n": 57,
      "answer": "D",
-     "image": "/exams/math/ca/q03/q57.webp"
+     "image": "/exams/math/ca/q03/q57.webp",
+     "imageKk": "/exams/math/ca/q03/q57.kk.webp"
     },
     {
      "n": 58,
-     "answer": "B",
-     "image": "/exams/math/ca/q03/q58.webp"
+     "answer": "A",
+     "image": "/exams/math/ca/q03/q58.webp",
+     "imageKk": "/exams/math/ca/q03/q58.kk.webp"
     },
     {
      "n": 59,
-     "answer": "A",
-     "image": "/exams/math/ca/q03/q59.webp"
+     "answer": "B",
+     "image": "/exams/math/ca/q03/q59.webp",
+     "imageKk": "/exams/math/ca/q03/q59.kk.webp"
     },
     {
      "n": 60,
      "answer": "B",
-     "image": "/exams/math/ca/q03/q60.webp"
+     "image": "/exams/math/ca/q03/q60.webp",
+     "imageKk": "/exams/math/ca/q03/q60.kk.webp"
     }
    ]
   },
