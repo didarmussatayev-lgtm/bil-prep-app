@@ -14,7 +14,7 @@ const TBL={ru:["Высота кустарника (см)","Длина тени (
 function pieHtml(){const cols=['#111','#666','#b4b4b4','#fff'];return '<div class="figbox" style="display:flex;justify-content:center;gap:14px;align-items:center"><img class="fig" style="width:220px" src="'+figs['pie']+'"><div style="text-align:left;font-size:13px">'+PIELEG[lang].map((t,i)=>'<div style="margin:5px 0"><span style="display:inline-block;width:14px;height:14px;border:1px solid #000;background:'+cols[i]+';vertical-align:middle;margin-right:6px"></span>'+t+'</div>').join('')+'</div></div>';}
 function tableHtml(){const r=[[20,16],[40,32],[60,48],[80,64]];return '<table class="t"><tr><th>'+TBL[lang][0]+'</th><th>'+TBL[lang][1]+'</th></tr>'+r.map(x=>'<tr><td>'+x[0]+'</td><td>'+x[1]+'</td></tr>').join('')+'</table>';}
 function render(q) {
-  const L = q[lang];
+  const L0 = q[lang]; const E=t=>String(t).replace(/</g,'&lt;'); const L={q:E(L0.q),opts:(L0.opts||[]).map(E),extra:L0.extra};
   const f = q.fig ? q.fig.map(n=>fig(n)).join('') : '';
   const fl = q.figFloat ? `<div class="float">${fig(q.figFloat)}</div>` : '';
   let opts = (L.opts||[]).map((o,i)=>`<div class="opt">${'ABCDE'[i]}) ${o}</div>`).join('');
