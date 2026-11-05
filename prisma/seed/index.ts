@@ -202,7 +202,7 @@ async function seedPapers(slug: string, label: string, papers: typeof ENG_PAPERS
       const d = buildTask(container.id, `exam:${p.slug}`, { n: q.n, q: q.q, choice: q.choice, solution: q.sol.ru, figure: q.figure }, "test", i) as any;
       const fields = {
         ...d, correctAnswerJson: json(d.correctAnswerJson), imageParamsJson: json(d.imageParamsJson),
-        i18n: kkBag({ question: q.q, options: q.choice!.options, solution: q.sol.kk }), // фигуры общие для ru/kk
+        i18n: kkBag({ question: q.kk?.q ?? q.q, options: q.kk?.options ?? q.choice!.options, solution: q.sol.kk }), // фигуры общие для ru/kk
       };
       const { slug: taskSlug, ...rest } = fields;
       const task = await prisma.task.upsert({ where: { slug: taskSlug }, update: rest, create: { slug: taskSlug, ...rest } });

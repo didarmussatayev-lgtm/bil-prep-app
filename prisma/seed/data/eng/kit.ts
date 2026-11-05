@@ -20,6 +20,8 @@ export type EngTask = {
   choice?: { options: string[]; correct: "A" | "B" | "C" | "D" | "E" };
   sol: Bi;
   figure?: Figure | Figure[];
+  /** Казахская версия условия и вариантов (если условие не общее для ru/kk). */
+  kk?: { q: string; options: string[] };
 };
 
 export type EngTopic = {

@@ -5,6 +5,7 @@
 import { ex, withFig } from "../../eng/kit";
 import type { EngPaper } from "../../eng/papers";
 import type { Figure } from "../../../types";
+import { KK } from "./kk";
 
 type L = "A" | "B" | "C" | "D";
 const f = (name: string, alt: string, width = 460): Figure => ({ kind: "image", src: `/figures/nis-science-papers/${name}.png`, alt, width });
@@ -129,6 +130,6 @@ const V5 = [
 ];
 
 const mk = (n: number, qs: ReturnType<typeof q>[]): EngPaper => ({
-  slug: `nis-science-variant-${String(n).padStart(2, "0")}`, number: n, title: { ru: `Вариант ${n}`, kk: `${n}-нұсқа` }, timeMinutes: 40, group: "past", fixed: true, questions: qs,
+  slug: `nis-science-variant-${String(n).padStart(2, "0")}`, number: n, title: { ru: `Вариант ${n}`, kk: `${n}-нұсқа` }, timeMinutes: 40, group: "past", fixed: true, questions: qs.map((x, i) => ({ ...x, kk: { q: KK[n][i][0], options: KK[n][i][1] } })),
 });
 export const SCI_PAPERS: EngPaper[] = [mk(1, V1), mk(2, V2), mk(3, V3), mk(4, V4), mk(5, V5)];
