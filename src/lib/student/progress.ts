@@ -24,6 +24,7 @@ export const SUBJECT_LEVELS: Record<string, { level: number; title: string }[]> 
   "nis-english": [{ level: 1, title: "Базовый курс (Book 1)" }, { level: 2, title: "Экзамен НИШ" }],
   "nis-russian": [{ level: 1, title: "Экзамен НИШ" }],
   "nis-kazakh": [{ level: 1, title: "Экзамен НИШ" }],
+  "nis-today": [{ level: 1, title: "Комплексное пробное" }],
 };
 
 export type Status = "not_started" | "in_progress" | "done" | "empty";

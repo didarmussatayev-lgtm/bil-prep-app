@@ -214,6 +214,7 @@ import lg3_26 from "./logic-3/26";
 import { ENG_KK_TOPICS } from "../eng";
 import { RUS_KK_TOPICS } from "../rus";
 import { KAZ_KK_TOPICS } from "../kaz";
+import { TODAY_KK_TOPICS } from "../today";
 
 export type KkTask = { question: string; options?: string[]; solution?: string; /** рисунок с казахскими подписями (если в нём есть текст) */ figure?: Figure | Figure[] };
 export type KkTopic = { title: string; explanation?: string; tasks?: Record<string, KkTask> };
@@ -226,6 +227,7 @@ export const KK_SUBJECTS: Record<string, { name: string }> = {
   "nis-english": { name: "Ағылшын тілі" },
   "nis-russian": { name: "Орыс тілі" },
   "nis-kazakh": { name: "Қазақ тілі" },
+  "nis-today": { name: "TODAY кешенді сынағы" },
 };
 
 /** slug раздела → название */
@@ -253,6 +255,7 @@ export const KK_SECTIONS: Record<string, { title: string }> = {
   "en-2": { title: "Ағылшын тілі 2. НЗМ емтиханы" },
   "ru-1": { title: "Орыс тілі. НЗМ емтиханы" },
   "kz-1": { title: "Қазақ тілі. НЗМ емтиханы" },
+  "today-1": { title: "TODAY кешенді сынағы" },
   "logic-1": { title: "Сандар, әріптер және кестелер" },
   "logic-2": { title: "Фигуралар" },
   "logic-3": { title: "Логикалық есептер және кодтар" },
@@ -263,6 +266,7 @@ export const KK_TOPICS: Record<string, KkTopic> = {
   ...ENG_KK_TOPICS,
   ...RUS_KK_TOPICS,
   ...KAZ_KK_TOPICS,
+  ...TODAY_KK_TOPICS,
   "nis-1.1.1": nis1_1,
   "nis-1.1.2": nis1_2,
   "nis-1.1.3": nis1_3,
