@@ -8,6 +8,7 @@ import { EngTopic, count, pick, toKk, toSeed } from "../eng/kit";
 import { ex } from "../eng/kit";
 import type { EngPaper } from "../eng/papers";
 import { HL_DATA } from "./hl-data";
+import { RU_TESTS } from "./tests-data";
 import { V01 } from "./exams/v01";
 import { V02 } from "./exams/v02";
 import { V03 } from "./exams/v03";
@@ -76,4 +77,11 @@ const HL_PAPERS: EngPaper[] = HL_DATA.map((p) => ({
   questions: p.questions.map(([n, q, opts, a]) => ex(n, q, opts, a as "A" | "B" | "C" | "D" | "E")),
 }));
 
-export const RUS_PAPERS = [V01, V02, V03, V04, V05, V06, V07, V08, V09, V10, ...HL_PAPERS];
+/** 5 вариантов из сборника «англ рус каз тесты» (русский язык). */
+const TEST_PAPERS: EngPaper[] = RU_TESTS.map((p) => ({
+  slug: `nis-russian-tests-${String(p.number).padStart(2, "0")}`, number: p.number + 40, title: { ru: `Тест ${p.number} (сборник)`, kk: `${p.number}-тест (жинақ)` },
+  timeMinutes: 40, group: "training", fixed: true,
+  questions: p.questions.map(([n, q, opts, a]) => ex(n, q, opts, a as "A" | "B" | "C" | "D" | "E")),
+}));
+
+export const RUS_PAPERS = [V01, V02, V03, V04, V05, V06, V07, V08, V09, V10, ...HL_PAPERS, ...TEST_PAPERS];

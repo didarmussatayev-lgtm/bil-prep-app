@@ -16,6 +16,9 @@ import { K08 } from "./exams/v08";
 import { K09 } from "./exams/v09";
 import { K10 } from "./exams/v10";
 import { COLL } from "./book400";
+import { ex } from "../eng/kit";
+import type { EngPaper } from "../eng/papers";
+import { KZ_TESTS } from "./tests-data";
 
 const t11: EngTopic = {
   code: "1.1",
@@ -67,4 +70,11 @@ export const KAZ_BOOK_1 = {
 
 export const KAZ_KK_TOPICS: Record<string, KkTopic> = { "kz-1.1.1": toKk(t11) };
 
-export const KAZ_PAPERS = [K01, K02, K03, K04, K05, K06, K07, K08, K09, K10, ...COLL];
+/** 5 вариантов из сборника «англ рус каз тесты» (казахский язык). */
+const TEST_PAPERS: EngPaper[] = KZ_TESTS.map((p) => ({
+  slug: `nis-kazakh-tests-${String(p.number).padStart(2, "0")}`, number: p.number + 40, title: { ru: `Тест ${p.number} (сборник)`, kk: `${p.number}-тест (жинақ)` },
+  timeMinutes: 40, group: "training", fixed: true,
+  questions: p.questions.map(([n, q, opts, a]) => ex(n, q, opts, a as "A" | "B" | "C" | "D" | "E")),
+}));
+
+export const KAZ_PAPERS = [K01, K02, K03, K04, K05, K06, K07, K08, K09, K10, ...COLL, ...TEST_PAPERS];
