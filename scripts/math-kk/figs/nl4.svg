@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="80" viewBox="0 0 300 80" font-family="DejaVu Serif,serif" font-size="14" font-style="italic">
+<line x1="10" y1="22" x2="290" y2="22" stroke="#000" stroke-width="1.5"/><polygon points="290,22 280,18 280,26"/>
+<line x1="100" y1="16" x2="100" y2="28" stroke="#000"/><text x="96" y="12" font-style="normal">0</text>
+<text x="170" y="14">M</text><line x1="175" y1="17" x2="175" y2="27" stroke="#000"/><text x="215" y="14">P</text><line x1="220" y1="17" x2="220" y2="27" stroke="#000"/>
+<line x1="10" y1="62" x2="290" y2="62" stroke="#000" stroke-width="1.5"/><polygon points="290,62 280,58 280,66"/>
+<line x1="130" y1="56" x2="130" y2="68" stroke="#000"/><text x="126" y="52" font-style="normal">0</text>
+<text x="52" y="78">N</text><line x1="57" y1="57" x2="57" y2="67" stroke="#000"/></svg>
