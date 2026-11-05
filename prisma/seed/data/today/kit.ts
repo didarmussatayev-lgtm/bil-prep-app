@@ -17,3 +17,17 @@ export const QT = (
   sol: { ru: solRu, kk: solKk },
   kk: { q: `${commonKk ? commonKk + "\n\n" : ""}**A бағаны:** ${aKk}\n\n**B бағаны:** ${bKk}`, options: QT_LEG_KK },
 });
+
+/** Циклически сдвигает варианты ответов (чтобы верные буквы не шли подряд); пропускает «числовые» и порядковые варианты. */
+export function rotate(tasks: EngTask[]): EngTask[] {
+  const L = ["A", "B", "C", "D"] as const;
+  return tasks.map((t, i) => {
+    const o = t.choice?.options;
+    if (!o || o.length !== 4 || o.every((x) => /^[\d\s,.;−-]+$/.test(x)) || /^\d(, \d)+$/.test(o[0])) return t;
+    const k = (i * 3 + 1) % 4; // сдвиг
+    const rot = (a: string[]) => a.map((_, j) => a[(j - k + 4) % 4]);
+    const oldIdx = L.indexOf(t.choice!.correct as "A");
+    const newIdx = (oldIdx + k) % 4;
+    return { ...t, choice: { options: rot(o), correct: L[newIdx] }, kk: t.kk ? { ...t.kk, options: rot(t.kk.options) } : undefined, sol: t.sol };
+  });
+}

@@ -13,6 +13,12 @@ import { T01_QUANT } from "./t01-quant";
 import { T01_RUS } from "./t01-rus";
 import { T01_KAZ } from "./t01-kaz";
 import { T01_ENG } from "./t01-eng";
+import { T02_MATH } from "./t02-math";
+import { T02_QUANT } from "./t02-quant";
+import { T02_RUS } from "./t02-rus";
+import { T02_KAZ } from "./t02-kaz";
+import { T02_ENG } from "./t02-eng";
+import { rotate } from "./kit";
 
 /** Сквозная нумерация внутри варианта: математика 1–40, количественные 41–100, русский 101–120, казахский 121–140, английский 141–160. */
 const shift = (ts: EngPaper["questions"], from: number) => ts.map((t, i) => ({ ...t, n: String(from + i) }));
@@ -47,4 +53,5 @@ export const TODAY_KK_TOPICS: Record<string, KkTopic> = { "today-1.1.1": toKk(t1
 
 export const TODAY_PAPERS: EngPaper[] = [
   { slug: "nis-today-test-01", number: 1, title: { ru: "Тест 1", kk: "1-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T01_MATH, ...shift(T01_QUANT, 41), ...T01_RUS, ...T01_KAZ, ...T01_ENG] },
+  { slug: "nis-today-test-02", number: 2, title: { ru: "Тест 2", kk: "2-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T02_MATH, ...shift(T02_QUANT, 41), ...rotate(T02_RUS), ...rotate(T02_KAZ), ...rotate(T02_ENG)] },
 ];
