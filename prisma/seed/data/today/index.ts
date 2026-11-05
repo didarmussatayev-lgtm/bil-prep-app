@@ -2,7 +2,7 @@
  * Комплексное пробное «TODAY»: смешанные тесты по всем предметам на время, с разбором.
  * Источник: «Сборник тестов для подготовки к НИШ» (Образовательный центр TODAY, 6 тестов × 5 предметов).
  * Тексты переписаны: имена и числа изменены, ответы пересчитаны; разбор (ru/kk) написан для каждого вопроса.
- * Сейчас загружен Тест 1: математика (40) + количественные (60). Русский, казахский и английский добавляются следующими блоками.
+ * Сейчас загружен Тест 1: все пять разделов (40+60+20+20+20).
  */
 import type { SeedTopic } from "../../types";
 import type { KkTopic } from "../kk";
@@ -10,8 +10,11 @@ import { EngTopic, toKk, toSeed } from "../eng/kit";
 import type { EngPaper } from "../eng/papers";
 import { T01_MATH } from "./t01-math";
 import { T01_QUANT } from "./t01-quant";
+import { T01_RUS } from "./t01-rus";
+import { T01_KAZ } from "./t01-kaz";
+import { T01_ENG } from "./t01-eng";
 
-/** Сквозная нумерация внутри варианта: математика 1–40, количественные 41–100. */
+/** Сквозная нумерация внутри варианта: математика 1–40, количественные 41–100, русский 101–120, казахский 121–140, английский 141–160. */
 const shift = (ts: EngPaper["questions"], from: number) => ts.map((t, i) => ({ ...t, n: String(from + i) }));
 
 const t11: EngTopic = {
@@ -43,5 +46,5 @@ export const TODAY_BOOK_1 = { slug: "today-1", title: "Комплексное п
 export const TODAY_KK_TOPICS: Record<string, KkTopic> = { "today-1.1.1": toKk(t11) };
 
 export const TODAY_PAPERS: EngPaper[] = [
-  { slug: "nis-today-test-01", number: 1, title: { ru: "Тест 1", kk: "1-тест" }, timeMinutes: 100, group: "training", fixed: true, questions: [...T01_MATH, ...shift(T01_QUANT, 41)] },
+  { slug: "nis-today-test-01", number: 1, title: { ru: "Тест 1", kk: "1-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T01_MATH, ...shift(T01_QUANT, 41), ...T01_RUS, ...T01_KAZ, ...T01_ENG] },
 ];
