@@ -13,7 +13,31 @@ const PIELEG={ru:["Читают книги","Помогают по дому","И
 const TBL={ru:["Высота кустарника (см)","Длина тени (см)"],kk:["Бұтаның биіктігі (см)","Көлеңкенің ұзындығы (см)"]};
 function pieHtml(){const cols=['#111','#666','#b4b4b4','#fff'];return '<div class="figbox" style="display:flex;justify-content:center;gap:14px;align-items:center"><img class="fig" style="width:220px" src="'+figs['pie']+'"><div style="text-align:left;font-size:13px">'+PIELEG[lang].map((t,i)=>'<div style="margin:5px 0"><span style="display:inline-block;width:14px;height:14px;border:1px solid #000;background:'+cols[i]+';vertical-align:middle;margin-right:6px"></span>'+t+'</div>').join('')+'</div></div>';}
 function tableHtml(){const r=[[20,16],[40,32],[60,48],[80,64]];return '<table class="t"><tr><th>'+TBL[lang][0]+'</th><th>'+TBL[lang][1]+'</th></tr>'+r.map(x=>'<tr><td>'+x[0]+'</td><td>'+x[1]+'</td></tr>').join('')+'</table>';}
+const QL={ru:{h:"Количественные характеристики: сравните значения в колонках A и B. Выберите ответ:",l:["A — значение в колонке A больше","B — значение в колонке B больше","C — значения равны между собой","D — недостаточно информации"]},kk:{h:"Сандық сипаттамалар: A және B бағандарындағы мәндерді салыстырыңыз. Жауапты таңдаңыз:",l:["A — A бағанындағы мән үлкен","B — B бағанындағы мән үлкен","C — мәндер өзара тең","D — ақпарат жеткіліксіз"]}};
+function renderQuant(q){
+  const E=t=>String(t).replace(/</g,'&lt;'); const Q=q.quant; const L=QL[lang];
+  const cell=(c)=>E(c[lang]||'')+(c.fig?'<div>'+fig(c.fig)+'</div>':'');
+  const common=Q.common?`<tr><td></td><td colspan="2" class="cm">${Q.common.raw?Q.common[lang]:E(Q.common[lang]||'')}${Q.common.fig?'<div>'+fig(Q.common.fig)+'</div>':''}</td></tr>`:'';
+  return `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${katexCss}
+  body{margin:0;background:#fff;font-family:"DejaVu Serif","Liberation Serif",serif;font-size:17px;line-height:1.35;color:#000}
+  .q{width:540px}
+  .hd{background:#eef1fb;padding:6px 10px;font-family:"DejaVu Sans",sans-serif;font-size:13px;line-height:1.5}
+  .hd div.l{display:flex;flex-wrap:wrap}.hd span{width:50%;box-sizing:border-box;padding-right:8px}
+  table.qq{border-collapse:collapse;width:100%;margin-top:6px;table-layout:fixed}
+  table.qq td{border:1px solid #000;padding:12px 10px;text-align:center;vertical-align:middle}
+  table.qq table.t td{padding:2px 6px}
+  table.qq td.n{width:40px;text-align:left;vertical-align:top;font-size:17px}
+  table.qq td.cm{padding:8px 10px}
+  table.qq th{border:1px solid #000;padding:4px;font-weight:normal}
+  table.t{border-collapse:collapse;margin:4px auto;font-size:14px}table.qq table.t td,table.t th{border:1px solid #666;padding:2px 7px;text-align:center}table.t th{background:#f3f3f3;font-weight:normal}
+  .fig{max-width:100%;max-height:150px;vertical-align:middle}
+  </style><script>${katexJs}</script><script>${AR}</script></head><body><div class="q" id="q">
+  <div class="hd">${L.h}<div class="l">${L.l.map(x=>'<span>'+x+'</span>').join('')}</div></div>
+  <table class="qq"><tr><th style="width:40px"></th><th>A</th><th>B</th></tr>${common}<tr><td class="n">${q.n}.</td><td>${cell(Q.A)}</td><td>${cell(Q.B)}</td></tr></table></div>
+  <script>renderMathInElement(document.body,{delimiters:[{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:true}]});</script></body></html>`;
+}
 function render(q) {
+  if (q.quant) return renderQuant(q);
   const L0 = q[lang]; const E=t=>String(t).replace(/</g,'&lt;'); const L={q:E(L0.q),opts:(L0.opts||[]).map(E),extra:L0.extra};
   const f = q.fig ? q.fig.map(n=>fig(n)).join('') : '';
   const fl = q.figFloat ? `<div class="float">${fig(q.figFloat)}</div>` : '';
