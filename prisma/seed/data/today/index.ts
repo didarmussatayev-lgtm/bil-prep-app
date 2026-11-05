@@ -27,6 +27,9 @@ import { T04_RUS, T04_KAZ, T04_ENG } from "./t04-verbal";
 import { T05_MATH } from "./t05-math";
 import { T05_QUANT } from "./t05-quant";
 import { T05_RUS, T05_KAZ, T05_ENG } from "./t05-verbal";
+import { T06_MATH } from "./t06-math";
+import { T06_QUANT } from "./t06-quant";
+import { T06_RUS, T06_KAZ, T06_ENG } from "./t06-verbal";
 import { rotate } from "./kit";
 
 /** Сквозная нумерация внутри варианта: математика 1–40, количественные 41–100, русский 101–120, казахский 121–140, английский 141–160. */
@@ -66,4 +69,5 @@ export const TODAY_PAPERS: EngPaper[] = [
   { slug: "nis-today-test-03", number: 3, title: { ru: "Тест 3", kk: "3-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T03_MATH, ...shift(T03_QUANT, 41), ...rotate(T03_RUS), ...rotate(T03_KAZ), ...rotate(T03_ENG)] },
   { slug: "nis-today-test-04", number: 4, title: { ru: "Тест 4", kk: "4-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T04_MATH, ...shift(T04_QUANT, 41), ...rotate(T04_RUS), ...rotate(T04_KAZ), ...rotate(T04_ENG)] },
   { slug: "nis-today-test-05", number: 5, title: { ru: "Тест 5", kk: "5-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T05_MATH, ...shift(T05_QUANT, 41), ...rotate(T05_RUS), ...rotate(T05_KAZ), ...rotate(T05_ENG)] },
+  { slug: "nis-today-test-06", number: 6, title: { ru: "Тест 6", kk: "6-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T06_MATH, ...shift(T06_QUANT, 41), ...rotate(T06_RUS), ...rotate(T06_KAZ), ...rotate(T06_ENG)] },
 ];
