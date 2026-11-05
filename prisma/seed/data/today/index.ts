@@ -30,7 +30,8 @@ import { T05_RUS, T05_KAZ, T05_ENG } from "./t05-verbal";
 import { T06_MATH } from "./t06-math";
 import { T06_QUANT } from "./t06-quant";
 import { T06_RUS, T06_KAZ, T06_ENG } from "./t06-verbal";
-import { rotate } from "./kit";
+import { rotate as rot, enrich } from "./kit";
+const rotate = (t: EngPaper["questions"]) => enrich(rot(t));
 
 /** Сквозная нумерация внутри варианта: математика 1–40, количественные 41–100, русский 101–120, казахский 121–140, английский 141–160. */
 const shift = (ts: EngPaper["questions"], from: number) => ts.map((t, i) => ({ ...t, n: String(from + i) }));
@@ -64,7 +65,7 @@ export const TODAY_BOOK_1 = { slug: "today-1", title: "Комплексное п
 export const TODAY_KK_TOPICS: Record<string, KkTopic> = { "today-1.1.1": toKk(t11) };
 
 export const TODAY_PAPERS: EngPaper[] = [
-  { slug: "nis-today-test-01", number: 1, title: { ru: "Тест 1", kk: "1-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T01_MATH, ...shift(T01_QUANT, 41), ...T01_RUS, ...T01_KAZ, ...T01_ENG] },
+  { slug: "nis-today-test-01", number: 1, title: { ru: "Тест 1", kk: "1-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T01_MATH, ...shift(T01_QUANT, 41), ...enrich(T01_RUS), ...enrich(T01_KAZ), ...enrich(T01_ENG)] },
   { slug: "nis-today-test-02", number: 2, title: { ru: "Тест 2", kk: "2-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T02_MATH, ...shift(T02_QUANT, 41), ...rotate(T02_RUS), ...rotate(T02_KAZ), ...rotate(T02_ENG)] },
   { slug: "nis-today-test-03", number: 3, title: { ru: "Тест 3", kk: "3-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T03_MATH, ...shift(T03_QUANT, 41), ...rotate(T03_RUS), ...rotate(T03_KAZ), ...rotate(T03_ENG)] },
   { slug: "nis-today-test-04", number: 4, title: { ru: "Тест 4", kk: "4-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T04_MATH, ...shift(T04_QUANT, 41), ...rotate(T04_RUS), ...rotate(T04_KAZ), ...rotate(T04_ENG)] },

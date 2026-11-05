@@ -31,3 +31,38 @@ export function rotate(tasks: EngTask[]): EngTask[] {
     return { ...t, choice: { options: rot(o), correct: L[newIdx] }, kk: t.kk ? { ...t.kk, options: rot(t.kk.options) } : undefined, sol: t.sol };
   });
 }
+
+const SENT = /(?<=[.!?…»])\s+|\n+/;
+const toks = (s: string) => (s.toLowerCase().match(/[a-zа-яёәіңғүұқөһ]{4,}/gi) ?? []).map((w) => w.slice(0, 5));
+
+/**
+ * Расширяет разбор текстовых вопросов (русский, казахский, английский): находит в тексте предложение, которое
+ * лучше всего подтверждает верный вариант, и добавляет его цитатой + пояснение, почему остальные варианты неверны.
+ * Вызывать ПОСЛЕ rotate(), чтобы буквы были итоговыми.
+ */
+export function enrich(tasks: EngTask[]): EngTask[] {
+  let passage = "";
+  return tasks.map((t) => {
+    const c = t.choice;
+    if (!c) return t;
+    let stem = t.q;
+    const m = t.q.match(/^\*\*(Text \d+|Текст \d+|\d+-мәтін)[^\n]*\*\*[\s\S]*?(?=\n\n\*\*\d+\.)/);
+    if (m) { passage = m[0]; stem = t.q.slice(m[0].length); }
+    if (!passage) return t;
+    const body = passage.replace(/^\*\*[^\n]*\*\*\n?/, "");
+    const L = ["A", "B", "C", "D"];
+    const opt = c.options[L.indexOf(c.correct)] ?? "";
+    const ot = new Set(toks(opt)); const st = new Set(toks(stem));
+    let best = ""; let score = 0;
+    for (const s of body.split(SENT).map((x) => x.trim()).filter((x) => x.length > 12)) {
+      const tk = toks(s); let sc = 0;
+      for (const w of tk) { if (ot.has(w)) sc += 2; else if (st.has(w)) sc += 0.5; }
+      if (sc > score) { score = sc; best = s; }
+    }
+    const others = L.filter((x) => x !== c.correct).slice(0, c.options.length - 1).join(", ");
+    const quote = score >= 2 ? best.replace(/\*\*/g, "") : "";
+    const ru = `${t.sol.ru}${quote ? ` Опора в тексте: «${quote}».` : ""} Варианты ${others} в тексте не подтверждаются или противоречат ему.`;
+    const kk = `${t.sol.kk}${quote ? ` Мәтіннен дәлел: «${quote}».` : ""} ${others} нұсқалары мәтінмен расталмайды немесе оған қайшы келеді.`;
+    return { ...t, sol: { ru, kk } };
+  });
+}
