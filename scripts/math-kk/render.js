@@ -29,7 +29,7 @@ function render(q) {
   .opt{margin:3px 0 0 6px}
   .figbox{margin:8px 0;text-align:center}
   .fig{max-width:100%;vertical-align:middle;margin:2px 6px}
-  .float{float:right;margin:0 0 6px 12px}.float .fig{width:150px}
+  .figbox .fig{max-height:250px}.float{float:right;margin:0 0 6px 12px}.float .fig{width:150px}
   .row{display:flex;gap:14px;align-items:center;margin:2px 0 2px 6px}
   table.t{border-collapse:collapse;margin:8px auto}table.t td,table.t th{border:1px solid #666;padding:4px 14px;text-align:center}
   </style><script>${katexJs}</script><script>${AR}</script></head><body><div class="q" id="q">
