@@ -36,6 +36,8 @@ export function TestRunner({
   const router = useRouter();
   const t = useT();
   const [answers, setAnswers] = useState(initialAnswers);
+  const [current, setCurrent] = useState(0);
+  const paged = questions.length > 40; // длинные варианты — по одному вопросу и полоса номеров снизу
   const answersRef = useRef(initialAnswers);
   const chain = useRef<Promise<void>>(Promise.resolve());
   const finishing = useRef(false);
@@ -105,6 +107,15 @@ export function TestRunner({
   const answered = Object.keys(answers).length;
   const unanswered = questions.length - answered;
 
+  function go(i: number) {
+    const n = Math.min(questions.length - 1, Math.max(0, i));
+    setCurrent(n);
+    window.scrollTo({ top: 0 });
+  }
+  useEffect(() => {
+    document.getElementById(`bn-${current}`)?.scrollIntoView({ inline: "center", block: "nearest" });
+  }, [current]);
+
   function onFinishClick() {
     if (unanswered > 0 && !window.confirm(t("Без ответа осталось вопросов: {n}. Завершить тест?", { n: unanswered }))) return;
     void finish();
@@ -131,23 +142,16 @@ export function TestRunner({
       )}
       {finishError && <p className={ui.error} role="alert">{finishError}</p>}
 
-      {questions.length > 12 && (() => {
-        const chips = questions.map((q, i) => (
-          <a key={q.id} href={`#q-${i + 1}`} className={`${ui.qChip} ${answers[q.id] ? ui.qChipDone : ""}`} aria-label={t("Вопрос {n}", { n: i + 1 })}>{i + 1}</a>
-        ));
-        // длинные варианты (160 вопросов) — карта сворачивается и не прилипает к верху экрана
-        return questions.length > 40 ? (
-          <details className={ui.qMapBox}>
-            <summary>{t("Карта вопросов")} · {answered}/{questions.length}</summary>
-            <nav className={ui.qMapBig} aria-label={t("Карта вопросов")}>{chips}</nav>
-          </details>
-        ) : (
-          <nav className={ui.qMap} aria-label={t("Карта вопросов")}>{chips}</nav>
-        );
-      })()}
+      {!paged && questions.length > 12 && (
+        <nav className={ui.qMap} aria-label={t("Карта вопросов")}>
+          {questions.map((q, i) => (
+            <a key={q.id} href={`#q-${i + 1}`} className={`${ui.qChip} ${answers[q.id] ? ui.qChipDone : ""}`} aria-label={t("Вопрос {n}", { n: i + 1 })}>{i + 1}</a>
+          ))}
+        </nav>
+      )}
 
       {questions.map((q, i) => (
-        <fieldset key={q.id} id={`q-${i + 1}`} className={ui.question}>
+        <fieldset key={q.id} id={`q-${i + 1}`} className={ui.question} hidden={paged && i !== current}>
           <legend className={ui.questionNum}>{t("Вопрос {n}", { n: i + 1 })}</legend>
           <TaskContent question={q.question} figures={q.figures} />
           {/* вопросы-картинки: варианты нарисованы в самом условии, ученик выбирает только букву */}
@@ -179,6 +183,22 @@ export function TestRunner({
           <HelpFlag taskId={q.id} from={{ source: "test", attemptId }} initiallyFlagged={flaggedIds.includes(q.id)} />
         </fieldset>
       ))}
+
+      {paged && (
+        <>
+          <div className={ui.bottomNavSpacer} />
+          <div className={ui.bottomNav} role="navigation" aria-label={t("Номера вопросов")}>
+            <button type="button" className={ui.bottomNavArrow} onClick={() => go(current - 1)} disabled={current === 0} aria-label={t("Предыдущая")}>‹</button>
+            <div className={ui.bottomNums}>
+              {questions.map((q, i) => (
+                <button key={q.id} id={`bn-${i}`} type="button" onClick={() => go(i)} aria-current={i === current ? "true" : undefined}
+                  className={`${ui.qChip} ${answers[q.id] ? ui.qChipDone : ""} ${i === current ? ui.qChipCur : ""}`}>{i + 1}</button>
+              ))}
+            </div>
+            <button type="button" className={ui.bottomNavArrow} onClick={() => go(current + 1)} disabled={current === questions.length - 1} aria-label={t("Следующая")}>›</button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

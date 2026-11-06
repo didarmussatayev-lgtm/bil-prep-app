@@ -391,3 +391,12 @@ details[open] > .levelSummary::before, details[open] > .sectionSummary::before {
 .qMapBox { margin: 0 0 12px; border: 1px solid var(--border, #e3e6ef); border-radius: 12px; background: var(--card, #fff); padding: 8px 12px; }
 .qMapBox > summary { cursor: pointer; font-size: 0.9rem; font-weight: 600; color: var(--muted); padding: 4px 0; }
 .qMapBig { display: flex; flex-wrap: wrap; gap: 6px; max-height: 40vh; overflow-y: auto; padding: 8px 0 4px; }
+
+.qChipCur { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent); }
+.bottomNavSpacer { height: 76px; }
+.bottomNav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--surface); border-top: 1px solid var(--border); }
+.bottomNums { flex: 1; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px; scroll-behavior: smooth; }
+.bottomNums::-webkit-scrollbar { display: none; }
+.bottomNums .qChip { flex: 0 0 auto; cursor: pointer; }
+.bottomNavArrow { flex: 0 0 auto; width: 40px; height: 40px; border: 1px solid var(--border-strong); border-radius: 10px; background: var(--surface); color: var(--text); font-size: 1.3rem; cursor: pointer; }
+.bottomNavArrow:disabled { opacity: 0.4; cursor: default; }
