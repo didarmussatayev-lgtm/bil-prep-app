@@ -5013,241 +5013,321 @@
      "n": 1,
      "answer": "C",
      "image": "/exams/math/ca/m01/q01.webp",
-     "imageKk": "/exams/math/ca/m01/q01.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q01.kk.webp",
+     "solution": "\\(\\tfrac{2x+3}4+\\tfrac{5x+7}6=7{,}25\\Rightarrow x=4\\); \\(6x+5=29\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac{2x+3}4+\\tfrac{5x+7}6=7{,}25\\Rightarrow x=4\\); \\(6x+5=29\\). Жауап: C."
     },
     {
      "n": 2,
      "answer": "B",
      "image": "/exams/math/ca/m01/q02.webp",
-     "imageKk": "/exams/math/ca/m01/q02.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q02.kk.webp",
+     "solution": "\\(A=-16,\\ B=8,\\ C=-8\\Rightarrow A<C<B\\). Ответ: B.",
+     "solutionKk": "\\(A=-16,\\ B=8,\\ C=-8\\Rightarrow A<C<B\\). Жауап: B."
     },
     {
      "n": 3,
      "answer": "D",
      "image": "/exams/math/ca/m01/q03.webp",
-     "imageKk": "/exams/math/ca/m01/q03.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q03.kk.webp",
+     "solution": "\\(0{,}6\\cdot9=5{,}4\\) кг крахмала; \\(5{,}4:0{,}45=12\\) кг. Ответ: D.",
+     "solutionKk": "\\(0{,}6\\cdot9=5{,}4\\) кг крахмала; \\(5{,}4:0{,}45=12\\) кг. Жауап: D."
     },
     {
      "n": 4,
      "answer": "A",
      "image": "/exams/math/ca/m01/q04.webp",
-     "imageKk": "/exams/math/ca/m01/q04.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q04.kk.webp",
+     "solution": "17, 34, 51, 68, 85; без 51 → 4 числа. Ответ: A.",
+     "solutionKk": "17, 34, 51, 68, 85; без 51 → 4 числа. Жауап: A."
     },
     {
      "n": 5,
      "answer": "D",
      "image": "/exams/math/ca/m01/q05.webp",
-     "imageKk": "/exams/math/ca/m01/q05.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q05.kk.webp",
+     "solution": "\\(|2{,}85-0{,}95+1{,}72|+6{,}9=3{,}62+6{,}9=10{,}52\\). Ответ: D.",
+     "solutionKk": "\\(|2{,}85-0{,}95+1{,}72|+6{,}9=3{,}62+6{,}9=10{,}52\\). Жауап: D."
     },
     {
      "n": 6,
      "answer": "D",
      "image": "/exams/math/ca/m01/q06.webp",
-     "imageKk": "/exams/math/ca/m01/q06.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q06.kk.webp",
+     "solution": "\\(0{,}6\\cdot150=90\\); \\(0{,}15\\cdot440=66\\); \\(90-66=24\\). Ответ: D.",
+     "solutionKk": "\\(0{,}6\\cdot150=90\\); \\(0{,}15\\cdot440=66\\); \\(90-66=24\\). Жауап: D."
     },
     {
      "n": 7,
      "answer": "C",
      "image": "/exams/math/ca/m01/q07.webp",
-     "imageKk": "/exams/math/ca/m01/q07.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q07.kk.webp",
+     "solution": "Закрашена четверть кольца: \\(\\pi(9^2-3^2):4=3\\cdot72:4=54\\). Ответ: C.",
+     "solutionKk": "Закрашена четверть кольца: \\(\\pi(9^2-3^2):4=3\\cdot72:4=54\\). Жауап: C."
     },
     {
      "n": 8,
      "answer": "C",
      "image": "/exams/math/ca/m01/q08.webp",
-     "imageKk": "/exams/math/ca/m01/q08.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q08.kk.webp",
+     "solution": "\\(1-\\tfrac1{1/2}=-1\\); \\(1-\\tfrac1{4/3}=\\tfrac14\\); \\(-1:\\tfrac14=-4\\). Ответ: C.",
+     "solutionKk": "\\(1-\\tfrac1{1/2}=-1\\); \\(1-\\tfrac1{4/3}=\\tfrac14\\); \\(-1:\\tfrac14=-4\\). Жауап: C."
     },
     {
      "n": 9,
      "answer": "C",
      "image": "/exams/math/ca/m01/q09.webp",
-     "imageKk": "/exams/math/ca/m01/q09.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q09.kk.webp",
+     "solution": "\\(2+6+5+9+4+5=31\\); \\(31+n\\) кратно 9 → \\(n=5\\). Ответ: C.",
+     "solutionKk": "\\(2+6+5+9+4+5=31\\); \\(31+n\\) кратно 9 → \\(n=5\\). Жауап: C."
     },
     {
      "n": 10,
      "answer": "C",
      "image": "/exams/math/ca/m01/q10.webp",
-     "imageKk": "/exams/math/ca/m01/q10.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q10.kk.webp",
+     "solution": "\\(4:(4+21)=0{,}16=16\\%\\). Ответ: C.",
+     "solutionKk": "\\(4:(4+21)=0{,}16=16\\%\\). Жауап: C."
     },
     {
      "n": 11,
      "answer": "C",
      "image": "/exams/math/ca/m01/q11.webp",
-     "imageKk": "/exams/math/ca/m01/q11.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q11.kk.webp",
+     "solution": "\\(5z-8x+6y=28-2(4x-3y)=28-26=2\\); \\(2:(z/7)=2:0{,}8=2{,}5\\). Ответ: C.",
+     "solutionKk": "\\(5z-8x+6y=28-2(4x-3y)=28-26=2\\); \\(2:(z/7)=2:0{,}8=2{,}5\\). Жауап: C."
     },
     {
      "n": 12,
      "answer": "D",
      "image": "/exams/math/ca/m01/q12.webp",
-     "imageKk": "/exams/math/ca/m01/q12.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q12.kk.webp",
+     "solution": "\\(y=5\\); \\(2{,}5x-1=1{,}5\\Rightarrow x=1\\); сумма 6. Ответ: D.",
+     "solutionKk": "\\(y=5\\); \\(2{,}5x-1=1{,}5\\Rightarrow x=1\\); сумма 6. Жауап: D."
     },
     {
      "n": 13,
      "answer": "C",
      "image": "/exams/math/ca/m01/q13.webp",
-     "imageKk": "/exams/math/ca/m01/q13.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q13.kk.webp",
+     "solution": "Периметр \\(4a\\) кратен 4 → 44. Ответ: C.",
+     "solutionKk": "Периметр \\(4a\\) кратен 4 → 44. Жауап: C."
     },
     {
      "n": 14,
      "answer": "D",
      "image": "/exams/math/ca/m01/q14.webp",
-     "imageKk": "/exams/math/ca/m01/q14.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q14.kk.webp",
+     "solution": "\\(486000:600000=0{,}81=0{,}9^2\\) → 10% в месяц (нет в вариантах). Ответ: D.",
+     "solutionKk": "\\(486000:600000=0{,}81=0{,}9^2\\) → 10% в месяц (нет в вариантах). Жауап: D."
     },
     {
      "n": 15,
      "answer": "D",
      "image": "/exams/math/ca/m01/q15.webp",
-     "imageKk": "/exams/math/ca/m01/q15.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q15.kk.webp",
+     "solution": "\\(8a\\cdot7d=3b\\cdot5c\\Rightarrow56ad=15bc\\). Ответ: D.",
+     "solutionKk": "\\(8a\\cdot7d=3b\\cdot5c\\Rightarrow56ad=15bc\\). Жауап: D."
     },
     {
      "n": 16,
      "answer": "D",
      "image": "/exams/math/ca/m01/q16.webp",
-     "imageKk": "/exams/math/ca/m01/q16.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q16.kk.webp",
+     "solution": "\\(6+5(n-1)=4n+12\\Rightarrow n=11,\\ a=56\\); проверка: \\(\\tfrac{a-1}5=\\tfrac{55}5=11=\\tfrac{44}4=\\tfrac{a-12}4\\). Ответ: D.",
+     "solutionKk": "\\(6+5(n-1)=4n+12\\Rightarrow n=11,\\ a=56\\); проверка: \\(\\tfrac{a-1}5=\\tfrac{55}5=11=\\tfrac{44}4=\\tfrac{a-12}4\\). Жауап: D."
     },
     {
      "n": 17,
      "answer": "A",
      "image": "/exams/math/ca/m01/q17.webp",
-     "imageKk": "/exams/math/ca/m01/q17.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q17.kk.webp",
+     "solution": "\\(7x-18y-10y+4+6-21x=-14x-28y+10=-2(7x+14y-5)\\). Ответ: A.",
+     "solutionKk": "\\(7x-18y-10y+4+6-21x=-14x-28y+10=-2(7x+14y-5)\\). Жауап: A."
     },
     {
      "n": 18,
      "answer": "B",
      "image": "/exams/math/ca/m01/q18.webp",
-     "imageKk": "/exams/math/ca/m01/q18.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q18.kk.webp",
+     "solution": "Мякоть 12 кг, сухого вещества \\(12\\cdot0{,}2=2{,}4\\) кг; \\(2{,}4:0{,}6=4\\) кг. Ответ: B.",
+     "solutionKk": "Мякоть 12 кг, сухого вещества \\(12\\cdot0{,}2=2{,}4\\) кг; \\(2{,}4:0{,}6=4\\) кг. Жауап: B."
     },
     {
      "n": 19,
      "answer": "B",
      "image": "/exams/math/ca/m01/q19.webp",
-     "imageKk": "/exams/math/ca/m01/q19.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q19.kk.webp",
+     "solution": "Ширина \\(7\\cdot5=35\\) см, длина \\(8\\cdot5=40\\) см; \\(35\\cdot40=1400\\). Ответ: B.",
+     "solutionKk": "Ширина \\(7\\cdot5=35\\) см, длина \\(8\\cdot5=40\\) см; \\(35\\cdot40=1400\\). Жауап: B."
     },
     {
      "n": 20,
      "answer": "D",
      "image": "/exams/math/ca/m01/q20.webp",
-     "imageKk": "/exams/math/ca/m01/q20.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q20.kk.webp",
+     "solution": "Доля = отметка : вместимость по шкале рисунка = \\(\\tfrac{11}{21}\\). Ответ: D.",
+     "solutionKk": "Доля = отметка : вместимость по шкале рисунка = \\(\\tfrac{11}{21}\\). Жауап: D."
     },
     {
      "n": 21,
      "answer": "D",
      "image": "/exams/math/ca/m01/q21.webp",
-     "imageKk": "/exams/math/ca/m01/q21.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q21.kk.webp",
+     "solution": "\\(10\\cdot2v-6\\cdot3v=2v=180\\Rightarrow v=90\\); самокат \\(2v=180\\) м/мин, за 60 мин \\(10800\\) м \\(=10{,}8\\) км. Ответ: D.",
+     "solutionKk": "\\(10\\cdot2v-6\\cdot3v=2v=180\\Rightarrow v=90\\); самокат \\(2v=180\\) м/мин, за 60 мин \\(10800\\) м \\(=10{,}8\\) км. Жауап: D."
     },
     {
      "n": 22,
      "answer": "D",
      "image": "/exams/math/ca/m01/q22.webp",
-     "imageKk": "/exams/math/ca/m01/q22.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q22.kk.webp",
+     "solution": "Белок: \\(100-17-34-21=28\\%\\); \\(2000\\cdot0{,}28=560\\) г. Ответ: D.",
+     "solutionKk": "Белок: \\(100-17-34-21=28\\%\\); \\(2000\\cdot0{,}28=560\\) г. Жауап: D."
     },
     {
      "n": 23,
      "answer": "C",
      "image": "/exams/math/ca/m01/q23.webp",
-     "imageKk": "/exams/math/ca/m01/q23.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q23.kk.webp",
+     "solution": "\\(\\tfrac47=\\tfrac{16}{28}\\), \\(\\tfrac45=\\tfrac{22{,}4}{28}\\): \\(n=17,18,19,20,21,22\\) → 6. Ответ: C.",
+     "solutionKk": "\\(\\tfrac47=\\tfrac{16}{28}\\), \\(\\tfrac45=\\tfrac{22{,}4}{28}\\): \\(n=17,18,19,20,21,22\\) → 6. Жауап: C."
     },
     {
      "n": 24,
      "answer": "B",
      "image": "/exams/math/ca/m01/q24.webp",
-     "imageKk": "/exams/math/ca/m01/q24.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q24.kk.webp",
+     "solution": "\\(185x\\) кратно 6 → \\(x=4\\); \\(y153\\): \\(y+9\\) кратно 9 → \\(y=9\\); \\(xy=36\\). Ответ: B.",
+     "solutionKk": "\\(185x\\) кратно 6 → \\(x=4\\); \\(y153\\): \\(y+9\\) кратно 9 → \\(y=9\\); \\(xy=36\\). Жауап: B."
     },
     {
      "n": 25,
      "answer": "B",
      "image": "/exams/math/ca/m01/q25.webp",
-     "imageKk": "/exams/math/ca/m01/q25.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q25.kk.webp",
+     "solution": "По рисунку \\(AB=7\\) частей, \\(BC=2\\) части: \\(7:2=3{,}5\\). Ответ: B.",
+     "solutionKk": "По рисунку \\(AB=7\\) частей, \\(BC=2\\) части: \\(7:2=3{,}5\\). Жауап: B."
     },
     {
      "n": 26,
      "answer": "B",
      "image": "/exams/math/ca/m01/q26.webp",
-     "imageKk": "/exams/math/ca/m01/q26.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q26.kk.webp",
+     "solution": "\\(x-12<0,\\ x-25<0\\): \\(|x-12|+|x-25|=(x-12)+(25-x)=13\\). Ответ: B.",
+     "solutionKk": "\\(x-12<0,\\ x-25<0\\): \\(|x-12|+|x-25|=(x-12)+(25-x)=13\\). Жауап: B."
     },
     {
      "n": 27,
      "answer": "C",
      "image": "/exams/math/ca/m01/q27.webp",
-     "imageKk": "/exams/math/ca/m01/q27.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q27.kk.webp",
+     "solution": "Работа за 1 ч 10 мин: первая \\(\\tfrac12\\cdot\\tfrac76=\\tfrac7{12}\\), вторая \\(\\tfrac14\\), третья \\(\\tfrac16\\); доля первой \\(\\tfrac7{12}\\): \\(180\\cdot\\tfrac7{12}=105\\). Ответ: C.",
+     "solutionKk": "Работа за 1 ч 10 мин: первая \\(\\tfrac12\\cdot\\tfrac76=\\tfrac7{12}\\), вторая \\(\\tfrac14\\), третья \\(\\tfrac16\\); доля первой \\(\\tfrac7{12}\\): \\(180\\cdot\\tfrac7{12}=105\\). Жауап: C."
     },
     {
      "n": 28,
      "answer": "A",
      "image": "/exams/math/ca/m01/q28.webp",
-     "imageKk": "/exams/math/ca/m01/q28.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q28.kk.webp",
+     "solution": "\\(80\\cdot0{,}45=36\\); \\(36\\cdot0{,}8=28{,}8\\) л. Ответ: A.",
+     "solutionKk": "\\(80\\cdot0{,}45=36\\); \\(36\\cdot0{,}8=28{,}8\\) л. Жауап: A."
     },
     {
      "n": 29,
      "answer": "B",
      "image": "/exams/math/ca/m01/q29.webp",
-     "imageKk": "/exams/math/ca/m01/q29.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q29.kk.webp",
+     "solution": "Середина смещается на половину отрезанной части: \\(L:9:2=5\\Rightarrow L=90\\). Ответ: B.",
+     "solutionKk": "Середина смещается на половину отрезанной части: \\(L:9:2=5\\Rightarrow L=90\\). Жауап: B."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/ca/m01/q30.webp",
-     "imageKk": "/exams/math/ca/m01/q30.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q30.kk.webp",
+     "solution": "\\(a,d\\) противоположны → 0 между ними; по рисунку \\(b\\) дальше от 0, чем \\(c\\): \\(|b|>|c|\\). Ответ: B.",
+     "solutionKk": "\\(a,d\\) противоположны → 0 между ними; по рисунку \\(b\\) дальше от 0, чем \\(c\\): \\(|b|>|c|\\). Жауап: B."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/ca/m01/q31.webp",
-     "imageKk": "/exams/math/ca/m01/q31.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q31.kk.webp",
+     "solution": "\\(54:18=3\\) л на кабинет; \\(30\\cdot3=90\\) л; \\(90:4{,}9\\approx18{,}4\\) → 19 вёдер. Ответ: B.",
+     "solutionKk": "\\(54:18=3\\) л на кабинет; \\(30\\cdot3=90\\) л; \\(90:4{,}9\\approx18{,}4\\) → 19 вёдер. Жауап: B."
     },
     {
      "n": 32,
      "answer": "A",
      "image": "/exams/math/ca/m01/q32.webp",
-     "imageKk": "/exams/math/ca/m01/q32.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q32.kk.webp",
+     "solution": "\\(2000\\) км \\(=2\\cdot10^8\\) см; \\(2\\cdot10^8:10^7=20\\) см \\(=2\\) дм. Ответ: A.",
+     "solutionKk": "\\(2000\\) км \\(=2\\cdot10^8\\) см; \\(2\\cdot10^8:10^7=20\\) см \\(=2\\) дм. Жауап: A."
     },
     {
      "n": 33,
      "answer": "A",
      "image": "/exams/math/ca/m01/q33.webp",
-     "imageKk": "/exams/math/ca/m01/q33.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q33.kk.webp",
+     "solution": "Площадь по рисунку = \\(36\\) см². Ответ: A.",
+     "solutionKk": "Площадь по рисунку = \\(36\\) см². Жауап: A."
     },
     {
      "n": 34,
      "answer": "B",
      "image": "/exams/math/ca/m01/q34.webp",
-     "imageKk": "/exams/math/ca/m01/q34.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q34.kk.webp",
+     "solution": "Рабочие·часы: \\(4\\cdot6=24\\); \\(24:2=12\\) ч. Ответ: B.",
+     "solutionKk": "Рабочие·часы: \\(4\\cdot6=24\\); \\(24:2=12\\) ч. Жауап: B."
     },
     {
      "n": 35,
      "answer": "C",
      "image": "/exams/math/ca/m01/q35.webp",
-     "imageKk": "/exams/math/ca/m01/q35.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q35.kk.webp",
+     "solution": "Угол сгиба срезает \\(\\tfrac18\\) квадрата: \\(S\\cdot\\tfrac78=28\\Rightarrow S=32\\). Ответ: C.",
+     "solutionKk": "Угол сгиба срезает \\(\\tfrac18\\) квадрата: \\(S\\cdot\\tfrac78=28\\Rightarrow S=32\\). Жауап: C."
     },
     {
      "n": 36,
      "answer": "C",
      "image": "/exams/math/ca/m01/q36.webp",
-     "imageKk": "/exams/math/ca/m01/q36.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q36.kk.webp",
+     "solution": "\\(t=|2x-1|\\): \\(75-5t\\le70-12t\\Rightarrow7t\\le-5\\) — решений нет → \\(\\varnothing\\). Ответ: C.",
+     "solutionKk": "\\(t=|2x-1|\\): \\(75-5t\\le70-12t\\Rightarrow7t\\le-5\\) — решений нет → \\(\\varnothing\\). Жауап: C."
     },
     {
      "n": 37,
      "answer": "B",
      "image": "/exams/math/ca/m01/q37.webp",
-     "imageKk": "/exams/math/ca/m01/q37.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q37.kk.webp",
+     "solution": "Первая цифра 4 варианта, вторая 3, третья 2: \\(4\\cdot3\\cdot2=24\\). Ответ: B.",
+     "solutionKk": "Первая цифра 4 варианта, вторая 3, третья 2: \\(4\\cdot3\\cdot2=24\\). Жауап: B."
     },
     {
      "n": 38,
      "answer": "C",
      "image": "/exams/math/ca/m01/q38.webp",
-     "imageKk": "/exams/math/ca/m01/q38.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q38.kk.webp",
+     "solution": "Целые числа от −2 до 3: \\(-2-1+0+1+2+3=3\\). Ответ: C.",
+     "solutionKk": "Целые числа от −2 до 3: \\(-2-1+0+1+2+3=3\\). Жауап: C."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/ca/m01/q39.webp",
-     "imageKk": "/exams/math/ca/m01/q39.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q39.kk.webp",
+     "solution": "\\(1{,}2\\cdot0{,}8=0{,}96\\) → цена уменьшится на 4%. Ответ: B.",
+     "solutionKk": "\\(1{,}2\\cdot0{,}8=0{,}96\\) → цена уменьшится на 4%. Жауап: B."
     },
     {
      "n": 40,
      "answer": "C",
      "image": "/exams/math/ca/m01/q40.webp",
-     "imageKk": "/exams/math/ca/m01/q40.kk.webp"
+     "imageKk": "/exams/math/ca/m01/q40.kk.webp",
+     "solution": "\\(\\tfrac{35x}9=\\tfrac{35y}{12}\\Rightarrow\\tfrac yx=\\tfrac{12}9=\\tfrac43\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac{35x}9=\\tfrac{35y}{12}\\Rightarrow\\tfrac yx=\\tfrac{12}9=\\tfrac43\\). Жауап: C."
     }
    ]
   },
@@ -5263,241 +5343,321 @@
      "n": 1,
      "answer": "B",
      "image": "/exams/math/ca/m02/q01.webp",
-     "imageKk": "/exams/math/ca/m02/q01.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q01.kk.webp",
+     "solution": "\\(\\tfrac{13}4:\\tfrac{13}{12}=3\\); \\((\\tfrac7{12}-\\tfrac2{15}):0{,}15=\\tfrac9{20}:0{,}15=3\\); \\(3:3=1\\). Ответ: B.",
+     "solutionKk": "\\(\\tfrac{13}4:\\tfrac{13}{12}=3\\); \\((\\tfrac7{12}-\\tfrac2{15}):0{,}15=\\tfrac9{20}:0{,}15=3\\); \\(3:3=1\\). Жауап: B."
     },
     {
      "n": 2,
      "answer": "B",
      "image": "/exams/math/ca/m02/q02.webp",
-     "imageKk": "/exams/math/ca/m02/q02.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q02.kk.webp",
+     "solution": "\\(4\\) ч \\(=240\\) мин; \\(240:150=8:5\\). Ответ: B.",
+     "solutionKk": "\\(4\\) ч \\(=240\\) мин; \\(240:150=8:5\\). Жауап: B."
     },
     {
      "n": 3,
      "answer": "C",
      "image": "/exams/math/ca/m02/q03.webp",
-     "imageKk": "/exams/math/ca/m02/q03.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q03.kk.webp",
+     "solution": "\\(BD=16,\\ CD=BD:2=8,\\ C=10-8=2\\). Ответ: C.",
+     "solutionKk": "\\(BD=16,\\ CD=BD:2=8,\\ C=10-8=2\\). Жауап: C."
     },
     {
      "n": 4,
      "answer": "D",
      "image": "/exams/math/ca/m02/q04.webp",
-     "imageKk": "/exams/math/ca/m02/q04.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q04.kk.webp",
+     "solution": "\\(1{,}2(200+90d)=180+120d\\Rightarrow12d=60\\Rightarrow d=5\\). Ответ: D.",
+     "solutionKk": "\\(1{,}2(200+90d)=180+120d\\Rightarrow12d=60\\Rightarrow d=5\\). Жауап: D."
     },
     {
      "n": 5,
      "answer": "C",
      "image": "/exams/math/ca/m02/q05.webp",
-     "imageKk": "/exams/math/ca/m02/q05.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q05.kk.webp",
+     "solution": "\\(\\tfrac d{40}-\\tfrac d{60}=1\\Rightarrow d=120\\) км; нужное время \\(\\tfrac{120}{40}-0{,}5=2{,}5\\) ч; \\(120:2{,}5=48\\) км/ч. Ответ: C.",
+     "solutionKk": "\\(\\tfrac d{40}-\\tfrac d{60}=1\\Rightarrow d=120\\) км; нужное время \\(\\tfrac{120}{40}-0{,}5=2{,}5\\) ч; \\(120:2{,}5=48\\) км/ч. Жауап: C."
     },
     {
      "n": 6,
      "answer": "C",
      "image": "/exams/math/ca/m02/q06.webp",
-     "imageKk": "/exams/math/ca/m02/q06.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q06.kk.webp",
+     "solution": "Разности \\(+1,+2,+3,+4,+5\\); следующая \\(+6\\): \\(17+6=23\\). Ответ: C.",
+     "solutionKk": "Разности \\(+1,+2,+3,+4,+5\\); следующая \\(+6\\): \\(17+6=23\\). Жауап: C."
     },
     {
      "n": 7,
      "answer": "D",
      "image": "/exams/math/ca/m02/q07.webp",
-     "imageKk": "/exams/math/ca/m02/q07.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q07.kk.webp",
+     "solution": "Площадь квадрата 25 ⇒ сторона 5; прямоугольник \\(25\\times5\\): \\(P=2(25+5)=60\\). Ответ: D.",
+     "solutionKk": "Площадь квадрата 25 ⇒ сторона 5; прямоугольник \\(25\\times5\\): \\(P=2(25+5)=60\\). Жауап: D."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/ca/m02/q08.webp",
-     "imageKk": "/exams/math/ca/m02/q08.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q08.kk.webp",
+     "solution": "\\(96:60=1{,}6\\) — на 60% больше. Ответ: B.",
+     "solutionKk": "\\(96:60=1{,}6\\) — на 60% больше. Жауап: B."
     },
     {
      "n": 9,
      "answer": "B",
      "image": "/exams/math/ca/m02/q09.webp",
-     "imageKk": "/exams/math/ca/m02/q09.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q09.kk.webp",
+     "solution": "\\(\\mathrm{НОД}(30;18)=6\\): \\(\\tfrac{30}6\\cdot\\tfrac{18}6=5\\cdot3=15\\). Ответ: B.",
+     "solutionKk": "\\(\\mathrm{НОД}(30;18)=6\\): \\(\\tfrac{30}6\\cdot\\tfrac{18}6=5\\cdot3=15\\). Жауап: B."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/ca/m02/q10.webp",
-     "imageKk": "/exams/math/ca/m02/q10.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q10.kk.webp",
+     "solution": "Сравниваем отрицательные: \\(-9\\tfrac56<-9\\tfrac79<-9\\tfrac45<-9\\tfrac34\\). Ответ: B.",
+     "solutionKk": "Сравниваем отрицательные: \\(-9\\tfrac56<-9\\tfrac79<-9\\tfrac45<-9\\tfrac34\\). Жауап: B."
     },
     {
      "n": 11,
      "answer": "C",
      "image": "/exams/math/ca/m02/q11.webp",
-     "imageKk": "/exams/math/ca/m02/q11.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q11.kk.webp",
+     "solution": "\\(\\tfrac1{24}+\\tfrac1{40}=\\tfrac1{15}\\) → 15 мин. Ответ: C.",
+     "solutionKk": "\\(\\tfrac1{24}+\\tfrac1{40}=\\tfrac1{15}\\) → 15 мин. Жауап: C."
     },
     {
      "n": 12,
      "answer": "B",
      "image": "/exams/math/ca/m02/q12.webp",
-     "imageKk": "/exams/math/ca/m02/q12.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q12.kk.webp",
+     "solution": "\\(|5x-2|=5\\Rightarrow x=1{,}4;\\ x=-0{,}6\\); произведение \\(-0{,}84\\). Ответ: B.",
+     "solutionKk": "\\(|5x-2|=5\\Rightarrow x=1{,}4;\\ x=-0{,}6\\); произведение \\(-0{,}84\\). Жауап: B."
     },
     {
      "n": 13,
      "answer": "C",
      "image": "/exams/math/ca/m02/q13.webp",
-     "imageKk": "/exams/math/ca/m02/q13.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q13.kk.webp",
+     "solution": "В 16:30 минутная стрелка на \\(180^\\circ\\), часовая на \\(4{,}5\\cdot30=135^\\circ\\); разность \\(45^\\circ\\). Ответ: C.",
+     "solutionKk": "В 16:30 минутная стрелка на \\(180^\\circ\\), часовая на \\(4{,}5\\cdot30=135^\\circ\\); разность \\(45^\\circ\\). Жауап: C."
     },
     {
      "n": 14,
      "answer": "B",
      "image": "/exams/math/ca/m02/q14.webp",
-     "imageKk": "/exams/math/ca/m02/q14.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q14.kk.webp",
+     "solution": "Число \\(x\\): \\(10x+9+2x=777\\Rightarrow x=64\\); первая цифра 6. Ответ: B.",
+     "solutionKk": "Число \\(x\\): \\(10x+9+2x=777\\Rightarrow x=64\\); первая цифра 6. Жауап: B."
     },
     {
      "n": 15,
      "answer": "B",
      "image": "/exams/math/ca/m02/q15.webp",
-     "imageKk": "/exams/math/ca/m02/q15.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q15.kk.webp",
+     "solution": "\\((60\\cdot1{,}1+40\\cdot1{,}05)=108\\) из 100 → +8%. Ответ: B.",
+     "solutionKk": "\\((60\\cdot1{,}1+40\\cdot1{,}05)=108\\) из 100 → +8%. Жауап: B."
     },
     {
      "n": 16,
      "answer": "B",
      "image": "/exams/math/ca/m02/q16.webp",
-     "imageKk": "/exams/math/ca/m02/q16.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q16.kk.webp",
+     "solution": "Стороны \\(s\\) и \\(\\tfrac s3\\): \\(2(s+\\tfrac s3)=40\\Rightarrow s=15\\); \\(P_{кв}=60\\). Ответ: B.",
+     "solutionKk": "Стороны \\(s\\) и \\(\\tfrac s3\\): \\(2(s+\\tfrac s3)=40\\Rightarrow s=15\\); \\(P_{кв}=60\\). Жауап: B."
     },
     {
      "n": 17,
      "answer": "B",
      "image": "/exams/math/ca/m02/q17.webp",
-     "imageKk": "/exams/math/ca/m02/q17.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q17.kk.webp",
+     "solution": "9 рабочих за 24 дня (всё задание): \\(9\\cdot24=216\\) чел.-дн.; на остаток \\(\\tfrac23\\): \\(144:6=24\\) рабочих; ещё \\(24-9=15\\). Ответ: B.",
+     "solutionKk": "9 рабочих за 24 дня (всё задание): \\(9\\cdot24=216\\) чел.-дн.; на остаток \\(\\tfrac23\\): \\(144:6=24\\) рабочих; ещё \\(24-9=15\\). Жауап: B."
     },
     {
      "n": 18,
      "answer": "D",
      "image": "/exams/math/ca/m02/q18.webp",
-     "imageKk": "/exams/math/ca/m02/q18.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q18.kk.webp",
+     "solution": "Сумма \\(12\\cdot10=120\\); девять наименьших \\(1+\\ldots+9=45\\); наибольшее \\(120-45=75\\). Ответ: D.",
+     "solutionKk": "Сумма \\(12\\cdot10=120\\); девять наименьших \\(1+\\ldots+9=45\\); наибольшее \\(120-45=75\\). Жауап: D."
     },
     {
      "n": 19,
      "answer": "D",
      "image": "/exams/math/ca/m02/q19.webp",
-     "imageKk": "/exams/math/ca/m02/q19.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q19.kk.webp",
+     "solution": "Занимаются: \\(90-(11+10+8)+4=65\\); не занимаются \\(68-65=3\\). Ответ: D.",
+     "solutionKk": "Занимаются: \\(90-(11+10+8)+4=65\\); не занимаются \\(68-65=3\\). Жауап: D."
     },
     {
      "n": 20,
      "answer": "D",
      "image": "/exams/math/ca/m02/q20.webp",
-     "imageKk": "/exams/math/ca/m02/q20.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q20.kk.webp",
+     "solution": "\\(\\angle BOD=\\angle AOD-(180^\\circ-\\angle BOE)=135^\\circ-25^\\circ=110^\\circ\\). Ответ: D.",
+     "solutionKk": "\\(\\angle BOD=\\angle AOD-(180^\\circ-\\angle BOE)=135^\\circ-25^\\circ=110^\\circ\\). Жауап: D."
     },
     {
      "n": 21,
      "answer": "A",
      "image": "/exams/math/ca/m02/q21.webp",
-     "imageKk": "/exams/math/ca/m02/q21.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q21.kk.webp",
+     "solution": "\\(741:39=19\\) кусков → 18 разрезов. Ответ: A.",
+     "solutionKk": "\\(741:39=19\\) кусков → 18 разрезов. Жауап: A."
     },
     {
      "n": 22,
      "answer": "C",
      "image": "/exams/math/ca/m02/q22.webp",
-     "imageKk": "/exams/math/ca/m02/q22.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q22.kk.webp",
+     "solution": "После трёх «выпиваний и доливов» молока \\(\\tfrac34\\) (кофе \\(\\tfrac14\\)): \\(\\tfrac34=75\\%\\). Ответ: C.",
+     "solutionKk": "После трёх «выпиваний и доливов» молока \\(\\tfrac34\\) (кофе \\(\\tfrac14\\)): \\(\\tfrac34=75\\%\\). Жауап: C."
     },
     {
      "n": 23,
      "answer": "D",
      "image": "/exams/math/ca/m02/q23.webp",
-     "imageKk": "/exams/math/ca/m02/q23.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q23.kk.webp",
+     "solution": "\\((8-3):8=0{,}625=62{,}5\\%\\). Ответ: D.",
+     "solutionKk": "\\((8-3):8=0{,}625=62{,}5\\%\\). Жауап: D."
     },
     {
      "n": 24,
      "answer": "B",
      "image": "/exams/math/ca/m02/q24.webp",
-     "imageKk": "/exams/math/ca/m02/q24.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q24.kk.webp",
+     "solution": "Размеры вдвое меньше ⇒ объём в 8 раз меньше; на \\(\\tfrac78\\) ушло 14 стирок, на \\(\\tfrac18\\) — \\(14:7=2\\). Ответ: B.",
+     "solutionKk": "Размеры вдвое меньше ⇒ объём в 8 раз меньше; на \\(\\tfrac78\\) ушло 14 стирок, на \\(\\tfrac18\\) — \\(14:7=2\\). Жауап: B."
     },
     {
      "n": 25,
      "answer": "C",
      "image": "/exams/math/ca/m02/q25.webp",
-     "imageKk": "/exams/math/ca/m02/q25.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q25.kk.webp",
+     "solution": "\\(\\tfrac xy=\\tfrac32\\): \\(\\tfrac{x-y}{2y}=\\tfrac{3/2-1}2=\\tfrac14=0{,}25\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac xy=\\tfrac32\\): \\(\\tfrac{x-y}{2y}=\\tfrac{3/2-1}2=\\tfrac14=0{,}25\\). Жауап: C."
     },
     {
      "n": 26,
      "answer": "C",
      "image": "/exams/math/ca/m02/q26.webp",
-     "imageKk": "/exams/math/ca/m02/q26.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q26.kk.webp",
+     "solution": "\\(12\\%,50\\%,30\\%,8\\%\\) целые: \\(n\\) кратно 25 (для 12%, 8%) и чётно ⇒ \\(n=50\\). Ответ: C.",
+     "solutionKk": "\\(12\\%,50\\%,30\\%,8\\%\\) целые: \\(n\\) кратно 25 (для 12%, 8%) и чётно ⇒ \\(n=50\\). Жауап: C."
     },
     {
      "n": 27,
      "answer": "C",
      "image": "/exams/math/ca/m02/q27.webp",
-     "imageKk": "/exams/math/ca/m02/q27.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q27.kk.webp",
+     "solution": "2-й день \\(0{,}6\\cdot0{,}4=24\\%\\), 3-й \\(16\\%\\); \\(8\\%=48\\) км ⇒ весь путь \\(600\\) км. Ответ: C.",
+     "solutionKk": "2-й день \\(0{,}6\\cdot0{,}4=24\\%\\), 3-й \\(16\\%\\); \\(8\\%=48\\) км ⇒ весь путь \\(600\\) км. Жауап: C."
     },
     {
      "n": 28,
      "answer": "D",
      "image": "/exams/math/ca/m02/q28.webp",
-     "imageKk": "/exams/math/ca/m02/q28.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q28.kk.webp",
+     "solution": "Вместе за 4 дня \\(\\tfrac15\\); остаток \\(\\tfrac45\\) за 32 дня ⇒ первый \\(\\tfrac1{40}\\) в день ⇒ 40 дней. Ответ: D.",
+     "solutionKk": "Вместе за 4 дня \\(\\tfrac15\\); остаток \\(\\tfrac45\\) за 32 дня ⇒ первый \\(\\tfrac1{40}\\) в день ⇒ 40 дней. Жауап: D."
     },
     {
      "n": 29,
      "answer": "C",
      "image": "/exams/math/ca/m02/q29.webp",
-     "imageKk": "/exams/math/ca/m02/q29.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q29.kk.webp",
+     "solution": "\\(6+2x-3<x+8\\Rightarrow x<5\\); \\(1+2+3+4=10\\). Ответ: C.",
+     "solutionKk": "\\(6+2x-3<x+8\\Rightarrow x<5\\); \\(1+2+3+4=10\\). Жауап: C."
     },
     {
      "n": 30,
      "answer": "C",
      "image": "/exams/math/ca/m02/q30.webp",
-     "imageKk": "/exams/math/ca/m02/q30.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q30.kk.webp",
+     "solution": "\\(6x+18<7x-21+8x+18\\Rightarrow21<9x\\Rightarrow x>\\tfrac73\\); наименьшее целое 3. Ответ: C.",
+     "solutionKk": "\\(6x+18<7x-21+8x+18\\Rightarrow21<9x\\Rightarrow x>\\tfrac73\\); наименьшее целое 3. Жауап: C."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/ca/m02/q31.webp",
-     "imageKk": "/exams/math/ca/m02/q31.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q31.kk.webp",
+     "solution": "По течению \\(\\tfrac{60}{x+4}\\), против \\(\\tfrac{36}{x-4}\\); вместе 6 ч: \\(\\tfrac{60}{x+4}+\\tfrac{36}{x-4}=6\\). Ответ: B.",
+     "solutionKk": "По течению \\(\\tfrac{60}{x+4}\\), против \\(\\tfrac{36}{x-4}\\); вместе 6 ч: \\(\\tfrac{60}{x+4}+\\tfrac{36}{x-4}=6\\). Жауап: B."
     },
     {
      "n": 32,
      "answer": "C",
      "image": "/exams/math/ca/m02/q32.webp",
-     "imageKk": "/exams/math/ca/m02/q32.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q32.kk.webp",
+     "solution": "\\(6a^2=96\\Rightarrow a=4\\); \\(V=64\\). Ответ: C.",
+     "solutionKk": "\\(6a^2=96\\Rightarrow a=4\\); \\(V=64\\). Жауап: C."
     },
     {
      "n": 33,
      "answer": "C",
      "image": "/exams/math/ca/m02/q33.webp",
-     "imageKk": "/exams/math/ca/m02/q33.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q33.kk.webp",
+     "solution": "\\(20\\cdot0{,}9=18\\) кг сухого; \\(18:0{,}15=120\\) кг винограда. Ответ: C.",
+     "solutionKk": "\\(20\\cdot0{,}9=18\\) кг сухого; \\(18:0{,}15=120\\) кг винограда. Жауап: C."
     },
     {
      "n": 34,
      "answer": "B",
      "image": "/exams/math/ca/m02/q34.webp",
-     "imageKk": "/exams/math/ca/m02/q34.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q34.kk.webp",
+     "solution": "\\(\\tfrac d{40}+\\tfrac d{60}=5\\Rightarrow d=120\\) км. Ответ: B.",
+     "solutionKk": "\\(\\tfrac d{40}+\\tfrac d{60}=5\\Rightarrow d=120\\) км. Жауап: B."
     },
     {
      "n": 35,
      "answer": "B",
      "image": "/exams/math/ca/m02/q35.webp",
-     "imageKk": "/exams/math/ca/m02/q35.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q35.kk.webp",
+     "solution": "Нечётные места: \\(2;5;8;\\ldots\\) (+3), \\(x=8+3=11\\). Ответ: B.",
+     "solutionKk": "Нечётные места: \\(2;5;8;\\ldots\\) (+3), \\(x=8+3=11\\). Жауап: B."
     },
     {
      "n": 36,
      "answer": "A",
      "image": "/exams/math/ca/m02/q36.webp",
-     "imageKk": "/exams/math/ca/m02/q36.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q36.kk.webp",
+     "solution": "\\(W+B=1{,}75,\\ 2B=0{,}5\\Rightarrow B=0{,}25,\\ W=1{,}5\\); пешком туда-обратно \\(2W=3\\) ч. Ответ: A.",
+     "solutionKk": "\\(W+B=1{,}75,\\ 2B=0{,}5\\Rightarrow B=0{,}25,\\ W=1{,}5\\); пешком туда-обратно \\(2W=3\\) ч. Жауап: A."
     },
     {
      "n": 37,
      "answer": "C",
      "image": "/exams/math/ca/m02/q37.webp",
-     "imageKk": "/exams/math/ca/m02/q37.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q37.kk.webp",
+     "solution": "По озеру \\(12\\cdot2=24\\), по реке \\((12+2)\\cdot2=28\\); \\(24+28=52\\). Ответ: C.",
+     "solutionKk": "По озеру \\(12\\cdot2=24\\), по реке \\((12+2)\\cdot2=28\\); \\(24+28=52\\). Жауап: C."
     },
     {
      "n": 38,
      "answer": "D",
      "image": "/exams/math/ca/m02/q38.webp",
-     "imageKk": "/exams/math/ca/m02/q38.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q38.kk.webp",
+     "solution": "\\(\\tfrac13\\) км за \\(\\tfrac15\\) мин: за 60 мин \\(\\tfrac13\\cdot300=100\\) км/ч. Ответ: D.",
+     "solutionKk": "\\(\\tfrac13\\) км за \\(\\tfrac15\\) мин: за 60 мин \\(\\tfrac13\\cdot300=100\\) км/ч. Жауап: D."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/ca/m02/q39.webp",
-     "imageKk": "/exams/math/ca/m02/q39.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q39.kk.webp",
+     "solution": "\\(8x<1017\\Rightarrow x<127{,}1\\); \\(9x>1140\\Rightarrow x>126{,}7\\); \\(x=127\\). Ответ: B.",
+     "solutionKk": "\\(8x<1017\\Rightarrow x<127{,}1\\); \\(9x>1140\\Rightarrow x>126{,}7\\); \\(x=127\\). Жауап: B."
     },
     {
      "n": 40,
      "answer": "C",
      "image": "/exams/math/ca/m02/q40.webp",
-     "imageKk": "/exams/math/ca/m02/q40.kk.webp"
+     "imageKk": "/exams/math/ca/m02/q40.kk.webp",
+     "solution": "Разной чётности: \\(m\\cdot n\\) всегда чётно. Ответ: C.",
+     "solutionKk": "Разной чётности: \\(m\\cdot n\\) всегда чётно. Жауап: C."
     }
    ]
   },
@@ -5513,241 +5673,321 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/ca/m03/q01.webp",
-     "imageKk": "/exams/math/ca/m03/q01.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q01.kk.webp",
+     "solution": "\\(4{,}5\\) ц \\(=450\\,000\\) г; \\(450\\,000:250\\,000=\\tfrac95\\). Ответ: A.",
+     "solutionKk": "\\(4{,}5\\) ц \\(=450\\,000\\) г; \\(450\\,000:250\\,000=\\tfrac95\\). Жауап: A."
     },
     {
      "n": 2,
      "answer": "C",
      "image": "/exams/math/ca/m03/q02.webp",
-     "imageKk": "/exams/math/ca/m03/q02.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q02.kk.webp",
+     "solution": "Сын сейчас 36: \\(60-x=2(36-x)\\Rightarrow x=12\\). Ответ: C.",
+     "solutionKk": "Сын сейчас 36: \\(60-x=2(36-x)\\Rightarrow x=12\\). Жауап: C."
     },
     {
      "n": 3,
      "answer": "C",
      "image": "/exams/math/ca/m03/q03.webp",
-     "imageKk": "/exams/math/ca/m03/q03.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q03.kk.webp",
+     "solution": "\\(1600\\) км \\(=1{,}6\\cdot10^9\\) мм; \\(1{,}6\\cdot10^9:2\\cdot10^8=8\\) мм. Ответ: C.",
+     "solutionKk": "\\(1600\\) км \\(=1{,}6\\cdot10^9\\) мм; \\(1{,}6\\cdot10^9:2\\cdot10^8=8\\) мм. Жауап: C."
     },
     {
      "n": 4,
      "answer": "B",
      "image": "/exams/math/ca/m03/q04.webp",
-     "imageKk": "/exams/math/ca/m03/q04.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q04.kk.webp",
+     "solution": "\\(\\tfrac1{30}+\\tfrac1{90}=\\tfrac2{45}\\) слона/мин; 2 слона: \\(2:\\tfrac2{45}=45\\) мин. Ответ: B.",
+     "solutionKk": "\\(\\tfrac1{30}+\\tfrac1{90}=\\tfrac2{45}\\) слона/мин; 2 слона: \\(2:\\tfrac2{45}=45\\) мин. Жауап: B."
     },
     {
      "n": 5,
      "answer": "C",
      "image": "/exams/math/ca/m03/q05.webp",
-     "imageKk": "/exams/math/ca/m03/q05.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q05.kk.webp",
+     "solution": "\\(\\tfrac23\\cdot\\tfrac13\\cdot n=\\tfrac89\\Rightarrow\\tfrac29n=\\tfrac89\\Rightarrow n=4\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac23\\cdot\\tfrac13\\cdot n=\\tfrac89\\Rightarrow\\tfrac29n=\\tfrac89\\Rightarrow n=4\\). Жауап: C."
     },
     {
      "n": 6,
      "answer": "C",
      "image": "/exams/math/ca/m03/q06.webp",
-     "imageKk": "/exams/math/ca/m03/q06.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q06.kk.webp",
+     "solution": "Время \\(240:60=4\\) ч; \\(110\\cdot4=440\\) км. Ответ: C.",
+     "solutionKk": "Время \\(240:60=4\\) ч; \\(110\\cdot4=440\\) км. Жауап: C."
     },
     {
      "n": 7,
      "answer": "A",
      "image": "/exams/math/ca/m03/q07.webp",
-     "imageKk": "/exams/math/ca/m03/q07.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q07.kk.webp",
+     "solution": "\\(-1{,}1-3{,}9-(-1{,}9)+0{,}2=-2{,}9\\). Ответ: A.",
+     "solutionKk": "\\(-1{,}1-3{,}9-(-1{,}9)+0{,}2=-2{,}9\\). Жауап: A."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/ca/m03/q08.webp",
-     "imageKk": "/exams/math/ca/m03/q08.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q08.kk.webp",
+     "solution": "\\(60\\%\\cdot2=120\\%\\) → перевыполнит на 20%. Ответ: B.",
+     "solutionKk": "\\(60\\%\\cdot2=120\\%\\) → перевыполнит на 20%. Жауап: B."
     },
     {
      "n": 9,
      "answer": "B",
      "image": "/exams/math/ca/m03/q09.webp",
-     "imageKk": "/exams/math/ca/m03/q09.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q09.kk.webp",
+     "solution": "2020 единиц и одна двойка: произведение \\(2\\). Ответ: B.",
+     "solutionKk": "2020 единиц и одна двойка: произведение \\(2\\). Жауап: B."
     },
     {
      "n": 10,
      "answer": "C",
      "image": "/exams/math/ca/m03/q10.webp",
-     "imageKk": "/exams/math/ca/m03/q10.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q10.kk.webp",
+     "solution": "\\(240:\\tfrac45=300\\) деталей ушло на ремонт; \\(300:\\tfrac45=375\\). Ответ: C.",
+     "solutionKk": "\\(240:\\tfrac45=300\\) деталей ушло на ремонт; \\(300:\\tfrac45=375\\). Жауап: C."
     },
     {
      "n": 11,
      "answer": "C",
      "image": "/exams/math/ca/m03/q11.webp",
-     "imageKk": "/exams/math/ca/m03/q11.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q11.kk.webp",
+     "solution": "Метка 18 на 9-м делении ⇒ шаг 2; стрелка на 11-м: \\(11\\cdot2=22\\). Ответ: C.",
+     "solutionKk": "Метка 18 на 9-м делении ⇒ шаг 2; стрелка на 11-м: \\(11\\cdot2=22\\). Жауап: C."
     },
     {
      "n": 12,
      "answer": "B",
      "image": "/exams/math/ca/m03/q12.webp",
-     "imageKk": "/exams/math/ca/m03/q12.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q12.kk.webp",
+     "solution": "\\(51200:80000=0{,}64=0{,}8^2\\) → падение 20% дважды. Ответ: B.",
+     "solutionKk": "\\(51200:80000=0{,}64=0{,}8^2\\) → падение 20% дважды. Жауап: B."
     },
     {
      "n": 13,
      "answer": "C",
      "image": "/exams/math/ca/m03/q13.webp",
-     "imageKk": "/exams/math/ca/m03/q13.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q13.kk.webp",
+     "solution": "\\(|3x+1{,}5|=0{,}5\\Rightarrow x=-\\tfrac13,\\ x=-\\tfrac23\\); сумма \\(-1\\). Ответ: C.",
+     "solutionKk": "\\(|3x+1{,}5|=0{,}5\\Rightarrow x=-\\tfrac13,\\ x=-\\tfrac23\\); сумма \\(-1\\). Жауап: C."
     },
     {
      "n": 14,
      "answer": "D",
      "image": "/exams/math/ca/m03/q14.webp",
-     "imageKk": "/exams/math/ca/m03/q14.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q14.kk.webp",
+     "solution": "60 м за \\(\\tfrac1{20}\\) ч \\(=3\\) мин → \\(20\\) м/мин. Ответ: D.",
+     "solutionKk": "60 м за \\(\\tfrac1{20}\\) ч \\(=3\\) мин → \\(20\\) м/мин. Жауап: D."
     },
     {
      "n": 15,
      "answer": "D",
      "image": "/exams/math/ca/m03/q15.webp",
-     "imageKk": "/exams/math/ca/m03/q15.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q15.kk.webp",
+     "solution": "\\(1+\\tfrac1{1{,}5}=\\tfrac53\\); \\(3:\\tfrac53=\\tfrac95\\). Ответ: D.",
+     "solutionKk": "\\(1+\\tfrac1{1{,}5}=\\tfrac53\\); \\(3:\\tfrac53=\\tfrac95\\). Жауап: D."
     },
     {
      "n": 16,
      "answer": "B",
      "image": "/exams/math/ca/m03/q16.webp",
-     "imageKk": "/exams/math/ca/m03/q16.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q16.kk.webp",
+     "solution": "Прошли контроль 15%; не прошли \\(85\\%\\) от 240\\,000 \\(=204\\,000\\). Ответ: B.",
+     "solutionKk": "Прошли контроль 15%; не прошли \\(85\\%\\) от 240\\,000 \\(=204\\,000\\). Жауап: B."
     },
     {
      "n": 17,
      "answer": "D",
      "image": "/exams/math/ca/m03/q17.webp",
-     "imageKk": "/exams/math/ca/m03/q17.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q17.kk.webp",
+     "solution": "Последним выполняется умножение на 8. Ответ: D.",
+     "solutionKk": "Последним выполняется умножение на 8. Жауап: D."
     },
     {
      "n": 18,
      "answer": "B",
      "image": "/exams/math/ca/m03/q18.webp",
-     "imageKk": "/exams/math/ca/m03/q18.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q18.kk.webp",
+     "solution": "\\(8\\) дм \\(=80\\) см; \\(80\\cdot50=4000\\) см \\(=40\\) м. Ответ: B.",
+     "solutionKk": "\\(8\\) дм \\(=80\\) см; \\(80\\cdot50=4000\\) см \\(=40\\) м. Жауап: B."
     },
     {
      "n": 19,
      "answer": "A",
      "image": "/exams/math/ca/m03/q19.webp",
-     "imageKk": "/exams/math/ca/m03/q19.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q19.kk.webp",
+     "solution": "\\(-\\tfrac23-0{,}1a-0{,}7a+\\tfrac23+a=0{,}2a=\\tfrac15a\\). Ответ: A.",
+     "solutionKk": "\\(-\\tfrac23-0{,}1a-0{,}7a+\\tfrac23+a=0{,}2a=\\tfrac15a\\). Жауап: A."
     },
     {
      "n": 20,
      "answer": "D",
      "image": "/exams/math/ca/m03/q20.webp",
-     "imageKk": "/exams/math/ca/m03/q20.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q20.kk.webp",
+     "solution": "\\(\\tfrac45\\cdot2x=48\\Rightarrow2x=60\\Rightarrow x=30\\). Ответ: D.",
+     "solutionKk": "\\(\\tfrac45\\cdot2x=48\\Rightarrow2x=60\\Rightarrow x=30\\). Жауап: D."
     },
     {
      "n": 21,
      "answer": "C",
      "image": "/exams/math/ca/m03/q21.webp",
-     "imageKk": "/exams/math/ca/m03/q21.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q21.kk.webp",
+     "solution": "Медь: \\(0{,}4x+0{,}3(16-x)=\\tfrac38\\cdot16=6\\Rightarrow x=12\\). Ответ: C.",
+     "solutionKk": "Медь: \\(0{,}4x+0{,}3(16-x)=\\tfrac38\\cdot16=6\\Rightarrow x=12\\). Жауап: C."
     },
     {
      "n": 22,
      "answer": "A",
      "image": "/exams/math/ca/m03/q22.webp",
-     "imageKk": "/exams/math/ca/m03/q22.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q22.kk.webp",
+     "solution": "\\(\\mathrm{НОК}(72;108)=216\\) мин \\(=3{,}6\\) ч. Ответ: A.",
+     "solutionKk": "\\(\\mathrm{НОК}(72;108)=216\\) мин \\(=3{,}6\\) ч. Жауап: A."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/ca/m03/q23.webp",
-     "imageKk": "/exams/math/ca/m03/q23.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q23.kk.webp",
+     "solution": "Девочек \\(\\tfrac{x-3}4=\\tfrac{x+12}9\\). Ответ: B.",
+     "solutionKk": "Девочек \\(\\tfrac{x-3}4=\\tfrac{x+12}9\\). Жауап: B."
     },
     {
      "n": 24,
      "answer": "A",
      "image": "/exams/math/ca/m03/q24.webp",
-     "imageKk": "/exams/math/ca/m03/q24.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q24.kk.webp",
+     "solution": "\\(4k+5m=15000\\), \\(2k+3m=8000\\Rightarrow4k+6m=16000\\Rightarrow m=1000\\). Ответ: A.",
+     "solutionKk": "\\(4k+5m=15000\\), \\(2k+3m=8000\\Rightarrow4k+6m=16000\\Rightarrow m=1000\\). Жауап: A."
     },
     {
      "n": 25,
      "answer": "B",
      "image": "/exams/math/ca/m03/q25.webp",
-     "imageKk": "/exams/math/ca/m03/q25.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q25.kk.webp",
+     "solution": "Нет решений при \\(\\tfrac b1=\\tfrac{-2}6\\Rightarrow b=-\\tfrac13\\). Ответ: B.",
+     "solutionKk": "Нет решений при \\(\\tfrac b1=\\tfrac{-2}6\\Rightarrow b=-\\tfrac13\\). Жауап: B."
     },
     {
      "n": 26,
      "answer": "C",
      "image": "/exams/math/ca/m03/q26.webp",
-     "imageKk": "/exams/math/ca/m03/q26.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q26.kk.webp",
+     "solution": "\\(|x-4|=12\\Rightarrow x=16,\\ x=-8\\); сумма 8. Ответ: C.",
+     "solutionKk": "\\(|x-4|=12\\Rightarrow x=16,\\ x=-8\\); сумма 8. Жауап: C."
     },
     {
      "n": 27,
      "answer": "B",
      "image": "/exams/math/ca/m03/q27.webp",
-     "imageKk": "/exams/math/ca/m03/q27.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q27.kk.webp",
+     "solution": "\\(\\mathrm{НОК}(15;20)=60\\) м. Ответ: B.",
+     "solutionKk": "\\(\\mathrm{НОК}(15;20)=60\\) м. Жауап: B."
     },
     {
      "n": 28,
      "answer": "B",
      "image": "/exams/math/ca/m03/q28.webp",
-     "imageKk": "/exams/math/ca/m03/q28.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q28.kk.webp",
+     "solution": "\\(24\\) г \\(:2400\\) г \\(=1:100\\). Ответ: B.",
+     "solutionKk": "\\(24\\) г \\(:2400\\) г \\(=1:100\\). Жауап: B."
     },
     {
      "n": 29,
      "answer": "B",
      "image": "/exams/math/ca/m03/q29.webp",
-     "imageKk": "/exams/math/ca/m03/q29.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q29.kk.webp",
+     "solution": "\\(0{,}04\\cdot294=11{,}76\\); \\((294-x)\\cdot0{,}02=11{,}76-x\\Rightarrow0{,}98x=5{,}88\\Rightarrow x=6\\). Ответ: B.",
+     "solutionKk": "\\(0{,}04\\cdot294=11{,}76\\); \\((294-x)\\cdot0{,}02=11{,}76-x\\Rightarrow0{,}98x=5{,}88\\Rightarrow x=6\\). Жауап: B."
     },
     {
      "n": 30,
      "answer": "A",
      "image": "/exams/math/ca/m03/q30.webp",
-     "imageKk": "/exams/math/ca/m03/q30.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q30.kk.webp",
+     "solution": "16 знаков «−» дают \\(+3{,}5\\); \\(30\\cdot\\tfrac12=15\\); \\(3{,}5+15=18{,}5\\). Ответ: A.",
+     "solutionKk": "16 знаков «−» дают \\(+3{,}5\\); \\(30\\cdot\\tfrac12=15\\); \\(3{,}5+15=18{,}5\\). Жауап: A."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/ca/m03/q31.webp",
-     "imageKk": "/exams/math/ca/m03/q31.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q31.kk.webp",
+     "solution": "Один бутерброд 200 тг; \\(200\\cdot1{,}2\\cdot0{,}75=180\\); 4 шт. — 720. Ответ: B.",
+     "solutionKk": "Один бутерброд 200 тг; \\(200\\cdot1{,}2\\cdot0{,}75=180\\); 4 шт. — 720. Жауап: B."
     },
     {
      "n": 32,
      "answer": "D",
      "image": "/exams/math/ca/m03/q32.webp",
-     "imageKk": "/exams/math/ca/m03/q32.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q32.kk.webp",
+     "solution": "\\(6n-2nk+2n=8n-2nk=2n(4-k)\\). Ответ: D.",
+     "solutionKk": "\\(6n-2nk+2n=8n-2nk=2n(4-k)\\). Жауап: D."
     },
     {
      "n": 33,
      "answer": "C",
      "image": "/exams/math/ca/m03/q33.webp",
-     "imageKk": "/exams/math/ca/m03/q33.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q33.kk.webp",
+     "solution": "\\(f(-1)=1+4=5\\); \\(3\\cdot5-5=10\\). Ответ: C.",
+     "solutionKk": "\\(f(-1)=1+4=5\\); \\(3\\cdot5-5=10\\). Жауап: C."
     },
     {
      "n": 34,
      "answer": "B",
      "image": "/exams/math/ca/m03/q34.webp",
-     "imageKk": "/exams/math/ca/m03/q34.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q34.kk.webp",
+     "solution": "Кратных 12: 8 чисел; кратных \\(\\mathrm{НОК}(12;18)=36\\): 36, 72; \\(8-2=6\\). Ответ: B.",
+     "solutionKk": "Кратных 12: 8 чисел; кратных \\(\\mathrm{НОК}(12;18)=36\\): 36, 72; \\(8-2=6\\). Жауап: B."
     },
     {
      "n": 35,
      "answer": "C",
      "image": "/exams/math/ca/m03/q35.webp",
-     "imageKk": "/exams/math/ca/m03/q35.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q35.kk.webp",
+     "solution": "\\(26n+80=27(n+2)\\Rightarrow n=26\\). Ответ: C.",
+     "solutionKk": "\\(26n+80=27(n+2)\\Rightarrow n=26\\). Жауап: C."
     },
     {
      "n": 36,
      "answer": "C",
      "image": "/exams/math/ca/m03/q36.webp",
-     "imageKk": "/exams/math/ca/m03/q36.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q36.kk.webp",
+     "solution": "Зайцы едят по \\(x\\), малыш \\(\\tfrac x2\\): \\(3{,}5x=35\\Rightarrow x=10\\); до рождения \\(3x=30\\). Ответ: C.",
+     "solutionKk": "Зайцы едят по \\(x\\), малыш \\(\\tfrac x2\\): \\(3{,}5x=35\\Rightarrow x=10\\); до рождения \\(3x=30\\). Жауап: C."
     },
     {
      "n": 37,
      "answer": "C",
      "image": "/exams/math/ca/m03/q37.webp",
-     "imageKk": "/exams/math/ca/m03/q37.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q37.kk.webp",
+     "solution": "\\(p,t\\) противоположны; \\(s\\) дальше от 0, чем \\(t\\): \\(|t|<|s|\\). Ответ: C.",
+     "solutionKk": "\\(p,t\\) противоположны; \\(s\\) дальше от 0, чем \\(t\\): \\(|t|<|s|\\). Жауап: C."
     },
     {
      "n": 38,
      "answer": "B",
      "image": "/exams/math/ca/m03/q38.webp",
-     "imageKk": "/exams/math/ca/m03/q38.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q38.kk.webp",
+     "solution": "\\(3x-y=18\\), \\(y=10-4x\\Rightarrow7x=28\\Rightarrow x=4,\\ y=-6\\). Ответ: B.",
+     "solutionKk": "\\(3x-y=18\\), \\(y=10-4x\\Rightarrow7x=28\\Rightarrow x=4,\\ y=-6\\). Жауап: B."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/ca/m03/q39.webp",
-     "imageKk": "/exams/math/ca/m03/q39.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q39.kk.webp",
+     "solution": "\\(EF=4\\ (E=0)\\), \\(HM=2EF=8\\Rightarrow M=18\\). Ответ: B.",
+     "solutionKk": "\\(EF=4\\ (E=0)\\), \\(HM=2EF=8\\Rightarrow M=18\\). Жауап: B."
     },
     {
      "n": 40,
      "answer": "A",
      "image": "/exams/math/ca/m03/q40.webp",
-     "imageKk": "/exams/math/ca/m03/q40.kk.webp"
+     "imageKk": "/exams/math/ca/m03/q40.kk.webp",
+     "solution": "Умножим на 12: \\(12x-4-15x+3>4x\\Rightarrow-1>7x\\Rightarrow x<-\\tfrac17\\). Ответ: A.",
+     "solutionKk": "Умножим на 12: \\(12x-4-15x+3>4x\\Rightarrow-1>7x\\Rightarrow x<-\\tfrac17\\). Жауап: A."
     }
    ]
   },
@@ -5763,241 +6003,321 @@
      "n": 1,
      "answer": "B",
      "image": "/exams/math/ca/m04/q01.webp",
-     "imageKk": "/exams/math/ca/m04/q01.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q01.kk.webp",
+     "solution": "\\(24:\\tfrac4{15}=90\\). Ответ: B.",
+     "solutionKk": "\\(24:\\tfrac4{15}=90\\). Жауап: B."
     },
     {
      "n": 2,
      "answer": "D",
      "image": "/exams/math/ca/m04/q02.webp",
-     "imageKk": "/exams/math/ca/m04/q02.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q02.kk.webp",
+     "solution": "За 1 ч: \\(\\tfrac16-\\tfrac1{12}-\\tfrac1{24}=\\tfrac1{24}\\); за 6 ч — \\(\\tfrac14\\); остаток \\(\\tfrac34\\) труба A: \\(\\tfrac34\\cdot6=4{,}5\\) ч (нет в вариантах). Ответ: D.",
+     "solutionKk": "За 1 ч: \\(\\tfrac16-\\tfrac1{12}-\\tfrac1{24}=\\tfrac1{24}\\); за 6 ч — \\(\\tfrac14\\); остаток \\(\\tfrac34\\) труба A: \\(\\tfrac34\\cdot6=4{,}5\\) ч (нет в вариантах). Жауап: D."
     },
     {
      "n": 3,
      "answer": "C",
      "image": "/exams/math/ca/m04/q03.webp",
-     "imageKk": "/exams/math/ca/m04/q03.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q03.kk.webp",
+     "solution": "Всего 7 частей по \\(504:7=72\\); третий день \\(4\\cdot72=288\\). Ответ: C.",
+     "solutionKk": "Всего 7 частей по \\(504:7=72\\); третий день \\(4\\cdot72=288\\). Жауап: C."
     },
     {
      "n": 4,
      "answer": "A",
      "image": "/exams/math/ca/m04/q04.webp",
-     "imageKk": "/exams/math/ca/m04/q04.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q04.kk.webp",
+     "solution": "\\(\\tfrac{13}5x:\\tfrac{13}3=\\tfrac{17}3y:\\tfrac{17}5\\Rightarrow\\tfrac35x=\\tfrac53y\\Rightarrow\\tfrac yx=\\tfrac9{25}\\); \\(10\\cdot\\tfrac9{25}=3{,}6\\). Ответ: A.",
+     "solutionKk": "\\(\\tfrac{13}5x:\\tfrac{13}3=\\tfrac{17}3y:\\tfrac{17}5\\Rightarrow\\tfrac35x=\\tfrac53y\\Rightarrow\\tfrac yx=\\tfrac9{25}\\); \\(10\\cdot\\tfrac9{25}=3{,}6\\). Жауап: A."
     },
     {
      "n": 5,
      "answer": "C",
      "image": "/exams/math/ca/m04/q05.webp",
-     "imageKk": "/exams/math/ca/m04/q05.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q05.kk.webp",
+     "solution": "Одна старая плита 5 м: \\(56\\cdot5=280\\) м; \\(280:7=40\\). Ответ: C.",
+     "solutionKk": "Одна старая плита 5 м: \\(56\\cdot5=280\\) м; \\(280:7=40\\). Жауап: C."
     },
     {
      "n": 6,
      "answer": "B",
      "image": "/exams/math/ca/m04/q06.webp",
-     "imageKk": "/exams/math/ca/m04/q06.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q06.kk.webp",
+     "solution": "\\(\\tfrac ab=\\tfrac72\\Rightarrow\\tfrac ba=\\tfrac27\\); \\(\\tfrac{5b-a}a=5\\cdot\\tfrac27-1=\\tfrac37\\). Ответ: B.",
+     "solutionKk": "\\(\\tfrac ab=\\tfrac72\\Rightarrow\\tfrac ba=\\tfrac27\\); \\(\\tfrac{5b-a}a=5\\cdot\\tfrac27-1=\\tfrac37\\). Жауап: B."
     },
     {
      "n": 7,
      "answer": "C",
      "image": "/exams/math/ca/m04/q07.webp",
-     "imageKk": "/exams/math/ca/m04/q07.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q07.kk.webp",
+     "solution": "Цена 1 кг мякоти: \\(250:\\tfrac45=312{,}5\\); \\(200:\\tfrac34\\approx266{,}7\\); \\(120:\\tfrac23=180\\); \\(100:\\tfrac12=200\\) → выгоднее третий. Ответ: C.",
+     "solutionKk": "Цена 1 кг мякоти: \\(250:\\tfrac45=312{,}5\\); \\(200:\\tfrac34\\approx266{,}7\\); \\(120:\\tfrac23=180\\); \\(100:\\tfrac12=200\\) → выгоднее третий. Жауап: C."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/ca/m04/q08.webp",
-     "imageKk": "/exams/math/ca/m04/q08.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q08.kk.webp",
+     "solution": "По обеим прямым (общая шкала) точка \\(L\\) правее \\(U\\): координата \\(L\\) больше координаты \\(U\\). Ответ: B.",
+     "solutionKk": "По обеим прямым (общая шкала) точка \\(L\\) правее \\(U\\): координата \\(L\\) больше координаты \\(U\\). Жауап: B."
     },
     {
      "n": 9,
      "answer": "B",
      "image": "/exams/math/ca/m04/q09.webp",
-     "imageKk": "/exams/math/ca/m04/q09.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q09.kk.webp",
+     "solution": "\\(3:0{,}75=4\\) т. Ответ: B.",
+     "solutionKk": "\\(3:0{,}75=4\\) т. Жауап: B."
     },
     {
      "n": 10,
      "answer": "C",
      "image": "/exams/math/ca/m04/q10.webp",
-     "imageKk": "/exams/math/ca/m04/q10.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q10.kk.webp",
+     "solution": "\\(t=|2x-7|\\): \\(-168-36t>-62+18t\\Rightarrow-106>54t\\) — невозможно при \\(t\\ge0\\) → решений нет. Ответ: C.",
+     "solutionKk": "\\(t=|2x-7|\\): \\(-168-36t>-62+18t\\Rightarrow-106>54t\\) — невозможно при \\(t\\ge0\\) → решений нет. Жауап: C."
     },
     {
      "n": 11,
      "answer": "C",
      "image": "/exams/math/ca/m04/q11.webp",
-     "imageKk": "/exams/math/ca/m04/q11.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q11.kk.webp",
+     "solution": "Доли: \\(\\tfrac7{11}\\approx0{,}64\\); \\(\\tfrac7{12}\\approx0{,}58\\); \\(\\tfrac56\\approx0{,}83\\); \\(\\tfrac79\\approx0{,}78\\) → Томирис. Ответ: C.",
+     "solutionKk": "Доли: \\(\\tfrac7{11}\\approx0{,}64\\); \\(\\tfrac7{12}\\approx0{,}58\\); \\(\\tfrac56\\approx0{,}83\\); \\(\\tfrac79\\approx0{,}78\\) → Томирис. Жауап: C."
     },
     {
      "n": 12,
      "answer": "C",
      "image": "/exams/math/ca/m04/q12.webp",
-     "imageKk": "/exams/math/ca/m04/q12.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q12.kk.webp",
+     "solution": "\\(\\tfrac x6-\\tfrac34=\\tfrac{2x}{12}-\\tfrac9{12}=\\tfrac{2x-9}{12}\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac x6-\\tfrac34=\\tfrac{2x}{12}-\\tfrac9{12}=\\tfrac{2x-9}{12}\\). Жауап: C."
     },
     {
      "n": 13,
      "answer": "D",
      "image": "/exams/math/ca/m04/q13.webp",
-     "imageKk": "/exams/math/ca/m04/q13.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q13.kk.webp",
+     "solution": "\\(0{,}2m+30=0{,}25(m+30)\\Rightarrow m=450\\); соли \\(90\\) г. Ответ: D.",
+     "solutionKk": "\\(0{,}2m+30=0{,}25(m+30)\\Rightarrow m=450\\); соли \\(90\\) г. Жауап: D."
     },
     {
      "n": 14,
      "answer": "C",
      "image": "/exams/math/ca/m04/q14.webp",
-     "imageKk": "/exams/math/ca/m04/q14.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q14.kk.webp",
+     "solution": "\\(\\tfrac15:(-\\tfrac16)=-\\tfrac65\\); \\((\\tfrac8{15}):(-\\tfrac13)=-\\tfrac85\\); \\(-\\tfrac65+\\tfrac85=\\tfrac25\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac15:(-\\tfrac16)=-\\tfrac65\\); \\((\\tfrac8{15}):(-\\tfrac13)=-\\tfrac85\\); \\(-\\tfrac65+\\tfrac85=\\tfrac25\\). Жауап: C."
     },
     {
      "n": 15,
      "answer": "C",
      "image": "/exams/math/ca/m04/q15.webp",
-     "imageKk": "/exams/math/ca/m04/q15.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q15.kk.webp",
+     "solution": "\\(1000\\cdot1{,}3\\cdot0{,}7=910\\) → уменьшилась на 90 тг. Ответ: C.",
+     "solutionKk": "\\(1000\\cdot1{,}3\\cdot0{,}7=910\\) → уменьшилась на 90 тг. Жауап: C."
     },
     {
      "n": 16,
      "answer": "C",
      "image": "/exams/math/ca/m04/q16.webp",
-     "imageKk": "/exams/math/ca/m04/q16.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q16.kk.webp",
+     "solution": "\\(6(8a+7)-7(2-5a)=277\\Rightarrow83a=249\\Rightarrow a=3\\). Ответ: C.",
+     "solutionKk": "\\(6(8a+7)-7(2-5a)=277\\Rightarrow83a=249\\Rightarrow a=3\\). Жауап: C."
     },
     {
      "n": 17,
      "answer": "B",
      "image": "/exams/math/ca/m04/q17.webp",
-     "imageKk": "/exams/math/ca/m04/q17.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q17.kk.webp",
+     "solution": "\\(1{,}25\\cdot0{,}6=0{,}75\\) → площадь уменьшится на 25%. Ответ: B.",
+     "solutionKk": "\\(1{,}25\\cdot0{,}6=0{,}75\\) → площадь уменьшится на 25%. Жауап: B."
     },
     {
      "n": 18,
      "answer": "B",
      "image": "/exams/math/ca/m04/q18.webp",
-     "imageKk": "/exams/math/ca/m04/q18.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q18.kk.webp",
+     "solution": "\\(\\tfrac35:\\tfrac23=9:10\\); одна часть \\(=14\\); большая \\(10\\cdot14=140\\). Ответ: B.",
+     "solutionKk": "\\(\\tfrac35:\\tfrac23=9:10\\); одна часть \\(=14\\); большая \\(10\\cdot14=140\\). Жауап: B."
     },
     {
      "n": 19,
      "answer": "C",
      "image": "/exams/math/ca/m04/q19.webp",
-     "imageKk": "/exams/math/ca/m04/q19.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q19.kk.webp",
+     "solution": "\\(\\tfrac d{60}-\\tfrac d{90}=0{,}5\\) ч \\(\\Rightarrow d=90\\) км. Ответ: C.",
+     "solutionKk": "\\(\\tfrac d{60}-\\tfrac d{90}=0{,}5\\) ч \\(\\Rightarrow d=90\\) км. Жауап: C."
     },
     {
      "n": 20,
      "answer": "A",
      "image": "/exams/math/ca/m04/q20.webp",
-     "imageKk": "/exams/math/ca/m04/q20.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q20.kk.webp",
+     "solution": "\\(5a>30\\Rightarrow a>6\\) — тогда \\(|\\ldots|=30-5a<0\\), решений нет. Ответ: A.",
+     "solutionKk": "\\(5a>30\\Rightarrow a>6\\) — тогда \\(|\\ldots|=30-5a<0\\), решений нет. Жауап: A."
     },
     {
      "n": 21,
      "answer": "C",
      "image": "/exams/math/ca/m04/q21.webp",
-     "imageKk": "/exams/math/ca/m04/q21.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q21.kk.webp",
+     "solution": "\\(18000\\cdot0{,}3=5400\\); \\(5400\\cdot0{,}15=810\\). Ответ: C.",
+     "solutionKk": "\\(18000\\cdot0{,}3=5400\\); \\(5400\\cdot0{,}15=810\\). Жауап: C."
     },
     {
      "n": 22,
      "answer": "D",
      "image": "/exams/math/ca/m04/q22.webp",
-     "imageKk": "/exams/math/ca/m04/q22.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q22.kk.webp",
+     "solution": "\\(x=\\tfrac{714}{285}\\approx2{,}5\\Rightarrow2<x<3\\). Ответ: D.",
+     "solutionKk": "\\(x=\\tfrac{714}{285}\\approx2{,}5\\Rightarrow2<x<3\\). Жауап: D."
     },
     {
      "n": 23,
      "answer": "C",
      "image": "/exams/math/ca/m04/q23.webp",
-     "imageKk": "/exams/math/ca/m04/q23.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q23.kk.webp",
+     "solution": "\\(w=\\tfrac l4\\), \\(2(l+\\tfrac l4)=40\\Rightarrow l=16,\\ w=4\\); \\(S=64\\). Ответ: C.",
+     "solutionKk": "\\(w=\\tfrac l4\\), \\(2(l+\\tfrac l4)=40\\Rightarrow l=16,\\ w=4\\); \\(S=64\\). Жауап: C."
     },
     {
      "n": 24,
      "answer": "C",
      "image": "/exams/math/ca/m04/q24.webp",
-     "imageKk": "/exams/math/ca/m04/q24.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q24.kk.webp",
+     "solution": "Течь \\(L\\), насос \\(P\\): \\(L-P=3\\), \\(L-2P=-2\\Rightarrow P=5\\); уровень 20 см откачивают 2 насоса по 5 см/мин: \\(20:10=2\\) мин. Ответ: C.",
+     "solutionKk": "Течь \\(L\\), насос \\(P\\): \\(L-P=3\\), \\(L-2P=-2\\Rightarrow P=5\\); уровень 20 см откачивают 2 насоса по 5 см/мин: \\(20:10=2\\) мин. Жауап: C."
     },
     {
      "n": 25,
      "answer": "B",
      "image": "/exams/math/ca/m04/q25.webp",
-     "imageKk": "/exams/math/ca/m04/q25.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q25.kk.webp",
+     "solution": "Шкала 0–1, деления по \\(0{,}05\\); стрелка на 7-м: \\(7\\cdot0{,}05=0{,}35\\). Ответ: B.",
+     "solutionKk": "Шкала 0–1, деления по \\(0{,}05\\); стрелка на 7-м: \\(7\\cdot0{,}05=0{,}35\\). Жауап: B."
     },
     {
      "n": 26,
      "answer": "C",
      "image": "/exams/math/ca/m04/q26.webp",
-     "imageKk": "/exams/math/ca/m04/q26.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q26.kk.webp",
+     "solution": "Кратные 12: 12, 24, …, 96 (8 чисел), кратные 36: 36, 72; \\(8-2=6\\). Ответ: C.",
+     "solutionKk": "Кратные 12: 12, 24, …, 96 (8 чисел), кратные 36: 36, 72; \\(8-2=6\\). Жауап: C."
     },
     {
      "n": 27,
      "answer": "C",
      "image": "/exams/math/ca/m04/q27.webp",
-     "imageKk": "/exams/math/ca/m04/q27.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q27.kk.webp",
+     "solution": "Сумма модулей \\(=0\\Rightarrow y=4,\\ x=2,\\ z=6\\); \\(x+y+z=12\\). Ответ: C.",
+     "solutionKk": "Сумма модулей \\(=0\\Rightarrow y=4,\\ x=2,\\ z=6\\); \\(x+y+z=12\\). Жауап: C."
     },
     {
      "n": 28,
      "answer": "C",
      "image": "/exams/math/ca/m04/q28.webp",
-     "imageKk": "/exams/math/ca/m04/q28.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q28.kk.webp",
+     "solution": "Медь \\(2a\\), цинк \\(3a\\): \\(2a+6=2\\cdot3a\\Rightarrow a=1{,}5\\); сплав \\(5a+6=13{,}5\\). Ответ: C.",
+     "solutionKk": "Медь \\(2a\\), цинк \\(3a\\): \\(2a+6=2\\cdot3a\\Rightarrow a=1{,}5\\); сплав \\(5a+6=13{,}5\\). Жауап: C."
     },
     {
      "n": 29,
      "answer": "C",
      "image": "/exams/math/ca/m04/q29.webp",
-     "imageKk": "/exams/math/ca/m04/q29.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q29.kk.webp",
+     "solution": "\\(d=4k,\\ f=9k,\\ t=6k\\): \\(4k+6k=9k+30\\Rightarrow k=30\\); художественных \\(9k=270\\). Ответ: C.",
+     "solutionKk": "\\(d=4k,\\ f=9k,\\ t=6k\\): \\(4k+6k=9k+30\\Rightarrow k=30\\); художественных \\(9k=270\\). Жауап: C."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/ca/m04/q30.webp",
-     "imageKk": "/exams/math/ca/m04/q30.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q30.kk.webp",
+     "solution": "Лента повторяет 4 ребра по 25 см и 12 по 10 см: \\(100+120=220\\) см \\(=2{,}2\\) м. Ответ: B.",
+     "solutionKk": "Лента повторяет 4 ребра по 25 см и 12 по 10 см: \\(100+120=220\\) см \\(=2{,}2\\) м. Жауап: B."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/ca/m04/q31.webp",
-     "imageKk": "/exams/math/ca/m04/q31.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q31.kk.webp",
+     "solution": "\\(A\\cdot B\\cdot B=\\overline{AC}\\), \\(A\\cdot C=C\\Rightarrow A=1,\\ B=4,\\ C=6\\); \\(1+4+6=11\\). Ответ: B.",
+     "solutionKk": "\\(A\\cdot B\\cdot B=\\overline{AC}\\), \\(A\\cdot C=C\\Rightarrow A=1,\\ B=4,\\ C=6\\); \\(1+4+6=11\\). Жауап: B."
     },
     {
      "n": 32,
      "answer": "D",
      "image": "/exams/math/ca/m04/q32.webp",
-     "imageKk": "/exams/math/ca/m04/q32.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q32.kk.webp",
+     "solution": "\\(180^\\circ\\cdot\\tfrac7{12}=105^\\circ\\). Ответ: D.",
+     "solutionKk": "\\(180^\\circ\\cdot\\tfrac7{12}=105^\\circ\\). Жауап: D."
     },
     {
      "n": 33,
      "answer": "D",
      "image": "/exams/math/ca/m04/q33.webp",
-     "imageKk": "/exams/math/ca/m04/q33.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q33.kk.webp",
+     "solution": "\\(3x-2=y(x-4)\\Rightarrow y=\\tfrac{3x-2}{x-4}\\). Ответ: D.",
+     "solutionKk": "\\(3x-2=y(x-4)\\Rightarrow y=\\tfrac{3x-2}{x-4}\\). Жауап: D."
     },
     {
      "n": 34,
      "answer": "D",
      "image": "/exams/math/ca/m04/q34.webp",
-     "imageKk": "/exams/math/ca/m04/q34.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q34.kk.webp",
+     "solution": "Первое уравнение даёт \\(x-2y=5\\), второе \\(5(x-2y)=24\\) — противоречие, решений нет. Ответ: D.",
+     "solutionKk": "Первое уравнение даёт \\(x-2y=5\\), второе \\(5(x-2y)=24\\) — противоречие, решений нет. Жауап: D."
     },
     {
      "n": 35,
      "answer": "A",
      "image": "/exams/math/ca/m04/q35.webp",
-     "imageKk": "/exams/math/ca/m04/q35.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q35.kk.webp",
+     "solution": "Сторона \\(P=3\\), \\(Q=5\\), \\(R=3+5=8\\), \\(S=5+8=13\\); \\(P_S=4\\cdot13=52\\). Ответ: A.",
+     "solutionKk": "Сторона \\(P=3\\), \\(Q=5\\), \\(R=3+5=8\\), \\(S=5+8=13\\); \\(P_S=4\\cdot13=52\\). Жауап: A."
     },
     {
      "n": 36,
      "answer": "C",
      "image": "/exams/math/ca/m04/q36.webp",
-     "imageKk": "/exams/math/ca/m04/q36.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q36.kk.webp",
+     "solution": "Слов в день: \\(8;\\ 12{,}4;\\ 13;\\ 6{,}9\\) → лучшая память у Меруерт. Ответ: C.",
+     "solutionKk": "Слов в день: \\(8;\\ 12{,}4;\\ 13;\\ 6{,}9\\) → лучшая память у Меруерт. Жауап: C."
     },
     {
      "n": 37,
      "answer": "B",
      "image": "/exams/math/ca/m04/q37.webp",
-     "imageKk": "/exams/math/ca/m04/q37.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q37.kk.webp",
+     "solution": "\\(\\tfrac12\\cdot\\tfrac23\\cdot\\tfrac34\\cdot\\tfrac45\\cdot\\tfrac56=\\tfrac16\\). Ответ: B.",
+     "solutionKk": "\\(\\tfrac12\\cdot\\tfrac23\\cdot\\tfrac34\\cdot\\tfrac45\\cdot\\tfrac56=\\tfrac16\\). Жауап: B."
     },
     {
      "n": 38,
      "answer": "C",
      "image": "/exams/math/ca/m04/q38.webp",
-     "imageKk": "/exams/math/ca/m04/q38.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q38.kk.webp",
+     "solution": "\\(\\tfrac{S+100}n=90,\\ \\tfrac{S+64}n=87\\Rightarrow\\tfrac{36}n=3\\Rightarrow n=12\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac{S+100}n=90,\\ \\tfrac{S+64}n=87\\Rightarrow\\tfrac{36}n=3\\Rightarrow n=12\\). Жауап: C."
     },
     {
      "n": 39,
      "answer": "A",
      "image": "/exams/math/ca/m04/q39.webp",
-     "imageKk": "/exams/math/ca/m04/q39.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q39.kk.webp",
+     "solution": "Из рисунка: \\(S_{ABCD}:S_{OLDK}=6\\). Ответ: A.",
+     "solutionKk": "Из рисунка: \\(S_{ABCD}:S_{OLDK}=6\\). Жауап: A."
     },
     {
      "n": 40,
      "answer": "D",
      "image": "/exams/math/ca/m04/q40.webp",
-     "imageKk": "/exams/math/ca/m04/q40.kk.webp"
+     "imageKk": "/exams/math/ca/m04/q40.kk.webp",
+     "solution": "\\(x-2x+4\\ge2x-5\\Rightarrow x\\le3\\); натуральные \\(1+2+3=6\\). Ответ: D.",
+     "solutionKk": "\\(x-2x+4\\ge2x-5\\Rightarrow x\\le3\\); натуральные \\(1+2+3=6\\). Жауап: D."
     }
    ]
   },
@@ -6013,241 +6333,321 @@
      "n": 1,
      "answer": "D",
      "image": "/exams/math/ca/m05/q01.webp",
-     "imageKk": "/exams/math/ca/m05/q01.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q01.kk.webp",
+     "solution": "\\(3\\) ч \\(=180\\) мин; \\(180:100=9:5\\). Ответ: D.",
+     "solutionKk": "\\(3\\) ч \\(=180\\) мин; \\(180:100=9:5\\). Жауап: D."
     },
     {
      "n": 2,
      "answer": "C",
      "image": "/exams/math/ca/m05/q02.webp",
-     "imageKk": "/exams/math/ca/m05/q02.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q02.kk.webp",
+     "solution": "\\(27k\\), \\(k\\) нечётное, \\(100\\le27k<1000\\Rightarrow k=5,7,\\ldots,37\\) → 17 чисел. Ответ: C.",
+     "solutionKk": "\\(27k\\), \\(k\\) нечётное, \\(100\\le27k<1000\\Rightarrow k=5,7,\\ldots,37\\) → 17 чисел. Жауап: C."
     },
     {
      "n": 3,
      "answer": "B",
      "image": "/exams/math/ca/m05/q03.webp",
-     "imageKk": "/exams/math/ca/m05/q03.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q03.kk.webp",
+     "solution": "Арифметика 20, алгебра 8, геометрия 12: \\(20:8:12=5:2:3\\). Ответ: B.",
+     "solutionKk": "Арифметика 20, алгебра 8, геометрия 12: \\(20:8:12=5:2:3\\). Жауап: B."
     },
     {
      "n": 4,
      "answer": "C",
      "image": "/exams/math/ca/m05/q04.webp",
-     "imageKk": "/exams/math/ca/m05/q04.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q04.kk.webp",
+     "solution": "\\(1\\tfrac89=\\tfrac{17}9,\\ \\tfrac{4\\frac67}{3\\frac35}=\\tfrac{34}7:\\tfrac{18}5=\\tfrac{85}{63}\\); \\(x=\\tfrac{17}9\\cdot\\tfrac{63}{85}=1{,}4\\); \\(10x=14\\). Ответ: C.",
+     "solutionKk": "\\(1\\tfrac89=\\tfrac{17}9,\\ \\tfrac{4\\frac67}{3\\frac35}=\\tfrac{34}7:\\tfrac{18}5=\\tfrac{85}{63}\\); \\(x=\\tfrac{17}9\\cdot\\tfrac{63}{85}=1{,}4\\); \\(10x=14\\). Жауап: C."
     },
     {
      "n": 5,
      "answer": "C",
      "image": "/exams/math/ca/m05/q05.webp",
-     "imageKk": "/exams/math/ca/m05/q05.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q05.kk.webp",
+     "solution": "\\(-7x-5=2x-5\\Rightarrow x=0\\); \\(-7x-5=5-2x\\Rightarrow x=-2\\); сумма \\(-2\\). Ответ: C.",
+     "solutionKk": "\\(-7x-5=2x-5\\Rightarrow x=0\\); \\(-7x-5=5-2x\\Rightarrow x=-2\\); сумма \\(-2\\). Жауап: C."
     },
     {
      "n": 6,
      "answer": "B",
      "image": "/exams/math/ca/m05/q06.webp",
-     "imageKk": "/exams/math/ca/m05/q06.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q06.kk.webp",
+     "solution": "\\(3\\cdot20\\,000=60\\,000\\) см реально; \\(60\\,000:1\\,000\\,000=0{,}06\\) см \\(=0{,}6\\) мм. Ответ: B.",
+     "solutionKk": "\\(3\\cdot20\\,000=60\\,000\\) см реально; \\(60\\,000:1\\,000\\,000=0{,}06\\) см \\(=0{,}6\\) мм. Жауап: B."
     },
     {
      "n": 7,
      "answer": "A",
      "image": "/exams/math/ca/m05/q07.webp",
-     "imageKk": "/exams/math/ca/m05/q07.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q07.kk.webp",
+     "solution": "\\(60-45=15\\) мин; \\(15:60=25\\%\\). Ответ: A.",
+     "solutionKk": "\\(60-45=15\\) мин; \\(15:60=25\\%\\). Жауап: A."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/ca/m05/q08.webp",
-     "imageKk": "/exams/math/ca/m05/q08.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q08.kk.webp",
+     "solution": "\\((4\\cdot520+5\\cdot763):9=5895:9=655\\). Ответ: B.",
+     "solutionKk": "\\((4\\cdot520+5\\cdot763):9=5895:9=655\\). Жауап: B."
     },
     {
      "n": 9,
      "answer": "C",
      "image": "/exams/math/ca/m05/q09.webp",
-     "imageKk": "/exams/math/ca/m05/q09.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q09.kk.webp",
+     "solution": "\\(|20|-(|-5|+|13|)=20-18=2\\). Ответ: C.",
+     "solutionKk": "\\(|20|-(|-5|+|13|)=20-18=2\\). Жауап: C."
     },
     {
      "n": 10,
      "answer": "C",
      "image": "/exams/math/ca/m05/q10.webp",
-     "imageKk": "/exams/math/ca/m05/q10.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q10.kk.webp",
+     "solution": "\\(3g+r=13y,\\ r=2g+3y\\Rightarrow g=2y,\\ r=7y\\). Ответ: C.",
+     "solutionKk": "\\(3g+r=13y,\\ r=2g+3y\\Rightarrow g=2y,\\ r=7y\\). Жауап: C."
     },
     {
      "n": 11,
      "answer": "C",
      "image": "/exams/math/ca/m05/q11.webp",
-     "imageKk": "/exams/math/ca/m05/q11.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q11.kk.webp",
+     "solution": "\\(\\tfrac{6{,}8}{0{,}017}=400;\\ \\tfrac{0{,}03}{0{,}003}=10;\\ \\tfrac1{0{,}1}=10;\\ 400+10+10=420\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac{6{,}8}{0{,}017}=400;\\ \\tfrac{0{,}03}{0{,}003}=10;\\ \\tfrac1{0{,}1}=10;\\ 400+10+10=420\\). Жауап: C."
     },
     {
      "n": 12,
      "answer": "C",
      "image": "/exams/math/ca/m05/q12.webp",
-     "imageKk": "/exams/math/ca/m05/q12.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q12.kk.webp",
+     "solution": "Площадь по клеткам \\(=9{,}5\\); \\(9{,}5\\cdot4=38\\) см². Ответ: C.",
+     "solutionKk": "Площадь по клеткам \\(=9{,}5\\); \\(9{,}5\\cdot4=38\\) см². Жауап: C."
     },
     {
      "n": 13,
      "answer": "C",
      "image": "/exams/math/ca/m05/q13.webp",
-     "imageKk": "/exams/math/ca/m05/q13.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q13.kk.webp",
+     "solution": "\\(80\\%-20\\%=60\\%=36\\) л \\(\\Rightarrow100\\%=60\\) л. Ответ: C.",
+     "solutionKk": "\\(80\\%-20\\%=60\\%=36\\) л \\(\\Rightarrow100\\%=60\\) л. Жауап: C."
     },
     {
      "n": 14,
      "answer": "C",
      "image": "/exams/math/ca/m05/q14.webp",
-     "imageKk": "/exams/math/ca/m05/q14.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q14.kk.webp",
+     "solution": "\\(600-96=504\\); пшеница \\(126\\), ячмень \\(378\\); \\(378:600=63\\%\\). Ответ: C.",
+     "solutionKk": "\\(600-96=504\\); пшеница \\(126\\), ячмень \\(378\\); \\(378:600=63\\%\\). Жауап: C."
     },
     {
      "n": 15,
      "answer": "D",
      "image": "/exams/math/ca/m05/q15.webp",
-     "imageKk": "/exams/math/ca/m05/q15.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q15.kk.webp",
+     "solution": "\\(3x\\cdot7t=5y\\cdot2z\\Rightarrow21xt=10yz\\). Ответ: D.",
+     "solutionKk": "\\(3x\\cdot7t=5y\\cdot2z\\Rightarrow21xt=10yz\\). Жауап: D."
     },
     {
      "n": 16,
      "answer": "D",
      "image": "/exams/math/ca/m05/q16.webp",
-     "imageKk": "/exams/math/ca/m05/q16.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q16.kk.webp",
+     "solution": "Раствор \\(200+24+16+60=300\\) г; \\(60:300=20\\%\\). Ответ: D.",
+     "solutionKk": "Раствор \\(200+24+16+60=300\\) г; \\(60:300=20\\%\\). Жауап: D."
     },
     {
      "n": 17,
      "answer": "D",
      "image": "/exams/math/ca/m05/q17.webp",
-     "imageKk": "/exams/math/ca/m05/q17.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q17.kk.webp",
+     "solution": "Стороны \\(s\\) и \\(\\tfrac s2\\): \\(2(s+\\tfrac s2)=30\\Rightarrow s=10\\); \\(P=40\\). Ответ: D.",
+     "solutionKk": "Стороны \\(s\\) и \\(\\tfrac s2\\): \\(2(s+\\tfrac s2)=30\\Rightarrow s=10\\); \\(P=40\\). Жауап: D."
     },
     {
      "n": 18,
      "answer": "C",
      "image": "/exams/math/ca/m05/q18.webp",
-     "imageKk": "/exams/math/ca/m05/q18.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q18.kk.webp",
+     "solution": "\\(5x+9\\ge2x+5\\Rightarrow x\\ge-\\tfrac43\\); \\(4x-4\\le3x-4\\Rightarrow x\\le0\\). Ответ: C.",
+     "solutionKk": "\\(5x+9\\ge2x+5\\Rightarrow x\\ge-\\tfrac43\\); \\(4x-4\\le3x-4\\Rightarrow x\\le0\\). Жауап: C."
     },
     {
      "n": 19,
      "answer": "D",
      "image": "/exams/math/ca/m05/q19.webp",
-     "imageKk": "/exams/math/ca/m05/q19.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q19.kk.webp",
+     "solution": "\\(4{,}9m-4{,}9n+2{,}1m+0{,}9n=7m-4n\\). Ответ: D.",
+     "solutionKk": "\\(4{,}9m-4{,}9n+2{,}1m+0{,}9n=7m-4n\\). Жауап: D."
     },
     {
      "n": 20,
      "answer": "B",
      "image": "/exams/math/ca/m05/q20.webp",
-     "imageKk": "/exams/math/ca/m05/q20.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q20.kk.webp",
+     "solution": "Худший случай: \\(120+120+100=340\\) не синих, затем 2 синих и ещё 1: \\(343\\). Ответ: B.",
+     "solutionKk": "Худший случай: \\(120+120+100=340\\) не синих, затем 2 синих и ещё 1: \\(343\\). Жауап: B."
     },
     {
      "n": 21,
      "answer": "B",
      "image": "/exams/math/ca/m05/q21.webp",
-     "imageKk": "/exams/math/ca/m05/q21.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q21.kk.webp",
+     "solution": "\\(10a+b+18=10b+a\\Rightarrow b-a=2\\), \\(a+b=10\\Rightarrow a=4,\\ b=6\\): 46. Ответ: B.",
+     "solutionKk": "\\(10a+b+18=10b+a\\Rightarrow b-a=2\\), \\(a+b=10\\Rightarrow a=4,\\ b=6\\): 46. Жауап: B."
     },
     {
      "n": 22,
      "answer": "C",
      "image": "/exams/math/ca/m05/q22.webp",
-     "imageKk": "/exams/math/ca/m05/q22.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q22.kk.webp",
+     "solution": "\\(960\\,000\\cdot\\tfrac45=768\\,000\\); \\(\\cdot\\tfrac7{10}=537\\,600\\); \\(\\cdot\\tfrac38=201\\,600\\); \\(201\\,600:960\\,000=21\\%\\). Ответ: C.",
+     "solutionKk": "\\(960\\,000\\cdot\\tfrac45=768\\,000\\); \\(\\cdot\\tfrac7{10}=537\\,600\\); \\(\\cdot\\tfrac38=201\\,600\\); \\(201\\,600:960\\,000=21\\%\\). Жауап: C."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/ca/m05/q23.webp",
-     "imageKk": "/exams/math/ca/m05/q23.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q23.kk.webp",
+     "solution": "\\(\\tfrac23=\\tfrac{32}{48},\\ \\tfrac34=\\tfrac{36}{48}\\Rightarrow n=33,34,35\\). Ответ: B.",
+     "solutionKk": "\\(\\tfrac23=\\tfrac{32}{48},\\ \\tfrac34=\\tfrac{36}{48}\\Rightarrow n=33,34,35\\). Жауап: B."
     },
     {
      "n": 24,
      "answer": "D",
      "image": "/exams/math/ca/m05/q24.webp",
-     "imageKk": "/exams/math/ca/m05/q24.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q24.kk.webp",
+     "solution": "\\(v_1+v_2=150,\\ v_1-v_2=50\\Rightarrow v_1=100\\) км/ч. Ответ: D.",
+     "solutionKk": "\\(v_1+v_2=150,\\ v_1-v_2=50\\Rightarrow v_1=100\\) км/ч. Жауап: D."
     },
     {
      "n": 25,
      "answer": "D",
      "image": "/exams/math/ca/m05/q25.webp",
-     "imageKk": "/exams/math/ca/m05/q25.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q25.kk.webp",
+     "solution": "Сложим: \\(2(x+y+z)=32\\Rightarrow x+y+z=16\\). Ответ: D.",
+     "solutionKk": "Сложим: \\(2(x+y+z)=32\\Rightarrow x+y+z=16\\). Жауап: D."
     },
     {
      "n": 26,
      "answer": "C",
      "image": "/exams/math/ca/m05/q26.webp",
-     "imageKk": "/exams/math/ca/m05/q26.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q26.kk.webp",
+     "solution": "\\(n=24\\): делители 1, 2, 3, 4, 6, 8, 12, 24 → 8. Ответ: C.",
+     "solutionKk": "\\(n=24\\): делители 1, 2, 3, 4, 6, 8, 12, 24 → 8. Жауап: C."
     },
     {
      "n": 27,
      "answer": "D",
      "image": "/exams/math/ca/m05/q27.webp",
-     "imageKk": "/exams/math/ca/m05/q27.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q27.kk.webp",
+     "solution": "\\(\\tfrac16-\\tfrac1{30}-\\tfrac1{15}=\\tfrac1{15}\\) → 15 дней. Ответ: D.",
+     "solutionKk": "\\(\\tfrac16-\\tfrac1{30}-\\tfrac1{15}=\\tfrac1{15}\\) → 15 дней. Жауап: D."
     },
     {
      "n": 28,
      "answer": "D",
      "image": "/exams/math/ca/m05/q28.webp",
-     "imageKk": "/exams/math/ca/m05/q28.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q28.kk.webp",
+     "solution": "\\(R=10+8\\cdot\\tfrac34=16\\); \\(S=16+6\\cdot\\tfrac23=20\\). Ответ: D.",
+     "solutionKk": "\\(R=10+8\\cdot\\tfrac34=16\\); \\(S=16+6\\cdot\\tfrac23=20\\). Жауап: D."
     },
     {
      "n": 29,
      "answer": "D",
      "image": "/exams/math/ca/m05/q29.webp",
-     "imageKk": "/exams/math/ca/m05/q29.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q29.kk.webp",
+     "solution": "\\(x=5,\\ y=-3\\Rightarrow x-y=8\\). Ответ: D.",
+     "solutionKk": "\\(x=5,\\ y=-3\\Rightarrow x-y=8\\). Жауап: D."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/ca/m05/q30.webp",
-     "imageKk": "/exams/math/ca/m05/q30.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q30.kk.webp",
+     "solution": "\\(\\tfrac{51\\cdot50}{2}=1275\\). Ответ: B.",
+     "solutionKk": "\\(\\tfrac{51\\cdot50}{2}=1275\\). Жауап: B."
     },
     {
      "n": 31,
      "answer": "A",
      "image": "/exams/math/ca/m05/q31.webp",
-     "imageKk": "/exams/math/ca/m05/q31.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q31.kk.webp",
+     "solution": "\\(6a^2=54\\Rightarrow a=3\\); \\(V=27\\). Ответ: A.",
+     "solutionKk": "\\(6a^2=54\\Rightarrow a=3\\); \\(V=27\\). Жауап: A."
     },
     {
      "n": 32,
      "answer": "B",
      "image": "/exams/math/ca/m05/q32.webp",
-     "imageKk": "/exams/math/ca/m05/q32.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q32.kk.webp",
+     "solution": "\\(\\mathrm{НОК}(240;150;360)=3600\\). Ответ: B.",
+     "solutionKk": "\\(\\mathrm{НОК}(240;150;360)=3600\\). Жауап: B."
     },
     {
      "n": 33,
      "answer": "C",
      "image": "/exams/math/ca/m05/q33.webp",
-     "imageKk": "/exams/math/ca/m05/q33.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q33.kk.webp",
+     "solution": "\\(a_2=8,\\ a_3=16,\\ a_4=32,\\ a_5=64\\). Ответ: C.",
+     "solutionKk": "\\(a_2=8,\\ a_3=16,\\ a_4=32,\\ a_5=64\\). Жауап: C."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/ca/m05/q34.webp",
-     "imageKk": "/exams/math/ca/m05/q34.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q34.kk.webp",
+     "solution": "\\(1{,}25\\cdot0{,}6=0{,}75\\) → площадь уменьшится на 25%. Ответ: A.",
+     "solutionKk": "\\(1{,}25\\cdot0{,}6=0{,}75\\) → площадь уменьшится на 25%. Жауап: A."
     },
     {
      "n": 35,
      "answer": "C",
      "image": "/exams/math/ca/m05/q35.webp",
-     "imageKk": "/exams/math/ca/m05/q35.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q35.kk.webp",
+     "solution": "По рисунку недостающая часть — 7 кубиков. Ответ: C.",
+     "solutionKk": "По рисунку недостающая часть — 7 кубиков. Жауап: C."
     },
     {
      "n": 36,
      "answer": "B",
      "image": "/exams/math/ca/m05/q36.webp",
-     "imageKk": "/exams/math/ca/m05/q36.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q36.kk.webp",
+     "solution": "\\(|x|\\le4\\Leftrightarrow-4\\le x\\le4\\): закрашен отрезок \\([-4;4]\\). Ответ: B.",
+     "solutionKk": "\\(|x|\\le4\\Leftrightarrow-4\\le x\\le4\\): закрашен отрезок \\([-4;4]\\). Жауап: B."
     },
     {
      "n": 37,
      "answer": "B",
      "image": "/exams/math/ca/m05/q37.webp",
-     "imageKk": "/exams/math/ca/m05/q37.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q37.kk.webp",
+     "solution": "\\(10+3h=22\\Rightarrow h=4\\). Ответ: B.",
+     "solutionKk": "\\(10+3h=22\\Rightarrow h=4\\). Жауап: B."
     },
     {
      "n": 38,
      "answer": "B",
      "image": "/exams/math/ca/m05/q38.webp",
-     "imageKk": "/exams/math/ca/m05/q38.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q38.kk.webp",
+     "solution": "Олова 8 кг; \\(\\tfrac{8+x}{20+x}=0{,}5\\Rightarrow x=4\\). Ответ: B.",
+     "solutionKk": "Олова 8 кг; \\(\\tfrac{8+x}{20+x}=0{,}5\\Rightarrow x=4\\). Жауап: B."
     },
     {
      "n": 39,
      "answer": "C",
      "image": "/exams/math/ca/m05/q39.webp",
-     "imageKk": "/exams/math/ca/m05/q39.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q39.kk.webp",
+     "solution": "\\(4a-(2a-(a+5))=4a-(a-5)=3a+5\\). Ответ: C.",
+     "solutionKk": "\\(4a-(2a-(a+5))=4a-(a-5)=3a+5\\). Жауап: C."
     },
     {
      "n": 40,
      "answer": "D",
      "image": "/exams/math/ca/m05/q40.webp",
-     "imageKk": "/exams/math/ca/m05/q40.kk.webp"
+     "imageKk": "/exams/math/ca/m05/q40.kk.webp",
+     "solution": "Горячей \\(\\tfrac3{12}=\\tfrac14\\), холодной \\(\\tfrac34\\): \\(1:3\\). Ответ: D.",
+     "solutionKk": "Горячей \\(\\tfrac3{12}=\\tfrac14\\), холодной \\(\\tfrac34\\): \\(1:3\\). Жауап: D."
     }
    ]
   },
@@ -6263,241 +6663,321 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/ca/m06/q01.webp",
-     "imageKk": "/exams/math/ca/m06/q01.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q01.kk.webp",
+     "solution": "\\(3{,}4(69)\\approx3{,}4697\\); \\(\\tfrac1{33}\\approx0{,}0303\\); сумма \\(=3{,}5\\). Ответ: A.",
+     "solutionKk": "\\(3{,}4(69)\\approx3{,}4697\\); \\(\\tfrac1{33}\\approx0{,}0303\\); сумма \\(=3{,}5\\). Жауап: A."
     },
     {
      "n": 2,
      "answer": "B",
      "image": "/exams/math/ca/m06/q02.webp",
-     "imageKk": "/exams/math/ca/m06/q02.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q02.kk.webp",
+     "solution": "\\(M=-11-7=-18,\\ N=11-7=4,\\ K=-|{-11}+7|=-4\\Rightarrow M<K<N\\). Ответ: B.",
+     "solutionKk": "\\(M=-11-7=-18,\\ N=11-7=4,\\ K=-|{-11}+7|=-4\\Rightarrow M<K<N\\). Жауап: B."
     },
     {
      "n": 3,
      "answer": "C",
      "image": "/exams/math/ca/m06/q03.webp",
-     "imageKk": "/exams/math/ca/m06/q03.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q03.kk.webp",
+     "solution": "\\(5{,}4m-3{,}6+2{,}6m-2{,}6=-7{,}64\\Rightarrow8m=-1{,}44\\Rightarrow m=-0{,}18\\). Ответ: C.",
+     "solutionKk": "\\(5{,}4m-3{,}6+2{,}6m-2{,}6=-7{,}64\\Rightarrow8m=-1{,}44\\Rightarrow m=-0{,}18\\). Жауап: C."
     },
     {
      "n": 4,
      "answer": "B",
      "image": "/exams/math/ca/m06/q04.webp",
-     "imageKk": "/exams/math/ca/m06/q04.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q04.kk.webp",
+     "solution": "\\(36\\) км \\(=3{,}6\\cdot10^7\\) мм; \\(3{,}6\\cdot10^7:10^6=36\\) мм. Ответ: B.",
+     "solutionKk": "\\(36\\) км \\(=3{,}6\\cdot10^7\\) мм; \\(3{,}6\\cdot10^7:10^6=36\\) мм. Жауап: B."
     },
     {
      "n": 5,
      "answer": "C",
      "image": "/exams/math/ca/m06/q05.webp",
-     "imageKk": "/exams/math/ca/m06/q05.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q05.kk.webp",
+     "solution": "Подарки \\(96\\,000\\cdot\\tfrac5{12}=40\\,000\\); остаток \\(56\\,000\\); фуршет \\(\\tfrac37\\cdot56\\,000=24\\,000\\); осталось \\(32\\,000\\). Ответ: C.",
+     "solutionKk": "Подарки \\(96\\,000\\cdot\\tfrac5{12}=40\\,000\\); остаток \\(56\\,000\\); фуршет \\(\\tfrac37\\cdot56\\,000=24\\,000\\); осталось \\(32\\,000\\). Жауап: C."
     },
     {
      "n": 6,
      "answer": "C",
      "image": "/exams/math/ca/m06/q06.webp",
-     "imageKk": "/exams/math/ca/m06/q06.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q06.kk.webp",
+     "solution": "\\(|8x+3|-2=\\pm9\\Rightarrow|8x+3|=11\\Rightarrow x=1;\\ x=-1{,}75\\); сумма \\(-0{,}75\\). Ответ: C.",
+     "solutionKk": "\\(|8x+3|-2=\\pm9\\Rightarrow|8x+3|=11\\Rightarrow x=1;\\ x=-1{,}75\\); сумма \\(-0{,}75\\). Жауап: C."
     },
     {
      "n": 7,
      "answer": "D",
      "image": "/exams/math/ca/m06/q07.webp",
-     "imageKk": "/exams/math/ca/m06/q07.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q07.kk.webp",
+     "solution": "\\(2394:18=133\\). Ответ: D.",
+     "solutionKk": "\\(2394:18=133\\). Жауап: D."
     },
     {
      "n": 8,
      "answer": "D",
      "image": "/exams/math/ca/m06/q08.webp",
-     "imageKk": "/exams/math/ca/m06/q08.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q08.kk.webp",
+     "solution": "Закон: следующий \\(=2\\cdot\\)предыдущий\\(+1\\): \\(23\\cdot2+1=47\\). Ответ: D.",
+     "solutionKk": "Закон: следующий \\(=2\\cdot\\)предыдущий\\(+1\\): \\(23\\cdot2+1=47\\). Жауап: D."
     },
     {
      "n": 9,
      "answer": "C",
      "image": "/exams/math/ca/m06/q09.webp",
-     "imageKk": "/exams/math/ca/m06/q09.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q09.kk.webp",
+     "solution": "С 1-го на 7-й — 6 пролётов за 12 мин (2 мин на пролёт); на 16-й — 15 пролётов: \\(30\\) мин. Ответ: C.",
+     "solutionKk": "С 1-го на 7-й — 6 пролётов за 12 мин (2 мин на пролёт); на 16-й — 15 пролётов: \\(30\\) мин. Жауап: C."
     },
     {
      "n": 10,
      "answer": "D",
      "image": "/exams/math/ca/m06/q10.webp",
-     "imageKk": "/exams/math/ca/m06/q10.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q10.kk.webp",
+     "solution": "\\(3(x-2)=x+4\\Rightarrow x=5\\); \\(\\tfrac x3-1=\\tfrac x2+\\tfrac23\\Rightarrow x=-10\\); сумма \\(-5\\). Ответ: D.",
+     "solutionKk": "\\(3(x-2)=x+4\\Rightarrow x=5\\); \\(\\tfrac x3-1=\\tfrac x2+\\tfrac23\\Rightarrow x=-10\\); сумма \\(-5\\). Жауап: D."
     },
     {
      "n": 11,
      "answer": "D",
      "image": "/exams/math/ca/m06/q11.webp",
-     "imageKk": "/exams/math/ca/m06/q11.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q11.kk.webp",
+     "solution": "\\(0{,}9\\cdot1{,}2=1{,}08\\) → площадь увеличилась на 8%. Ответ: D.",
+     "solutionKk": "\\(0{,}9\\cdot1{,}2=1{,}08\\) → площадь увеличилась на 8%. Жауап: D."
     },
     {
      "n": 12,
      "answer": "B",
      "image": "/exams/math/ca/m06/q12.webp",
-     "imageKk": "/exams/math/ca/m06/q12.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q12.kk.webp",
+     "solution": "\\(0{,}1x+0{,}3(3-x)=0{,}2\\cdot3\\Rightarrow x=1{,}5\\). Ответ: B.",
+     "solutionKk": "\\(0{,}1x+0{,}3(3-x)=0{,}2\\cdot3\\Rightarrow x=1{,}5\\). Жауап: B."
     },
     {
      "n": 13,
      "answer": "D",
      "image": "/exams/math/ca/m06/q13.webp",
-     "imageKk": "/exams/math/ca/m06/q13.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q13.kk.webp",
+     "solution": "\\(\\tfrac a{a+b}=\\tfrac56\\Rightarrow b=\\tfrac a5\\); \\(\\tfrac{3a+5b}a=3+1=4\\). Ответ: D.",
+     "solutionKk": "\\(\\tfrac a{a+b}=\\tfrac56\\Rightarrow b=\\tfrac a5\\); \\(\\tfrac{3a+5b}a=3+1=4\\). Жауап: D."
     },
     {
      "n": 14,
      "answer": "D",
      "image": "/exams/math/ca/m06/q14.webp",
-     "imageKk": "/exams/math/ca/m06/q14.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q14.kk.webp",
+     "solution": "\\(2-\\tfrac45=\\tfrac65\\); \\(2-\\tfrac1{2\\frac14}=\\tfrac{14}9\\); \\(\\tfrac65:\\tfrac{14}9=\\tfrac{27}{35}\\). Ответ: D.",
+     "solutionKk": "\\(2-\\tfrac45=\\tfrac65\\); \\(2-\\tfrac1{2\\frac14}=\\tfrac{14}9\\); \\(\\tfrac65:\\tfrac{14}9=\\tfrac{27}{35}\\). Жауап: D."
     },
     {
      "n": 15,
      "answer": "C",
      "image": "/exams/math/ca/m06/q15.webp",
-     "imageKk": "/exams/math/ca/m06/q15.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q15.kk.webp",
+     "solution": "Пары дают \\(1-2+3-\\ldots-100=-50\\): \\(x-50=30\\Rightarrow x=80\\). Ответ: C.",
+     "solutionKk": "Пары дают \\(1-2+3-\\ldots-100=-50\\): \\(x-50=30\\Rightarrow x=80\\). Жауап: C."
     },
     {
      "n": 16,
      "answer": "C",
      "image": "/exams/math/ca/m06/q16.webp",
-     "imageKk": "/exams/math/ca/m06/q16.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q16.kk.webp",
+     "solution": "\\(\\tfrac{b+5}{s+5}=\\tfrac43\\), \\(b-1=2(s-1)\\Rightarrow s=4\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac{b+5}{s+5}=\\tfrac43\\), \\(b-1=2(s-1)\\Rightarrow s=4\\). Жауап: C."
     },
     {
      "n": 17,
      "answer": "B",
      "image": "/exams/math/ca/m06/q17.webp",
-     "imageKk": "/exams/math/ca/m06/q17.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q17.kk.webp",
+     "solution": "\\(-2{,}4-8x>1{,}8-3x\\Rightarrow x<-0{,}84\\): закрашен луч влево, точка выколота. Ответ: B.",
+     "solutionKk": "\\(-2{,}4-8x>1{,}8-3x\\Rightarrow x<-0{,}84\\): закрашен луч влево, точка выколота. Жауап: B."
     },
     {
      "n": 18,
      "answer": "D",
      "image": "/exams/math/ca/m06/q18.webp",
-     "imageKk": "/exams/math/ca/m06/q18.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q18.kk.webp",
+     "solution": "Белок \\(100-8-22-41=29\\%\\); \\(4000\\cdot0{,}29=1160\\) г. Ответ: D.",
+     "solutionKk": "Белок \\(100-8-22-41=29\\%\\); \\(4000\\cdot0{,}29=1160\\) г. Жауап: D."
     },
     {
      "n": 19,
      "answer": "D",
      "image": "/exams/math/ca/m06/q19.webp",
-     "imageKk": "/exams/math/ca/m06/q19.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q19.kk.webp",
+     "solution": "\\(C=18{,}84\\Rightarrow r=3\\); \\(S=3{,}14\\cdot9=28{,}26\\). Ответ: D.",
+     "solutionKk": "\\(C=18{,}84\\Rightarrow r=3\\); \\(S=3{,}14\\cdot9=28{,}26\\). Жауап: D."
     },
     {
      "n": 20,
      "answer": "B",
      "image": "/exams/math/ca/m06/q20.webp",
-     "imageKk": "/exams/math/ca/m06/q20.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q20.kk.webp",
+     "solution": "\\(6a-2b-2b-a=5a-4b\\). Ответ: B.",
+     "solutionKk": "\\(6a-2b-2b-a=5a-4b\\). Жауап: B."
     },
     {
      "n": 21,
      "answer": "C",
      "image": "/exams/math/ca/m06/q21.webp",
-     "imageKk": "/exams/math/ca/m06/q21.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q21.kk.webp",
+     "solution": "\\(v_1+v_2=243:4{,}5=54\\), \\(v_1=0{,}5v_2\\Rightarrow v_1=18\\); \\(18\\cdot4{,}5=81\\) км. Ответ: C.",
+     "solutionKk": "\\(v_1+v_2=243:4{,}5=54\\), \\(v_1=0{,}5v_2\\Rightarrow v_1=18\\); \\(18\\cdot4{,}5=81\\) км. Жауап: C."
     },
     {
      "n": 22,
      "answer": "C",
      "image": "/exams/math/ca/m06/q22.webp",
-     "imageKk": "/exams/math/ca/m06/q22.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q22.kk.webp",
+     "solution": "\\(\\tfrac{11}{22/8}=4\\Rightarrow2a=60,\\ 3b=36\\Rightarrow a=30,\\ b=12\\). Ответ: C.",
+     "solutionKk": "\\(\\tfrac{11}{22/8}=4\\Rightarrow2a=60,\\ 3b=36\\Rightarrow a=30,\\ b=12\\). Жауап: C."
     },
     {
      "n": 23,
      "answer": "C",
      "image": "/exams/math/ca/m06/q23.webp",
-     "imageKk": "/exams/math/ca/m06/q23.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q23.kk.webp",
+     "solution": "Стрелка на \\(\\tfrac58\\) шкалы: \\(160\\cdot\\tfrac58=100\\) л. Ответ: C.",
+     "solutionKk": "Стрелка на \\(\\tfrac58\\) шкалы: \\(160\\cdot\\tfrac58=100\\) л. Жауап: C."
     },
     {
      "n": 24,
      "answer": "A",
      "image": "/exams/math/ca/m06/q24.webp",
-     "imageKk": "/exams/math/ca/m06/q24.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q24.kk.webp",
+     "solution": "\\(3t-3>3t-2\\) — неверно при любом \\(t\\) → решений нет (\\(\\varnothing\\)). Ответ: A.",
+     "solutionKk": "\\(3t-3>3t-2\\) — неверно при любом \\(t\\) → решений нет (\\(\\varnothing\\)). Жауап: A."
     },
     {
      "n": 25,
      "answer": "C",
      "image": "/exams/math/ca/m06/q25.webp",
-     "imageKk": "/exams/math/ca/m06/q25.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q25.kk.webp",
+     "solution": "\\(x-\\tfrac x{10}=8{,}1\\Rightarrow x=9\\). Ответ: C.",
+     "solutionKk": "\\(x-\\tfrac x{10}=8{,}1\\Rightarrow x=9\\). Жауап: C."
     },
     {
      "n": 26,
      "answer": "B",
      "image": "/exams/math/ca/m06/q26.webp",
-     "imageKk": "/exams/math/ca/m06/q26.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q26.kk.webp",
+     "solution": "Англ. \\(1-\\tfrac49-\\tfrac13=\\tfrac29\\); всего \\(200:\\tfrac29=900\\); каз. и рус. \\(\\tfrac79\\cdot900=700\\). Ответ: B.",
+     "solutionKk": "Англ. \\(1-\\tfrac49-\\tfrac13=\\tfrac29\\); всего \\(200:\\tfrac29=900\\); каз. и рус. \\(\\tfrac79\\cdot900=700\\). Жауап: B."
     },
     {
      "n": 27,
      "answer": "D",
      "image": "/exams/math/ca/m06/q27.webp",
-     "imageKk": "/exams/math/ca/m06/q27.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q27.kk.webp",
+     "solution": "\\(t+\\tfrac{9+30t}{30}=3\\Rightarrow t=0{,}45\\) ч \\(=27\\) мин. Ответ: D.",
+     "solutionKk": "\\(t+\\tfrac{9+30t}{30}=3\\Rightarrow t=0{,}45\\) ч \\(=27\\) мин. Жауап: D."
     },
     {
      "n": 28,
      "answer": "C",
      "image": "/exams/math/ca/m06/q28.webp",
-     "imageKk": "/exams/math/ca/m06/q28.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q28.kk.webp",
+     "solution": "\\(\\tfrac14-\\tfrac1{20}=\\tfrac15\\) → 5 ч. Ответ: C.",
+     "solutionKk": "\\(\\tfrac14-\\tfrac1{20}=\\tfrac15\\) → 5 ч. Жауап: C."
     },
     {
      "n": 29,
      "answer": "C",
      "image": "/exams/math/ca/m06/q29.webp",
-     "imageKk": "/exams/math/ca/m06/q29.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q29.kk.webp",
+     "solution": "\\(1+\\tfrac1{1+\\frac1x}=\\tfrac14\\Rightarrow1+\\tfrac1x=-\\tfrac43\\Rightarrow x=-\\tfrac37\\). Ответ: C.",
+     "solutionKk": "\\(1+\\tfrac1{1+\\frac1x}=\\tfrac14\\Rightarrow1+\\tfrac1x=-\\tfrac43\\Rightarrow x=-\\tfrac37\\). Жауап: C."
     },
     {
      "n": 30,
      "answer": "D",
      "image": "/exams/math/ca/m06/q30.webp",
-     "imageKk": "/exams/math/ca/m06/q30.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q30.kk.webp",
+     "solution": "\\(400\\cdot1{,}1\\cdot0{,}9=396\\). Ответ: D.",
+     "solutionKk": "\\(400\\cdot1{,}1\\cdot0{,}9=396\\). Жауап: D."
     },
     {
      "n": 31,
      "answer": "D",
      "image": "/exams/math/ca/m06/q31.webp",
-     "imageKk": "/exams/math/ca/m06/q31.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q31.kk.webp",
+     "solution": "\\(4\\cdot3+2\\cdot2=16\\) способов. Ответ: D.",
+     "solutionKk": "\\(4\\cdot3+2\\cdot2=16\\) способов. Жауап: D."
     },
     {
      "n": 32,
      "answer": "C",
      "image": "/exams/math/ca/m06/q32.webp",
-     "imageKk": "/exams/math/ca/m06/q32.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q32.kk.webp",
+     "solution": "\\(\\tfrac d{40}-\\tfrac d{60}=\\tfrac56\\Rightarrow d=100\\); время \\(\\tfrac{100}{40}-0{,}5=2\\) ч; \\(100:2=50\\) км/ч. Ответ: C.",
+     "solutionKk": "\\(\\tfrac d{40}-\\tfrac d{60}=\\tfrac56\\Rightarrow d=100\\); время \\(\\tfrac{100}{40}-0{,}5=2\\) ч; \\(100:2=50\\) км/ч. Жауап: C."
     },
     {
      "n": 33,
      "answer": "C",
      "image": "/exams/math/ca/m06/q33.webp",
-     "imageKk": "/exams/math/ca/m06/q33.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q33.kk.webp",
+     "solution": "Сумма \\(5\\cdot9=45\\); через 4 года \\(45+5\\cdot4=65\\). Ответ: C.",
+     "solutionKk": "Сумма \\(5\\cdot9=45\\); через 4 года \\(45+5\\cdot4=65\\). Жауап: C."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/ca/m06/q34.webp",
-     "imageKk": "/exams/math/ca/m06/q34.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q34.kk.webp",
+     "solution": "\\(0{,}6B=0{,}4G,\\ B+G=80\\Rightarrow G=48\\). Ответ: A.",
+     "solutionKk": "\\(0{,}6B=0{,}4G,\\ B+G=80\\Rightarrow G=48\\). Жауап: A."
     },
     {
      "n": 35,
      "answer": "A",
      "image": "/exams/math/ca/m06/q35.webp",
-     "imageKk": "/exams/math/ca/m06/q35.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q35.kk.webp",
+     "solution": "Осталось \\(50\\%\\) рукописи \\(=18\\) стр. \\(\\Rightarrow36\\). Ответ: A.",
+     "solutionKk": "Осталось \\(50\\%\\) рукописи \\(=18\\) стр. \\(\\Rightarrow36\\). Жауап: A."
     },
     {
      "n": 36,
      "answer": "B",
      "image": "/exams/math/ca/m06/q36.webp",
-     "imageKk": "/exams/math/ca/m06/q36.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q36.kk.webp",
+     "solution": "\\(S=4^2-2\\cdot\\tfrac{3\\cdot2^2}2=16-12=4\\). Ответ: B.",
+     "solutionKk": "\\(S=4^2-2\\cdot\\tfrac{3\\cdot2^2}2=16-12=4\\). Жауап: B."
     },
     {
      "n": 37,
      "answer": "C",
      "image": "/exams/math/ca/m06/q37.webp",
-     "imageKk": "/exams/math/ca/m06/q37.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q37.kk.webp",
+     "solution": "\\(1{,}5x+0{,}5x=x+5{,}6\\Rightarrow x=5{,}6\\). Ответ: C.",
+     "solutionKk": "\\(1{,}5x+0{,}5x=x+5{,}6\\Rightarrow x=5{,}6\\). Жауап: C."
     },
     {
      "n": 38,
      "answer": "B",
      "image": "/exams/math/ca/m06/q38.webp",
-     "imageKk": "/exams/math/ca/m06/q38.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q38.kk.webp",
+     "solution": "\\(60\\cdot0{,}45=27\\); \\(27\\cdot0{,}8=21{,}6\\) л. Ответ: B.",
+     "solutionKk": "\\(60\\cdot0{,}45=27\\); \\(27\\cdot0{,}8=21{,}6\\) л. Жауап: B."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/ca/m06/q39.webp",
-     "imageKk": "/exams/math/ca/m06/q39.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q39.kk.webp",
+     "solution": "\\(EB=\\tfrac{30+38-50}2=9\\). Ответ: B.",
+     "solutionKk": "\\(EB=\\tfrac{30+38-50}2=9\\). Жауап: B."
     },
     {
      "n": 40,
      "answer": "C",
      "image": "/exams/math/ca/m06/q40.webp",
-     "imageKk": "/exams/math/ca/m06/q40.kk.webp"
+     "imageKk": "/exams/math/ca/m06/q40.kk.webp",
+     "solution": "\\(5(a+7)-4(3a+1)=10\\Rightarrow-7a=-21\\Rightarrow a=3\\). Ответ: C.",
+     "solutionKk": "\\(5(a+7)-4(3a+1)=10\\Rightarrow-7a=-21\\Rightarrow a=3\\). Жауап: C."
     }
    ]
   },
@@ -6513,241 +6993,321 @@
      "n": 1,
      "answer": "D",
      "image": "/exams/math/ca/m07/q01.webp",
-     "imageKk": "/exams/math/ca/m07/q01.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q01.kk.webp",
+     "solution": "\\(\\tfrac{33}8:\\tfrac{33}{16}=2\\); \\((6\\tfrac16-4\\tfrac5{12})\\cdot6=\\tfrac74\\cdot6=10{,}5\\); \\(2-10{,}5=-8{,}5\\). Ответ: D.",
+     "solutionKk": "\\(\\tfrac{33}8:\\tfrac{33}{16}=2\\); \\((6\\tfrac16-4\\tfrac5{12})\\cdot6=\\tfrac74\\cdot6=10{,}5\\); \\(2-10{,}5=-8{,}5\\). Жауап: D."
     },
     {
      "n": 2,
      "answer": "C",
      "image": "/exams/math/ca/m07/q02.webp",
-     "imageKk": "/exams/math/ca/m07/q02.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q02.kk.webp",
+     "solution": "\\(9\\cdot0{,}8=7{,}2\\) кг крахмала; \\(7{,}2:0{,}6=12\\) кг ячменя. Ответ: C.",
+     "solutionKk": "\\(9\\cdot0{,}8=7{,}2\\) кг крахмала; \\(7{,}2:0{,}6=12\\) кг ячменя. Жауап: C."
     },
     {
      "n": 3,
      "answer": "A",
      "image": "/exams/math/ca/m07/q03.webp",
-     "imageKk": "/exams/math/ca/m07/q03.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q03.kk.webp",
+     "solution": "\\(P=-7+5=-2,\\ Q=-7-5=-12,\\ S=|{-2}|=2\\Rightarrow Q<P<S\\). Ответ: A.",
+     "solutionKk": "\\(P=-7+5=-2,\\ Q=-7-5=-12,\\ S=|{-2}|=2\\Rightarrow Q<P<S\\). Жауап: A."
     },
     {
      "n": 4,
      "answer": "C",
      "image": "/exams/math/ca/m07/q04.webp",
-     "imageKk": "/exams/math/ca/m07/q04.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q04.kk.webp",
+     "solution": "Множители \\(\\times2,\\times3,\\times4,\\times5\\), далее \\(\\times6\\): \\(240\\cdot6=1440\\). Ответ: C.",
+     "solutionKk": "Множители \\(\\times2,\\times3,\\times4,\\times5\\), далее \\(\\times6\\): \\(240\\cdot6=1440\\). Жауап: C."
     },
     {
      "n": 5,
      "answer": "D",
      "image": "/exams/math/ca/m07/q05.webp",
-     "imageKk": "/exams/math/ca/m07/q05.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q05.kk.webp",
+     "solution": "\\(24\\) м \\(=240\\) дм; \\(240:960=\\tfrac14\\). Ответ: D.",
+     "solutionKk": "\\(24\\) м \\(=240\\) дм; \\(240:960=\\tfrac14\\). Жауап: D."
     },
     {
      "n": 6,
      "answer": "D",
      "image": "/exams/math/ca/m07/q06.webp",
-     "imageKk": "/exams/math/ca/m07/q06.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q06.kk.webp",
+     "solution": "Закрашена половина малого круга: \\(\\tfrac12\\cdot25=12{,}5\\) см². Ответ: D.",
+     "solutionKk": "Закрашена половина малого круга: \\(\\tfrac12\\cdot25=12{,}5\\) см². Жауап: D."
     },
     {
      "n": 7,
      "answer": "D",
      "image": "/exams/math/ca/m07/q07.webp",
-     "imageKk": "/exams/math/ca/m07/q07.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q07.kk.webp",
+     "solution": "Молока \\(\\tfrac5{16}\\) объёма сока: \\(48\\cdot\\tfrac5{16}=15\\). Ответ: D.",
+     "solutionKk": "Молока \\(\\tfrac5{16}\\) объёма сока: \\(48\\cdot\\tfrac5{16}=15\\). Жауап: D."
     },
     {
      "n": 8,
      "answer": "C",
      "image": "/exams/math/ca/m07/q08.webp",
-     "imageKk": "/exams/math/ca/m07/q08.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q08.kk.webp",
+     "solution": "\\(3+6+5+7+2=23\\); \\(23+n\\) кратно 9 → \\(n=4\\). Ответ: C.",
+     "solutionKk": "\\(3+6+5+7+2=23\\); \\(23+n\\) кратно 9 → \\(n=4\\). Жауап: C."
     },
     {
      "n": 9,
      "answer": "C",
      "image": "/exams/math/ca/m07/q09.webp",
-     "imageKk": "/exams/math/ca/m07/q09.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q09.kk.webp",
+     "solution": "\\(12x=-4\\Rightarrow x=-\\tfrac13\\in(-\\tfrac12;-\\tfrac14)\\). Ответ: C.",
+     "solutionKk": "\\(12x=-4\\Rightarrow x=-\\tfrac13\\in(-\\tfrac12;-\\tfrac14)\\). Жауап: C."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/ca/m07/q10.webp",
-     "imageKk": "/exams/math/ca/m07/q10.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q10.kk.webp",
+     "solution": "Из отрицательных меньше то, у которого модуль больше: \\(-11\\tfrac56\\). Ответ: B.",
+     "solutionKk": "Из отрицательных меньше то, у которого модуль больше: \\(-11\\tfrac56\\). Жауап: B."
     },
     {
      "n": 11,
      "answer": "C",
      "image": "/exams/math/ca/m07/q11.webp",
-     "imageKk": "/exams/math/ca/m07/q11.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q11.kk.webp",
+     "solution": "\\(8s+6\\cdot4s=32s=17{,}28\\Rightarrow s=0{,}54\\); \\(s+4s=5\\cdot0{,}54=2{,}7\\). Ответ: C.",
+     "solutionKk": "\\(8s+6\\cdot4s=32s=17{,}28\\Rightarrow s=0{,}54\\); \\(s+4s=5\\cdot0{,}54=2{,}7\\). Жауап: C."
     },
     {
      "n": 12,
      "answer": "C",
      "image": "/exams/math/ca/m07/q12.webp",
-     "imageKk": "/exams/math/ca/m07/q12.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q12.kk.webp",
+     "solution": "\\(x=18:2{,}5\\cdot8\\tfrac13=7{,}2\\cdot\\tfrac{25}3=60\\); \\(x:2=30\\). Ответ: C.",
+     "solutionKk": "\\(x=18:2{,}5\\cdot8\\tfrac13=7{,}2\\cdot\\tfrac{25}3=60\\); \\(x:2=30\\). Жауап: C."
     },
     {
      "n": 13,
      "answer": "A",
      "image": "/exams/math/ca/m07/q13.webp",
-     "imageKk": "/exams/math/ca/m07/q13.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q13.kk.webp",
+     "solution": "Сумма цифр 2022 равна 6; три записи дают 18 → кратно 9: 3. Ответ: A.",
+     "solutionKk": "Сумма цифр 2022 равна 6; три записи дают 18 → кратно 9: 3. Жауап: A."
     },
     {
      "n": 14,
      "answer": "D",
      "image": "/exams/math/ca/m07/q14.webp",
-     "imageKk": "/exams/math/ca/m07/q14.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q14.kk.webp",
+     "solution": "Убывание: \\(70>-100>-400\\). Ответ: D.",
+     "solutionKk": "Убывание: \\(70>-100>-400\\). Жауап: D."
     },
     {
      "n": 15,
      "answer": "C",
      "image": "/exams/math/ca/m07/q15.webp",
-     "imageKk": "/exams/math/ca/m07/q15.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q15.kk.webp",
+     "solution": "\\(\\tfrac1{12}+\\tfrac1{15}+\\tfrac1{20}=\\tfrac15\\) — это удвоенная скорость троих; втроём \\(\\tfrac1{10}\\) → 10 мес.. Ответ: C.",
+     "solutionKk": "\\(\\tfrac1{12}+\\tfrac1{15}+\\tfrac1{20}=\\tfrac15\\) — это удвоенная скорость троих; втроём \\(\\tfrac1{10}\\) → 10 мес.. Жауап: C."
     },
     {
      "n": 16,
      "answer": "D",
      "image": "/exams/math/ca/m07/q16.webp",
-     "imageKk": "/exams/math/ca/m07/q16.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q16.kk.webp",
+     "solution": "\\(2a+6b-6b+6+10-20a=16-18a=2(8-9a)\\). Ответ: D.",
+     "solutionKk": "\\(2a+6b-6b+6+10-20a=16-18a=2(8-9a)\\). Жауап: D."
     },
     {
      "n": 17,
      "answer": "C",
      "image": "/exams/math/ca/m07/q17.webp",
-     "imageKk": "/exams/math/ca/m07/q17.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q17.kk.webp",
+     "solution": "\\(|3x+4|=7\\Rightarrow x=1;\\ x=-\\tfrac{11}3\\); сумма \\(-2\\tfrac23\\). Ответ: C.",
+     "solutionKk": "\\(|3x+4|=7\\Rightarrow x=1;\\ x=-\\tfrac{11}3\\); сумма \\(-2\\tfrac23\\). Жауап: C."
     },
     {
      "n": 18,
      "answer": "D",
      "image": "/exams/math/ca/m07/q18.webp",
-     "imageKk": "/exams/math/ca/m07/q18.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q18.kk.webp",
+     "solution": "\\(6:(24+6)=20\\%\\). Ответ: D.",
+     "solutionKk": "\\(6:(24+6)=20\\%\\). Жауап: D."
     },
     {
      "n": 19,
      "answer": "C",
      "image": "/exams/math/ca/m07/q19.webp",
-     "imageKk": "/exams/math/ca/m07/q19.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q19.kk.webp",
+     "solution": "Нурлан сделал вдвое больше; Ержан меньше на \\(50\\%\\). Ответ: C.",
+     "solutionKk": "Нурлан сделал вдвое больше; Ержан меньше на \\(50\\%\\). Жауап: C."
     },
     {
      "n": 20,
      "answer": "D",
      "image": "/exams/math/ca/m07/q20.webp",
-     "imageKk": "/exams/math/ca/m07/q20.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q20.kk.webp",
+     "solution": "\\(\\angle BOD=\\angle AOD-(180^\\circ-\\angle BOE)=140^\\circ-60^\\circ=80^\\circ\\). Ответ: D.",
+     "solutionKk": "\\(\\angle BOD=\\angle AOD-(180^\\circ-\\angle BOE)=140^\\circ-60^\\circ=80^\\circ\\). Жауап: D."
     },
     {
      "n": 21,
      "answer": "A",
      "image": "/exams/math/ca/m07/q21.webp",
-     "imageKk": "/exams/math/ca/m07/q21.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q21.kk.webp",
+     "solution": "\\(3|x-3|+12\\ge-21\\) верно при всех \\(x\\): бесконечно много решений. Ответ: A.",
+     "solutionKk": "\\(3|x-3|+12\\ge-21\\) верно при всех \\(x\\): бесконечно много решений. Жауап: A."
     },
     {
      "n": 22,
      "answer": "D",
      "image": "/exams/math/ca/m07/q22.webp",
-     "imageKk": "/exams/math/ca/m07/q22.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q22.kk.webp",
+     "solution": "План 80% от выпущенного объёма: \\(100:80=1{,}25\\) → перевыполнен на 25%. Ответ: D.",
+     "solutionKk": "План 80% от выпущенного объёма: \\(100:80=1{,}25\\) → перевыполнен на 25%. Жауап: D."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/ca/m07/q23.webp",
-     "imageKk": "/exams/math/ca/m07/q23.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q23.kk.webp",
+     "solution": "Сумма \\(28\\): числа \\(x\\) и \\(x+8\\): \\(2x+8=28\\Rightarrow x=10\\). Ответ: B.",
+     "solutionKk": "Сумма \\(28\\): числа \\(x\\) и \\(x+8\\): \\(2x+8=28\\Rightarrow x=10\\). Жауап: B."
     },
     {
      "n": 24,
      "answer": "B",
      "image": "/exams/math/ca/m07/q24.webp",
-     "imageKk": "/exams/math/ca/m07/q24.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q24.kk.webp",
+     "solution": "Каждая дробь \\(\\tfrac12\\) минус малая добавка; наименьшая добавка у \\(\\tfrac{12121212}{24242423}\\) — она наибольшая. Ответ: B.",
+     "solutionKk": "Каждая дробь \\(\\tfrac12\\) минус малая добавка; наименьшая добавка у \\(\\tfrac{12121212}{24242423}\\) — она наибольшая. Жауап: B."
     },
     {
      "n": 25,
      "answer": "A",
      "image": "/exams/math/ca/m07/q25.webp",
-     "imageKk": "/exams/math/ca/m07/q25.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q25.kk.webp",
+     "solution": "\\(9a+12b=4a-10b\\Rightarrow5a=-22b\\Rightarrow\\tfrac ab=-4\\tfrac25\\). Ответ: A.",
+     "solutionKk": "\\(9a+12b=4a-10b\\Rightarrow5a=-22b\\Rightarrow\\tfrac ab=-4\\tfrac25\\). Жауап: A."
     },
     {
      "n": 26,
      "answer": "B",
      "image": "/exams/math/ca/m07/q26.webp",
-     "imageKk": "/exams/math/ca/m07/q26.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q26.kk.webp",
+     "solution": "Разница возрастов \\(84-d=\\tfrac d2\\Rightarrow d=56\\). Ответ: B.",
+     "solutionKk": "Разница возрастов \\(84-d=\\tfrac d2\\Rightarrow d=56\\). Жауап: B."
     },
     {
      "n": 27,
      "answer": "C",
      "image": "/exams/math/ca/m07/q27.webp",
-     "imageKk": "/exams/math/ca/m07/q27.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q27.kk.webp",
+     "solution": "Сыну \\(76-28=48\\): \\(76-x=2(48-x)\\Rightarrow x=20\\). Ответ: C.",
+     "solutionKk": "Сыну \\(76-28=48\\): \\(76-x=2(48-x)\\Rightarrow x=20\\). Жауап: C."
     },
     {
      "n": 28,
      "answer": "D",
      "image": "/exams/math/ca/m07/q28.webp",
-     "imageKk": "/exams/math/ca/m07/q28.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q28.kk.webp",
+     "solution": "Середина смещается на \\(\\tfrac L{14}=4\\Rightarrow L=56\\). Ответ: D.",
+     "solutionKk": "Середина смещается на \\(\\tfrac L{14}=4\\Rightarrow L=56\\). Жауап: D."
     },
     {
      "n": 29,
      "answer": "C",
      "image": "/exams/math/ca/m07/q29.webp",
-     "imageKk": "/exams/math/ca/m07/q29.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q29.kk.webp",
+     "solution": "Путь \\(64\\cdot5{,}25=336\\) км; \\(336:4=84\\) км/ч. Ответ: C.",
+     "solutionKk": "Путь \\(64\\cdot5{,}25=336\\) км; \\(336:4=84\\) км/ч. Жауап: C."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/ca/m07/q30.webp",
-     "imageKk": "/exams/math/ca/m07/q30.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q30.kk.webp",
+     "solution": "\\(x-y=7,\\ x+y=25\\Rightarrow x=16,\\ y=9\\); \\(xy=144\\). Ответ: B.",
+     "solutionKk": "\\(x-y=7,\\ x+y=25\\Rightarrow x=16,\\ y=9\\); \\(xy=144\\). Жауап: B."
     },
     {
      "n": 31,
      "answer": "D",
      "image": "/exams/math/ca/m07/q31.webp",
-     "imageKk": "/exams/math/ca/m07/q31.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q31.kk.webp",
+     "solution": "\\(\\tfrac1x+\\tfrac1{x+5}=\\tfrac16\\). Ответ: D.",
+     "solutionKk": "\\(\\tfrac1x+\\tfrac1{x+5}=\\tfrac16\\). Жауап: D."
     },
     {
      "n": 32,
      "answer": "D",
      "image": "/exams/math/ca/m07/q32.webp",
-     "imageKk": "/exams/math/ca/m07/q32.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q32.kk.webp",
+     "solution": "\\(\\tfrac d{40}+\\tfrac d{60}=6\\Rightarrow d=144\\). Ответ: D.",
+     "solutionKk": "\\(\\tfrac d{40}+\\tfrac d{60}=6\\Rightarrow d=144\\). Жауап: D."
     },
     {
      "n": 33,
      "answer": "B",
      "image": "/exams/math/ca/m07/q33.webp",
-     "imageKk": "/exams/math/ca/m07/q33.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q33.kk.webp",
+     "solution": "\\(\\tfrac{25}{121}\\approx0{,}2066<\\tfrac7{33}\\approx0{,}2121\\) → таблицы занимают больше. Ответ: B.",
+     "solutionKk": "\\(\\tfrac{25}{121}\\approx0{,}2066<\\tfrac7{33}\\approx0{,}2121\\) → таблицы занимают больше. Жауап: B."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/ca/m07/q34.webp",
-     "imageKk": "/exams/math/ca/m07/q34.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q34.kk.webp",
+     "solution": "По рисунку \\(AB\\) втрое больше \\(BC\\). Ответ: A.",
+     "solutionKk": "По рисунку \\(AB\\) втрое больше \\(BC\\). Жауап: A."
     },
     {
      "n": 35,
      "answer": "B",
      "image": "/exams/math/ca/m07/q35.webp",
-     "imageKk": "/exams/math/ca/m07/q35.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q35.kk.webp",
+     "solution": "\\(600\\) м²: яблони \\(240\\), груши \\(150\\), вишня \\(600-390=210\\). Ответ: B.",
+     "solutionKk": "\\(600\\) м²: яблони \\(240\\), груши \\(150\\), вишня \\(600-390=210\\). Жауап: B."
     },
     {
      "n": 36,
      "answer": "D",
      "image": "/exams/math/ca/m07/q36.webp",
-     "imageKk": "/exams/math/ca/m07/q36.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q36.kk.webp",
+     "solution": "\\(500\\) м за \\(20\\) с \\(=25\\) м/с \\(=90\\) км/ч. Ответ: D.",
+     "solutionKk": "\\(500\\) м за \\(20\\) с \\(=25\\) м/с \\(=90\\) км/ч. Жауап: D."
     },
     {
      "n": 37,
      "answer": "C",
      "image": "/exams/math/ca/m07/q37.webp",
-     "imageKk": "/exams/math/ca/m07/q37.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q37.kk.webp",
+     "solution": "От \\(m\\) до \\(4m-1\\) без концов: \\(4m-1-m-1=3m-2\\). Ответ: C.",
+     "solutionKk": "От \\(m\\) до \\(4m-1\\) без концов: \\(4m-1-m-1=3m-2\\). Жауап: C."
     },
     {
      "n": 38,
      "answer": "B",
      "image": "/exams/math/ca/m07/q38.webp",
-     "imageKk": "/exams/math/ca/m07/q38.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q38.kk.webp",
+     "solution": "\\(1{,}25\\cdot0{,}75=0{,}9375\\) → уменьшится на 6,25%. Ответ: B.",
+     "solutionKk": "\\(1{,}25\\cdot0{,}75=0{,}9375\\) → уменьшится на 6,25%. Жауап: B."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/ca/m07/q39.webp",
-     "imageKk": "/exams/math/ca/m07/q39.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q39.kk.webp",
+     "solution": "\\(\\tfrac15\\cdot\\tfrac14=\\tfrac1{20}\\). Ответ: B.",
+     "solutionKk": "\\(\\tfrac15\\cdot\\tfrac14=\\tfrac1{20}\\). Жауап: B."
     },
     {
      "n": 40,
      "answer": "B",
      "image": "/exams/math/ca/m07/q40.webp",
-     "imageKk": "/exams/math/ca/m07/q40.kk.webp"
+     "imageKk": "/exams/math/ca/m07/q40.kk.webp",
+     "solution": "\\(4\\cdot3\\cdot2=24\\). Ответ: B.",
+     "solutionKk": "\\(4\\cdot3\\cdot2=24\\). Жауап: B."
     }
    ]
   },
