@@ -70,5 +70,5 @@ export const TODAY_PAPERS: EngPaper[] = [
   { slug: "nis-today-test-03", number: 3, title: { ru: "Тест 3", kk: "3-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T03_MATH, ...shift(T03_QUANT, 41), ...enrich(T03_RUS), ...enrich(T03_KAZ), ...enrich(T03_ENG)] },
   { slug: "nis-today-test-04", number: 4, title: { ru: "Тест 4", kk: "4-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T04_MATH, ...shift(T04_QUANT, 41), ...enrich(T04_RUS), ...enrich(T04_KAZ), ...enrich(T04_ENG)] },
   { slug: "nis-today-test-05", number: 5, title: { ru: "Тест 5", kk: "5-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T05_MATH, ...shift(T05_QUANT, 41), ...enrich(T05_RUS), ...enrich(T05_KAZ), ...enrich(T05_ENG)] },
-  { slug: "nis-today-test-06", number: 6, title: { ru: "Тест 6", kk: "6-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T06_MATH, ...shift(T06_QUANT, 41), ...rotate(T06_RUS), ...rotate(T06_KAZ), ...rotate(T06_ENG)] },
+  { slug: "nis-today-test-06", number: 6, title: { ru: "Тест 6", kk: "6-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T06_MATH, ...shift(T06_QUANT, 41), ...enrich(T06_RUS), ...enrich(T06_KAZ), ...enrich(T06_ENG)] },
 ];
