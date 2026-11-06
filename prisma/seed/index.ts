@@ -38,6 +38,7 @@ import { RUS_BOOK_1, RUS_PAPERS } from "./data/rus";
 import { TODAY_BOOK_1, TODAY_PAPERS } from "./data/today";
 import { SCI_PAPERS } from "./data/nis/papers";
 import { KAZ_BOOK_1, KAZ_PAPERS } from "./data/kaz";
+import { NIS_MATH_BOOK_1 } from "./data/nismath";
 
 const prisma = new PrismaClient();
 
@@ -45,6 +46,7 @@ const ALL_SUBJECTS = [
   { name: "Математика", slug: "math", order: 0, sections: [SECTION_1, SECTION_2, SECTION_3, M2_SECTION_1, M2_SECTION_2, M2_SECTION_3, M3_SECTION_1, M3_SECTION_2, M4_SECTION_1, M4_SECTION_2] },
   { name: "Логика", slug: "logic", order: 1, sections: [LOGIC_SECTION_1, LOGIC_SECTION_2, LOGIC_SECTION_3] },
   { name: "5 класс", slug: "grade5", order: 2, sections: [G5B1_CHAPTER_1, G5B1_CHAPTER_2, G5B1_CHAPTER_3, G5_CHAPTER_4, G5_CHAPTER_5, G5_CHAPTER_6] },
+  { name: "Математика (НИШ)", slug: "nis-math", order: 8, sections: [NIS_MATH_BOOK_1] },
   { name: "Естествознание", slug: "nis-science", order: 3, sections: [NIS_BOOK_1, NIS_BOOK_2, NIS_BOOK_3] },
   { name: "Английский язык", slug: "nis-english", order: 4, sections: [ENG_BOOK_1, ENG_BOOK_2] },
   { name: "Русский язык", slug: "nis-russian", order: 5, sections: [RUS_BOOK_1] },

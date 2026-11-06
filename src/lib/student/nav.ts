@@ -1,5 +1,5 @@
 /** Предметы раздела «Подготовка в НИШ» (страница /nis). Сами предметы открываются по тем же маршрутам /bil/<slug>. */
-export const NIS_SUBJECTS = ["nis-science", "nis-english", "nis-russian", "nis-kazakh", "nis-today"];
+export const NIS_SUBJECTS = ["nis-math", "nis-science", "nis-english", "nis-russian", "nis-kazakh", "nis-today"];
 
 /** «5 класс» и «Подготовка в НИШ» — отдельные разделы главного экрана, не часть «Подготовки в БИЛ»: в /bil их предметов нет. */
 export const STANDALONE_SUBJECTS = ["grade5", ...NIS_SUBJECTS];
