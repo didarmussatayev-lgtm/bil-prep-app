@@ -1,3 +1,4 @@
+import katex from "katex";
 import ui from "@/components/student/ui.module.css";
 
 /**
@@ -54,6 +55,21 @@ function withFractions(text: string, keyPrefix: string): React.ReactNode[] {
 /** Инлайн-рендер одной строки (жирный `**...**` + дроби `{a/b}`) — без блочной обёртки,
  *  чтобы можно было вставить внутрь уже существующего <p>/<span> (см. TestResult.tsx). */
 export function renderRichInline(text: string, keyPrefix: string): React.ReactNode[] {
+  // формулы LaTeX: \( … \) и \[ … \] — рисуем KaTeX, остальной текст — как раньше
+  if (/\\[(\[]/.test(text)) {
+    return text.split(/(\\\([\s\S]+?\\\)|\\\[[\s\S]+?\\\])/g).filter((part) => part !== "").flatMap((part, i) => {
+      const display = part.startsWith("\\[");
+      if (display || part.startsWith("\\(")) {
+        const html = katex.renderToString(part.slice(2, -2), { throwOnError: false, displayMode: display });
+        return [<span key={`${keyPrefix}-m${i}`} dangerouslySetInnerHTML={{ __html: html }} />];
+      }
+      return renderTextInline(part, `${keyPrefix}-t${i}`);
+    });
+  }
+  return renderTextInline(text, keyPrefix);
+}
+
+function renderTextInline(text: string, keyPrefix: string): React.ReactNode[] {
   return text
     .split(/(\*\*[^*]+\*\*)/g)
     .filter((part) => part !== "")

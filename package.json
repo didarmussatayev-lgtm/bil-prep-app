@@ -17,6 +17,7 @@
   "dependencies": {
     "@prisma/client": "^5.19.0",
     "bcryptjs": "^2.4.3",
+    "katex": "^0.16.11",
     "next": "^14.2.35",
     "pdfkit": "^0.15.0",
     "react": "^18.3.1",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/katex": "^0.16.7",
     "@types/node": "^20.14.0",
     "@types/pdfkit": "^0.17.7",
     "@types/react": "^18.3.3",
