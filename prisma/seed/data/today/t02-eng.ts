@@ -1,62 +1,65 @@
 import type { EngTask } from "../eng/kit";
 
-/** Тест 2 · Английский язык (20 вопросов по 7 текстам). Тексты и вопросы написаны заново; нумерация 141–160. */
+/** Тест 2 · Английский язык — пересказ оригинала (стр. 84–92): тексты перефразированы, имена и числа изменены; вопросы и порядок как в книге, буквы — по ключу книги. Нумерация 141–160. */
 const E = (n: number, q: string, options: string[], correct: "A" | "B" | "C" | "D", ru: string, kk: string): EngTask => ({ n: String(n), q, choice: { options, correct }, sol: { ru, kk } });
 
 const A1 = `**Text 1**
-Welcome to "Blue Lake Camp"!
-Are you looking for an unforgettable summer?
-Join us for two weeks of swimming, hiking and campfire songs!
-Our counsellors will teach you to sail, to find your way with a map and to cook on a fire.
-You will make friends for life.
-Places are limited, so book early!`;
-const A2 = `**Text 2**
-Dear Parents,
-We are happy to invite you to the school concert on Friday, 12 May, at 6 p.m. in the main hall.
-Please arrive 15 minutes early. Entry is free, but we will be collecting donations for the school library.
-Yours sincerely,
-Ms. Roberts, Head Teacher`;
-const A3 = `**Text 3**
-Hi Aruzhan,
-Thanks for your invitation to your birthday party! I'd love to come. ______, I can't stay late because I have a piano lesson early on Sunday morning.
-Can I bring something? Maybe a cake or some juice? Let me know.
-See you on Saturday!
-Dana`;
-const A4 = `**Text 4: A Young Chess Champion**
-(1) Eleven-year-old Timur Nurlanov won the national junior chess tournament last Sunday. He beat players who were three years older than him and finished the competition without a single loss.
-(2) "I practise two hours every day," said Timur. "My dad taught me the rules when I was five, and my coach helps me to plan my moves. I was nervous before the last game, but I tried to stay calm."
-(3) Last year's champion, Alisher Omarov, came fourth.`;
-const A5 = `**Text 5: Penguins**
-(1) Penguins are birds, but they cannot fly. They live in the Southern Hemisphere, and most of them live in Antarctica. There are about 18 species of penguins, and the largest one, the emperor penguin, is about 1.1 metres tall.
-(2) Penguins are excellent swimmers. They use their wings like flippers and can reach a speed of 20 kilometres per hour under water. They eat fish, squid and krill.
-(3) Many people think that all penguins live in the cold. ______, some species, such as the Galapagos penguin, live near the equator. Penguins stay warm thanks to a thick layer of fat and waterproof feathers.`;
-const A6 = `**Text 6: The Story of the Light Bulb**
-Thomas Edison is famous as the inventor of the practical light bulb, but he was not the first to try. Many scientists had made electric lamps before him, but their bulbs burned for only a few minutes. Edison and his team tested thousands of materials to make the thin wire inside the bulb. In 1879 they found that a carbonized cotton thread could burn for more than a day. They worked day and night ______, and their success changed the way people lived: streets and homes became bright after sunset.`;
-const A7 = `**Text 7: Why Do We Need Sleep?**
-(1) People spend about a third of their lives sleeping. Scientists say that sleep is as important for the body as food and water.
-(2) While we sleep, the brain organizes information we learned during the day. Sleep also helps the body to grow and to repair itself.
-(3) Children and teenagers need more sleep than adults: school-age children need nine to eleven hours every night. Without enough sleep, people find it hard to concentrate and often feel angry or sad.
-(4) To sleep well, doctors advise going to bed at the same time every day and not using phones in the last hour before sleeping.`;
+Come to "Blue Wave Water Park"!
+Slide, splash and relax with the whole family!
+Meet our friendly dolphins at the daily show and enjoy 15 slides, a wave pool and a lazy river.
+Open every day from 10 a.m. to 7 p.m. Don't miss the best summer fun in town!`;
+const A2 = `**Text 2: Bird Ears**
+Have you ever wondered how birds hear? Birds have ears just like people, but they are hard to see because feathers cover them. A bird's ears are small holes on the sides of its head, and the feathers protect them from wind and rain.`;
+const A3 = `**Text 3: The Danube**
+______ not the longest river in Europe, the Danube is one of the most important. Unlike many big rivers, it is used for shipping and passes through ten countries. What makes it special is also its location: for many kilometres it forms the border between several states. Since 1856, special commissions have helped to keep it safe for ships.`;
+const A4 = `**Text 4**
+You have just graduated from school. You need to find a place to study further. Which text contains the information you are looking for?
+A) "Opportunities for teachers" — a job fair for experienced teachers.
+B) "Think. Do. Make a difference." — a university advertisement about its courses and scholarships.
+C) "World travel agency" — cheap tickets and holiday tours.
+D) "Seaview Marine Hotel" — rooms by the sea and a restaurant.`;
+const A5 = `**Text 5: Marie Tharp**
+(1) By the time Marie was 12, she knew that she wanted to study the sea. This was an unusual dream for a girl in the 1940s. There were few women scientists then, and most women were not allowed to go on research ships, but Marie was determined.
+(2) Marie's dream came true when she was 24. She moved to New York, where a famous scientist, Dr. Bruce Heezen, hired her as an assistant. Soon Marie began making maps of the ocean floor. Her work changed the way people understand the sea, and she became an important scientist.
+(3) Marie loved nature from early childhood. When she was five, her father, a map-maker, took her on his trips, and she watched him draw maps of fields and rivers. Her favourite books were about explorers and islands.`;
+const A6 = `**Text 6: Raisins**
+Raisins are dried grapes that people have eaten for thousands of years. About 3,000 years ago the first raisins were discovered as grapes drying in the sun on a vine. In medieval Europe raisins were used as sweeteners, medicine and even as a form of money!
+In America raisins were first made after a heat wave in 1873 destroyed the grape crop in California and left only dried, wrinkled but tasty grapes on the vines. Soon farmers began growing seedless, thin-skinned, sweet grapes, which they dried in the sun on purpose. A golden variety was made later by treating grapes with a special substance and drying them in a special way.
+Today central California produces about 90 percent of the world's raisins: its sunny climate and hot summers are perfect for drying grapes.`;
+const A7 = `**Text 7: Farm Machinery**
+(1) Before farm machines were invented, an average farm was small. It produced only enough food for the family, perhaps with a little left to sell. Farmers did most work with hand tools such as a hoe, a spade and shears. Farmers are sometimes carpenters, too, so they use a hammer, pliers, a knife and an axe.
+(2) Before tractors, farm machines were usually driven by animals. Tractors are much more efficient and powerful than animals. They do not require as much care as animals, and they can work all day without rest.
+(3) The tractor is the most useful single piece of farm equipment: it can pull a plough, a cultivator and many other machines.`;
+const A8 = `**Text 8**
+(1) Madina says all her friends have a mobile phone, but her mum does not want to buy her one. Her mum does not want her to play video games, either. ______, the Internet scares her. "If Madina has a phone, how do we know whom she talks to? Video games are bad for you. The Internet is dangerous and uncontrolled, like having a knife on the table. We should ban her from the computer, and I won't buy a phone until she is sixteen. It is the only way to be sure she is safe."
+(2) Madina's dad disagrees. He agrees that there are some dangers, but he likes the Internet and finds it useful. "We can't stop Madina from using it; that would put her at a disadvantage. What's more, I like video games: played in moderation, they are fun. Obviously, playing without self-control is not good. Finally, I think she needs a phone. We can't take these things away."`;
+const A9 = `**Text 9: Puppy or Adult Dog?**
+(1) Many people who want a pet dog get a puppy. Puppies are cute, friendly and playful. But there are good reasons to think about an adult dog instead.
+(2) When you get a puppy, you must teach it everything: not to go to the toilet in the house, not to jump on guests or chew shoes, and to walk on a lead. This is a lot of work.
+(3) On the other hand, many adult dogs already know all these things.
+(4) Puppies also have lots of energy and want to play all the time. They do not always sleep through the night or let you relax in front of the TV.
+(5) On the other hand, most adult dogs wait for you to play. What is more, they sleep when you sleep and happily watch TV next to you.
+(6) One last reason: most people who visit a shelter choose a puppy, so many adult dogs stay there for a long time and some never find a home. Adult dogs are good pets that need good homes.`;
 
 export const T02_ENG: EngTask[] = [
-  E(141, `${A1}\n\n**1. What is the main idea of this announcement?**`, ["Summer is hot.", "Blue Lake Camp offers an exciting summer holiday.", "Camps are expensive.", "Sailing is dangerous."], "B", "The text invites children to a camp and describes activities.", "Мәтін балаларды лагерьге шақырып, іс-шараларды сипаттайды."),
-  E(142, `**2. What does "Places are limited" mean?**`, ["There are few places for everyone", "The camp is small", "The camp is far away", "Places are expensive"], "A", "\"Limited\" means there is only a small number of places available.", "\"Limited\" — орын саны шектеулі дегенді білдіреді."),
-  E(143, `${A2}\n\n**3. Why did Ms. Roberts write this letter?**`, ["To invite parents to a school concert", "To ask for a donation", "To complain about noise", "To announce a holiday"], "A", "The letter invites parents to the concert.", "Хат ата-аналарды концертке шақырады."),
-  E(144, `${A3}\n\n**4. What is the main purpose of the message?**`, ["To refuse", "To accept an invitation", "To ask for money", "To complain"], "B", "Dana says she would love to come — she accepts.", "Дана келгісі келетінін айтады — шақыруды қабылдайды."),
-  E(145, `**5. What does "it" refer to in "Maybe a cake or some juice?" ("Can I bring something?")**`, ["Something", "Party", "Lesson", "Morning"], "A", "The question is about what Dana can bring — \"something\".", "Сұрақ Дана не ала алатыны туралы — \"something\"."),
-  E(146, `**6. What word is missing in the first paragraph?**`, ["Besides", "However", "Because", "Instead"], "B", "\"I'd love to come. However, I can't stay late\" — contrast.", "\"I'd love to come. However, I can't stay late\" — қарсы қою."),
-  E(147, `${A4}\n\n**7. Which paragraph contains the champion's own words?**`, ["Paragraph 1", "Paragraph 2", "Paragraph 3", "All of the above"], "B", "Paragraph 2 quotes Timur.", "2-абзацта Тимурдың сөздері келтірілген."),
-  E(148, `**8. Which of the following statements is true?**`, ["Timur lost one game.", "Timur is eleven years old.", "Last year's champion came first.", "Timur's mother taught him the rules."], "B", "The text says he is eleven; he lost no games; his dad taught him.", "Мәтінде ол он бір жаста; бірде-бір ойыннан жеңілмеген; ережені әкесі үйреткен."),
-  E(149, `**9. Where can you find this kind of text?**`, ["News website", "Cookbook", "Dictionary", "Timetable"], "A", "It reports a recent event with quotes.", "Ол жақында болған оқиға туралы дәйексөздермен хабарлайды."),
-  E(150, `${A5}\n\n**10. Which of the following sentences compares?**`, ["The emperor penguin is the largest species.", "Penguins eat fish.", "Penguins live in the Southern Hemisphere.", "They use their wings like flippers."], "A", "\"The largest\" is a superlative — it compares one species with all others.", "\"The largest\" — функциясы бойынша барлық түрлермен салыстырады."),
-  E(151, `**11. What information is not included in the text?**`, ["How fast penguins swim", "How long penguins live", "What penguins eat", "Where penguins live"], "B", "Life span is not mentioned.", "Өмір ұзақтығы туралы айтылмаған."),
-  E(152, `**12. What word is missing in the third paragraph?**`, ["Because", "However", "Besides", "Therefore"], "B", "\"Many people think… However, some species live near the equator\" — contrast.", "\"Many people think… However, some species live near the equator\" — қарсы қою."),
-  E(153, `${A6}\n\n**13. Why was Edison's lamp more successful than earlier ones?**`, ["It was cheaper", "The filament could burn for a much longer time", "It was bigger", "It used gas"], "B", "A carbonized cotton thread burned for more than a day.", "Көміртектелген мақта жібі бір тәуліктен астам жанды."),
-  E(154, `**14. What phrase should be inserted into the blank space?**`, ["for fun", "until they found a solution", "without any help", "only on Sundays"], "B", "\"Day and night until they found a solution\" fits the meaning.", "\"Day and night until they found a solution\" мағынаға сәйкес."),
-  E(155, `${A7}\n\n**15. According to the text, what does the brain do during sleep?**`, ["Stops working", "Organizes information learned during the day", "Grows bigger", "Learns new languages"], "B", "Paragraph 2 says the brain organizes information.", "2-абзацта ми ақпаратты ретке келтіреді делінген."),
-  E(156, `**16. What does "it" refer to in "the body to grow and to repair itself"?**`, ["Brain", "Body", "Sleep", "Day"], "B", "\"Itself\" refers to the body.", "\"Itself\" денеге қатысты."),
-  E(157, `**17. What would probably be the best title for the text?**`, ["Sleep and Its Importance", "Modern Phones", "A Day at School", "Food and Water"], "A", "The whole text is about why sleep is important.", "Мәтін ұйқының неліктен маңызды екені туралы."),
-  E(158, `**18. How much sleep do school-age children need?**`, ["Six to seven hours", "Nine to eleven hours", "Twelve to fourteen hours", "Five hours"], "B", "\"Nine to eleven hours every night.\"", "\"Nine to eleven hours every night.\""),
-  E(159, `**19. What do doctors advise?**`, ["Using phones before bed", "Going to bed at the same time every day", "Sleeping during the day", "Eating late"], "B", "Doctors advise going to bed at the same time every day.", "Дәрігерлер күн сайын бір уақытта жатуды ұсынады."),
-  E(160, `**20. What happens when people do not sleep enough?**`, ["They grow faster", "They find it hard to concentrate", "They become taller", "They learn more"], "B", "\"People find it hard to concentrate and often feel angry or sad.\"", "\"People find it hard to concentrate and often feel angry or sad.\""),
+  E(141, `${A1}\n\n**1. What is the purpose of this advertisement?**`, ["To entertain readers.", "To explain how to train a dolphin.", "To persuade readers to visit this water park.", "To express feelings about saving dolphins."], "C", "The ad invites people to visit the water park.", "Жарнама адамдарды су паркіне келуге шақырады."),
+  E(142, `${A2}\n\n**2. Based on the information in the passage, which statement is true?**`, ["Birds have ears that are difficult to detect.", "Birds have feathers instead of ears.", "Birds have ears on the backs of their heads.", "Many people wonder about how birds hear."], "A", "The passage says bird ears are hard to see because of feathers.", "Мәтінде құс құлағы қауырсынның астында, көру қиын делінген."),
+  E(143, `${A3}\n\n**3. According to the passage, why is the Danube so important?**`, ["It is the drinking-water source for most of Europe.", "It is used for shipping and forms a border between states.", "It is the longest river in Europe.", "It is known by two different names."], "B", "The Danube is used for shipping and forms borders.", "Дунай кеме қатынасы үшін қолданылады және мемлекеттер арасындағы шекара болады."),
+  E(144, `**4. What word is missing in the first sentence of the passage?**`, ["However", "Actually", "Although", "But so far"], "C", "\"Although (it is) not the longest river...\" introduces a concession.", "\"Although\" — ымыраластық мағынасын береді."),
+  E(145, `${A4}\n\n**5. Which text contains the information you are looking for?**`, ["Opportunities for teachers.", "Think. Do. Make a difference.", "World travel agency.", "Seaview Marine Hotel."], "B", "Only the university advertisement gives information about further study.", "Тек университет жарнамасы оқуды жалғастыру туралы ақпарат береді."),
+  E(146, `${A5}\n\n**6. What is the right order of paragraphs in the passage?**`, ["1-3-2.", "3-2-1.", "1-2-3.", "3-1-2."], "D", "The text begins with childhood (3), then the dream (1), then it comes true (2).", "Мәтін балалықтан (3), одан арман (1), содан соң орындалуы (2) басталады."),
+  E(147, `**7. What is the main idea of the passage?**`, ["Becoming a scientist was difficult for women in the 1940s.", "As a girl and later as a famous scientist, Marie Tharp enjoyed studying the sea.", "Marie Tharp worked with Dr. Heezen even though women were not usually scientists.", "Marie enjoyed drawing maps with her father."], "B", "The text follows her from childhood to scientific work.", "Мәтін оны балалықтан ғылыми жұмысқа дейін сипаттайды."),
+  E(148, `**8. How did Dr. Heezen help Marie reach her dream?**`, ["Marie visited his farm and watched hens.", "He travelled with her to the sea.", "He gave her a job as his assistant, and she could begin research.", "She met him in Africa as a girl."], "C", "He hired her as an assistant.", "Ол оны көмекші етіп жұмысқа алды."),
+  E(149, `${A6}\n\n**9. What would be the best title for this passage?**`, ["A History of Raisins.", "Healthy Snacks.", "The Discovery of the Golden Raisin.", "The Many Different Kinds of Raisins."], "A", "The passage tells the history of raisins.", "Мәтін мейіздің тарихын баяндайды."),
+  E(150, `**10. What is NOT true about raisins?**`, ["They are dried in the sun.", "There are dark and golden versions of raisins.", "They are grown in California.", "They are made from grapes with seeds."], "D", "The farmers developed seedless grapes for raisins.", "Мейіз үшін тұқымсыз жүзім өсірілген."),
+  E(151, `**11. Which of the following questions is NOT answered in the passage?**`, ["When did farmers start growing raisins in America?", "Why are raisins healthy for you?", "Why did American farmers start producing raisins?", "How are golden raisins produced?"], "B", "The health benefits of raisins are not mentioned.", "Мейіздің денсаулыққа пайдасы туралы айтылмаған."),
+  E(152, `${A7}\n\n**12. What are the advantages of using a farm tractor? All of the following are mentioned, EXCEPT…**`, ["It is more efficient and powerful.", "It can work the whole day.", "The price is cheaper than animals.", "It does not need as much care as animals."], "C", "The price is never mentioned.", "Бағасы туралы айтылмаған."),
+  E(153, `**13. "They do not require as much care as animals" (paragraph 2). The word "they" refers to…**`, ["farmers.", "animals.", "machines.", "farm tractors."], "D", "\"They\" refers to the farm tractors in the previous sentence.", "\"They\" — алдыңғы сөйлемдегі тракторларға қатысты."),
+  E(154, `${A8}\n\n**14. Which best describes the similarity between Madina's mum and dad?**`, ["Mum and dad both like technology.", "Mum and dad both think video games are bad.", "Mum and dad both think the Internet is completely dangerous.", "Mum and dad both care about Madina's wellbeing."], "D", "Both want her to be safe.", "Екеуі де қыздың амандығына алаңдайды."),
+  E(155, `**15. In paragraph 1, Madina's mum says, "It's like having a knife on the table." She says this in order to…**`, ["support the idea that the Internet is dangerous.", "reject the claim that knives can be safe.", "encourage Dad to buy a knife.", "explain why the Internet is uncontrolled."], "A", "The comparison supports her view that the Internet is dangerous.", "Салыстыру интернеттің қауіпті екенін растайды."),
+  E(156, `**16. What word/phrase is missing in the first paragraph?**`, ["What's more.", "But.", "In comparison.", "Again and again."], "A", "\"What's more\" adds one more argument.", "\"What's more\" тағы бір дәлел қосады."),
+  E(157, `${A9}\n\n**17. The main purpose of paragraph 2 is to explain that puppies…**`, ["are very immature.", "do not make good pets.", "are little work."], "A", "Puppies have to be taught everything — they are immature.", "Күшіктерге бәрін үйрету керек — олар әлі жетілмеген."),
+  E(158, `**18. According to the passage, why are adult dogs easier to take care of than puppies?**\nI. Puppies need to learn how to walk nicely on a lead.\nII. It is harder for adult dogs to find a home than for puppies.`, ["I only.", "II only.", "I and II."], "C", "By the book's key: both statements are used in the passage.", "Кітап кілті бойынша: екі тұжырым да мәтінде қолданылған."),
+  E(159, `**19. Based on the passage, which statement is false?**`, ["Puppies have a lot of energy.", "Puppies need a lot of attention.", "Adult dogs do not like to play.", "Adult dogs do not need to eat very much."], "C", "The text says most adult dogs wait for you to play.", "Мәтінде ересек иттер ойынға шақыруды күтеді делінген."),
+  E(160, `**20. The author begins paragraphs 3 and 5 with "on the other hand". This phrase is used to…**`, ["highlight an example.", "contrast previous information.", "support the upcoming paragraph."], "B", "\"On the other hand\" contrasts with the previous paragraph.", "\"On the other hand\" алдыңғы ақпаратқа қарсы қояды."),
 ];
