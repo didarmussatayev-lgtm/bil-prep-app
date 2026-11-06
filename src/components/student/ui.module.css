@@ -387,3 +387,7 @@ details[open] > .levelSummary::before, details[open] > .sectionSummary::before {
 .resOk { background: var(--ok-soft); color: var(--ok); }
 .resBad { background: var(--bad-soft); color: var(--bad); }
 .resNone { background: var(--surface-2); color: var(--muted); }
+
+.qMapBox { margin: 0 0 12px; border: 1px solid var(--border, #e3e6ef); border-radius: 12px; background: var(--card, #fff); padding: 8px 12px; }
+.qMapBox > summary { cursor: pointer; font-size: 0.9rem; font-weight: 600; color: var(--muted); padding: 4px 0; }
+.qMapBig { display: flex; flex-wrap: wrap; gap: 6px; max-height: 40vh; overflow-y: auto; padding: 8px 0 4px; }

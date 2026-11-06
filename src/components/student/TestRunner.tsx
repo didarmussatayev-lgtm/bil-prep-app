@@ -131,13 +131,20 @@ export function TestRunner({
       )}
       {finishError && <p className={ui.error} role="alert">{finishError}</p>}
 
-      {questions.length > 12 && (
-        <nav className={ui.qMap} aria-label={t("Карта вопросов")}>
-          {questions.map((q, i) => (
-            <a key={q.id} href={`#q-${i + 1}`} className={`${ui.qChip} ${answers[q.id] ? ui.qChipDone : ""}`} aria-label={t("Вопрос {n}", { n: i + 1 })}>{i + 1}</a>
-          ))}
-        </nav>
-      )}
+      {questions.length > 12 && (() => {
+        const chips = questions.map((q, i) => (
+          <a key={q.id} href={`#q-${i + 1}`} className={`${ui.qChip} ${answers[q.id] ? ui.qChipDone : ""}`} aria-label={t("Вопрос {n}", { n: i + 1 })}>{i + 1}</a>
+        ));
+        // длинные варианты (160 вопросов) — карта сворачивается и не прилипает к верху экрана
+        return questions.length > 40 ? (
+          <details className={ui.qMapBox}>
+            <summary>{t("Карта вопросов")} · {answered}/{questions.length}</summary>
+            <nav className={ui.qMapBig} aria-label={t("Карта вопросов")}>{chips}</nav>
+          </details>
+        ) : (
+          <nav className={ui.qMap} aria-label={t("Карта вопросов")}>{chips}</nav>
+        );
+      })()}
 
       {questions.map((q, i) => (
         <fieldset key={q.id} id={`q-${i + 1}`} className={ui.question}>
