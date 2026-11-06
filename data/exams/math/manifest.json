@@ -6763,361 +6763,481 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/ca/q01/q01.webp",
-     "imageKk": "/exams/math/ca/q01/q01.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q01.kk.webp",
+     "solution": "A = 32, B = 31. В колонке A больше — ответ A.",
+     "solutionKk": "A = 32, B = 31. A бағанында үлкен — жауап A."
     },
     {
      "n": 2,
      "answer": "B",
      "image": "/exams/math/ca/q01/q02.webp",
-     "imageKk": "/exams/math/ca/q01/q02.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q02.kk.webp",
+     "solution": "A = 35, B = 36. В колонке B больше — ответ B.",
+     "solutionKk": "A = 35, B = 36. B бағанында үлкен — жауап B."
     },
     {
      "n": 3,
      "answer": "B",
      "image": "/exams/math/ca/q01/q03.webp",
-     "imageKk": "/exams/math/ca/q01/q03.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q03.kk.webp",
+     "solution": "A = 68, B = 69. В колонке B больше — ответ B.",
+     "solutionKk": "A = 68, B = 69. B бағанында үлкен — жауап B."
     },
     {
      "n": 4,
      "answer": "B",
      "image": "/exams/math/ca/q01/q04.webp",
-     "imageKk": "/exams/math/ca/q01/q04.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q04.kk.webp",
+     "solution": "A = 540, B = 570. В колонке B больше — ответ B.",
+     "solutionKk": "A = 540, B = 570. B бағанында үлкен — жауап B."
     },
     {
      "n": 5,
      "answer": "B",
      "image": "/exams/math/ca/q01/q05.webp",
-     "imageKk": "/exams/math/ca/q01/q05.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q05.kk.webp",
+     "solution": "A = 4, B = 12. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4, B = 12. B бағанында үлкен — жауап B."
     },
     {
      "n": 6,
      "answer": "B",
      "image": "/exams/math/ca/q01/q06.webp",
-     "imageKk": "/exams/math/ca/q01/q06.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q06.kk.webp",
+     "solution": "A = 75000, B = 80000. В колонке B больше — ответ B.",
+     "solutionKk": "A = 75000, B = 80000. B бағанында үлкен — жауап B."
     },
     {
      "n": 7,
      "answer": "A",
      "image": "/exams/math/ca/q01/q07.webp",
-     "imageKk": "/exams/math/ca/q01/q07.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q07.kk.webp",
+     "solution": "A = 1.0455, B = 1.037. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1.0455, B = 1.037. A бағанында үлкен — жауап A."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/ca/q01/q08.webp",
-     "imageKk": "/exams/math/ca/q01/q08.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q08.kk.webp",
+     "solution": "A = 150, B = 155. В колонке B больше — ответ B.",
+     "solutionKk": "A = 150, B = 155. B бағанында үлкен — жауап B."
     },
     {
      "n": 9,
      "answer": "A",
      "image": "/exams/math/ca/q01/q09.webp",
-     "imageKk": "/exams/math/ca/q01/q09.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q09.kk.webp",
+     "solution": "A = 181, B = 180. В колонке A больше — ответ A.",
+     "solutionKk": "A = 181, B = 180. A бағанында үлкен — жауап A."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/ca/q01/q10.webp",
-     "imageKk": "/exams/math/ca/q01/q10.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q10.kk.webp",
+     "solution": "A = 3.875, B = 4.375. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3.875, B = 4.375. B бағанында үлкен — жауап B."
     },
     {
      "n": 11,
      "answer": "B",
      "image": "/exams/math/ca/q01/q11.webp",
-     "imageKk": "/exams/math/ca/q01/q11.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q11.kk.webp",
+     "solution": "A = 2, B = 3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2, B = 3. B бағанында үлкен — жауап B."
     },
     {
      "n": 12,
      "answer": "C",
      "image": "/exams/math/ca/q01/q12.webp",
-     "imageKk": "/exams/math/ca/q01/q12.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q12.kk.webp",
+     "solution": "A = 30, B = 30. Значения равны — ответ C.",
+     "solutionKk": "A = 30, B = 30. мәндер тең — жауап C."
     },
     {
      "n": 13,
      "answer": "A",
      "image": "/exams/math/ca/q01/q13.webp",
-     "imageKk": "/exams/math/ca/q01/q13.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q13.kk.webp",
+     "solution": "A = 4, B = 3.14. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4, B = 3.14. A бағанында үлкен — жауап A."
     },
     {
      "n": 14,
      "answer": "A",
      "image": "/exams/math/ca/q01/q14.webp",
-     "imageKk": "/exams/math/ca/q01/q14.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q14.kk.webp",
+     "solution": "A = 24, B = 20. В колонке A больше — ответ A.",
+     "solutionKk": "A = 24, B = 20. A бағанында үлкен — жауап A."
     },
     {
      "n": 15,
      "answer": "B",
      "image": "/exams/math/ca/q01/q15.webp",
-     "imageKk": "/exams/math/ca/q01/q15.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q15.kk.webp",
+     "solution": "A = 0, B = 0. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0, B = 0. B бағанында үлкен — жауап B."
     },
     {
      "n": 16,
      "answer": "A",
      "image": "/exams/math/ca/q01/q16.webp",
-     "imageKk": "/exams/math/ca/q01/q16.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q16.kk.webp",
+     "solution": "A = 0.8895, B = -1.1242. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.8895, B = -1.1242. A бағанында үлкен — жауап A."
     },
     {
      "n": 17,
      "answer": "A",
      "image": "/exams/math/ca/q01/q17.webp",
-     "imageKk": "/exams/math/ca/q01/q17.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q17.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 18,
      "answer": "A",
      "image": "/exams/math/ca/q01/q18.webp",
-     "imageKk": "/exams/math/ca/q01/q18.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q18.kk.webp",
+     "solution": "A = 7, B = 6. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 6. A бағанында үлкен — жауап A."
     },
     {
      "n": 19,
      "answer": "C",
      "image": "/exams/math/ca/q01/q19.webp",
-     "imageKk": "/exams/math/ca/q01/q19.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q19.kk.webp",
+     "solution": "A = 13.5, B = 13.5. Значения равны — ответ C.",
+     "solutionKk": "A = 13.5, B = 13.5. мәндер тең — жауап C."
     },
     {
      "n": 20,
      "answer": "A",
      "image": "/exams/math/ca/q01/q20.webp",
-     "imageKk": "/exams/math/ca/q01/q20.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q20.kk.webp",
+     "solution": "A = 56, B = 54. В колонке A больше — ответ A.",
+     "solutionKk": "A = 56, B = 54. A бағанында үлкен — жауап A."
     },
     {
      "n": 21,
      "answer": "A",
      "image": "/exams/math/ca/q01/q21.webp",
-     "imageKk": "/exams/math/ca/q01/q21.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q21.kk.webp",
+     "solution": "A = 51, B = 50. В колонке A больше — ответ A.",
+     "solutionKk": "A = 51, B = 50. A бағанында үлкен — жауап A."
     },
     {
      "n": 22,
      "answer": "B",
      "image": "/exams/math/ca/q01/q22.webp",
-     "imageKk": "/exams/math/ca/q01/q22.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q22.kk.webp",
+     "solution": "A = 3050, B = 3120. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3050, B = 3120. B бағанында үлкен — жауап B."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/ca/q01/q23.webp",
-     "imageKk": "/exams/math/ca/q01/q23.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q23.kk.webp",
+     "solution": "A = 988, B = 999. В колонке B больше — ответ B.",
+     "solutionKk": "A = 988, B = 999. B бағанында үлкен — жауап B."
     },
     {
      "n": 24,
      "answer": "C",
      "image": "/exams/math/ca/q01/q24.webp",
-     "imageKk": "/exams/math/ca/q01/q24.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q24.kk.webp",
+     "solution": "A = 0.6, B = 0.6. Значения равны — ответ C.",
+     "solutionKk": "A = 0.6, B = 0.6. мәндер тең — жауап C."
     },
     {
      "n": 25,
      "answer": "A",
      "image": "/exams/math/ca/q01/q25.webp",
-     "imageKk": "/exams/math/ca/q01/q25.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q25.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 26,
      "answer": "B",
      "image": "/exams/math/ca/q01/q26.webp",
-     "imageKk": "/exams/math/ca/q01/q26.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q26.kk.webp",
+     "solution": "A = 4000, B = 4096. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4000, B = 4096. B бағанында үлкен — жауап B."
     },
     {
      "n": 27,
      "answer": "B",
      "image": "/exams/math/ca/q01/q27.webp",
-     "imageKk": "/exams/math/ca/q01/q27.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q27.kk.webp",
+     "solution": "A = 0, B = 0. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0, B = 0. B бағанында үлкен — жауап B."
     },
     {
      "n": 28,
      "answer": "A",
      "image": "/exams/math/ca/q01/q28.webp",
-     "imageKk": "/exams/math/ca/q01/q28.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q28.kk.webp",
+     "solution": "A = 129, B = 128. В колонке A больше — ответ A.",
+     "solutionKk": "A = 129, B = 128. A бағанында үлкен — жауап A."
     },
     {
      "n": 29,
      "answer": "B",
      "image": "/exams/math/ca/q01/q29.webp",
-     "imageKk": "/exams/math/ca/q01/q29.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q29.kk.webp",
+     "solution": "A = -5, B = -4. В колонке B больше — ответ B.",
+     "solutionKk": "A = -5, B = -4. B бағанында үлкен — жауап B."
     },
     {
      "n": 30,
      "answer": "A",
      "image": "/exams/math/ca/q01/q30.webp",
-     "imageKk": "/exams/math/ca/q01/q30.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q30.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/ca/q01/q31.webp",
-     "imageKk": "/exams/math/ca/q01/q31.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q31.kk.webp",
+     "solution": "A = 28, B = 56. В колонке B больше — ответ B.",
+     "solutionKk": "A = 28, B = 56. B бағанында үлкен — жауап B."
     },
     {
      "n": 32,
      "answer": "C",
      "image": "/exams/math/ca/q01/q32.webp",
-     "imageKk": "/exams/math/ca/q01/q32.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q32.kk.webp",
+     "solution": "A = 3000, B = 3000. Значения равны — ответ C.",
+     "solutionKk": "A = 3000, B = 3000. мәндер тең — жауап C."
     },
     {
      "n": 33,
      "answer": "A",
      "image": "/exams/math/ca/q01/q33.webp",
-     "imageKk": "/exams/math/ca/q01/q33.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q33.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/ca/q01/q34.webp",
-     "imageKk": "/exams/math/ca/q01/q34.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q34.kk.webp",
+     "solution": "A = 1.0001, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1.0001, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 35,
      "answer": "A",
      "image": "/exams/math/ca/q01/q35.webp",
-     "imageKk": "/exams/math/ca/q01/q35.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q35.kk.webp",
+     "solution": "A = 3600, B = 3000. В колонке A больше — ответ A.",
+     "solutionKk": "A = 3600, B = 3000. A бағанында үлкен — жауап A."
     },
     {
      "n": 36,
      "answer": "C",
      "image": "/exams/math/ca/q01/q36.webp",
-     "imageKk": "/exams/math/ca/q01/q36.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q36.kk.webp",
+     "solution": "A = 45, B = 45. Значения равны — ответ C.",
+     "solutionKk": "A = 45, B = 45. мәндер тең — жауап C."
     },
     {
      "n": 37,
      "answer": "A",
      "image": "/exams/math/ca/q01/q37.webp",
-     "imageKk": "/exams/math/ca/q01/q37.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q37.kk.webp",
+     "solution": "A = 1.0003, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1.0003, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 38,
      "answer": "A",
      "image": "/exams/math/ca/q01/q38.webp",
-     "imageKk": "/exams/math/ca/q01/q38.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q38.kk.webp",
+     "solution": "A = 2856, B = 2800. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2856, B = 2800. A бағанында үлкен — жауап A."
     },
     {
      "n": 39,
      "answer": "A",
      "image": "/exams/math/ca/q01/q39.webp",
-     "imageKk": "/exams/math/ca/q01/q39.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q39.kk.webp",
+     "solution": "A = 2140, B = 2105. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2140, B = 2105. A бағанында үлкен — жауап A."
     },
     {
      "n": 40,
      "answer": "B",
      "image": "/exams/math/ca/q01/q40.webp",
-     "imageKk": "/exams/math/ca/q01/q40.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q40.kk.webp",
+     "solution": "A = 24, B = 48. В колонке B больше — ответ B.",
+     "solutionKk": "A = 24, B = 48. B бағанында үлкен — жауап B."
     },
     {
      "n": 41,
      "answer": "A",
      "image": "/exams/math/ca/q01/q41.webp",
-     "imageKk": "/exams/math/ca/q01/q41.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q41.kk.webp",
+     "solution": "A = 9, B = 8. В колонке A больше — ответ A.",
+     "solutionKk": "A = 9, B = 8. A бағанында үлкен — жауап A."
     },
     {
      "n": 42,
      "answer": "A",
      "image": "/exams/math/ca/q01/q42.webp",
-     "imageKk": "/exams/math/ca/q01/q42.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q42.kk.webp",
+     "solution": "A = 35, B = 30. В колонке A больше — ответ A.",
+     "solutionKk": "A = 35, B = 30. A бағанында үлкен — жауап A."
     },
     {
      "n": 43,
      "answer": "B",
      "image": "/exams/math/ca/q01/q43.webp",
-     "imageKk": "/exams/math/ca/q01/q43.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q43.kk.webp",
+     "solution": "A = 55, B = 65. В колонке B больше — ответ B.",
+     "solutionKk": "A = 55, B = 65. B бағанында үлкен — жауап B."
     },
     {
      "n": 44,
      "answer": "A",
      "image": "/exams/math/ca/q01/q44.webp",
-     "imageKk": "/exams/math/ca/q01/q44.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q44.kk.webp",
+     "solution": "A = 76, B = 47.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 76, B = 47.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 45,
      "answer": "D",
      "image": "/exams/math/ca/q01/q45.webp",
-     "imageKk": "/exams/math/ca/q01/q45.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q45.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 46,
      "answer": "A",
      "image": "/exams/math/ca/q01/q46.webp",
-     "imageKk": "/exams/math/ca/q01/q46.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q46.kk.webp",
+     "solution": "A = 0, B = 0. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0, B = 0. A бағанында үлкен — жауап A."
     },
     {
      "n": 47,
      "answer": "A",
      "image": "/exams/math/ca/q01/q47.webp",
-     "imageKk": "/exams/math/ca/q01/q47.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q47.kk.webp",
+     "solution": "A = 115, B = 105. В колонке A больше — ответ A.",
+     "solutionKk": "A = 115, B = 105. A бағанында үлкен — жауап A."
     },
     {
      "n": 48,
      "answer": "A",
      "image": "/exams/math/ca/q01/q48.webp",
-     "imageKk": "/exams/math/ca/q01/q48.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q48.kk.webp",
+     "solution": "A = 30, B = 25. В колонке A больше — ответ A.",
+     "solutionKk": "A = 30, B = 25. A бағанында үлкен — жауап A."
     },
     {
      "n": 49,
      "answer": "C",
      "image": "/exams/math/ca/q01/q49.webp",
-     "imageKk": "/exams/math/ca/q01/q49.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q49.kk.webp",
+     "solution": "A = 20, B = 20. Значения равны — ответ C.",
+     "solutionKk": "A = 20, B = 20. мәндер тең — жауап C."
     },
     {
      "n": 50,
      "answer": "A",
      "image": "/exams/math/ca/q01/q50.webp",
-     "imageKk": "/exams/math/ca/q01/q50.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q50.kk.webp",
+     "solution": "A = -0.04, B = -0.0833. В колонке A больше — ответ A.",
+     "solutionKk": "A = -0.04, B = -0.0833. A бағанында үлкен — жауап A."
     },
     {
      "n": 51,
      "answer": "B",
      "image": "/exams/math/ca/q01/q51.webp",
-     "imageKk": "/exams/math/ca/q01/q51.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q51.kk.webp",
+     "solution": "A = 95493.0465, B = 111408.5543. В колонке B больше — ответ B.",
+     "solutionKk": "A = 95493.0465, B = 111408.5543. B бағанында үлкен — жауап B."
     },
     {
      "n": 52,
      "answer": "C",
      "image": "/exams/math/ca/q01/q52.webp",
-     "imageKk": "/exams/math/ca/q01/q52.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q52.kk.webp",
+     "solution": "A = 100, B = 100. Значения равны — ответ C.",
+     "solutionKk": "A = 100, B = 100. мәндер тең — жауап C."
     },
     {
      "n": 53,
      "answer": "A",
      "image": "/exams/math/ca/q01/q53.webp",
-     "imageKk": "/exams/math/ca/q01/q53.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q53.kk.webp",
+     "solution": "A = 72, B = 48. В колонке A больше — ответ A.",
+     "solutionKk": "A = 72, B = 48. A бағанында үлкен — жауап A."
     },
     {
      "n": 54,
      "answer": "B",
      "image": "/exams/math/ca/q01/q54.webp",
-     "imageKk": "/exams/math/ca/q01/q54.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q54.kk.webp",
+     "solution": "A = 144, B = 156. В колонке B больше — ответ B.",
+     "solutionKk": "A = 144, B = 156. B бағанында үлкен — жауап B."
     },
     {
      "n": 55,
      "answer": "B",
      "image": "/exams/math/ca/q01/q55.webp",
-     "imageKk": "/exams/math/ca/q01/q55.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q55.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 56,
      "answer": "B",
      "image": "/exams/math/ca/q01/q56.webp",
-     "imageKk": "/exams/math/ca/q01/q56.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q56.kk.webp",
+     "solution": "A = 315.7143, B = 575. В колонке B больше — ответ B.",
+     "solutionKk": "A = 315.7143, B = 575. B бағанында үлкен — жауап B."
     },
     {
      "n": 57,
      "answer": "A",
      "image": "/exams/math/ca/q01/q57.webp",
-     "imageKk": "/exams/math/ca/q01/q57.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q57.kk.webp",
+     "solution": "A = 575, B = 485. В колонке A больше — ответ A.",
+     "solutionKk": "A = 575, B = 485. A бағанында үлкен — жауап A."
     },
     {
      "n": 58,
      "answer": "A",
      "image": "/exams/math/ca/q01/q58.webp",
-     "imageKk": "/exams/math/ca/q01/q58.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q58.kk.webp",
+     "solution": "A = 180, B = 120. В колонке A больше — ответ A.",
+     "solutionKk": "A = 180, B = 120. A бағанында үлкен — жауап A."
     },
     {
      "n": 59,
      "answer": "B",
      "image": "/exams/math/ca/q01/q59.webp",
-     "imageKk": "/exams/math/ca/q01/q59.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q59.kk.webp",
+     "solution": "A = 0.2, B = 0.3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.2, B = 0.3. B бағанында үлкен — жауап B."
     },
     {
      "n": 60,
      "answer": "B",
      "image": "/exams/math/ca/q01/q60.webp",
-     "imageKk": "/exams/math/ca/q01/q60.kk.webp"
+     "imageKk": "/exams/math/ca/q01/q60.kk.webp",
+     "solution": "A = 0.4, B = 4. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.4, B = 4. B бағанында үлкен — жауап B."
     }
    ]
   },
@@ -7133,361 +7253,481 @@
      "n": 1,
      "answer": "B",
      "image": "/exams/math/ca/q02/q01.webp",
-     "imageKk": "/exams/math/ca/q02/q01.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q01.kk.webp",
+     "solution": "A = 2.38, B = 2.39. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2.38, B = 2.39. B бағанында үлкен — жауап B."
     },
     {
      "n": 2,
      "answer": "A",
      "image": "/exams/math/ca/q02/q02.webp",
-     "imageKk": "/exams/math/ca/q02/q02.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q02.kk.webp",
+     "solution": "A = 70, B = 64. В колонке A больше — ответ A.",
+     "solutionKk": "A = 70, B = 64. A бағанында үлкен — жауап A."
     },
     {
      "n": 3,
      "answer": "D",
      "image": "/exams/math/ca/q02/q03.webp",
-     "imageKk": "/exams/math/ca/q02/q03.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q03.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 4,
      "answer": "A",
      "image": "/exams/math/ca/q02/q04.webp",
-     "imageKk": "/exams/math/ca/q02/q04.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q04.kk.webp",
+     "solution": "A = 165, B = 155. В колонке A больше — ответ A.",
+     "solutionKk": "A = 165, B = 155. A бағанында үлкен — жауап A."
     },
     {
      "n": 5,
      "answer": "C",
      "image": "/exams/math/ca/q02/q05.webp",
-     "imageKk": "/exams/math/ca/q02/q05.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q05.kk.webp",
+     "solution": "A = 170, B = 170. Значения равны — ответ C.",
+     "solutionKk": "A = 170, B = 170. мәндер тең — жауап C."
     },
     {
      "n": 6,
      "answer": "B",
      "image": "/exams/math/ca/q02/q06.webp",
-     "imageKk": "/exams/math/ca/q02/q06.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q06.kk.webp",
+     "solution": "A = 3.125, B = 4.375. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3.125, B = 4.375. B бағанында үлкен — жауап B."
     },
     {
      "n": 7,
      "answer": "A",
      "image": "/exams/math/ca/q02/q07.webp",
-     "imageKk": "/exams/math/ca/q02/q07.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q07.kk.webp",
+     "solution": "A = 0.66, B = 0.625. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.66, B = 0.625. A бағанында үлкен — жауап A."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/ca/q02/q08.webp",
-     "imageKk": "/exams/math/ca/q02/q08.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q08.kk.webp",
+     "solution": "A = 380, B = 400. В колонке B больше — ответ B.",
+     "solutionKk": "A = 380, B = 400. B бағанында үлкен — жауап B."
     },
     {
      "n": 9,
      "answer": "C",
      "image": "/exams/math/ca/q02/q09.webp",
-     "imageKk": "/exams/math/ca/q02/q09.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q09.kk.webp",
+     "solution": "A = 20160, B = 20160. Значения равны — ответ C.",
+     "solutionKk": "A = 20160, B = 20160. мәндер тең — жауап C."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/ca/q02/q10.webp",
-     "imageKk": "/exams/math/ca/q02/q10.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q10.kk.webp",
+     "solution": "A = 250, B = 300. В колонке B больше — ответ B.",
+     "solutionKk": "A = 250, B = 300. B бағанында үлкен — жауап B."
     },
     {
      "n": 11,
      "answer": "B",
      "image": "/exams/math/ca/q02/q11.webp",
-     "imageKk": "/exams/math/ca/q02/q11.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q11.kk.webp",
+     "solution": "A = 0, B = 2. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0, B = 2. B бағанында үлкен — жауап B."
     },
     {
      "n": 12,
      "answer": "D",
      "image": "/exams/math/ca/q02/q12.webp",
-     "imageKk": "/exams/math/ca/q02/q12.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q12.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 13,
      "answer": "C",
      "image": "/exams/math/ca/q02/q13.webp",
-     "imageKk": "/exams/math/ca/q02/q13.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q13.kk.webp",
+     "solution": "A = 60, B = 60. Значения равны — ответ C.",
+     "solutionKk": "A = 60, B = 60. мәндер тең — жауап C."
     },
     {
      "n": 14,
      "answer": "B",
      "image": "/exams/math/ca/q02/q14.webp",
-     "imageKk": "/exams/math/ca/q02/q14.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q14.kk.webp",
+     "solution": "A = 2, B = 6. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2, B = 6. B бағанында үлкен — жауап B."
     },
     {
      "n": 15,
      "answer": "D",
      "image": "/exams/math/ca/q02/q15.webp",
-     "imageKk": "/exams/math/ca/q02/q15.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q15.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 16,
      "answer": "B",
      "image": "/exams/math/ca/q02/q16.webp",
-     "imageKk": "/exams/math/ca/q02/q16.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q16.kk.webp",
+     "solution": "A = 1200, B = 1230. В колонке B больше — ответ B.",
+     "solutionKk": "A = 1200, B = 1230. B бағанында үлкен — жауап B."
     },
     {
      "n": 17,
      "answer": "A",
      "image": "/exams/math/ca/q02/q17.webp",
-     "imageKk": "/exams/math/ca/q02/q17.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q17.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 18,
      "answer": "B",
      "image": "/exams/math/ca/q02/q18.webp",
-     "imageKk": "/exams/math/ca/q02/q18.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q18.kk.webp",
+     "solution": "A = 40, B = 42. В колонке B больше — ответ B.",
+     "solutionKk": "A = 40, B = 42. B бағанында үлкен — жауап B."
     },
     {
      "n": 19,
      "answer": "A",
      "image": "/exams/math/ca/q02/q19.webp",
-     "imageKk": "/exams/math/ca/q02/q19.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q19.kk.webp",
+     "solution": "A = 20, B = 18. В колонке A больше — ответ A.",
+     "solutionKk": "A = 20, B = 18. A бағанында үлкен — жауап A."
     },
     {
      "n": 20,
      "answer": "B",
      "image": "/exams/math/ca/q02/q20.webp",
-     "imageKk": "/exams/math/ca/q02/q20.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q20.kk.webp",
+     "solution": "A = 34.1667, B = 35. В колонке B больше — ответ B.",
+     "solutionKk": "A = 34.1667, B = 35. B бағанында үлкен — жауап B."
     },
     {
      "n": 21,
      "answer": "C",
      "image": "/exams/math/ca/q02/q21.webp",
-     "imageKk": "/exams/math/ca/q02/q21.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q21.kk.webp",
+     "solution": "A = 1, B = 1. Значения равны — ответ C.",
+     "solutionKk": "A = 1, B = 1. мәндер тең — жауап C."
     },
     {
      "n": 22,
      "answer": "A",
      "image": "/exams/math/ca/q02/q22.webp",
-     "imageKk": "/exams/math/ca/q02/q22.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q22.kk.webp",
+     "solution": "A = 92, B = 90. В колонке A больше — ответ A.",
+     "solutionKk": "A = 92, B = 90. A бағанында үлкен — жауап A."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/ca/q02/q23.webp",
-     "imageKk": "/exams/math/ca/q02/q23.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q23.kk.webp",
+     "solution": "A = 360, B = 400. В колонке B больше — ответ B.",
+     "solutionKk": "A = 360, B = 400. B бағанында үлкен — жауап B."
     },
     {
      "n": 24,
      "answer": "B",
      "image": "/exams/math/ca/q02/q24.webp",
-     "imageKk": "/exams/math/ca/q02/q24.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q24.kk.webp",
+     "solution": "A = 48, B = 50. В колонке B больше — ответ B.",
+     "solutionKk": "A = 48, B = 50. B бағанында үлкен — жауап B."
     },
     {
      "n": 25,
      "answer": "A",
      "image": "/exams/math/ca/q02/q25.webp",
-     "imageKk": "/exams/math/ca/q02/q25.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q25.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 26,
      "answer": "B",
      "image": "/exams/math/ca/q02/q26.webp",
-     "imageKk": "/exams/math/ca/q02/q26.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q26.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 27,
      "answer": "A",
      "image": "/exams/math/ca/q02/q27.webp",
-     "imageKk": "/exams/math/ca/q02/q27.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q27.kk.webp",
+     "solution": "A = 0.5, B = 0.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.5, B = 0.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 28,
      "answer": "C",
      "image": "/exams/math/ca/q02/q28.webp",
-     "imageKk": "/exams/math/ca/q02/q28.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q28.kk.webp",
+     "solution": "A = 1200, B = 1200. Значения равны — ответ C.",
+     "solutionKk": "A = 1200, B = 1200. мәндер тең — жауап C."
     },
     {
      "n": 29,
      "answer": "A",
      "image": "/exams/math/ca/q02/q29.webp",
-     "imageKk": "/exams/math/ca/q02/q29.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q29.kk.webp",
+     "solution": "A = 0.15, B = 0.1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.15, B = 0.1. A бағанында үлкен — жауап A."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/ca/q02/q30.webp",
-     "imageKk": "/exams/math/ca/q02/q30.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q30.kk.webp",
+     "solution": "A = 200, B = 205. В колонке B больше — ответ B.",
+     "solutionKk": "A = 200, B = 205. B бағанында үлкен — жауап B."
     },
     {
      "n": 31,
      "answer": "D",
      "image": "/exams/math/ca/q02/q31.webp",
-     "imageKk": "/exams/math/ca/q02/q31.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q31.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 32,
      "answer": "A",
      "image": "/exams/math/ca/q02/q32.webp",
-     "imageKk": "/exams/math/ca/q02/q32.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q32.kk.webp",
+     "solution": "A = 23, B = 22. В колонке A больше — ответ A.",
+     "solutionKk": "A = 23, B = 22. A бағанында үлкен — жауап A."
     },
     {
      "n": 33,
      "answer": "A",
      "image": "/exams/math/ca/q02/q33.webp",
-     "imageKk": "/exams/math/ca/q02/q33.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q33.kk.webp",
+     "solution": "A = 2, B = 0. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2, B = 0. A бағанында үлкен — жауап A."
     },
     {
      "n": 34,
      "answer": "D",
      "image": "/exams/math/ca/q02/q34.webp",
-     "imageKk": "/exams/math/ca/q02/q34.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q34.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 35,
      "answer": "B",
      "image": "/exams/math/ca/q02/q35.webp",
-     "imageKk": "/exams/math/ca/q02/q35.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q35.kk.webp",
+     "solution": "A = -63, B = 980. В колонке B больше — ответ B.",
+     "solutionKk": "A = -63, B = 980. B бағанында үлкен — жауап B."
     },
     {
      "n": 36,
      "answer": "A",
      "image": "/exams/math/ca/q02/q36.webp",
-     "imageKk": "/exams/math/ca/q02/q36.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q36.kk.webp",
+     "solution": "A = 6, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 6, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 37,
      "answer": "B",
      "image": "/exams/math/ca/q02/q37.webp",
-     "imageKk": "/exams/math/ca/q02/q37.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q37.kk.webp",
+     "solution": "A = 36, B = 84. В колонке B больше — ответ B.",
+     "solutionKk": "A = 36, B = 84. B бағанында үлкен — жауап B."
     },
     {
      "n": 38,
      "answer": "B",
      "image": "/exams/math/ca/q02/q38.webp",
-     "imageKk": "/exams/math/ca/q02/q38.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q38.kk.webp",
+     "solution": "A = 24.5, B = 25. В колонке B больше — ответ B.",
+     "solutionKk": "A = 24.5, B = 25. B бағанында үлкен — жауап B."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/ca/q02/q39.webp",
-     "imageKk": "/exams/math/ca/q02/q39.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q39.kk.webp",
+     "solution": "A = 31, B = 33. В колонке B больше — ответ B.",
+     "solutionKk": "A = 31, B = 33. B бағанында үлкен — жауап B."
     },
     {
      "n": 40,
      "answer": "A",
      "image": "/exams/math/ca/q02/q40.webp",
-     "imageKk": "/exams/math/ca/q02/q40.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q40.kk.webp",
+     "solution": "A = 7, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 41,
      "answer": "B",
      "image": "/exams/math/ca/q02/q41.webp",
-     "imageKk": "/exams/math/ca/q02/q41.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q41.kk.webp",
+     "solution": "A = 63, B = 65. В колонке B больше — ответ B.",
+     "solutionKk": "A = 63, B = 65. B бағанында үлкен — жауап B."
     },
     {
      "n": 42,
      "answer": "B",
      "image": "/exams/math/ca/q02/q42.webp",
-     "imageKk": "/exams/math/ca/q02/q42.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q42.kk.webp",
+     "solution": "A = 45, B = 65. В колонке B больше — ответ B.",
+     "solutionKk": "A = 45, B = 65. B бағанында үлкен — жауап B."
     },
     {
      "n": 43,
      "answer": "A",
      "image": "/exams/math/ca/q02/q43.webp",
-     "imageKk": "/exams/math/ca/q02/q43.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q43.kk.webp",
+     "solution": "A = 50, B = 42. В колонке A больше — ответ A.",
+     "solutionKk": "A = 50, B = 42. A бағанында үлкен — жауап A."
     },
     {
      "n": 44,
      "answer": "B",
      "image": "/exams/math/ca/q02/q44.webp",
-     "imageKk": "/exams/math/ca/q02/q44.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q44.kk.webp",
+     "solution": "A = 73.5, B = 82.5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 73.5, B = 82.5. B бағанында үлкен — жауап B."
     },
     {
      "n": 45,
      "answer": "C",
      "image": "/exams/math/ca/q02/q45.webp",
-     "imageKk": "/exams/math/ca/q02/q45.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q45.kk.webp",
+     "solution": "A = 50, B = 50. Значения равны — ответ C.",
+     "solutionKk": "A = 50, B = 50. мәндер тең — жауап C."
     },
     {
      "n": 46,
      "answer": "A",
      "image": "/exams/math/ca/q02/q46.webp",
-     "imageKk": "/exams/math/ca/q02/q46.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q46.kk.webp",
+     "solution": "A = 6, B = 4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 6, B = 4. A бағанында үлкен — жауап A."
     },
     {
      "n": 47,
      "answer": "B",
      "image": "/exams/math/ca/q02/q47.webp",
-     "imageKk": "/exams/math/ca/q02/q47.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q47.kk.webp",
+     "solution": "A = 6, B = 9. В колонке B больше — ответ B.",
+     "solutionKk": "A = 6, B = 9. B бағанында үлкен — жауап B."
     },
     {
      "n": 48,
      "answer": "B",
      "image": "/exams/math/ca/q02/q48.webp",
-     "imageKk": "/exams/math/ca/q02/q48.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q48.kk.webp",
+     "solution": "A = 96, B = 120. В колонке B больше — ответ B.",
+     "solutionKk": "A = 96, B = 120. B бағанында үлкен — жауап B."
     },
     {
      "n": 49,
      "answer": "A",
      "image": "/exams/math/ca/q02/q49.webp",
-     "imageKk": "/exams/math/ca/q02/q49.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q49.kk.webp",
+     "solution": "A = 58, B = 56. В колонке A больше — ответ A.",
+     "solutionKk": "A = 58, B = 56. A бағанында үлкен — жауап A."
     },
     {
      "n": 50,
      "answer": "A",
      "image": "/exams/math/ca/q02/q50.webp",
-     "imageKk": "/exams/math/ca/q02/q50.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q50.kk.webp",
+     "solution": "A = 135, B = 115. В колонке A больше — ответ A.",
+     "solutionKk": "A = 135, B = 115. A бағанында үлкен — жауап A."
     },
     {
      "n": 51,
      "answer": "A",
      "image": "/exams/math/ca/q02/q51.webp",
-     "imageKk": "/exams/math/ca/q02/q51.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q51.kk.webp",
+     "solution": "A = 12, B = 9. В колонке A больше — ответ A.",
+     "solutionKk": "A = 12, B = 9. A бағанында үлкен — жауап A."
     },
     {
      "n": 52,
      "answer": "B",
      "image": "/exams/math/ca/q02/q52.webp",
-     "imageKk": "/exams/math/ca/q02/q52.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q52.kk.webp",
+     "solution": "A = 70, B = 90. В колонке B больше — ответ B.",
+     "solutionKk": "A = 70, B = 90. B бағанында үлкен — жауап B."
     },
     {
      "n": 53,
      "answer": "B",
      "image": "/exams/math/ca/q02/q53.webp",
-     "imageKk": "/exams/math/ca/q02/q53.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q53.kk.webp",
+     "solution": "A = 4, B = 9. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4, B = 9. B бағанында үлкен — жауап B."
     },
     {
      "n": 54,
      "answer": "A",
      "image": "/exams/math/ca/q02/q54.webp",
-     "imageKk": "/exams/math/ca/q02/q54.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q54.kk.webp",
+     "solution": "A = 70, B = 65. В колонке A больше — ответ A.",
+     "solutionKk": "A = 70, B = 65. A бағанында үлкен — жауап A."
     },
     {
      "n": 55,
      "answer": "A",
      "image": "/exams/math/ca/q02/q55.webp",
-     "imageKk": "/exams/math/ca/q02/q55.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q55.kk.webp",
+     "solution": "A = 7, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 56,
      "answer": "C",
      "image": "/exams/math/ca/q02/q56.webp",
-     "imageKk": "/exams/math/ca/q02/q56.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q56.kk.webp",
+     "solution": "A = 1, B = 1. Значения равны — ответ C.",
+     "solutionKk": "A = 1, B = 1. мәндер тең — жауап C."
     },
     {
      "n": 57,
      "answer": "A",
      "image": "/exams/math/ca/q02/q57.webp",
-     "imageKk": "/exams/math/ca/q02/q57.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q57.kk.webp",
+     "solution": "A = 375, B = 370. В колонке A больше — ответ A.",
+     "solutionKk": "A = 375, B = 370. A бағанында үлкен — жауап A."
     },
     {
      "n": 58,
      "answer": "B",
      "image": "/exams/math/ca/q02/q58.webp",
-     "imageKk": "/exams/math/ca/q02/q58.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q58.kk.webp",
+     "solution": "A = 0.5, B = 0.5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.5, B = 0.5. B бағанында үлкен — жауап B."
     },
     {
      "n": 59,
      "answer": "A",
      "image": "/exams/math/ca/q02/q59.webp",
-     "imageKk": "/exams/math/ca/q02/q59.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q59.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 60,
      "answer": "D",
      "image": "/exams/math/ca/q02/q60.webp",
-     "imageKk": "/exams/math/ca/q02/q60.kk.webp"
+     "imageKk": "/exams/math/ca/q02/q60.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     }
    ]
   },
@@ -7503,361 +7743,481 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/ca/q03/q01.webp",
-     "imageKk": "/exams/math/ca/q03/q01.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q01.kk.webp",
+     "solution": "A = 4264.704, B = 4250.88. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4264.704, B = 4250.88. A бағанында үлкен — жауап A."
     },
     {
      "n": 2,
      "answer": "A",
      "image": "/exams/math/ca/q03/q02.webp",
-     "imageKk": "/exams/math/ca/q03/q02.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q02.kk.webp",
+     "solution": "A = 1.3333, B = 1.253. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1.3333, B = 1.253. A бағанында үлкен — жауап A."
     },
     {
      "n": 3,
      "answer": "B",
      "image": "/exams/math/ca/q03/q03.webp",
-     "imageKk": "/exams/math/ca/q03/q03.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q03.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 4,
      "answer": "C",
      "image": "/exams/math/ca/q03/q04.webp",
-     "imageKk": "/exams/math/ca/q03/q04.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q04.kk.webp",
+     "solution": "A = 1004, B = 1004. Значения равны — ответ C.",
+     "solutionKk": "A = 1004, B = 1004. мәндер тең — жауап C."
     },
     {
      "n": 5,
      "answer": "A",
      "image": "/exams/math/ca/q03/q05.webp",
-     "imageKk": "/exams/math/ca/q03/q05.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q05.kk.webp",
+     "solution": "A = 405, B = 400. В колонке A больше — ответ A.",
+     "solutionKk": "A = 405, B = 400. A бағанында үлкен — жауап A."
     },
     {
      "n": 6,
      "answer": "A",
      "image": "/exams/math/ca/q03/q06.webp",
-     "imageKk": "/exams/math/ca/q03/q06.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q06.kk.webp",
+     "solution": "A = 21, B = 15. В колонке A больше — ответ A.",
+     "solutionKk": "A = 21, B = 15. A бағанында үлкен — жауап A."
     },
     {
      "n": 7,
      "answer": "B",
      "image": "/exams/math/ca/q03/q07.webp",
-     "imageKk": "/exams/math/ca/q03/q07.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q07.kk.webp",
+     "solution": "A = 28, B = 30. В колонке B больше — ответ B.",
+     "solutionKk": "A = 28, B = 30. B бағанында үлкен — жауап B."
     },
     {
      "n": 8,
      "answer": "A",
      "image": "/exams/math/ca/q03/q08.webp",
-     "imageKk": "/exams/math/ca/q03/q08.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q08.kk.webp",
+     "solution": "A = 9516, B = 9412. В колонке A больше — ответ A.",
+     "solutionKk": "A = 9516, B = 9412. A бағанында үлкен — жауап A."
     },
     {
      "n": 9,
      "answer": "B",
      "image": "/exams/math/ca/q03/q09.webp",
-     "imageKk": "/exams/math/ca/q03/q09.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q09.kk.webp",
+     "solution": "A = 0.25, B = 0.3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.25, B = 0.3. B бағанында үлкен — жауап B."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/ca/q03/q10.webp",
-     "imageKk": "/exams/math/ca/q03/q10.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q10.kk.webp",
+     "solution": "A = 60, B = 90. В колонке B больше — ответ B.",
+     "solutionKk": "A = 60, B = 90. B бағанында үлкен — жауап B."
     },
     {
      "n": 11,
      "answer": "D",
      "image": "/exams/math/ca/q03/q11.webp",
-     "imageKk": "/exams/math/ca/q03/q11.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q11.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 12,
      "answer": "A",
      "image": "/exams/math/ca/q03/q12.webp",
-     "imageKk": "/exams/math/ca/q03/q12.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q12.kk.webp",
+     "solution": "A = 3, B = 1.7321. В колонке A больше — ответ A.",
+     "solutionKk": "A = 3, B = 1.7321. A бағанында үлкен — жауап A."
     },
     {
      "n": 13,
      "answer": "B",
      "image": "/exams/math/ca/q03/q13.webp",
-     "imageKk": "/exams/math/ca/q03/q13.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q13.kk.webp",
+     "solution": "A = 77.9333, B = 77.9667. В колонке B больше — ответ B.",
+     "solutionKk": "A = 77.9333, B = 77.9667. B бағанында үлкен — жауап B."
     },
     {
      "n": 14,
      "answer": "A",
      "image": "/exams/math/ca/q03/q14.webp",
-     "imageKk": "/exams/math/ca/q03/q14.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q14.kk.webp",
+     "solution": "A = 0, B = 0. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0, B = 0. A бағанында үлкен — жауап A."
     },
     {
      "n": 15,
      "answer": "D",
      "image": "/exams/math/ca/q03/q15.webp",
-     "imageKk": "/exams/math/ca/q03/q15.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q15.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 16,
      "answer": "A",
      "image": "/exams/math/ca/q03/q16.webp",
-     "imageKk": "/exams/math/ca/q03/q16.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q16.kk.webp",
+     "solution": "A = 0.0067, B = 0.005. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.0067, B = 0.005. A бағанында үлкен — жауап A."
     },
     {
      "n": 17,
      "answer": "B",
      "image": "/exams/math/ca/q03/q17.webp",
-     "imageKk": "/exams/math/ca/q03/q17.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q17.kk.webp",
+     "solution": "A = 27, B = 30. В колонке B больше — ответ B.",
+     "solutionKk": "A = 27, B = 30. B бағанында үлкен — жауап B."
     },
     {
      "n": 18,
      "answer": "A",
      "image": "/exams/math/ca/q03/q18.webp",
-     "imageKk": "/exams/math/ca/q03/q18.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q18.kk.webp",
+     "solution": "A = 20034, B = 19822. В колонке A больше — ответ A.",
+     "solutionKk": "A = 20034, B = 19822. A бағанында үлкен — жауап A."
     },
     {
      "n": 19,
      "answer": "B",
      "image": "/exams/math/ca/q03/q19.webp",
-     "imageKk": "/exams/math/ca/q03/q19.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q19.kk.webp",
+     "solution": "A = 1, B = 3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 1, B = 3. B бағанында үлкен — жауап B."
     },
     {
      "n": 20,
      "answer": "C",
      "image": "/exams/math/ca/q03/q20.webp",
-     "imageKk": "/exams/math/ca/q03/q20.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q20.kk.webp",
+     "solution": "A = 0.04, B = 0.04. Значения равны — ответ C.",
+     "solutionKk": "A = 0.04, B = 0.04. мәндер тең — жауап C."
     },
     {
      "n": 21,
      "answer": "A",
      "image": "/exams/math/ca/q03/q21.webp",
-     "imageKk": "/exams/math/ca/q03/q21.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q21.kk.webp",
+     "solution": "A = 0.7, B = 0.6667. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.7, B = 0.6667. A бағанында үлкен — жауап A."
     },
     {
      "n": 22,
      "answer": "A",
      "image": "/exams/math/ca/q03/q22.webp",
-     "imageKk": "/exams/math/ca/q03/q22.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q22.kk.webp",
+     "solution": "A = 36, B = 31.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 36, B = 31.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 23,
      "answer": "D",
      "image": "/exams/math/ca/q03/q23.webp",
-     "imageKk": "/exams/math/ca/q03/q23.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q23.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 24,
      "answer": "D",
      "image": "/exams/math/ca/q03/q24.webp",
-     "imageKk": "/exams/math/ca/q03/q24.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q24.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 25,
      "answer": "A",
      "image": "/exams/math/ca/q03/q25.webp",
-     "imageKk": "/exams/math/ca/q03/q25.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q25.kk.webp",
+     "solution": "A = 0, B = -9. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0, B = -9. A бағанында үлкен — жауап A."
     },
     {
      "n": 26,
      "answer": "C",
      "image": "/exams/math/ca/q03/q26.webp",
-     "imageKk": "/exams/math/ca/q03/q26.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q26.kk.webp",
+     "solution": "A = 6, B = 6. Значения равны — ответ C.",
+     "solutionKk": "A = 6, B = 6. мәндер тең — жауап C."
     },
     {
      "n": 27,
      "answer": "C",
      "image": "/exams/math/ca/q03/q27.webp",
-     "imageKk": "/exams/math/ca/q03/q27.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q27.kk.webp",
+     "solution": "A = 2294, B = 2294. Значения равны — ответ C.",
+     "solutionKk": "A = 2294, B = 2294. мәндер тең — жауап C."
     },
     {
      "n": 28,
      "answer": "B",
      "image": "/exams/math/ca/q03/q28.webp",
-     "imageKk": "/exams/math/ca/q03/q28.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q28.kk.webp",
+     "solution": "A = 1, B = 3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 1, B = 3. B бағанында үлкен — жауап B."
     },
     {
      "n": 29,
      "answer": "D",
      "image": "/exams/math/ca/q03/q29.webp",
-     "imageKk": "/exams/math/ca/q03/q29.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q29.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 30,
      "answer": "C",
      "image": "/exams/math/ca/q03/q30.webp",
-     "imageKk": "/exams/math/ca/q03/q30.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q30.kk.webp",
+     "solution": "A = 12, B = 12. Значения равны — ответ C.",
+     "solutionKk": "A = 12, B = 12. мәндер тең — жауап C."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/ca/q03/q31.webp",
-     "imageKk": "/exams/math/ca/q03/q31.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q31.kk.webp",
+     "solution": "A = -24, B = 12. В колонке B больше — ответ B.",
+     "solutionKk": "A = -24, B = 12. B бағанында үлкен — жауап B."
     },
     {
      "n": 32,
      "answer": "A",
      "image": "/exams/math/ca/q03/q32.webp",
-     "imageKk": "/exams/math/ca/q03/q32.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q32.kk.webp",
+     "solution": "A = 125, B = 81. В колонке A больше — ответ A.",
+     "solutionKk": "A = 125, B = 81. A бағанында үлкен — жауап A."
     },
     {
      "n": 33,
      "answer": "A",
      "image": "/exams/math/ca/q03/q33.webp",
-     "imageKk": "/exams/math/ca/q03/q33.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q33.kk.webp",
+     "solution": "A = 0.4167, B = 0.4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.4167, B = 0.4. A бағанында үлкен — жауап A."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/ca/q03/q34.webp",
-     "imageKk": "/exams/math/ca/q03/q34.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q34.kk.webp",
+     "solution": "A = 24, B = 18. В колонке A больше — ответ A.",
+     "solutionKk": "A = 24, B = 18. A бағанында үлкен — жауап A."
     },
     {
      "n": 35,
      "answer": "A",
      "image": "/exams/math/ca/q03/q35.webp",
-     "imageKk": "/exams/math/ca/q03/q35.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q35.kk.webp",
+     "solution": "A = -9, B = -10. В колонке A больше — ответ A.",
+     "solutionKk": "A = -9, B = -10. A бағанында үлкен — жауап A."
     },
     {
      "n": 36,
      "answer": "A",
      "image": "/exams/math/ca/q03/q36.webp",
-     "imageKk": "/exams/math/ca/q03/q36.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q36.kk.webp",
+     "solution": "A = 6, B = 2. В колонке A больше — ответ A.",
+     "solutionKk": "A = 6, B = 2. A бағанында үлкен — жауап A."
     },
     {
      "n": 37,
      "answer": "D",
      "image": "/exams/math/ca/q03/q37.webp",
-     "imageKk": "/exams/math/ca/q03/q37.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q37.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 38,
      "answer": "A",
      "image": "/exams/math/ca/q03/q38.webp",
-     "imageKk": "/exams/math/ca/q03/q38.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q38.kk.webp",
+     "solution": "A = 30.25, B = 30. В колонке A больше — ответ A.",
+     "solutionKk": "A = 30.25, B = 30. A бағанында үлкен — жауап A."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/ca/q03/q39.webp",
-     "imageKk": "/exams/math/ca/q03/q39.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q39.kk.webp",
+     "solution": "A = 3.6, B = 4. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3.6, B = 4. B бағанында үлкен — жауап B."
     },
     {
      "n": 40,
      "answer": "A",
      "image": "/exams/math/ca/q03/q40.webp",
-     "imageKk": "/exams/math/ca/q03/q40.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q40.kk.webp",
+     "solution": "A = 300, B = 280. В колонке A больше — ответ A.",
+     "solutionKk": "A = 300, B = 280. A бағанында үлкен — жауап A."
     },
     {
      "n": 41,
      "answer": "B",
      "image": "/exams/math/ca/q03/q41.webp",
-     "imageKk": "/exams/math/ca/q03/q41.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q41.kk.webp",
+     "solution": "A = 24, B = 30. В колонке B больше — ответ B.",
+     "solutionKk": "A = 24, B = 30. B бағанында үлкен — жауап B."
     },
     {
      "n": 42,
      "answer": "B",
      "image": "/exams/math/ca/q03/q42.webp",
-     "imageKk": "/exams/math/ca/q03/q42.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q42.kk.webp",
+     "solution": "A = 27, B = 30. В колонке B больше — ответ B.",
+     "solutionKk": "A = 27, B = 30. B бағанында үлкен — жауап B."
     },
     {
      "n": 43,
      "answer": "B",
      "image": "/exams/math/ca/q03/q43.webp",
-     "imageKk": "/exams/math/ca/q03/q43.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q43.kk.webp",
+     "solution": "A = 60, B = 65. В колонке B больше — ответ B.",
+     "solutionKk": "A = 60, B = 65. B бағанында үлкен — жауап B."
     },
     {
      "n": 44,
      "answer": "D",
      "image": "/exams/math/ca/q03/q44.webp",
-     "imageKk": "/exams/math/ca/q03/q44.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q44.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 45,
      "answer": "A",
      "image": "/exams/math/ca/q03/q45.webp",
-     "imageKk": "/exams/math/ca/q03/q45.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q45.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 46,
      "answer": "D",
      "image": "/exams/math/ca/q03/q46.webp",
-     "imageKk": "/exams/math/ca/q03/q46.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q46.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 47,
      "answer": "A",
      "image": "/exams/math/ca/q03/q47.webp",
-     "imageKk": "/exams/math/ca/q03/q47.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q47.kk.webp",
+     "solution": "A = 0.5, B = 0.4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.5, B = 0.4. A бағанында үлкен — жауап A."
     },
     {
      "n": 48,
      "answer": "A",
      "image": "/exams/math/ca/q03/q48.webp",
-     "imageKk": "/exams/math/ca/q03/q48.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q48.kk.webp",
+     "solution": "A = 5, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 49,
      "answer": "A",
      "image": "/exams/math/ca/q03/q49.webp",
-     "imageKk": "/exams/math/ca/q03/q49.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q49.kk.webp",
+     "solution": "A = 0.8889, B = 0.8. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.8889, B = 0.8. A бағанында үлкен — жауап A."
     },
     {
      "n": 50,
      "answer": "A",
      "image": "/exams/math/ca/q03/q50.webp",
-     "imageKk": "/exams/math/ca/q03/q50.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q50.kk.webp",
+     "solution": "A = 492, B = 480. В колонке A больше — ответ A.",
+     "solutionKk": "A = 492, B = 480. A бағанында үлкен — жауап A."
     },
     {
      "n": 51,
      "answer": "A",
      "image": "/exams/math/ca/q03/q51.webp",
-     "imageKk": "/exams/math/ca/q03/q51.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q51.kk.webp",
+     "solution": "A = 38, B = 36. В колонке A больше — ответ A.",
+     "solutionKk": "A = 38, B = 36. A бағанында үлкен — жауап A."
     },
     {
      "n": 52,
      "answer": "B",
      "image": "/exams/math/ca/q03/q52.webp",
-     "imageKk": "/exams/math/ca/q03/q52.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q52.kk.webp",
+     "solution": "A = 12, B = 24. В колонке B больше — ответ B.",
+     "solutionKk": "A = 12, B = 24. B бағанында үлкен — жауап B."
     },
     {
      "n": 53,
      "answer": "B",
      "image": "/exams/math/ca/q03/q53.webp",
-     "imageKk": "/exams/math/ca/q03/q53.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q53.kk.webp",
+     "solution": "A = 0.5, B = 0.5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.5, B = 0.5. B бағанында үлкен — жауап B."
     },
     {
      "n": 54,
      "answer": "B",
      "image": "/exams/math/ca/q03/q54.webp",
-     "imageKk": "/exams/math/ca/q03/q54.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q54.kk.webp",
+     "solution": "A = 0.25, B = 0.3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.25, B = 0.3. B бағанында үлкен — жауап B."
     },
     {
      "n": 55,
      "answer": "A",
      "image": "/exams/math/ca/q03/q55.webp",
-     "imageKk": "/exams/math/ca/q03/q55.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q55.kk.webp",
+     "solution": "A = 7, B = 4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 4. A бағанында үлкен — жауап A."
     },
     {
      "n": 56,
      "answer": "A",
      "image": "/exams/math/ca/q03/q56.webp",
-     "imageKk": "/exams/math/ca/q03/q56.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q56.kk.webp",
+     "solution": "A = 80, B = 70. В колонке A больше — ответ A.",
+     "solutionKk": "A = 80, B = 70. A бағанында үлкен — жауап A."
     },
     {
      "n": 57,
      "answer": "D",
      "image": "/exams/math/ca/q03/q57.webp",
-     "imageKk": "/exams/math/ca/q03/q57.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q57.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 58,
      "answer": "A",
      "image": "/exams/math/ca/q03/q58.webp",
-     "imageKk": "/exams/math/ca/q03/q58.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q58.kk.webp",
+     "solution": "A = 3, B = 2.9412. В колонке A больше — ответ A.",
+     "solutionKk": "A = 3, B = 2.9412. A бағанында үлкен — жауап A."
     },
     {
      "n": 59,
      "answer": "B",
      "image": "/exams/math/ca/q03/q59.webp",
-     "imageKk": "/exams/math/ca/q03/q59.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q59.kk.webp",
+     "solution": "A = 30, B = 32. В колонке B больше — ответ B.",
+     "solutionKk": "A = 30, B = 32. B бағанында үлкен — жауап B."
     },
     {
      "n": 60,
      "answer": "B",
      "image": "/exams/math/ca/q03/q60.webp",
-     "imageKk": "/exams/math/ca/q03/q60.kk.webp"
+     "imageKk": "/exams/math/ca/q03/q60.kk.webp",
+     "solution": "A = 18, B = 20. В колонке B больше — ответ B.",
+     "solutionKk": "A = 18, B = 20. B бағанында үлкен — жауап B."
     }
    ]
   },
@@ -10373,361 +10733,481 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/cb/u01/q01.webp",
-     "imageKk": "/exams/math/cb/u01/q01.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q01.kk.webp",
+     "solution": "A = 24, B = 23. В колонке A больше — ответ A.",
+     "solutionKk": "A = 24, B = 23. A бағанында үлкен — жауап A."
     },
     {
      "n": 2,
      "answer": "A",
      "image": "/exams/math/cb/u01/q02.webp",
-     "imageKk": "/exams/math/cb/u01/q02.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q02.kk.webp",
+     "solution": "A = 1500, B = 1000. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1500, B = 1000. A бағанында үлкен — жауап A."
     },
     {
      "n": 3,
      "answer": "A",
      "image": "/exams/math/cb/u01/q03.webp",
-     "imageKk": "/exams/math/cb/u01/q03.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q03.kk.webp",
+     "solution": "A = 14, B = 7. В колонке A больше — ответ A.",
+     "solutionKk": "A = 14, B = 7. A бағанында үлкен — жауап A."
     },
     {
      "n": 4,
      "answer": "B",
      "image": "/exams/math/cb/u01/q04.webp",
-     "imageKk": "/exams/math/cb/u01/q04.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q04.kk.webp",
+     "solution": "A = 12, B = 18. В колонке B больше — ответ B.",
+     "solutionKk": "A = 12, B = 18. B бағанында үлкен — жауап B."
     },
     {
      "n": 5,
      "answer": "A",
      "image": "/exams/math/cb/u01/q05.webp",
-     "imageKk": "/exams/math/cb/u01/q05.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q05.kk.webp",
+     "solution": "A = 4, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 6,
      "answer": "B",
      "image": "/exams/math/cb/u01/q06.webp",
-     "imageKk": "/exams/math/cb/u01/q06.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q06.kk.webp",
+     "solution": "A = 128, B = 136. В колонке B больше — ответ B.",
+     "solutionKk": "A = 128, B = 136. B бағанында үлкен — жауап B."
     },
     {
      "n": 7,
      "answer": "D",
      "image": "/exams/math/cb/u01/q07.webp",
-     "imageKk": "/exams/math/cb/u01/q07.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q07.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 8,
      "answer": "A",
      "image": "/exams/math/cb/u01/q08.webp",
-     "imageKk": "/exams/math/cb/u01/q08.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q08.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 9,
      "answer": "C",
      "image": "/exams/math/cb/u01/q09.webp",
-     "imageKk": "/exams/math/cb/u01/q09.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q09.kk.webp",
+     "solution": "A = 1350, B = 1350. Значения равны — ответ C.",
+     "solutionKk": "A = 1350, B = 1350. мәндер тең — жауап C."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/cb/u01/q10.webp",
-     "imageKk": "/exams/math/cb/u01/q10.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q10.kk.webp",
+     "solution": "A = 10, B = 25. В колонке B больше — ответ B.",
+     "solutionKk": "A = 10, B = 25. B бағанында үлкен — жауап B."
     },
     {
      "n": 11,
      "answer": "D",
      "image": "/exams/math/cb/u01/q11.webp",
-     "imageKk": "/exams/math/cb/u01/q11.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q11.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 12,
      "answer": "B",
      "image": "/exams/math/cb/u01/q12.webp",
-     "imageKk": "/exams/math/cb/u01/q12.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q12.kk.webp",
+     "solution": "A = 0.6667, B = 0.75. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.6667, B = 0.75. B бағанында үлкен — жауап B."
     },
     {
      "n": 13,
      "answer": "B",
      "image": "/exams/math/cb/u01/q13.webp",
-     "imageKk": "/exams/math/cb/u01/q13.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q13.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 14,
      "answer": "A",
      "image": "/exams/math/cb/u01/q14.webp",
-     "imageKk": "/exams/math/cb/u01/q14.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q14.kk.webp",
+     "solution": "A = 25, B = 24. В колонке A больше — ответ A.",
+     "solutionKk": "A = 25, B = 24. A бағанында үлкен — жауап A."
     },
     {
      "n": 15,
      "answer": "A",
      "image": "/exams/math/cb/u01/q15.webp",
-     "imageKk": "/exams/math/cb/u01/q15.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q15.kk.webp",
+     "solution": "A = 0.6667, B = 0.2. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.6667, B = 0.2. A бағанында үлкен — жауап A."
     },
     {
      "n": 16,
      "answer": "B",
      "image": "/exams/math/cb/u01/q16.webp",
-     "imageKk": "/exams/math/cb/u01/q16.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q16.kk.webp",
+     "solution": "A = 2, B = 3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2, B = 3. B бағанында үлкен — жауап B."
     },
     {
      "n": 17,
      "answer": "A",
      "image": "/exams/math/cb/u01/q17.webp",
-     "imageKk": "/exams/math/cb/u01/q17.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q17.kk.webp",
+     "solution": "A = 14, B = 10. В колонке A больше — ответ A.",
+     "solutionKk": "A = 14, B = 10. A бағанында үлкен — жауап A."
     },
     {
      "n": 18,
      "answer": "A",
      "image": "/exams/math/cb/u01/q18.webp",
-     "imageKk": "/exams/math/cb/u01/q18.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q18.kk.webp",
+     "solution": "A = 1.6667, B = 0.6. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1.6667, B = 0.6. A бағанында үлкен — жауап A."
     },
     {
      "n": 19,
      "answer": "B",
      "image": "/exams/math/cb/u01/q19.webp",
-     "imageKk": "/exams/math/cb/u01/q19.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q19.kk.webp",
+     "solution": "A = 21, B = 25. В колонке B больше — ответ B.",
+     "solutionKk": "A = 21, B = 25. B бағанында үлкен — жауап B."
     },
     {
      "n": 20,
      "answer": "B",
      "image": "/exams/math/cb/u01/q20.webp",
-     "imageKk": "/exams/math/cb/u01/q20.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q20.kk.webp",
+     "solution": "A = 3, B = 10. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3, B = 10. B бағанында үлкен — жауап B."
     },
     {
      "n": 21,
      "answer": "A",
      "image": "/exams/math/cb/u01/q21.webp",
-     "imageKk": "/exams/math/cb/u01/q21.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q21.kk.webp",
+     "solution": "A = 28, B = 18. В колонке A больше — ответ A.",
+     "solutionKk": "A = 28, B = 18. A бағанында үлкен — жауап A."
     },
     {
      "n": 22,
      "answer": "B",
      "image": "/exams/math/cb/u01/q22.webp",
-     "imageKk": "/exams/math/cb/u01/q22.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q22.kk.webp",
+     "solution": "A = 0.03, B = 0.09. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.03, B = 0.09. B бағанында үлкен — жауап B."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/cb/u01/q23.webp",
-     "imageKk": "/exams/math/cb/u01/q23.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q23.kk.webp",
+     "solution": "A = 48, B = 51. В колонке B больше — ответ B.",
+     "solutionKk": "A = 48, B = 51. B бағанында үлкен — жауап B."
     },
     {
      "n": 24,
      "answer": "B",
      "image": "/exams/math/cb/u01/q24.webp",
-     "imageKk": "/exams/math/cb/u01/q24.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q24.kk.webp",
+     "solution": "A = 1.44, B = 1.5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 1.44, B = 1.5. B бағанында үлкен — жауап B."
     },
     {
      "n": 25,
      "answer": "C",
      "image": "/exams/math/cb/u01/q25.webp",
-     "imageKk": "/exams/math/cb/u01/q25.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q25.kk.webp",
+     "solution": "A = 20, B = 20. Значения равны — ответ C.",
+     "solutionKk": "A = 20, B = 20. мәндер тең — жауап C."
     },
     {
      "n": 26,
      "answer": "B",
      "image": "/exams/math/cb/u01/q26.webp",
-     "imageKk": "/exams/math/cb/u01/q26.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q26.kk.webp",
+     "solution": "A = 60, B = 72. В колонке B больше — ответ B.",
+     "solutionKk": "A = 60, B = 72. B бағанында үлкен — жауап B."
     },
     {
      "n": 27,
      "answer": "A",
      "image": "/exams/math/cb/u01/q27.webp",
-     "imageKk": "/exams/math/cb/u01/q27.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q27.kk.webp",
+     "solution": "A = 60, B = 58. В колонке A больше — ответ A.",
+     "solutionKk": "A = 60, B = 58. A бағанында үлкен — жауап A."
     },
     {
      "n": 28,
      "answer": "C",
      "image": "/exams/math/cb/u01/q28.webp",
-     "imageKk": "/exams/math/cb/u01/q28.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q28.kk.webp",
+     "solution": "A = 1, B = 1. Значения равны — ответ C.",
+     "solutionKk": "A = 1, B = 1. мәндер тең — жауап C."
     },
     {
      "n": 29,
      "answer": "B",
      "image": "/exams/math/cb/u01/q29.webp",
-     "imageKk": "/exams/math/cb/u01/q29.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q29.kk.webp",
+     "solution": "A = 4, B = 8. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4, B = 8. B бағанында үлкен — жауап B."
     },
     {
      "n": 30,
      "answer": "A",
      "image": "/exams/math/cb/u01/q30.webp",
-     "imageKk": "/exams/math/cb/u01/q30.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q30.kk.webp",
+     "solution": "A = 440, B = 280. В колонке A больше — ответ A.",
+     "solutionKk": "A = 440, B = 280. A бағанында үлкен — жауап A."
     },
     {
      "n": 31,
      "answer": "D",
      "image": "/exams/math/cb/u01/q31.webp",
-     "imageKk": "/exams/math/cb/u01/q31.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q31.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 32,
      "answer": "A",
      "image": "/exams/math/cb/u01/q32.webp",
-     "imageKk": "/exams/math/cb/u01/q32.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q32.kk.webp",
+     "solution": "A = 195, B = 190. В колонке A больше — ответ A.",
+     "solutionKk": "A = 195, B = 190. A бағанында үлкен — жауап A."
     },
     {
      "n": 33,
      "answer": "C",
      "image": "/exams/math/cb/u01/q33.webp",
-     "imageKk": "/exams/math/cb/u01/q33.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q33.kk.webp",
+     "solution": "A = 15, B = 15. Значения равны — ответ C.",
+     "solutionKk": "A = 15, B = 15. мәндер тең — жауап C."
     },
     {
      "n": 34,
      "answer": "C",
      "image": "/exams/math/cb/u01/q34.webp",
-     "imageKk": "/exams/math/cb/u01/q34.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q34.kk.webp",
+     "solution": "A = 1, B = 1. Значения равны — ответ C.",
+     "solutionKk": "A = 1, B = 1. мәндер тең — жауап C."
     },
     {
      "n": 35,
      "answer": "A",
      "image": "/exams/math/cb/u01/q35.webp",
-     "imageKk": "/exams/math/cb/u01/q35.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q35.kk.webp",
+     "solution": "A = 0.85, B = 0.81. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.85, B = 0.81. A бағанында үлкен — жауап A."
     },
     {
      "n": 36,
      "answer": "B",
      "image": "/exams/math/cb/u01/q36.webp",
-     "imageKk": "/exams/math/cb/u01/q36.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q36.kk.webp",
+     "solution": "A = 9, B = 90. В колонке B больше — ответ B.",
+     "solutionKk": "A = 9, B = 90. B бағанында үлкен — жауап B."
     },
     {
      "n": 37,
      "answer": "A",
      "image": "/exams/math/cb/u01/q37.webp",
-     "imageKk": "/exams/math/cb/u01/q37.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q37.kk.webp",
+     "solution": "A = 7, B = 4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 4. A бағанында үлкен — жауап A."
     },
     {
      "n": 38,
      "answer": "A",
      "image": "/exams/math/cb/u01/q38.webp",
-     "imageKk": "/exams/math/cb/u01/q38.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q38.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 39,
      "answer": "C",
      "image": "/exams/math/cb/u01/q39.webp",
-     "imageKk": "/exams/math/cb/u01/q39.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q39.kk.webp",
+     "solution": "A = 101, B = 101. Значения равны — ответ C.",
+     "solutionKk": "A = 101, B = 101. мәндер тең — жауап C."
     },
     {
      "n": 40,
      "answer": "D",
      "image": "/exams/math/cb/u01/q40.webp",
-     "imageKk": "/exams/math/cb/u01/q40.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q40.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 41,
      "answer": "B",
      "image": "/exams/math/cb/u01/q41.webp",
-     "imageKk": "/exams/math/cb/u01/q41.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q41.kk.webp",
+     "solution": "A = 0.004, B = 0.0043. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.004, B = 0.0043. B бағанында үлкен — жауап B."
     },
     {
      "n": 42,
      "answer": "B",
      "image": "/exams/math/cb/u01/q42.webp",
-     "imageKk": "/exams/math/cb/u01/q42.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q42.kk.webp",
+     "solution": "A = 18, B = 20. В колонке B больше — ответ B.",
+     "solutionKk": "A = 18, B = 20. B бағанында үлкен — жауап B."
     },
     {
      "n": 43,
      "answer": "A",
      "image": "/exams/math/cb/u01/q43.webp",
-     "imageKk": "/exams/math/cb/u01/q43.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q43.kk.webp",
+     "solution": "A = 9, B = 8. В колонке A больше — ответ A.",
+     "solutionKk": "A = 9, B = 8. A бағанында үлкен — жауап A."
     },
     {
      "n": 44,
      "answer": "C",
      "image": "/exams/math/cb/u01/q44.webp",
-     "imageKk": "/exams/math/cb/u01/q44.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q44.kk.webp",
+     "solution": "A = 73.12, B = 73.12. Значения равны — ответ C.",
+     "solutionKk": "A = 73.12, B = 73.12. мәндер тең — жауап C."
     },
     {
      "n": 45,
      "answer": "C",
      "image": "/exams/math/cb/u01/q45.webp",
-     "imageKk": "/exams/math/cb/u01/q45.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q45.kk.webp",
+     "solution": "A = 1, B = 1. Значения равны — ответ C.",
+     "solutionKk": "A = 1, B = 1. мәндер тең — жауап C."
     },
     {
      "n": 46,
      "answer": "D",
      "image": "/exams/math/cb/u01/q46.webp",
-     "imageKk": "/exams/math/cb/u01/q46.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q46.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 47,
      "answer": "B",
      "image": "/exams/math/cb/u01/q47.webp",
-     "imageKk": "/exams/math/cb/u01/q47.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q47.kk.webp",
+     "solution": "A = 1, B = 3. В колонке B больше — ответ B.",
+     "solutionKk": "A = 1, B = 3. B бағанында үлкен — жауап B."
     },
     {
      "n": 48,
      "answer": "A",
      "image": "/exams/math/cb/u01/q48.webp",
-     "imageKk": "/exams/math/cb/u01/q48.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q48.kk.webp",
+     "solution": "A = 4, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 49,
      "answer": "A",
      "image": "/exams/math/cb/u01/q49.webp",
-     "imageKk": "/exams/math/cb/u01/q49.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q49.kk.webp",
+     "solution": "A = 21, B = 20.25. В колонке A больше — ответ A.",
+     "solutionKk": "A = 21, B = 20.25. A бағанында үлкен — жауап A."
     },
     {
      "n": 50,
      "answer": "B",
      "image": "/exams/math/cb/u01/q50.webp",
-     "imageKk": "/exams/math/cb/u01/q50.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q50.kk.webp",
+     "solution": "A = 25, B = 36. В колонке B больше — ответ B.",
+     "solutionKk": "A = 25, B = 36. B бағанында үлкен — жауап B."
     },
     {
      "n": 51,
      "answer": "C",
      "image": "/exams/math/cb/u01/q51.webp",
-     "imageKk": "/exams/math/cb/u01/q51.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q51.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ C.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап C."
     },
     {
      "n": 52,
      "answer": "B",
      "image": "/exams/math/cb/u01/q52.webp",
-     "imageKk": "/exams/math/cb/u01/q52.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q52.kk.webp",
+     "solution": "A = 28, B = 30. В колонке B больше — ответ B.",
+     "solutionKk": "A = 28, B = 30. B бағанында үлкен — жауап B."
     },
     {
      "n": 53,
      "answer": "A",
      "image": "/exams/math/cb/u01/q53.webp",
-     "imageKk": "/exams/math/cb/u01/q53.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q53.kk.webp",
+     "solution": "A = 24, B = 22. В колонке A больше — ответ A.",
+     "solutionKk": "A = 24, B = 22. A бағанында үлкен — жауап A."
     },
     {
      "n": 54,
      "answer": "A",
      "image": "/exams/math/cb/u01/q54.webp",
-     "imageKk": "/exams/math/cb/u01/q54.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q54.kk.webp",
+     "solution": "A = 0.7778, B = 0.75. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.7778, B = 0.75. A бағанында үлкен — жауап A."
     },
     {
      "n": 55,
      "answer": "A",
      "image": "/exams/math/cb/u01/q55.webp",
-     "imageKk": "/exams/math/cb/u01/q55.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q55.kk.webp",
+     "solution": "A = 9, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 9, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 56,
      "answer": "D",
      "image": "/exams/math/cb/u01/q56.webp",
-     "imageKk": "/exams/math/cb/u01/q56.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q56.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 57,
      "answer": "B",
      "image": "/exams/math/cb/u01/q57.webp",
-     "imageKk": "/exams/math/cb/u01/q57.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q57.kk.webp",
+     "solution": "A = 12, B = 1000000000. В колонке B больше — ответ B.",
+     "solutionKk": "A = 12, B = 1000000000. B бағанында үлкен — жауап B."
     },
     {
      "n": 58,
      "answer": "C",
      "image": "/exams/math/cb/u01/q58.webp",
-     "imageKk": "/exams/math/cb/u01/q58.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q58.kk.webp",
+     "solution": "A = 3000, B = 3000. Значения равны — ответ C.",
+     "solutionKk": "A = 3000, B = 3000. мәндер тең — жауап C."
     },
     {
      "n": 59,
      "answer": "A",
      "image": "/exams/math/cb/u01/q59.webp",
-     "imageKk": "/exams/math/cb/u01/q59.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q59.kk.webp",
+     "solution": "A = 12, B = 11. В колонке A больше — ответ A.",
+     "solutionKk": "A = 12, B = 11. A бағанында үлкен — жауап A."
     },
     {
      "n": 60,
      "answer": "A",
      "image": "/exams/math/cb/u01/q60.webp",
-     "imageKk": "/exams/math/cb/u01/q60.kk.webp"
+     "imageKk": "/exams/math/cb/u01/q60.kk.webp",
+     "solution": "A = 0.01, B = 0.001. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.01, B = 0.001. A бағанында үлкен — жауап A."
     }
    ]
   },
@@ -10743,361 +11223,481 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/cb/u02/q01.webp",
-     "imageKk": "/exams/math/cb/u02/q01.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q01.kk.webp",
+     "solution": "A = 0.728, B = 0.672. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.728, B = 0.672. A бағанында үлкен — жауап A."
     },
     {
      "n": 2,
      "answer": "C",
      "image": "/exams/math/cb/u02/q02.webp",
-     "imageKk": "/exams/math/cb/u02/q02.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q02.kk.webp",
+     "solution": "A = 300.5, B = 300.5. Значения равны — ответ C.",
+     "solutionKk": "A = 300.5, B = 300.5. мәндер тең — жауап C."
     },
     {
      "n": 3,
      "answer": "A",
      "image": "/exams/math/cb/u02/q03.webp",
-     "imageKk": "/exams/math/cb/u02/q03.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q03.kk.webp",
+     "solution": "A = -0.648, B = -0.764. В колонке A больше — ответ A.",
+     "solutionKk": "A = -0.648, B = -0.764. A бағанында үлкен — жауап A."
     },
     {
      "n": 4,
      "answer": "C",
      "image": "/exams/math/cb/u02/q04.webp",
-     "imageKk": "/exams/math/cb/u02/q04.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q04.kk.webp",
+     "solution": "A = -0.2, B = -0.2. Значения равны — ответ C.",
+     "solutionKk": "A = -0.2, B = -0.2. мәндер тең — жауап C."
     },
     {
      "n": 5,
      "answer": "B",
      "image": "/exams/math/cb/u02/q05.webp",
-     "imageKk": "/exams/math/cb/u02/q05.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q05.kk.webp",
+     "solution": "A = 42, B = 42.01. В колонке B больше — ответ B.",
+     "solutionKk": "A = 42, B = 42.01. B бағанында үлкен — жауап B."
     },
     {
      "n": 6,
      "answer": "A",
      "image": "/exams/math/cb/u02/q06.webp",
-     "imageKk": "/exams/math/cb/u02/q06.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q06.kk.webp",
+     "solution": "A = 0.6667, B = 0.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.6667, B = 0.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 7,
      "answer": "B",
      "image": "/exams/math/cb/u02/q07.webp",
-     "imageKk": "/exams/math/cb/u02/q07.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q07.kk.webp",
+     "solution": "A = 15, B = 21. В колонке B больше — ответ B.",
+     "solutionKk": "A = 15, B = 21. B бағанында үлкен — жауап B."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/cb/u02/q08.webp",
-     "imageKk": "/exams/math/cb/u02/q08.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q08.kk.webp",
+     "solution": "A = 3.3333, B = 6. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3.3333, B = 6. B бағанында үлкен — жауап B."
     },
     {
      "n": 9,
      "answer": "A",
      "image": "/exams/math/cb/u02/q09.webp",
-     "imageKk": "/exams/math/cb/u02/q09.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q09.kk.webp",
+     "solution": "A = 1260, B = 1190. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1260, B = 1190. A бағанында үлкен — жауап A."
     },
     {
      "n": 10,
      "answer": "A",
      "image": "/exams/math/cb/u02/q10.webp",
-     "imageKk": "/exams/math/cb/u02/q10.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q10.kk.webp",
+     "solution": "A = 475, B = 456. В колонке A больше — ответ A.",
+     "solutionKk": "A = 475, B = 456. A бағанында үлкен — жауап A."
     },
     {
      "n": 11,
      "answer": "B",
      "image": "/exams/math/cb/u02/q11.webp",
-     "imageKk": "/exams/math/cb/u02/q11.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q11.kk.webp",
+     "solution": "A = 50.2655, B = 78.5398. В колонке B больше — ответ B.",
+     "solutionKk": "A = 50.2655, B = 78.5398. B бағанында үлкен — жауап B."
     },
     {
      "n": 12,
      "answer": "B",
      "image": "/exams/math/cb/u02/q12.webp",
-     "imageKk": "/exams/math/cb/u02/q12.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q12.kk.webp",
+     "solution": "A = 22, B = 23. В колонке B больше — ответ B.",
+     "solutionKk": "A = 22, B = 23. B бағанында үлкен — жауап B."
     },
     {
      "n": 13,
      "answer": "A",
      "image": "/exams/math/cb/u02/q13.webp",
-     "imageKk": "/exams/math/cb/u02/q13.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q13.kk.webp",
+     "solution": "A = 1, B = 0.7854. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1, B = 0.7854. A бағанында үлкен — жауап A."
     },
     {
      "n": 14,
      "answer": "B",
      "image": "/exams/math/cb/u02/q14.webp",
-     "imageKk": "/exams/math/cb/u02/q14.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q14.kk.webp",
+     "solution": "A = 54, B = 56. В колонке B больше — ответ B.",
+     "solutionKk": "A = 54, B = 56. B бағанында үлкен — жауап B."
     },
     {
      "n": 15,
      "answer": "B",
      "image": "/exams/math/cb/u02/q15.webp",
-     "imageKk": "/exams/math/cb/u02/q15.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q15.kk.webp",
+     "solution": "A = 140, B = 150. В колонке B больше — ответ B.",
+     "solutionKk": "A = 140, B = 150. B бағанында үлкен — жауап B."
     },
     {
      "n": 16,
      "answer": "B",
      "image": "/exams/math/cb/u02/q16.webp",
-     "imageKk": "/exams/math/cb/u02/q16.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q16.kk.webp",
+     "solution": "A = 36, B = 49. В колонке B больше — ответ B.",
+     "solutionKk": "A = 36, B = 49. B бағанында үлкен — жауап B."
     },
     {
      "n": 17,
      "answer": "A",
      "image": "/exams/math/cb/u02/q17.webp",
-     "imageKk": "/exams/math/cb/u02/q17.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q17.kk.webp",
+     "solution": "A = 180, B = 120. В колонке A больше — ответ A.",
+     "solutionKk": "A = 180, B = 120. A бағанында үлкен — жауап A."
     },
     {
      "n": 18,
      "answer": "A",
      "image": "/exams/math/cb/u02/q18.webp",
-     "imageKk": "/exams/math/cb/u02/q18.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q18.kk.webp",
+     "solution": "A = 18, B = 16. В колонке A больше — ответ A.",
+     "solutionKk": "A = 18, B = 16. A бағанында үлкен — жауап A."
     },
     {
      "n": 19,
      "answer": "C",
      "image": "/exams/math/cb/u02/q19.webp",
-     "imageKk": "/exams/math/cb/u02/q19.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q19.kk.webp",
+     "solution": "A = 46, B = 46. Значения равны — ответ C.",
+     "solutionKk": "A = 46, B = 46. мәндер тең — жауап C."
     },
     {
      "n": 20,
      "answer": "A",
      "image": "/exams/math/cb/u02/q20.webp",
-     "imageKk": "/exams/math/cb/u02/q20.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q20.kk.webp",
+     "solution": "A = 0.6, B = 0.4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.6, B = 0.4. A бағанында үлкен — жауап A."
     },
     {
      "n": 21,
      "answer": "D",
      "image": "/exams/math/cb/u02/q21.webp",
-     "imageKk": "/exams/math/cb/u02/q21.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q21.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 22,
      "answer": "D",
      "image": "/exams/math/cb/u02/q22.webp",
-     "imageKk": "/exams/math/cb/u02/q22.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q22.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 23,
      "answer": "D",
      "image": "/exams/math/cb/u02/q23.webp",
-     "imageKk": "/exams/math/cb/u02/q23.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q23.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 24,
      "answer": "D",
      "image": "/exams/math/cb/u02/q24.webp",
-     "imageKk": "/exams/math/cb/u02/q24.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q24.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 25,
      "answer": "B",
      "image": "/exams/math/cb/u02/q25.webp",
-     "imageKk": "/exams/math/cb/u02/q25.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q25.kk.webp",
+     "solution": "A = -3, B = -2. В колонке B больше — ответ B.",
+     "solutionKk": "A = -3, B = -2. B бағанында үлкен — жауап B."
     },
     {
      "n": 26,
      "answer": "A",
      "image": "/exams/math/cb/u02/q26.webp",
-     "imageKk": "/exams/math/cb/u02/q26.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q26.kk.webp",
+     "solution": "A = 5, B = 4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 4. A бағанында үлкен — жауап A."
     },
     {
      "n": 27,
      "answer": "A",
      "image": "/exams/math/cb/u02/q27.webp",
-     "imageKk": "/exams/math/cb/u02/q27.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q27.kk.webp",
+     "solution": "A = -6, B = -7. В колонке A больше — ответ A.",
+     "solutionKk": "A = -6, B = -7. A бағанында үлкен — жауап A."
     },
     {
      "n": 28,
      "answer": "A",
      "image": "/exams/math/cb/u02/q28.webp",
-     "imageKk": "/exams/math/cb/u02/q28.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q28.kk.webp",
+     "solution": "A = 3.1, B = 1.9. В колонке A больше — ответ A.",
+     "solutionKk": "A = 3.1, B = 1.9. A бағанында үлкен — жауап A."
     },
     {
      "n": 29,
      "answer": "C",
      "image": "/exams/math/cb/u02/q29.webp",
-     "imageKk": "/exams/math/cb/u02/q29.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q29.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ C.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап C."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/cb/u02/q30.webp",
-     "imageKk": "/exams/math/cb/u02/q30.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q30.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 31,
      "answer": "A",
      "image": "/exams/math/cb/u02/q31.webp",
-     "imageKk": "/exams/math/cb/u02/q31.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q31.kk.webp",
+     "solution": "A = -12, B = -24. В колонке A больше — ответ A.",
+     "solutionKk": "A = -12, B = -24. A бағанында үлкен — жауап A."
     },
     {
      "n": 32,
      "answer": "B",
      "image": "/exams/math/cb/u02/q32.webp",
-     "imageKk": "/exams/math/cb/u02/q32.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q32.kk.webp",
+     "solution": "A = 125, B = 128. В колонке B больше — ответ B.",
+     "solutionKk": "A = 125, B = 128. B бағанында үлкен — жауап B."
     },
     {
      "n": 33,
      "answer": "B",
      "image": "/exams/math/cb/u02/q33.webp",
-     "imageKk": "/exams/math/cb/u02/q33.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q33.kk.webp",
+     "solution": "A = 0.1316, B = 0.1395. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.1316, B = 0.1395. B бағанында үлкен — жауап B."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/cb/u02/q34.webp",
-     "imageKk": "/exams/math/cb/u02/q34.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q34.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 35,
      "answer": "B",
      "image": "/exams/math/cb/u02/q35.webp",
-     "imageKk": "/exams/math/cb/u02/q35.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q35.kk.webp",
+     "solution": "A = 5, B = 7.5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 5, B = 7.5. B бағанында үлкен — жауап B."
     },
     {
      "n": 36,
      "answer": "A",
      "image": "/exams/math/cb/u02/q36.webp",
-     "imageKk": "/exams/math/cb/u02/q36.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q36.kk.webp",
+     "solution": "A = 5, B = 2. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 2. A бағанында үлкен — жауап A."
     },
     {
      "n": 37,
      "answer": "B",
      "image": "/exams/math/cb/u02/q37.webp",
-     "imageKk": "/exams/math/cb/u02/q37.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q37.kk.webp",
+     "solution": "A = 36, B = 72. В колонке B больше — ответ B.",
+     "solutionKk": "A = 36, B = 72. B бағанында үлкен — жауап B."
     },
     {
      "n": 38,
      "answer": "A",
      "image": "/exams/math/cb/u02/q38.webp",
-     "imageKk": "/exams/math/cb/u02/q38.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q38.kk.webp",
+     "solution": "A = 14, B = 11. В колонке A больше — ответ A.",
+     "solutionKk": "A = 14, B = 11. A бағанында үлкен — жауап A."
     },
     {
      "n": 39,
      "answer": "C",
      "image": "/exams/math/cb/u02/q39.webp",
-     "imageKk": "/exams/math/cb/u02/q39.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q39.kk.webp",
+     "solution": "A = 2.5, B = 2.5. Значения равны — ответ C.",
+     "solutionKk": "A = 2.5, B = 2.5. мәндер тең — жауап C."
     },
     {
      "n": 40,
      "answer": "A",
      "image": "/exams/math/cb/u02/q40.webp",
-     "imageKk": "/exams/math/cb/u02/q40.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q40.kk.webp",
+     "solution": "A = 21, B = 20. В колонке A больше — ответ A.",
+     "solutionKk": "A = 21, B = 20. A бағанында үлкен — жауап A."
     },
     {
      "n": 41,
      "answer": "B",
      "image": "/exams/math/cb/u02/q41.webp",
-     "imageKk": "/exams/math/cb/u02/q41.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q41.kk.webp",
+     "solution": "A = 134, B = 136. В колонке B больше — ответ B.",
+     "solutionKk": "A = 134, B = 136. B бағанында үлкен — жауап B."
     },
     {
      "n": 42,
      "answer": "A",
      "image": "/exams/math/cb/u02/q42.webp",
-     "imageKk": "/exams/math/cb/u02/q42.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q42.kk.webp",
+     "solution": "A = 54, B = 50. В колонке A больше — ответ A.",
+     "solutionKk": "A = 54, B = 50. A бағанында үлкен — жауап A."
     },
     {
      "n": 43,
      "answer": "A",
      "image": "/exams/math/cb/u02/q43.webp",
-     "imageKk": "/exams/math/cb/u02/q43.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q43.kk.webp",
+     "solution": "A = 444, B = 440. В колонке A больше — ответ A.",
+     "solutionKk": "A = 444, B = 440. A бағанында үлкен — жауап A."
     },
     {
      "n": 44,
      "answer": "A",
      "image": "/exams/math/cb/u02/q44.webp",
-     "imageKk": "/exams/math/cb/u02/q44.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q44.kk.webp",
+     "solution": "A = 2045, B = 2000. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2045, B = 2000. A бағанында үлкен — жауап A."
     },
     {
      "n": 45,
      "answer": "C",
      "image": "/exams/math/cb/u02/q45.webp",
-     "imageKk": "/exams/math/cb/u02/q45.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q45.kk.webp",
+     "solution": "A = 43.3, B = 43.3. Значения равны — ответ C.",
+     "solutionKk": "A = 43.3, B = 43.3. мәндер тең — жауап C."
     },
     {
      "n": 46,
      "answer": "A",
      "image": "/exams/math/cb/u02/q46.webp",
-     "imageKk": "/exams/math/cb/u02/q46.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q46.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 47,
      "answer": "B",
      "image": "/exams/math/cb/u02/q47.webp",
-     "imageKk": "/exams/math/cb/u02/q47.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q47.kk.webp",
+     "solution": "A = 2, B = 9. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2, B = 9. B бағанында үлкен — жауап B."
     },
     {
      "n": 48,
      "answer": "A",
      "image": "/exams/math/cb/u02/q48.webp",
-     "imageKk": "/exams/math/cb/u02/q48.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q48.kk.webp",
+     "solution": "A = 4, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 49,
      "answer": "B",
      "image": "/exams/math/cb/u02/q49.webp",
-     "imageKk": "/exams/math/cb/u02/q49.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q49.kk.webp",
+     "solution": "A = 9, B = 11. В колонке B больше — ответ B.",
+     "solutionKk": "A = 9, B = 11. B бағанында үлкен — жауап B."
     },
     {
      "n": 50,
      "answer": "A",
      "image": "/exams/math/cb/u02/q50.webp",
-     "imageKk": "/exams/math/cb/u02/q50.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q50.kk.webp",
+     "solution": "A = 12, B = 10. В колонке A больше — ответ A.",
+     "solutionKk": "A = 12, B = 10. A бағанында үлкен — жауап A."
     },
     {
      "n": 51,
      "answer": "A",
      "image": "/exams/math/cb/u02/q51.webp",
-     "imageKk": "/exams/math/cb/u02/q51.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q51.kk.webp",
+     "solution": "A = 1.2, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1.2, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 52,
      "answer": "D",
      "image": "/exams/math/cb/u02/q52.webp",
-     "imageKk": "/exams/math/cb/u02/q52.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q52.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 53,
      "answer": "B",
      "image": "/exams/math/cb/u02/q53.webp",
-     "imageKk": "/exams/math/cb/u02/q53.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q53.kk.webp",
+     "solution": "A = 0.942, B = 0.9425. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.942, B = 0.9425. B бағанында үлкен — жауап B."
     },
     {
      "n": 54,
      "answer": "D",
      "image": "/exams/math/cb/u02/q54.webp",
-     "imageKk": "/exams/math/cb/u02/q54.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q54.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 55,
      "answer": "A",
      "image": "/exams/math/cb/u02/q55.webp",
-     "imageKk": "/exams/math/cb/u02/q55.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q55.kk.webp",
+     "solution": "A = 2, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 56,
      "answer": "A",
      "image": "/exams/math/cb/u02/q56.webp",
-     "imageKk": "/exams/math/cb/u02/q56.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q56.kk.webp",
+     "solution": "A = 1.6, B = 1.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1.6, B = 1.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 57,
      "answer": "B",
      "image": "/exams/math/cb/u02/q57.webp",
-     "imageKk": "/exams/math/cb/u02/q57.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q57.kk.webp",
+     "solution": "A = 0.2, B = 0.22. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.2, B = 0.22. B бағанында үлкен — жауап B."
     },
     {
      "n": 58,
      "answer": "B",
      "image": "/exams/math/cb/u02/q58.webp",
-     "imageKk": "/exams/math/cb/u02/q58.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q58.kk.webp",
+     "solution": "A = 4, B = 5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4, B = 5. B бағанында үлкен — жауап B."
     },
     {
      "n": 59,
      "answer": "A",
      "image": "/exams/math/cb/u02/q59.webp",
-     "imageKk": "/exams/math/cb/u02/q59.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q59.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 60,
      "answer": "B",
      "image": "/exams/math/cb/u02/q60.webp",
-     "imageKk": "/exams/math/cb/u02/q60.kk.webp"
+     "imageKk": "/exams/math/cb/u02/q60.kk.webp",
+     "solution": "A = 2, B = 4. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2, B = 4. B бағанында үлкен — жауап B."
     }
    ]
   },
@@ -11113,361 +11713,481 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/cb/u03/q01.webp",
-     "imageKk": "/exams/math/cb/u03/q01.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q01.kk.webp",
+     "solution": "A = 0.888, B = 0.868. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.888, B = 0.868. A бағанында үлкен — жауап A."
     },
     {
      "n": 2,
      "answer": "C",
      "image": "/exams/math/cb/u03/q02.webp",
-     "imageKk": "/exams/math/cb/u03/q02.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q02.kk.webp",
+     "solution": "A = 31.4, B = 31.4. Значения равны — ответ C.",
+     "solutionKk": "A = 31.4, B = 31.4. мәндер тең — жауап C."
     },
     {
      "n": 3,
      "answer": "B",
      "image": "/exams/math/cb/u03/q03.webp",
-     "imageKk": "/exams/math/cb/u03/q03.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q03.kk.webp",
+     "solution": "A = -0.525, B = -0.42. В колонке B больше — ответ B.",
+     "solutionKk": "A = -0.525, B = -0.42. B бағанында үлкен — жауап B."
     },
     {
      "n": 4,
      "answer": "A",
      "image": "/exams/math/cb/u03/q04.webp",
-     "imageKk": "/exams/math/cb/u03/q04.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q04.kk.webp",
+     "solution": "A = 0.2, B = 0.1429. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.2, B = 0.1429. A бағанында үлкен — жауап A."
     },
     {
      "n": 5,
      "answer": "C",
      "image": "/exams/math/cb/u03/q05.webp",
-     "imageKk": "/exams/math/cb/u03/q05.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q05.kk.webp",
+     "solution": "A = 44.32, B = 44.32. Значения равны — ответ C.",
+     "solutionKk": "A = 44.32, B = 44.32. мәндер тең — жауап C."
     },
     {
      "n": 6,
      "answer": "B",
      "image": "/exams/math/cb/u03/q06.webp",
-     "imageKk": "/exams/math/cb/u03/q06.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q06.kk.webp",
+     "solution": "A = 0.6667, B = 0.8333. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.6667, B = 0.8333. B бағанында үлкен — жауап B."
     },
     {
      "n": 7,
      "answer": "B",
      "image": "/exams/math/cb/u03/q07.webp",
-     "imageKk": "/exams/math/cb/u03/q07.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q07.kk.webp",
+     "solution": "A = 9, B = 12. В колонке B больше — ответ B.",
+     "solutionKk": "A = 9, B = 12. B бағанында үлкен — жауап B."
     },
     {
      "n": 8,
      "answer": "A",
      "image": "/exams/math/cb/u03/q08.webp",
-     "imageKk": "/exams/math/cb/u03/q08.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q08.kk.webp",
+     "solution": "A = 0.6667, B = 0.375. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.6667, B = 0.375. A бағанында үлкен — жауап A."
     },
     {
      "n": 9,
      "answer": "B",
      "image": "/exams/math/cb/u03/q09.webp",
-     "imageKk": "/exams/math/cb/u03/q09.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q09.kk.webp",
+     "solution": "A = -7, B = -3. В колонке B больше — ответ B.",
+     "solutionKk": "A = -7, B = -3. B бағанында үлкен — жауап B."
     },
     {
      "n": 10,
      "answer": "A",
      "image": "/exams/math/cb/u03/q10.webp",
-     "imageKk": "/exams/math/cb/u03/q10.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q10.kk.webp",
+     "solution": "A = 1776, B = 1728. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1776, B = 1728. A бағанында үлкен — жауап A."
     },
     {
      "n": 11,
      "answer": "A",
      "image": "/exams/math/cb/u03/q11.webp",
-     "imageKk": "/exams/math/cb/u03/q11.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q11.kk.webp",
+     "solution": "A = 4.5886, B = 4.1203. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4.5886, B = 4.1203. A бағанында үлкен — жауап A."
     },
     {
      "n": 12,
      "answer": "A",
      "image": "/exams/math/cb/u03/q12.webp",
-     "imageKk": "/exams/math/cb/u03/q12.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q12.kk.webp",
+     "solution": "A = 24, B = 23. В колонке A больше — ответ A.",
+     "solutionKk": "A = 24, B = 23. A бағанында үлкен — жауап A."
     },
     {
      "n": 13,
      "answer": "B",
      "image": "/exams/math/cb/u03/q13.webp",
-     "imageKk": "/exams/math/cb/u03/q13.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q13.kk.webp",
+     "solution": "A = 4, B = 4.5239. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4, B = 4.5239. B бағанында үлкен — жауап B."
     },
     {
      "n": 14,
      "answer": "B",
      "image": "/exams/math/cb/u03/q14.webp",
-     "imageKk": "/exams/math/cb/u03/q14.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q14.kk.webp",
+     "solution": "A = 18, B = 20. В колонке B больше — ответ B.",
+     "solutionKk": "A = 18, B = 20. B бағанында үлкен — жауап B."
     },
     {
      "n": 15,
      "answer": "B",
      "image": "/exams/math/cb/u03/q15.webp",
-     "imageKk": "/exams/math/cb/u03/q15.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q15.kk.webp",
+     "solution": "A = 60, B = 70. В колонке B больше — ответ B.",
+     "solutionKk": "A = 60, B = 70. B бағанында үлкен — жауап B."
     },
     {
      "n": 16,
      "answer": "A",
      "image": "/exams/math/cb/u03/q16.webp",
-     "imageKk": "/exams/math/cb/u03/q16.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q16.kk.webp",
+     "solution": "A = 64, B = 49. В колонке A больше — ответ A.",
+     "solutionKk": "A = 64, B = 49. A бағанында үлкен — жауап A."
     },
     {
      "n": 17,
      "answer": "B",
      "image": "/exams/math/cb/u03/q17.webp",
-     "imageKk": "/exams/math/cb/u03/q17.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q17.kk.webp",
+     "solution": "A = 151, B = 160. В колонке B больше — ответ B.",
+     "solutionKk": "A = 151, B = 160. B бағанында үлкен — жауап B."
     },
     {
      "n": 18,
      "answer": "B",
      "image": "/exams/math/cb/u03/q18.webp",
-     "imageKk": "/exams/math/cb/u03/q18.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q18.kk.webp",
+     "solution": "A = 9, B = 90. В колонке B больше — ответ B.",
+     "solutionKk": "A = 9, B = 90. B бағанында үлкен — жауап B."
     },
     {
      "n": 19,
      "answer": "C",
      "image": "/exams/math/cb/u03/q19.webp",
-     "imageKk": "/exams/math/cb/u03/q19.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q19.kk.webp",
+     "solution": "A = 28, B = 28. Значения равны — ответ C.",
+     "solutionKk": "A = 28, B = 28. мәндер тең — жауап C."
     },
     {
      "n": 20,
      "answer": "B",
      "image": "/exams/math/cb/u03/q20.webp",
-     "imageKk": "/exams/math/cb/u03/q20.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q20.kk.webp",
+     "solution": "A = 8, B = 1000000000. В колонке B больше — ответ B.",
+     "solutionKk": "A = 8, B = 1000000000. B бағанында үлкен — жауап B."
     },
     {
      "n": 21,
      "answer": "D",
      "image": "/exams/math/cb/u03/q21.webp",
-     "imageKk": "/exams/math/cb/u03/q21.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q21.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 22,
      "answer": "D",
      "image": "/exams/math/cb/u03/q22.webp",
-     "imageKk": "/exams/math/cb/u03/q22.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q22.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/cb/u03/q23.webp",
-     "imageKk": "/exams/math/cb/u03/q23.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q23.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 24,
      "answer": "D",
      "image": "/exams/math/cb/u03/q24.webp",
-     "imageKk": "/exams/math/cb/u03/q24.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q24.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 25,
      "answer": "B",
      "image": "/exams/math/cb/u03/q25.webp",
-     "imageKk": "/exams/math/cb/u03/q25.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q25.kk.webp",
+     "solution": "A = -4, B = 4. В колонке B больше — ответ B.",
+     "solutionKk": "A = -4, B = 4. B бағанында үлкен — жауап B."
     },
     {
      "n": 26,
      "answer": "A",
      "image": "/exams/math/cb/u03/q26.webp",
-     "imageKk": "/exams/math/cb/u03/q26.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q26.kk.webp",
+     "solution": "A = 5, B = 4.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 4.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 27,
      "answer": "B",
      "image": "/exams/math/cb/u03/q27.webp",
-     "imageKk": "/exams/math/cb/u03/q27.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q27.kk.webp",
+     "solution": "A = 6, B = 7. В колонке B больше — ответ B.",
+     "solutionKk": "A = 6, B = 7. B бағанында үлкен — жауап B."
     },
     {
      "n": 28,
      "answer": "C",
      "image": "/exams/math/cb/u03/q28.webp",
-     "imageKk": "/exams/math/cb/u03/q28.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q28.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ C.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап C."
     },
     {
      "n": 29,
      "answer": "A",
      "image": "/exams/math/cb/u03/q29.webp",
-     "imageKk": "/exams/math/cb/u03/q29.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q29.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/cb/u03/q30.webp",
-     "imageKk": "/exams/math/cb/u03/q30.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q30.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/cb/u03/q31.webp",
-     "imageKk": "/exams/math/cb/u03/q31.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q31.kk.webp",
+     "solution": "A = -4, B = -3. В колонке B больше — ответ B.",
+     "solutionKk": "A = -4, B = -3. B бағанында үлкен — жауап B."
     },
     {
      "n": 32,
      "answer": "B",
      "image": "/exams/math/cb/u03/q32.webp",
-     "imageKk": "/exams/math/cb/u03/q32.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q32.kk.webp",
+     "solution": "A = 243, B = 256. В колонке B больше — ответ B.",
+     "solutionKk": "A = 243, B = 256. B бағанында үлкен — жауап B."
     },
     {
      "n": 33,
      "answer": "A",
      "image": "/exams/math/cb/u03/q33.webp",
-     "imageKk": "/exams/math/cb/u03/q33.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q33.kk.webp",
+     "solution": "A = 0.1148, B = 0.1127. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.1148, B = 0.1127. A бағанында үлкен — жауап A."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/cb/u03/q34.webp",
-     "imageKk": "/exams/math/cb/u03/q34.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q34.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 35,
      "answer": "B",
      "image": "/exams/math/cb/u03/q35.webp",
-     "imageKk": "/exams/math/cb/u03/q35.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q35.kk.webp",
+     "solution": "A = 7, B = 8. В колонке B больше — ответ B.",
+     "solutionKk": "A = 7, B = 8. B бағанында үлкен — жауап B."
     },
     {
      "n": 36,
      "answer": "A",
      "image": "/exams/math/cb/u03/q36.webp",
-     "imageKk": "/exams/math/cb/u03/q36.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q36.kk.webp",
+     "solution": "A = 6, B = 2. В колонке A больше — ответ A.",
+     "solutionKk": "A = 6, B = 2. A бағанында үлкен — жауап A."
     },
     {
      "n": 37,
      "answer": "A",
      "image": "/exams/math/cb/u03/q37.webp",
-     "imageKk": "/exams/math/cb/u03/q37.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q37.kk.webp",
+     "solution": "A = 30, B = 24. В колонке A больше — ответ A.",
+     "solutionKk": "A = 30, B = 24. A бағанында үлкен — жауап A."
     },
     {
      "n": 38,
      "answer": "A",
      "image": "/exams/math/cb/u03/q38.webp",
-     "imageKk": "/exams/math/cb/u03/q38.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q38.kk.webp",
+     "solution": "A = 18, B = 7. В колонке A больше — ответ A.",
+     "solutionKk": "A = 18, B = 7. A бағанында үлкен — жауап A."
     },
     {
      "n": 39,
      "answer": "C",
      "image": "/exams/math/cb/u03/q39.webp",
-     "imageKk": "/exams/math/cb/u03/q39.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q39.kk.webp",
+     "solution": "A = -1.1, B = -1.1. Значения равны — ответ C.",
+     "solutionKk": "A = -1.1, B = -1.1. мәндер тең — жауап C."
     },
     {
      "n": 40,
      "answer": "A",
      "image": "/exams/math/cb/u03/q40.webp",
-     "imageKk": "/exams/math/cb/u03/q40.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q40.kk.webp",
+     "solution": "A = 14, B = 12. В колонке A больше — ответ A.",
+     "solutionKk": "A = 14, B = 12. A бағанында үлкен — жауап A."
     },
     {
      "n": 41,
      "answer": "B",
      "image": "/exams/math/cb/u03/q41.webp",
-     "imageKk": "/exams/math/cb/u03/q41.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q41.kk.webp",
+     "solution": "A = 39, B = 40. В колонке B больше — ответ B.",
+     "solutionKk": "A = 39, B = 40. B бағанында үлкен — жауап B."
     },
     {
      "n": 42,
      "answer": "A",
      "image": "/exams/math/cb/u03/q42.webp",
-     "imageKk": "/exams/math/cb/u03/q42.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q42.kk.webp",
+     "solution": "A = 90, B = 80. В колонке A больше — ответ A.",
+     "solutionKk": "A = 90, B = 80. A бағанында үлкен — жауап A."
     },
     {
      "n": 43,
      "answer": "B",
      "image": "/exams/math/cb/u03/q43.webp",
-     "imageKk": "/exams/math/cb/u03/q43.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q43.kk.webp",
+     "solution": "A = 3500, B = 3600. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3500, B = 3600. B бағанында үлкен — жауап B."
     },
     {
      "n": 44,
      "answer": "C",
      "image": "/exams/math/cb/u03/q44.webp",
-     "imageKk": "/exams/math/cb/u03/q44.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q44.kk.webp",
+     "solution": "A = 3600, B = 3600. Значения равны — ответ C.",
+     "solutionKk": "A = 3600, B = 3600. мәндер тең — жауап C."
     },
     {
      "n": 45,
      "answer": "B",
      "image": "/exams/math/cb/u03/q45.webp",
-     "imageKk": "/exams/math/cb/u03/q45.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q45.kk.webp",
+     "solution": "A = 414, B = 414.4. В колонке B больше — ответ B.",
+     "solutionKk": "A = 414, B = 414.4. B бағанында үлкен — жауап B."
     },
     {
      "n": 46,
      "answer": "A",
      "image": "/exams/math/cb/u03/q46.webp",
-     "imageKk": "/exams/math/cb/u03/q46.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q46.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 47,
      "answer": "A",
      "image": "/exams/math/cb/u03/q47.webp",
-     "imageKk": "/exams/math/cb/u03/q47.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q47.kk.webp",
+     "solution": "A = 9, B = 0. В колонке A больше — ответ A.",
+     "solutionKk": "A = 9, B = 0. A бағанында үлкен — жауап A."
     },
     {
      "n": 48,
      "answer": "A",
      "image": "/exams/math/cb/u03/q48.webp",
-     "imageKk": "/exams/math/cb/u03/q48.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q48.kk.webp",
+     "solution": "A = 5, B = 4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 4. A бағанында үлкен — жауап A."
     },
     {
      "n": 49,
      "answer": "A",
      "image": "/exams/math/cb/u03/q49.webp",
-     "imageKk": "/exams/math/cb/u03/q49.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q49.kk.webp",
+     "solution": "A = 5, B = 4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 4. A бағанында үлкен — жауап A."
     },
     {
      "n": 50,
      "answer": "A",
      "image": "/exams/math/cb/u03/q50.webp",
-     "imageKk": "/exams/math/cb/u03/q50.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q50.kk.webp",
+     "solution": "A = 7.5, B = 6. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7.5, B = 6. A бағанында үлкен — жауап A."
     },
     {
      "n": 51,
      "answer": "A",
      "image": "/exams/math/cb/u03/q51.webp",
-     "imageKk": "/exams/math/cb/u03/q51.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q51.kk.webp",
+     "solution": "A = -0.08, B = -0.1. В колонке A больше — ответ A.",
+     "solutionKk": "A = -0.08, B = -0.1. A бағанында үлкен — жауап A."
     },
     {
      "n": 52,
      "answer": "D",
      "image": "/exams/math/cb/u03/q52.webp",
-     "imageKk": "/exams/math/cb/u03/q52.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q52.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 53,
      "answer": "B",
      "image": "/exams/math/cb/u03/q53.webp",
-     "imageKk": "/exams/math/cb/u03/q53.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q53.kk.webp",
+     "solution": "A = 0.94, B = 0.9425. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.94, B = 0.9425. B бағанында үлкен — жауап B."
     },
     {
      "n": 54,
      "answer": "D",
      "image": "/exams/math/cb/u03/q54.webp",
-     "imageKk": "/exams/math/cb/u03/q54.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q54.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 55,
      "answer": "A",
      "image": "/exams/math/cb/u03/q55.webp",
-     "imageKk": "/exams/math/cb/u03/q55.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q55.kk.webp",
+     "solution": "A = 5, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 56,
      "answer": "A",
      "image": "/exams/math/cb/u03/q56.webp",
-     "imageKk": "/exams/math/cb/u03/q56.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q56.kk.webp",
+     "solution": "A = 0.64, B = 0.6. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.64, B = 0.6. A бағанында үлкен — жауап A."
     },
     {
      "n": 57,
      "answer": "D",
      "image": "/exams/math/cb/u03/q57.webp",
-     "imageKk": "/exams/math/cb/u03/q57.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q57.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 58,
      "answer": "A",
      "image": "/exams/math/cb/u03/q58.webp",
-     "imageKk": "/exams/math/cb/u03/q58.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q58.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 59,
      "answer": "A",
      "image": "/exams/math/cb/u03/q59.webp",
-     "imageKk": "/exams/math/cb/u03/q59.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q59.kk.webp",
+     "solution": "A = 385, B = 210. В колонке A больше — ответ A.",
+     "solutionKk": "A = 385, B = 210. A бағанында үлкен — жауап A."
     },
     {
      "n": 60,
      "answer": "B",
      "image": "/exams/math/cb/u03/q60.webp",
-     "imageKk": "/exams/math/cb/u03/q60.kk.webp"
+     "imageKk": "/exams/math/cb/u03/q60.kk.webp",
+     "solution": "A = 3, B = 5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3, B = 5. B бағанында үлкен — жауап B."
     }
    ]
   },
@@ -11483,361 +12203,481 @@
      "n": 1,
      "answer": "A",
      "image": "/exams/math/cb/u04/q01.webp",
-     "imageKk": "/exams/math/cb/u04/q01.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q01.kk.webp",
+     "solution": "A = 1000, B = 15. В колонке A больше — ответ A.",
+     "solutionKk": "A = 1000, B = 15. A бағанында үлкен — жауап A."
     },
     {
      "n": 2,
      "answer": "A",
      "image": "/exams/math/cb/u04/q02.webp",
-     "imageKk": "/exams/math/cb/u04/q02.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q02.kk.webp",
+     "solution": "A = 9.4248, B = 9. В колонке A больше — ответ A.",
+     "solutionKk": "A = 9.4248, B = 9. A бағанында үлкен — жауап A."
     },
     {
      "n": 3,
      "answer": "B",
      "image": "/exams/math/cb/u04/q03.webp",
-     "imageKk": "/exams/math/cb/u04/q03.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q03.kk.webp",
+     "solution": "A = 2.992, B = 2.9992. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2.992, B = 2.9992. B бағанында үлкен — жауап B."
     },
     {
      "n": 4,
      "answer": "B",
      "image": "/exams/math/cb/u04/q04.webp",
-     "imageKk": "/exams/math/cb/u04/q04.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q04.kk.webp",
+     "solution": "A = 42, B = 90. В колонке B больше — ответ B.",
+     "solutionKk": "A = 42, B = 90. B бағанында үлкен — жауап B."
     },
     {
      "n": 5,
      "answer": "D",
      "image": "/exams/math/cb/u04/q05.webp",
-     "imageKk": "/exams/math/cb/u04/q05.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q05.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 6,
      "answer": "D",
      "image": "/exams/math/cb/u04/q06.webp",
-     "imageKk": "/exams/math/cb/u04/q06.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q06.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 7,
      "answer": "A",
      "image": "/exams/math/cb/u04/q07.webp",
-     "imageKk": "/exams/math/cb/u04/q07.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q07.kk.webp",
+     "solution": "A = 15, B = 14. В колонке A больше — ответ A.",
+     "solutionKk": "A = 15, B = 14. A бағанында үлкен — жауап A."
     },
     {
      "n": 8,
      "answer": "B",
      "image": "/exams/math/cb/u04/q08.webp",
-     "imageKk": "/exams/math/cb/u04/q08.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q08.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 9,
      "answer": "D",
      "image": "/exams/math/cb/u04/q09.webp",
-     "imageKk": "/exams/math/cb/u04/q09.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q09.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/cb/u04/q10.webp",
-     "imageKk": "/exams/math/cb/u04/q10.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q10.kk.webp",
+     "solution": "A = 7, B = 15. В колонке B больше — ответ B.",
+     "solutionKk": "A = 7, B = 15. B бағанында үлкен — жауап B."
     },
     {
      "n": 11,
      "answer": "B",
      "image": "/exams/math/cb/u04/q11.webp",
-     "imageKk": "/exams/math/cb/u04/q11.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q11.kk.webp",
+     "solution": "A = 315, B = 320. В колонке B больше — ответ B.",
+     "solutionKk": "A = 315, B = 320. B бағанында үлкен — жауап B."
     },
     {
      "n": 12,
      "answer": "A",
      "image": "/exams/math/cb/u04/q12.webp",
-     "imageKk": "/exams/math/cb/u04/q12.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q12.kk.webp",
+     "solution": "A = 900, B = 720. В колонке A больше — ответ A.",
+     "solutionKk": "A = 900, B = 720. A бағанында үлкен — жауап A."
     },
     {
      "n": 13,
      "answer": "A",
      "image": "/exams/math/cb/u04/q13.webp",
-     "imageKk": "/exams/math/cb/u04/q13.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q13.kk.webp",
+     "solution": "A = 4, B = 3.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4, B = 3.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 14,
      "answer": "B",
      "image": "/exams/math/cb/u04/q14.webp",
-     "imageKk": "/exams/math/cb/u04/q14.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q14.kk.webp",
+     "solution": "A = 9, B = 16. В колонке B больше — ответ B.",
+     "solutionKk": "A = 9, B = 16. B бағанында үлкен — жауап B."
     },
     {
      "n": 15,
      "answer": "B",
      "image": "/exams/math/cb/u04/q15.webp",
-     "imageKk": "/exams/math/cb/u04/q15.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q15.kk.webp",
+     "solution": "A = 28, B = 30. В колонке B больше — ответ B.",
+     "solutionKk": "A = 28, B = 30. B бағанында үлкен — жауап B."
     },
     {
      "n": 16,
      "answer": "D",
      "image": "/exams/math/cb/u04/q16.webp",
-     "imageKk": "/exams/math/cb/u04/q16.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q16.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 17,
      "answer": "C",
      "image": "/exams/math/cb/u04/q17.webp",
-     "imageKk": "/exams/math/cb/u04/q17.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q17.kk.webp",
+     "solution": "A = 140, B = 140. Значения равны — ответ C.",
+     "solutionKk": "A = 140, B = 140. мәндер тең — жауап C."
     },
     {
      "n": 18,
      "answer": "A",
      "image": "/exams/math/cb/u04/q18.webp",
-     "imageKk": "/exams/math/cb/u04/q18.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q18.kk.webp",
+     "solution": "A = 30, B = 25. В колонке A больше — ответ A.",
+     "solutionKk": "A = 30, B = 25. A бағанында үлкен — жауап A."
     },
     {
      "n": 19,
      "answer": "A",
      "image": "/exams/math/cb/u04/q19.webp",
-     "imageKk": "/exams/math/cb/u04/q19.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q19.kk.webp",
+     "solution": "A = 22, B = 10. В колонке A больше — ответ A.",
+     "solutionKk": "A = 22, B = 10. A бағанында үлкен — жауап A."
     },
     {
      "n": 20,
      "answer": "A",
      "image": "/exams/math/cb/u04/q20.webp",
-     "imageKk": "/exams/math/cb/u04/q20.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q20.kk.webp",
+     "solution": "A = 8, B = 6. В колонке A больше — ответ A.",
+     "solutionKk": "A = 8, B = 6. A бағанында үлкен — жауап A."
     },
     {
      "n": 21,
      "answer": "A",
      "image": "/exams/math/cb/u04/q21.webp",
-     "imageKk": "/exams/math/cb/u04/q21.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q21.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 22,
      "answer": "D",
      "image": "/exams/math/cb/u04/q22.webp",
-     "imageKk": "/exams/math/cb/u04/q22.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q22.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 23,
      "answer": "B",
      "image": "/exams/math/cb/u04/q23.webp",
-     "imageKk": "/exams/math/cb/u04/q23.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q23.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 24,
      "answer": "C",
      "image": "/exams/math/cb/u04/q24.webp",
-     "imageKk": "/exams/math/cb/u04/q24.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q24.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ C.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап C."
     },
     {
      "n": 25,
      "answer": "C",
      "image": "/exams/math/cb/u04/q25.webp",
-     "imageKk": "/exams/math/cb/u04/q25.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q25.kk.webp",
+     "solution": "A = 5, B = 5. Значения равны — ответ C.",
+     "solutionKk": "A = 5, B = 5. мәндер тең — жауап C."
     },
     {
      "n": 26,
      "answer": "B",
      "image": "/exams/math/cb/u04/q26.webp",
-     "imageKk": "/exams/math/cb/u04/q26.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q26.kk.webp",
+     "solution": "A = -1.9, B = -0.9. В колонке B больше — ответ B.",
+     "solutionKk": "A = -1.9, B = -0.9. B бағанында үлкен — жауап B."
     },
     {
      "n": 27,
      "answer": "C",
      "image": "/exams/math/cb/u04/q27.webp",
-     "imageKk": "/exams/math/cb/u04/q27.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q27.kk.webp",
+     "solution": "A = 10, B = 10. Значения равны — ответ C.",
+     "solutionKk": "A = 10, B = 10. мәндер тең — жауап C."
     },
     {
      "n": 28,
      "answer": "C",
      "image": "/exams/math/cb/u04/q28.webp",
-     "imageKk": "/exams/math/cb/u04/q28.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q28.kk.webp",
+     "solution": "A = 6, B = 6. Значения равны — ответ C.",
+     "solutionKk": "A = 6, B = 6. мәндер тең — жауап C."
     },
     {
      "n": 29,
      "answer": "C",
      "image": "/exams/math/cb/u04/q29.webp",
-     "imageKk": "/exams/math/cb/u04/q29.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q29.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ C.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап C."
     },
     {
      "n": 30,
      "answer": "B",
      "image": "/exams/math/cb/u04/q30.webp",
-     "imageKk": "/exams/math/cb/u04/q30.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q30.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 31,
      "answer": "B",
      "image": "/exams/math/cb/u04/q31.webp",
-     "imageKk": "/exams/math/cb/u04/q31.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q31.kk.webp",
+     "solution": "A = 0.28, B = 0.91. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.28, B = 0.91. B бағанында үлкен — жауап B."
     },
     {
      "n": 32,
      "answer": "B",
      "image": "/exams/math/cb/u04/q32.webp",
-     "imageKk": "/exams/math/cb/u04/q32.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q32.kk.webp",
+     "solution": "A = 155, B = 243. В колонке B больше — ответ B.",
+     "solutionKk": "A = 155, B = 243. B бағанында үлкен — жауап B."
     },
     {
      "n": 33,
      "answer": "B",
      "image": "/exams/math/cb/u04/q33.webp",
-     "imageKk": "/exams/math/cb/u04/q33.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q33.kk.webp",
+     "solution": "A = 0.7143, B = 0.7778. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.7143, B = 0.7778. B бағанында үлкен — жауап B."
     },
     {
      "n": 34,
      "answer": "A",
      "image": "/exams/math/cb/u04/q34.webp",
-     "imageKk": "/exams/math/cb/u04/q34.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q34.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     },
     {
      "n": 35,
      "answer": "A",
      "image": "/exams/math/cb/u04/q35.webp",
-     "imageKk": "/exams/math/cb/u04/q35.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q35.kk.webp",
+     "solution": "A = 0, B = -1.25. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0, B = -1.25. A бағанында үлкен — жауап A."
     },
     {
      "n": 36,
      "answer": "B",
      "image": "/exams/math/cb/u04/q36.webp",
-     "imageKk": "/exams/math/cb/u04/q36.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q36.kk.webp",
+     "solution": "A = 754.9148, B = 1324.6528. В колонке B больше — ответ B.",
+     "solutionKk": "A = 754.9148, B = 1324.6528. B бағанында үлкен — жауап B."
     },
     {
      "n": 37,
      "answer": "A",
      "image": "/exams/math/cb/u04/q37.webp",
-     "imageKk": "/exams/math/cb/u04/q37.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q37.kk.webp",
+     "solution": "A = 45, B = 6. В колонке A больше — ответ A.",
+     "solutionKk": "A = 45, B = 6. A бағанында үлкен — жауап A."
     },
     {
      "n": 38,
      "answer": "C",
      "image": "/exams/math/cb/u04/q38.webp",
-     "imageKk": "/exams/math/cb/u04/q38.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q38.kk.webp",
+     "solution": "A = 1, B = 1. Значения равны — ответ C.",
+     "solutionKk": "A = 1, B = 1. мәндер тең — жауап C."
     },
     {
      "n": 39,
      "answer": "B",
      "image": "/exams/math/cb/u04/q39.webp",
-     "imageKk": "/exams/math/cb/u04/q39.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q39.kk.webp",
+     "solution": "A = -8.6, B = -4.6. В колонке B больше — ответ B.",
+     "solutionKk": "A = -8.6, B = -4.6. B бағанында үлкен — жауап B."
     },
     {
      "n": 40,
      "answer": "C",
      "image": "/exams/math/cb/u04/q40.webp",
-     "imageKk": "/exams/math/cb/u04/q40.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q40.kk.webp",
+     "solution": "A = 60, B = 60. Значения равны — ответ C.",
+     "solutionKk": "A = 60, B = 60. мәндер тең — жауап C."
     },
     {
      "n": 41,
      "answer": "B",
      "image": "/exams/math/cb/u04/q41.webp",
-     "imageKk": "/exams/math/cb/u04/q41.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q41.kk.webp",
+     "solution": "A = 7256, B = 7260. В колонке B больше — ответ B.",
+     "solutionKk": "A = 7256, B = 7260. B бағанында үлкен — жауап B."
     },
     {
      "n": 42,
      "answer": "B",
      "image": "/exams/math/cb/u04/q42.webp",
-     "imageKk": "/exams/math/cb/u04/q42.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q42.kk.webp",
+     "solution": "A = 1.5, B = 2. В колонке B больше — ответ B.",
+     "solutionKk": "A = 1.5, B = 2. B бағанында үлкен — жауап B."
     },
     {
      "n": 43,
      "answer": "A",
      "image": "/exams/math/cb/u04/q43.webp",
-     "imageKk": "/exams/math/cb/u04/q43.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q43.kk.webp",
+     "solution": "A = 2300, B = 2200. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2300, B = 2200. A бағанында үлкен — жауап A."
     },
     {
      "n": 44,
      "answer": "C",
      "image": "/exams/math/cb/u04/q44.webp",
-     "imageKk": "/exams/math/cb/u04/q44.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q44.kk.webp",
+     "solution": "A = 645, B = 645. Значения равны — ответ C.",
+     "solutionKk": "A = 645, B = 645. мәндер тең — жауап C."
     },
     {
      "n": 45,
      "answer": "C",
      "image": "/exams/math/cb/u04/q45.webp",
-     "imageKk": "/exams/math/cb/u04/q45.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q45.kk.webp",
+     "solution": "A = 2078, B = 2078. Значения равны — ответ C.",
+     "solutionKk": "A = 2078, B = 2078. мәндер тең — жауап C."
     },
     {
      "n": 46,
      "answer": "B",
      "image": "/exams/math/cb/u04/q46.webp",
-     "imageKk": "/exams/math/cb/u04/q46.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q46.kk.webp",
+     "solution": "A = 41.5692, B = 50.2655. В колонке B больше — ответ B.",
+     "solutionKk": "A = 41.5692, B = 50.2655. B бағанында үлкен — жауап B."
     },
     {
      "n": 47,
      "answer": "B",
      "image": "/exams/math/cb/u04/q47.webp",
-     "imageKk": "/exams/math/cb/u04/q47.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q47.kk.webp",
+     "solution": "A = 3, B = 6. В колонке B больше — ответ B.",
+     "solutionKk": "A = 3, B = 6. B бағанында үлкен — жауап B."
     },
     {
      "n": 48,
      "answer": "B",
      "image": "/exams/math/cb/u04/q48.webp",
-     "imageKk": "/exams/math/cb/u04/q48.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q48.kk.webp",
+     "solution": "A = 0.25, B = 0.2525. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.25, B = 0.2525. B бағанында үлкен — жауап B."
     },
     {
      "n": 49,
      "answer": "B",
      "image": "/exams/math/cb/u04/q49.webp",
-     "imageKk": "/exams/math/cb/u04/q49.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q49.kk.webp",
+     "solution": "A = 0.8, B = 0.83. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.8, B = 0.83. B бағанында үлкен — жауап B."
     },
     {
      "n": 50,
      "answer": "B",
      "image": "/exams/math/cb/u04/q50.webp",
-     "imageKk": "/exams/math/cb/u04/q50.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q50.kk.webp",
+     "solution": "A = 8, B = 9. В колонке B больше — ответ B.",
+     "solutionKk": "A = 8, B = 9. B бағанында үлкен — жауап B."
     },
     {
      "n": 51,
      "answer": "C",
      "image": "/exams/math/cb/u04/q51.webp",
-     "imageKk": "/exams/math/cb/u04/q51.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q51.kk.webp",
+     "solution": "A = 100000000, B = 100000000. Значения равны — ответ C.",
+     "solutionKk": "A = 100000000, B = 100000000. мәндер тең — жауап C."
     },
     {
      "n": 52,
      "answer": "C",
      "image": "/exams/math/cb/u04/q52.webp",
-     "imageKk": "/exams/math/cb/u04/q52.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q52.kk.webp",
+     "solution": "A = 99, B = 99. Значения равны — ответ C.",
+     "solutionKk": "A = 99, B = 99. мәндер тең — жауап C."
     },
     {
      "n": 53,
      "answer": "B",
      "image": "/exams/math/cb/u04/q53.webp",
-     "imageKk": "/exams/math/cb/u04/q53.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q53.kk.webp",
+     "solution": "A = 2, B = 4. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2, B = 4. B бағанында үлкен — жауап B."
     },
     {
      "n": 54,
      "answer": "B",
      "image": "/exams/math/cb/u04/q54.webp",
-     "imageKk": "/exams/math/cb/u04/q54.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q54.kk.webp",
+     "solution": "A = 0.0625, B = 0.125. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.0625, B = 0.125. B бағанында үлкен — жауап B."
     },
     {
      "n": 55,
      "answer": "A",
      "image": "/exams/math/cb/u04/q55.webp",
-     "imageKk": "/exams/math/cb/u04/q55.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q55.kk.webp",
+     "solution": "A = 5, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 56,
      "answer": "A",
      "image": "/exams/math/cb/u04/q56.webp",
-     "imageKk": "/exams/math/cb/u04/q56.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q56.kk.webp",
+     "solution": "A = 0.45, B = 0.4444. В колонке A больше — ответ A.",
+     "solutionKk": "A = 0.45, B = 0.4444. A бағанында үлкен — жауап A."
     },
     {
      "n": 57,
      "answer": "D",
      "image": "/exams/math/cb/u04/q57.webp",
-     "imageKk": "/exams/math/cb/u04/q57.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q57.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 58,
      "answer": "A",
      "image": "/exams/math/cb/u04/q58.webp",
-     "imageKk": "/exams/math/cb/u04/q58.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q58.kk.webp",
+     "solution": "A = 54, B = 13. В колонке A больше — ответ A.",
+     "solutionKk": "A = 54, B = 13. A бағанында үлкен — жауап A."
     },
     {
      "n": 59,
      "answer": "C",
      "image": "/exams/math/cb/u04/q59.webp",
-     "imageKk": "/exams/math/cb/u04/q59.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q59.kk.webp",
+     "solution": "A = 203, B = 203. Значения равны — ответ C.",
+     "solutionKk": "A = 203, B = 203. мәндер тең — жауап C."
     },
     {
      "n": 60,
      "answer": "A",
      "image": "/exams/math/cb/u04/q60.webp",
-     "imageKk": "/exams/math/cb/u04/q60.kk.webp"
+     "imageKk": "/exams/math/cb/u04/q60.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ A.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап A."
     }
    ]
   },
@@ -11853,361 +12693,481 @@
      "n": 1,
      "answer": "B",
      "image": "/exams/math/cb/u05/q01.webp",
-     "imageKk": "/exams/math/cb/u05/q01.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q01.kk.webp",
+     "solution": "A = 0.3, B = 0.5857. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.3, B = 0.5857. B бағанында үлкен — жауап B."
     },
     {
      "n": 2,
      "answer": "B",
      "image": "/exams/math/cb/u05/q02.webp",
-     "imageKk": "/exams/math/cb/u05/q02.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q02.kk.webp",
+     "solution": "A = 0.62, B = 0.625. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.62, B = 0.625. B бағанында үлкен — жауап B."
     },
     {
      "n": 3,
      "answer": "B",
      "image": "/exams/math/cb/u05/q03.webp",
-     "imageKk": "/exams/math/cb/u05/q03.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q03.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 4,
      "answer": "B",
      "image": "/exams/math/cb/u05/q04.webp",
-     "imageKk": "/exams/math/cb/u05/q04.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q04.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 5,
      "answer": "A",
      "image": "/exams/math/cb/u05/q05.webp",
-     "imageKk": "/exams/math/cb/u05/q05.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q05.kk.webp",
+     "solution": "A = 84, B = 30. В колонке A больше — ответ A.",
+     "solutionKk": "A = 84, B = 30. A бағанында үлкен — жауап A."
     },
     {
      "n": 6,
      "answer": "B",
      "image": "/exams/math/cb/u05/q06.webp",
-     "imageKk": "/exams/math/cb/u05/q06.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q06.kk.webp",
+     "solution": "A = 1.4, B = 1.75. В колонке B больше — ответ B.",
+     "solutionKk": "A = 1.4, B = 1.75. B бағанында үлкен — жауап B."
     },
     {
      "n": 7,
      "answer": "A",
      "image": "/exams/math/cb/u05/q07.webp",
-     "imageKk": "/exams/math/cb/u05/q07.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q07.kk.webp",
+     "solution": "A = 72, B = 64.8. В колонке A больше — ответ A.",
+     "solutionKk": "A = 72, B = 64.8. A бағанында үлкен — жауап A."
     },
     {
      "n": 8,
      "answer": "A",
      "image": "/exams/math/cb/u05/q08.webp",
-     "imageKk": "/exams/math/cb/u05/q08.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q08.kk.webp",
+     "solution": "A = 999, B = 992. В колонке A больше — ответ A.",
+     "solutionKk": "A = 999, B = 992. A бағанында үлкен — жауап A."
     },
     {
      "n": 9,
      "answer": "B",
      "image": "/exams/math/cb/u05/q09.webp",
-     "imageKk": "/exams/math/cb/u05/q09.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q09.kk.webp",
+     "solution": "A = -54, B = -13. В колонке B больше — ответ B.",
+     "solutionKk": "A = -54, B = -13. B бағанында үлкен — жауап B."
     },
     {
      "n": 10,
      "answer": "B",
      "image": "/exams/math/cb/u05/q10.webp",
-     "imageKk": "/exams/math/cb/u05/q10.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q10.kk.webp",
+     "solution": "A = 214, B = 298. В колонке B больше — ответ B.",
+     "solutionKk": "A = 214, B = 298. B бағанында үлкен — жауап B."
     },
     {
      "n": 11,
      "answer": "C",
      "image": "/exams/math/cb/u05/q11.webp",
-     "imageKk": "/exams/math/cb/u05/q11.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q11.kk.webp",
+     "solution": "A = 4, B = 4. Значения равны — ответ C.",
+     "solutionKk": "A = 4, B = 4. мәндер тең — жауап C."
     },
     {
      "n": 12,
      "answer": "D",
      "image": "/exams/math/cb/u05/q12.webp",
-     "imageKk": "/exams/math/cb/u05/q12.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q12.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 13,
      "answer": "B",
      "image": "/exams/math/cb/u05/q13.webp",
-     "imageKk": "/exams/math/cb/u05/q13.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q13.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 14,
      "answer": "A",
      "image": "/exams/math/cb/u05/q14.webp",
-     "imageKk": "/exams/math/cb/u05/q14.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q14.kk.webp",
+     "solution": "A = 4, B = 3. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4, B = 3. A бағанында үлкен — жауап A."
     },
     {
      "n": 15,
      "answer": "A",
      "image": "/exams/math/cb/u05/q15.webp",
-     "imageKk": "/exams/math/cb/u05/q15.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q15.kk.webp",
+     "solution": "A = 30, B = 28. В колонке A больше — ответ A.",
+     "solutionKk": "A = 30, B = 28. A бағанында үлкен — жауап A."
     },
     {
      "n": 16,
      "answer": "C",
      "image": "/exams/math/cb/u05/q16.webp",
-     "imageKk": "/exams/math/cb/u05/q16.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q16.kk.webp",
+     "solution": "A = 912, B = 912. Значения равны — ответ C.",
+     "solutionKk": "A = 912, B = 912. мәндер тең — жауап C."
     },
     {
      "n": 17,
      "answer": "D",
      "image": "/exams/math/cb/u05/q17.webp",
-     "imageKk": "/exams/math/cb/u05/q17.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q17.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 18,
      "answer": "B",
      "image": "/exams/math/cb/u05/q18.webp",
-     "imageKk": "/exams/math/cb/u05/q18.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q18.kk.webp",
+     "solution": "A = 48, B = 50. В колонке B больше — ответ B.",
+     "solutionKk": "A = 48, B = 50. B бағанында үлкен — жауап B."
     },
     {
      "n": 19,
      "answer": "A",
      "image": "/exams/math/cb/u05/q19.webp",
-     "imageKk": "/exams/math/cb/u05/q19.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q19.kk.webp",
+     "solution": "A = 5, B = -1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = -1. A бағанында үлкен — жауап A."
     },
     {
      "n": 20,
      "answer": "B",
      "image": "/exams/math/cb/u05/q20.webp",
-     "imageKk": "/exams/math/cb/u05/q20.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q20.kk.webp",
+     "solution": "A = 4, B = 5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4, B = 5. B бағанында үлкен — жауап B."
     },
     {
      "n": 21,
      "answer": "A",
      "image": "/exams/math/cb/u05/q21.webp",
-     "imageKk": "/exams/math/cb/u05/q21.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q21.kk.webp",
+     "solution": "A = 14, B = 13. В колонке A больше — ответ A.",
+     "solutionKk": "A = 14, B = 13. A бағанында үлкен — жауап A."
     },
     {
      "n": 22,
      "answer": "A",
      "image": "/exams/math/cb/u05/q22.webp",
-     "imageKk": "/exams/math/cb/u05/q22.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q22.kk.webp",
+     "solution": "A = 2, B = 1. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2, B = 1. A бағанында үлкен — жауап A."
     },
     {
      "n": 23,
      "answer": "D",
      "image": "/exams/math/cb/u05/q23.webp",
-     "imageKk": "/exams/math/cb/u05/q23.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q23.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 24,
      "answer": "C",
      "image": "/exams/math/cb/u05/q24.webp",
-     "imageKk": "/exams/math/cb/u05/q24.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q24.kk.webp",
+     "solution": "A = 3, B = 3. Значения равны — ответ C.",
+     "solutionKk": "A = 3, B = 3. мәндер тең — жауап C."
     },
     {
      "n": 25,
      "answer": "B",
      "image": "/exams/math/cb/u05/q25.webp",
-     "imageKk": "/exams/math/cb/u05/q25.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q25.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 26,
      "answer": "D",
      "image": "/exams/math/cb/u05/q26.webp",
-     "imageKk": "/exams/math/cb/u05/q26.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q26.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 27,
      "answer": "B",
      "image": "/exams/math/cb/u05/q27.webp",
-     "imageKk": "/exams/math/cb/u05/q27.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q27.kk.webp",
+     "solution": "A = 0.099, B = 0.1. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.099, B = 0.1. B бағанында үлкен — жауап B."
     },
     {
      "n": 28,
      "answer": "B",
      "image": "/exams/math/cb/u05/q28.webp",
-     "imageKk": "/exams/math/cb/u05/q28.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q28.kk.webp",
+     "solution": "A = 40, B = 45. В колонке B больше — ответ B.",
+     "solutionKk": "A = 40, B = 45. B бағанында үлкен — жауап B."
     },
     {
      "n": 29,
      "answer": "B",
      "image": "/exams/math/cb/u05/q29.webp",
-     "imageKk": "/exams/math/cb/u05/q29.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q29.kk.webp",
+     "solution": "A = 60, B = 62. В колонке B больше — ответ B.",
+     "solutionKk": "A = 60, B = 62. B бағанында үлкен — жауап B."
     },
     {
      "n": 30,
      "answer": "A",
      "image": "/exams/math/cb/u05/q30.webp",
-     "imageKk": "/exams/math/cb/u05/q30.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q30.kk.webp",
+     "solution": "A = 270, B = 180. В колонке A больше — ответ A.",
+     "solutionKk": "A = 270, B = 180. A бағанында үлкен — жауап A."
     },
     {
      "n": 31,
      "answer": "D",
      "image": "/exams/math/cb/u05/q31.webp",
-     "imageKk": "/exams/math/cb/u05/q31.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q31.kk.webp",
+     "solution": "Значения зависят от неизвестных величин, поэтому однозначно сравнить нельзя — ответ D.",
+     "solutionKk": "Мәндер белгісіз шамаларға тәуелді, сондықтан нақты салыстыруға болмайды — жауап D."
     },
     {
      "n": 32,
      "answer": "B",
      "image": "/exams/math/cb/u05/q32.webp",
-     "imageKk": "/exams/math/cb/u05/q32.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q32.kk.webp",
+     "solution": "A = 0.064, B = 0.065. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.064, B = 0.065. B бағанында үлкен — жауап B."
     },
     {
      "n": 33,
      "answer": "A",
      "image": "/exams/math/cb/u05/q33.webp",
-     "imageKk": "/exams/math/cb/u05/q33.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q33.kk.webp",
+     "solution": "A = 4.125, B = 2.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 4.125, B = 2.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 34,
      "answer": "B",
      "image": "/exams/math/cb/u05/q34.webp",
-     "imageKk": "/exams/math/cb/u05/q34.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q34.kk.webp",
+     "solution": "A = 0.2, B = 0.8. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.2, B = 0.8. B бағанында үлкен — жауап B."
     },
     {
      "n": 35,
      "answer": "B",
      "image": "/exams/math/cb/u05/q35.webp",
-     "imageKk": "/exams/math/cb/u05/q35.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q35.kk.webp",
+     "solution": "A = 4, B = 5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 4, B = 5. B бағанында үлкен — жауап B."
     },
     {
      "n": 36,
      "answer": "A",
      "image": "/exams/math/cb/u05/q36.webp",
-     "imageKk": "/exams/math/cb/u05/q36.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q36.kk.webp",
+     "solution": "A = 5, B = 4. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 4. A бағанында үлкен — жауап A."
     },
     {
      "n": 37,
      "answer": "B",
      "image": "/exams/math/cb/u05/q37.webp",
-     "imageKk": "/exams/math/cb/u05/q37.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q37.kk.webp",
+     "solution": "A = 2, B = 5. В колонке B больше — ответ B.",
+     "solutionKk": "A = 2, B = 5. B бағанында үлкен — жауап B."
     },
     {
      "n": 38,
      "answer": "B",
      "image": "/exams/math/cb/u05/q38.webp",
-     "imageKk": "/exams/math/cb/u05/q38.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q38.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ B.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап B."
     },
     {
      "n": 39,
      "answer": "A",
      "image": "/exams/math/cb/u05/q39.webp",
-     "imageKk": "/exams/math/cb/u05/q39.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q39.kk.webp",
+     "solution": "A = -6.5, B = -7.3. В колонке A больше — ответ A.",
+     "solutionKk": "A = -6.5, B = -7.3. A бағанында үлкен — жауап A."
     },
     {
      "n": 40,
      "answer": "B",
      "image": "/exams/math/cb/u05/q40.webp",
-     "imageKk": "/exams/math/cb/u05/q40.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q40.kk.webp",
+     "solution": "A = 18, B = 20. В колонке B больше — ответ B.",
+     "solutionKk": "A = 18, B = 20. B бағанында үлкен — жауап B."
     },
     {
      "n": 41,
      "answer": "B",
      "image": "/exams/math/cb/u05/q41.webp",
-     "imageKk": "/exams/math/cb/u05/q41.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q41.kk.webp",
+     "solution": "A = -2.4, B = 268.8. В колонке B больше — ответ B.",
+     "solutionKk": "A = -2.4, B = 268.8. B бағанында үлкен — жауап B."
     },
     {
      "n": 42,
      "answer": "A",
      "image": "/exams/math/cb/u05/q42.webp",
-     "imageKk": "/exams/math/cb/u05/q42.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q42.kk.webp",
+     "solution": "A = 3, B = 2. В колонке A больше — ответ A.",
+     "solutionKk": "A = 3, B = 2. A бағанында үлкен — жауап A."
     },
     {
      "n": 43,
      "answer": "A",
      "image": "/exams/math/cb/u05/q43.webp",
-     "imageKk": "/exams/math/cb/u05/q43.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q43.kk.webp",
+     "solution": "A = 12, B = 11.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 12, B = 11.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 44,
      "answer": "A",
      "image": "/exams/math/cb/u05/q44.webp",
-     "imageKk": "/exams/math/cb/u05/q44.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q44.kk.webp",
+     "solution": "A = 72, B = 64. В колонке A больше — ответ A.",
+     "solutionKk": "A = 72, B = 64. A бағанында үлкен — жауап A."
     },
     {
      "n": 45,
      "answer": "A",
      "image": "/exams/math/cb/u05/q45.webp",
-     "imageKk": "/exams/math/cb/u05/q45.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q45.kk.webp",
+     "solution": "A = 2500, B = 2000. В колонке A больше — ответ A.",
+     "solutionKk": "A = 2500, B = 2000. A бағанында үлкен — жауап A."
     },
     {
      "n": 46,
      "answer": "A",
      "image": "/exams/math/cb/u05/q46.webp",
-     "imageKk": "/exams/math/cb/u05/q46.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q46.kk.webp",
+     "solution": "A = 5, B = 0. В колонке A больше — ответ A.",
+     "solutionKk": "A = 5, B = 0. A бағанында үлкен — жауап A."
     },
     {
      "n": 47,
      "answer": "A",
      "image": "/exams/math/cb/u05/q47.webp",
-     "imageKk": "/exams/math/cb/u05/q47.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q47.kk.webp",
+     "solution": "A = 7, B = 2. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 2. A бағанында үлкен — жауап A."
     },
     {
      "n": 48,
      "answer": "B",
      "image": "/exams/math/cb/u05/q48.webp",
-     "imageKk": "/exams/math/cb/u05/q48.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q48.kk.webp",
+     "solution": "A = 11, B = 13. В колонке B больше — ответ B.",
+     "solutionKk": "A = 11, B = 13. B бағанында үлкен — жауап B."
     },
     {
      "n": 49,
      "answer": "A",
      "image": "/exams/math/cb/u05/q49.webp",
-     "imageKk": "/exams/math/cb/u05/q49.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q49.kk.webp",
+     "solution": "A = 90, B = 72. В колонке A больше — ответ A.",
+     "solutionKk": "A = 90, B = 72. A бағанында үлкен — жауап A."
     },
     {
      "n": 50,
      "answer": "A",
      "image": "/exams/math/cb/u05/q50.webp",
-     "imageKk": "/exams/math/cb/u05/q50.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q50.kk.webp",
+     "solution": "A = 6, B = 4.5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 6, B = 4.5. A бағанында үлкен — жауап A."
     },
     {
      "n": 51,
      "answer": "A",
      "image": "/exams/math/cb/u05/q51.webp",
-     "imageKk": "/exams/math/cb/u05/q51.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q51.kk.webp",
+     "solution": "A = 7, B = 5. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 5. A бағанында үлкен — жауап A."
     },
     {
      "n": 52,
      "answer": "B",
      "image": "/exams/math/cb/u05/q52.webp",
-     "imageKk": "/exams/math/cb/u05/q52.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q52.kk.webp",
+     "solution": "A = 27027, B = 27207. В колонке B больше — ответ B.",
+     "solutionKk": "A = 27027, B = 27207. B бағанында үлкен — жауап B."
     },
     {
      "n": 53,
      "answer": "B",
      "image": "/exams/math/cb/u05/q53.webp",
-     "imageKk": "/exams/math/cb/u05/q53.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q53.kk.webp",
+     "solution": "A = 5, B = 8. В колонке B больше — ответ B.",
+     "solutionKk": "A = 5, B = 8. B бағанында үлкен — жауап B."
     },
     {
      "n": 54,
      "answer": "B",
      "image": "/exams/math/cb/u05/q54.webp",
-     "imageKk": "/exams/math/cb/u05/q54.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q54.kk.webp",
+     "solution": "A = 18000, B = 18200. В колонке B больше — ответ B.",
+     "solutionKk": "A = 18000, B = 18200. B бағанында үлкен — жауап B."
     },
     {
      "n": 55,
      "answer": "B",
      "image": "/exams/math/cb/u05/q55.webp",
-     "imageKk": "/exams/math/cb/u05/q55.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q55.kk.webp",
+     "solution": "A = 350, B = 355. В колонке B больше — ответ B.",
+     "solutionKk": "A = 350, B = 355. B бағанында үлкен — жауап B."
     },
     {
      "n": 56,
      "answer": "A",
      "image": "/exams/math/cb/u05/q56.webp",
-     "imageKk": "/exams/math/cb/u05/q56.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q56.kk.webp",
+     "solution": "A = 39, B = 36. В колонке A больше — ответ A.",
+     "solutionKk": "A = 39, B = 36. A бағанында үлкен — жауап A."
     },
     {
      "n": 57,
      "answer": "C",
      "image": "/exams/math/cb/u05/q57.webp",
-     "imageKk": "/exams/math/cb/u05/q57.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q57.kk.webp",
+     "solution": "Сравнение по условию (с учётом ограничений): ответ C.",
+     "solutionKk": "Шарт бойынша салыстыру (шектеулерді ескере отырып): жауап C."
     },
     {
      "n": 58,
      "answer": "A",
      "image": "/exams/math/cb/u05/q58.webp",
-     "imageKk": "/exams/math/cb/u05/q58.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q58.kk.webp",
+     "solution": "A = 7, B = 6. В колонке A больше — ответ A.",
+     "solutionKk": "A = 7, B = 6. A бағанында үлкен — жауап A."
     },
     {
      "n": 59,
      "answer": "C",
      "image": "/exams/math/cb/u05/q59.webp",
-     "imageKk": "/exams/math/cb/u05/q59.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q59.kk.webp",
+     "solution": "A = 0.6, B = 0.6. Значения равны — ответ C.",
+     "solutionKk": "A = 0.6, B = 0.6. мәндер тең — жауап C."
     },
     {
      "n": 60,
      "answer": "B",
      "image": "/exams/math/cb/u05/q60.webp",
-     "imageKk": "/exams/math/cb/u05/q60.kk.webp"
+     "imageKk": "/exams/math/cb/u05/q60.kk.webp",
+     "solution": "A = 0.99, B = 1. В колонке B больше — ответ B.",
+     "solutionKk": "A = 0.99, B = 1. B бағанында үлкен — жауап B."
     }
    ]
   }

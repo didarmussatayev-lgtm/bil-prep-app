@@ -11,13 +11,13 @@ import { prisma } from "@/lib/prisma";
  * Формат manifest.json:
  * { "subject": "math", "papers": [ { "slug": "math-training-01", "group": "training"|"past", "number": 1, "title": "Тест 1",
  *   "titleKk": "1-тест", "year": 2025?, "timeMinutes": 120,
- *   "questions": [ { "n": 1, "answer": "C", "image": "/exams/math/t01/q01.webp", "imageKk": "/exams/math/t01/q01.kk.webp"? } ] } ] }
+ *   "questions": [ { "n": 1, "answer": "C", "image": "/exams/math/t01/q01.webp", "imageKk": "/exams/math/t01/q01.kk.webp"?, "solution": "разбор ru"?, "solutionKk": "разбор kk"? } ] } ] }
  */
 type Manifest = {
   subject: string;
   papers: {
     slug: string; group: "training" | "past"; number: number; title: string; titleKk?: string; year?: number; timeMinutes?: number;
-    questions: { n: number; answer: string; image: string; imageKk?: string }[];
+    questions: { n: number; answer: string; image: string; imageKk?: string; solution?: string; solutionKk?: string }[];
   }[];
 };
 
@@ -54,9 +54,9 @@ export async function importPapers() {
         const fig = (src: string) => ({ kind: "image", src, alt: `${p.title}, вопрос ${q.n}` });
         const data = {
           topicId: container.id, type: "test_choice" as const, number: String(q.n), order: q.n, question: "",
-          options: ["", "", "", "", ""], correctOption: q.answer, solutionText: null,
+          options: ["", "", "", "", ""], correctOption: q.answer, solutionText: q.solution ?? null,
           imageParamsJson: fig(q.image),
-          i18n: q.imageKk ? { kk: { figure: fig(q.imageKk), reviewed: true } } : undefined,
+          i18n: q.imageKk || q.solutionKk ? { kk: { ...(q.imageKk ? { figure: fig(q.imageKk) } : {}), ...(q.solutionKk ? { solution: q.solutionKk } : {}), reviewed: true } } : undefined,
         };
         const t = await prisma.task.upsert({ where: { slug }, update: data, create: { slug, ...data } });
         ids.push(t.id);
