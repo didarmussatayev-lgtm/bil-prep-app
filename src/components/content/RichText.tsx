@@ -57,7 +57,7 @@ function withFractions(text: string, keyPrefix: string): React.ReactNode[] {
 export function renderRichInline(text: string, keyPrefix: string): React.ReactNode[] {
   // формулы LaTeX: \( … \) и \[ … \] — рисуем KaTeX, остальной текст — как раньше
   if (/\\[(\[]/.test(text)) {
-    return text.split(/(\\\([\s\S]+?\\\)|\\\[[\s\S]+?\\\])/g).filter((part) => part !== "").flatMap((part, i) => {
+    return text.split(/(\\\([\s\S]+?\\\)|\\\[[\s\S]+?\\\])/g).filter((part) => part !== "").flatMap<React.ReactNode>((part, i) => {
       const display = part.startsWith("\\[");
       if (display || part.startsWith("\\(")) {
         const html = katex.renderToString(part.slice(2, -2), { throwOnError: false, displayMode: display });
