@@ -66,3 +66,28 @@ export function enrich(tasks: EngTask[]): EngTask[] {
     return { ...t, sol: { ru, kk } };
   });
 }
+
+/** Выравнивает распределение верных букв A–D: переставляет верный вариант на наименее частую букву.
+ *  Пропускает вопросы, где порядок вариантов значим (последовательности, «только I», «все/ни один» и т. п.) и где разбор ссылается на буквы. */
+export function balance(tasks: EngTask[]): EngTask[] {
+  const L = ["A", "B", "C", "D"] as const;
+  const fixedOpt = /^[\d\s,.;−-]+$|^(\d|I{1,3})(, | and | и )|only|both|all of|none of|^все\b|^ни |^только|барлығы|жауабы жоқ|^и |^оба|^верн|^II|^I\b/i;
+  const eligible = (t: EngTask) => {
+    const o = t.choice?.options;
+    if (!o || o.length !== 4) return false;
+    if (o.some((x) => fixedOpt.test(x.trim()))) return false;
+    if (/\b[A-D]\)|вариант[а-я]* [A-D]\b|[Оо]твет[: ]+[A-D]\b|\b[A-D] (нұсқа|вариант)/.test(t.sol.ru + t.sol.kk)) return false;
+    return true;
+  };
+  const cnt: Record<string, number> = { A: 0, B: 0, C: 0, D: 0 };
+  tasks.forEach((t) => { if (!eligible(t)) cnt[t.choice!.correct]++; });
+  return tasks.map((t, i) => {
+    if (!eligible(t)) return t;
+    const order = [...L].sort((a, b) => cnt[a] - cnt[b] || ((L.indexOf(a) - i) % 4 + 4) % 4 - ((L.indexOf(b) - i) % 4 + 4) % 4);
+    const target = order[0]; cnt[target]++;
+    const from = L.indexOf(t.choice!.correct as "A"), to = L.indexOf(target);
+    if (from === to) return t;
+    const sw = (a: string[]) => { const r = [...a]; [r[from], r[to]] = [r[to], r[from]]; return r; };
+    return { ...t, choice: { options: sw(t.choice!.options), correct: target }, kk: t.kk ? { ...t.kk, options: sw(t.kk.options) } : undefined };
+  });
+}

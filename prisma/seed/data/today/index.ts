@@ -30,7 +30,7 @@ import { T05_RUS, T05_KAZ, T05_ENG } from "./t05-verbal";
 import { T06_MATH } from "./t06-math";
 import { T06_QUANT } from "./t06-quant";
 import { T06_RUS, T06_KAZ, T06_ENG } from "./t06-verbal";
-import { rotate as rot, enrich } from "./kit";
+import { rotate as rot, enrich, balance } from "./kit";
 const rotate = (t: EngPaper["questions"]) => enrich(rot(t));
 
 /** Сквозная нумерация внутри варианта: математика 1–40, количественные 41–100, русский 101–120, казахский 121–140, английский 141–160. */
@@ -65,10 +65,10 @@ export const TODAY_BOOK_1 = { slug: "today-1", title: "Комплексное п
 export const TODAY_KK_TOPICS: Record<string, KkTopic> = { "today-1.1.1": toKk(t11) };
 
 export const TODAY_PAPERS: EngPaper[] = [
-  { slug: "nis-today-test-01", number: 1, title: { ru: "Тест 1", kk: "1-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T01_MATH, ...shift(T01_QUANT, 41), ...enrich(T01_RUS), ...enrich(T01_KAZ), ...enrich(T01_ENG)] },
-  { slug: "nis-today-test-02", number: 2, title: { ru: "Тест 2", kk: "2-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T02_MATH, ...shift(T02_QUANT, 41), ...enrich(T02_RUS), ...enrich(T02_KAZ), ...enrich(T02_ENG)] },
-  { slug: "nis-today-test-03", number: 3, title: { ru: "Тест 3", kk: "3-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T03_MATH, ...shift(T03_QUANT, 41), ...enrich(T03_RUS), ...enrich(T03_KAZ), ...enrich(T03_ENG)] },
-  { slug: "nis-today-test-04", number: 4, title: { ru: "Тест 4", kk: "4-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T04_MATH, ...shift(T04_QUANT, 41), ...enrich(T04_RUS), ...enrich(T04_KAZ), ...enrich(T04_ENG)] },
-  { slug: "nis-today-test-05", number: 5, title: { ru: "Тест 5", kk: "5-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T05_MATH, ...shift(T05_QUANT, 41), ...enrich(T05_RUS), ...enrich(T05_KAZ), ...enrich(T05_ENG)] },
-  { slug: "nis-today-test-06", number: 6, title: { ru: "Тест 6", kk: "6-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...T06_MATH, ...shift(T06_QUANT, 41), ...enrich(T06_RUS), ...enrich(T06_KAZ), ...enrich(T06_ENG)] },
+  { slug: "nis-today-test-01", number: 1, title: { ru: "Тест 1", kk: "1-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...balance(T01_MATH), ...shift(T01_QUANT, 41), ...enrich(balance(T01_RUS)), ...enrich(balance(T01_KAZ)), ...enrich(balance(T01_ENG))] },
+  { slug: "nis-today-test-02", number: 2, title: { ru: "Тест 2", kk: "2-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...balance(T02_MATH), ...shift(T02_QUANT, 41), ...enrich(balance(T02_RUS)), ...enrich(balance(T02_KAZ)), ...enrich(balance(T02_ENG))] },
+  { slug: "nis-today-test-03", number: 3, title: { ru: "Тест 3", kk: "3-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...balance(T03_MATH), ...shift(T03_QUANT, 41), ...enrich(balance(T03_RUS)), ...enrich(balance(T03_KAZ)), ...enrich(balance(T03_ENG))] },
+  { slug: "nis-today-test-04", number: 4, title: { ru: "Тест 4", kk: "4-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...balance(T04_MATH), ...shift(T04_QUANT, 41), ...enrich(balance(T04_RUS)), ...enrich(balance(T04_KAZ)), ...enrich(balance(T04_ENG))] },
+  { slug: "nis-today-test-05", number: 5, title: { ru: "Тест 5", kk: "5-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...balance(T05_MATH), ...shift(T05_QUANT, 41), ...enrich(balance(T05_RUS)), ...enrich(balance(T05_KAZ)), ...enrich(balance(T05_ENG))] },
+  { slug: "nis-today-test-06", number: 6, title: { ru: "Тест 6", kk: "6-тест" }, timeMinutes: 180, group: "training", fixed: true, questions: [...balance(T06_MATH), ...shift(T06_QUANT, 41), ...enrich(balance(T06_RUS)), ...enrich(balance(T06_KAZ)), ...enrich(balance(T06_ENG))] },
 ];
