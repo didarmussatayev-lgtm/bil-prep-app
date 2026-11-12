@@ -21,8 +21,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
         <Link href="/" className={ui.brand}>{t("Подготовка в БИЛ")}</Link>
         <div className={ui.headerRight}>
           {user.role === "student" && <GamificationHost />}
-          <Link href="/account/password" className={ui.who} title={t("Смена пароля")}>{user.login}</Link>
-          <LangSwitch className={ui.iconBtn} />
+          <Link href="/account/password" className={ui.who} title={t("Смена пароля")}><span className={ui.whoInit} aria-hidden="true">{user.login.slice(0, 1)}</span><span className={ui.whoText}>{user.login}</span></Link>
+          <LangSwitch />
           <ThemeToggle className={ui.iconBtn} />
           <LogoutButton className={ui.btnGhost} />
         </div>
