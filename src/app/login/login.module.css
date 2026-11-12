@@ -5,21 +5,19 @@
   place-items: center;
   padding: 24px;
   color: var(--text);
-  background:
-    radial-gradient(900px 420px at 50% -10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%),
-    var(--bg);
+  background: var(--bg);
 }
 
 .sheet {
   width: min(100%, 400px);
   padding: 36px 32px 32px;
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-md);
+  border: 2px solid var(--border);
+  border-bottom-width: 5px;
+  border-radius: 24px;
 }
 
-.title { margin: 0 0 6px; font-size: 1.6rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+.title { margin: 0 0 6px; font-size: 1.7rem; font-weight: 800; color: var(--accent-text); line-height: 1.2; letter-spacing: -0.02em; }
 .lead { margin: 0 0 24px; font-size: 0.95rem; line-height: 1.5; color: var(--muted); }
 
 .field { display: block; margin-bottom: 16px; }
@@ -31,12 +29,12 @@
   font: inherit;
   color: inherit;
   background: var(--surface);
-  border: 1.5px solid var(--border-strong);
-  border-radius: 12px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
   transition: border-color .15s, box-shadow .15s;
 }
-.field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
-.button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.field input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px color-mix(in srgb, var(--blue) 25%, transparent); }
+.button:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 
 .notice { margin: 0 0 16px; padding: 12px 14px; font-size: 0.9rem; line-height: 1.4; background: var(--accent-soft); border-radius: 12px; }
 .error { margin: 0 0 16px; font-size: 0.9rem; color: var(--bad); }
@@ -45,13 +43,17 @@
   width: 100%;
   height: 46px;
   font: inherit;
-  font-weight: 600;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   color: var(--on-accent);
   background: var(--accent);
   border: 0;
-  border-radius: 12px;
+  border-radius: 14px;
+  box-shadow: 0 4px 0 var(--accent-shade);
   cursor: pointer;
-  transition: background .15s;
+  transition: background .15s, transform .1s, box-shadow .1s;
 }
+.button:active:not(:disabled) { transform: translateY(4px); box-shadow: none; }
 .button:hover:not(:disabled) { background: var(--accent-hover); }
 .button:disabled { opacity: 0.5; cursor: not-allowed; }

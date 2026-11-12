@@ -4,6 +4,7 @@ import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { GamiSummary } from "@/components/student/GamiSummary";
+import { ContinueCard } from "@/components/student/ContinueCard";
 import { WeakPlaces } from "@/components/student/WeakPlaces";
 import { getCourseTree, getOverallProgress, listSubjects } from "@/lib/student/progress";
 import { NIS_SUBJECTS } from "@/lib/student/nav";
@@ -22,6 +23,8 @@ export default async function HomePage() {
   return (
     <main className={ui.container}>
       <h1 className={ui.h1}>{t("Ваш прогресс")}</h1>
+
+      {user.role === "student" && <ContinueCard userId={user.id} />}
 
       {p.topics === 0 ? (
         <p className={ui.callout}>{t("Учебные материалы пока не добавлены. Загляните позже.")}</p>
