@@ -12,6 +12,8 @@ export function LogoutButton({ className }: { className?: string }) {
     try {
       await fetch("/api/auth/logout", { method: "POST" });
     } finally {
+      // чистим офлайн-кэш страниц: на общем устройстве ничего не должно остаться
+      try { navigator.serviceWorker?.controller?.postMessage("clear"); } catch {}
       window.location.assign("/login");
     }
   }

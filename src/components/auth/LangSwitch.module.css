@@ -10,3 +10,4 @@
 .opt:hover { color: var(--text); }
 .opt[aria-pressed="true"] { color: var(--text); background: var(--surface); box-shadow: var(--shadow-sm); }
 .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+@media (max-width: 560px) { .opt { min-width: 30px; padding: 0 6px; font-size: 0.75rem; } }

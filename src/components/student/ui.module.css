@@ -48,6 +48,7 @@
   }
   .headerRight .btnGhost { padding: 7px 10px; font-size: 0.85rem; }
   .headerRight .iconBtn { width: 34px; height: 34px; }
+  .themeBtn { display: none; } /* на телефоне тема следует системной настройке */
 }
 
 .container { max-width: 880px; margin: 0 auto; padding: 32px 24px 88px; }
@@ -411,3 +412,18 @@ details[open] > .levelSummary::before, details[open] > .sectionSummary::before {
 .btnHero { display: inline-flex; align-items: center; justify-content: center; padding: 12px 22px; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none; color: var(--blue-shade); background: #fff; border-radius: 14px; box-shadow: 0 4px 0 rgba(0, 0, 0, 0.18); transition: transform .1s, box-shadow .1s; }
 .btnHero:active { transform: translateY(4px); box-shadow: none; }
 @media (max-width: 560px) { .btnHero { width: 100%; } }
+
+/* поиск по темам */
+.searchForm { display: flex; gap: 10px; margin: 0 0 20px; }
+.searchInput { flex: 1; min-width: 0; height: 48px; padding: 0 16px; font: inherit; font-size: 1rem; color: var(--text); background: var(--surface); border: 2px solid var(--border); border-radius: 14px; }
+.searchInput:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px color-mix(in srgb, var(--blue) 25%, transparent); }
+.hitMeta { display: block; margin-top: 2px; font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+.hitLinks { display: flex; gap: 10px; flex: none; }
+.hitLink { font-weight: 800; font-size: 0.85rem; color: var(--blue-shade); text-decoration: none; }
+.hitLink:hover { text-decoration: underline; }
+.hitLinks + .hitLinks { margin-left: 0; }
+
+/* итоги теста: время и динамика */
+.scoreFacts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; padding: 0; list-style: none; font-weight: 800; color: var(--muted); }
+.factUp { color: var(--ok); }
+.factDown { color: var(--bad); }
