@@ -37,7 +37,7 @@ export function LoginForm({ notice }: { notice?: string }) {
   return (
     <main className={styles.page}>
       <div className={styles.sheet}>
-        <div style={{ textAlign: "right" }}><LangSwitch className={styles.lead} /></div>
+        <div style={{ textAlign: "right", marginBottom: 16 }}><LangSwitch /></div>
         <h1 className={styles.title}>{t("Подготовка в БИЛ")}</h1>
         <p className={styles.lead}>{t("Введите логин и пароль, которые выдал администратор.")}</p>
 

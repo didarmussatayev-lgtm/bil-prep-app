@@ -1,4 +1,4 @@
-.chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; min-height: 38px; border-radius: 999px; background: var(--surface-2); color: var(--text); text-decoration: none; font-size: 0.875rem; font-weight: 600; white-space: nowrap; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; min-height: 38px; border-radius: 999px; border: 2px solid var(--border); background: var(--surface); color: #ff9600; font-weight: 800; text-decoration: none; font-size: 0.875rem; font-weight: 600; white-space: nowrap; }
 .chip:hover { background: var(--accent-soft); }
 .overlay { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(10, 14, 30, 0.55); }
 .modal { width: 100%; max-width: 360px; text-align: center; padding: 28px 22px 22px; border-radius: 24px; background: var(--surface); box-shadow: var(--shadow-md); animation: pop 0.28s ease-out; }
@@ -9,7 +9,7 @@
 .title { margin: 6px 0 4px; font-size: 1.35rem; }
 .desc { margin: 0 0 10px; color: var(--muted); }
 .xpBadge { display: inline-block; margin-bottom: 14px; padding: 4px 12px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); font-weight: 700; }
-.panel { display: grid; gap: 14px; margin: 0 0 20px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-sm); }
+.panel { display: grid; gap: 14px; margin: 0 0 20px; padding: 18px; border: 2px solid var(--border); border-bottom-width: 5px; border-radius: var(--radius); background: var(--surface); }
 .row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .stat { flex: 1; min-width: 120px; padding: 12px 14px; border-radius: var(--radius-sm); background: var(--surface-2); }
 .statNum { display: block; font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
@@ -27,3 +27,9 @@
 .achDesc { margin: 0; color: var(--muted); font-size: 0.8rem; }
 
 @media (max-width: 440px) { .chip { padding: 4px 8px; min-height: 34px; gap: 6px; font-size: 0.8rem; } }
+
+/* главная карточка «Продолжить» */
+.hero { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 0 0 20px; padding: 20px 22px; color: #fff; background: var(--blue); border-radius: var(--radius); box-shadow: 0 5px 0 var(--blue-shade); }
+.heroText { min-width: 0; flex: 1 1 220px; }
+.heroKicker { margin: 0 0 2px; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.9; }
+.heroTitle { margin: 0; font-size: 1.2rem; font-weight: 800; line-height: 1.25; }

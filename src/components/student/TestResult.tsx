@@ -12,6 +12,12 @@ import ui from "./ui.module.css";
 
 type Attempt = {
   scope?: string;
+  subjectId?: string;
+  topicId?: string | null;
+  sectionId?: string | null;
+  paperId?: string | null;
+  startedAt?: Date;
+  finishedAt?: Date | null;
   id: string;
   userId: string;
   questionIds: unknown;
@@ -52,6 +58,22 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
 
   const score = attempt.score ?? 0;
   const total = attempt.total;
+
+  // время прохождения и сравнение с прошлой попыткой того же теста
+  const secs = attempt.startedAt && attempt.finishedAt ? Math.max(0, Math.round((attempt.finishedAt.getTime() - attempt.startedAt.getTime()) / 1000)) : null;
+  const prev = attempt.finishedAt && attempt.subjectId && attempt.scope
+    ? await prisma.testAttempt.findFirst({
+        where: {
+          userId: attempt.userId, subjectId: attempt.subjectId, scope: attempt.scope as never,
+          topicId: attempt.topicId ?? null, sectionId: attempt.sectionId ?? null, paperId: attempt.paperId ?? null,
+          finishedAt: { not: null, lt: attempt.finishedAt }, id: { not: attempt.id }, score: { not: null },
+        },
+        orderBy: { finishedAt: "desc" },
+        select: { score: true, total: true },
+      })
+    : null;
+  const delta = prev && prev.total > 0 ? pct(score, total) - pct(prev.score ?? 0, prev.total) : null;
+  const fmtTime = (n: number) => `${Math.floor(n / 60)}:${String(n % 60).padStart(2, "0")}`;
   const weak = breakdown.filter((b) => b.percent < WEAK_THRESHOLD_PERCENT);
 
   return (
@@ -60,6 +82,17 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
         <p className={ui.scoreBig}>{tr("{a} из {b}", { a: score, b: total })}</p>
         <p className={ui.muted}>{tr("Верных ответов: {p}%", { p: pct(score, total) })}</p>
         <ProgressBar value={pct(score, total)} label={tr("Результат теста")} tone={pct(score, total) >= WEAK_THRESHOLD_PERCENT ? "ok" : "weak"} />
+        {(secs !== null || delta !== null) && (
+          <ul className={ui.scoreFacts}>
+            {secs !== null && <li>⏱ {tr("Время: {t}", { t: fmtTime(secs) })}</li>}
+            {delta !== null && (
+              <li className={delta > 0 ? ui.factUp : delta < 0 ? ui.factDown : undefined}>
+                {delta > 0 ? "▲" : delta < 0 ? "▼" : "＝"}{" "}
+                {delta === 0 ? tr("Как в прошлый раз") : tr("К прошлой попытке: {d}%", { d: `${delta > 0 ? "+" : ""}${delta}` })}
+              </li>
+            )}
+          </ul>
+        )}
       </section>
 
       {attempt.scope === "paper" && (
@@ -96,7 +129,8 @@ export async function TestResult({ attempt, slug }: { attempt: Attempt; slug: st
           <ul style={{ margin: "8px 0 0", paddingLeft: 20 }}>
             {weak.map((b) => (
               <li key={b.topicId}>
-                <Link href={`/bil/${slug}/learn/${b.topicId}`}>{b.title}</Link>
+                <Link href={`/bil/${slug}/learn/${b.topicId}`}>{b.title}</Link>{" · "}
+                <Link href={`/bil/${slug}/practice/${b.topicId}`}>{tr("Закрепить")}</Link>
               </li>
             ))}
           </ul>

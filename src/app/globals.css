@@ -4,30 +4,36 @@
 :root {
   color-scheme: light;
 
-  --bg: #f6f7fb;
+  --bg: #f7f7f7;
   --surface: #ffffff;
-  --surface-2: #f0f2f8;
-  --border: #e3e6ef;
-  --border-strong: #cdd3e3;
-  --text: #121629;
-  --muted: #667089;
+  --surface-2: #f0f0f0;
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
+  --text: #3c3c3c;
+  --muted: #777777;
 
-  --accent: #3b5bfa;
-  --accent-hover: #2f49d6;
-  --accent-soft: #eaeefe;
+  /* зелёный — главное действие и прогресс, синий — второй акцент (подсказки, выбор) */
+  --accent: #58cc02;
+  --accent-hover: #4fbd00;
+  --accent-shade: #46a302;
+  --accent-text: #3d8c00;
+  --accent-soft: #e8f8d8;
   --on-accent: #ffffff;
+  --blue: #1cb0f6;
+  --blue-shade: #1899d6;
+  --blue-soft: #ddf4ff;
 
-  --ok: #14804a;
-  --ok-soft: #e5f6ec;
-  --bad: #c62a35;
-  --bad-soft: #fdecee;
-  --warn: #9a5b00;
-  --warn-soft: #fff4de;
+  --ok: #3d8c00;
+  --ok-soft: #e8f8d8;
+  --bad: #ea2b2b;
+  --bad-soft: #ffdfe0;
+  --warn: #b86e00;
+  --warn-soft: #fff0cc;
 
-  --shadow-sm: 0 1px 2px rgba(18, 22, 41, 0.05);
-  --shadow-md: 0 8px 28px rgba(18, 22, 41, 0.08);
-  --radius: 16px;
-  --radius-sm: 10px;
+  --shadow-sm: 0 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 0 rgba(0, 0, 0, 0.08);
+  --radius: 18px;
+  --radius-sm: 12px;
 
   /* старые имена — на них завязаны фигуры (Figure.tsx) и часть стилей */
   --paper: var(--bg);
@@ -39,49 +45,59 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0d1017;
-    --surface: #151a25;
-    --surface-2: #1c2230;
-    --border: #262e40;
-    --border-strong: #38425a;
-    --text: #e9edf6;
-    --muted: #97a1b8;
-    --accent: #7c93ff;
-    --accent-hover: #96a9ff;
-    --accent-soft: #1d2542;
-    --on-accent: #0d1017;
-    --ok: #4cc88a;
-    --ok-soft: #12291f;
-    --bad: #ff7b84;
-    --bad-soft: #321a1e;
-    --warn: #f0b252;
-    --warn-soft: #2d2412;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+    --bg: #131f24;
+    --surface: #1a2a31;
+    --surface-2: #22353d;
+    --border: #2f444d;
+    --border-strong: #3d5560;
+    --text: #eaf2f5;
+    --muted: #96aab3;
+    --accent: #58cc02;
+    --accent-hover: #6bdb14;
+    --accent-shade: #3f9300;
+    --accent-text: #78d92f;
+    --accent-soft: #1f3a17;
+    --on-accent: #ffffff;
+    --blue: #49c0f8;
+    --blue-shade: #1899d6;
+    --blue-soft: #14323f;
+    --ok: #78d92f;
+    --ok-soft: #1f3a17;
+    --bad: #ff7b7b;
+    --bad-soft: #3d1e22;
+    --warn: #ffc14d;
+    --warn-soft: #3a2e12;
+    --shadow-sm: 0 2px 0 rgba(0, 0, 0, 0.25);
+    --shadow-md: 0 4px 0 rgba(0, 0, 0, 0.3);
   }
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0d1017;
-  --surface: #151a25;
-  --surface-2: #1c2230;
-  --border: #262e40;
-  --border-strong: #38425a;
-  --text: #e9edf6;
-  --muted: #97a1b8;
-  --accent: #7c93ff;
-  --accent-hover: #96a9ff;
-  --accent-soft: #1d2542;
-  --on-accent: #0d1017;
-  --ok: #4cc88a;
-  --ok-soft: #12291f;
-  --bad: #ff7b84;
-  --bad-soft: #321a1e;
-  --warn: #f0b252;
-  --warn-soft: #2d2412;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --bg: #131f24;
+  --surface: #1a2a31;
+  --surface-2: #22353d;
+  --border: #2f444d;
+  --border-strong: #3d5560;
+  --text: #eaf2f5;
+  --muted: #96aab3;
+  --accent: #58cc02;
+  --accent-hover: #6bdb14;
+  --accent-shade: #3f9300;
+  --accent-text: #78d92f;
+  --accent-soft: #1f3a17;
+  --on-accent: #ffffff;
+  --blue: #49c0f8;
+  --blue-shade: #1899d6;
+  --blue-soft: #14323f;
+  --ok: #78d92f;
+  --ok-soft: #1f3a17;
+  --bad: #ff7b7b;
+  --bad-soft: #3d1e22;
+  --warn: #ffc14d;
+  --warn-soft: #3a2e12;
+  --shadow-sm: 0 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 0 rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -98,7 +114,8 @@ html {
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Nunito", "Trebuchet MS", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 500;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
@@ -106,7 +123,7 @@ body {
 }
 
 a {
-  color: var(--accent);
+  color: var(--blue-shade);
 }
 
 button {
