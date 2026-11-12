@@ -56,7 +56,7 @@
 .crumbs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 18px; padding: 0; list-style: none; font-size: 0.85rem; color: var(--muted); }
 .crumbs li + li::before { content: "›"; margin-right: 6px; opacity: 0.6; }
 .crumbs a { color: var(--muted); text-decoration: none; }
-.crumbs a:hover { color: var(--accent); }
+.crumbs a:hover { color: var(--accent-text); }
 
 .h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 4.5vw, 2.1rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
 .h2 { margin: 36px 0 12px; font-size: 1.2rem; font-weight: 800; line-height: 1.3; letter-spacing: -0.01em; }
@@ -206,7 +206,7 @@ a.topicRow:hover { background: var(--surface-2); }
   width: 48px; height: 48px; flex: none; font: inherit; font-size: 1.5rem; font-weight: 700; line-height: 1; color: var(--text);
   background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: 12px; cursor: pointer; touch-action: manipulation;
 }
-.minusBtn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.minusBtn:hover:not(:disabled) { border-color: var(--accent-text); color: var(--accent); }
 .minusBtn:disabled { opacity: 0.5; cursor: default; }
 .answerBoxWide { width: 180px; }
 .answerBoxWhole { width: 64px; }
@@ -225,7 +225,7 @@ a.topicRow:hover { background: var(--surface-2); }
 
 .linkButton {
   display: inline-flex; align-items: center; gap: 6px; margin: 14px 14px 0 0; padding: 6px 2px; font: inherit;
-  font-size: 0.9rem; font-weight: 600; color: var(--accent); background: none; border: none; cursor: pointer;
+  font-size: 0.9rem; font-weight: 800; color: var(--blue-shade); background: none; border: none; cursor: pointer;
 }
 .linkButton:hover { text-decoration: underline; }
 .linkButton:disabled { opacity: .6; cursor: not-allowed; }
@@ -251,14 +251,14 @@ a.topicRow:hover { background: var(--surface-2); }
 .testBar {
   position: sticky; top: 60px; z-index: 5; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px;
   margin: 0 0 20px; padding: 12px 18px;
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow-sm);
+  background: var(--surface);
+  border: 2px solid var(--border); border-bottom-width: 4px; border-radius: 16px;
 }
-.testBarInfo { flex: 1; font-size: 0.95rem; color: var(--muted); }
-.timer { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.1rem; }
-.timerLow { color: var(--bad); }
-.question { min-width: 0; margin: 0 0 16px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+.testBarInfo { flex: 1; min-width: 0; font-size: 0.95rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.timer { padding: 4px 12px; font-variant-numeric: tabular-nums; font-weight: 800; font-size: 1.1rem; color: var(--blue-shade); background: var(--blue-soft); border-radius: 999px; }
+.timerLow { color: var(--bad); background: var(--bad-soft); }
+@media (max-width: 560px) { .testBar .btn { padding: 9px 14px; font-size: 0.85rem; } }
+.question { min-width: 0; margin: 0 0 16px; padding: 22px 24px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: var(--radius); }
 .questionNum { margin: 0 0 6px; padding: 0 4px; font-size: 0.8rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .options { display: grid; gap: 10px; margin-top: 16px; }
 .option { display: block; position: relative; cursor: pointer; }
@@ -279,20 +279,23 @@ a.topicRow:hover { background: var(--surface-2); }
 .option input:checked + span .optKey { color: var(--on-accent); background: var(--accent); }
 
 /* ───────── результат ───────── */
-.score { margin: 0 0 20px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
-.scoreBig { font-size: 2.4rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; }
+.score { margin: 0 0 20px; padding: 24px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: var(--radius); }
+.score > p { margin: 0; }
+.score > p + p { margin-top: 6px; }
+.score [role="progressbar"], .score > div { margin-top: 10px; }
+.scoreBig { font-size: 2.6rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
 .breakRow { display: grid; grid-template-columns: minmax(0, 1fr) 90px; gap: 4px 12px; align-items: center; margin-bottom: 14px; }
 .breakTitle { grid-column: 1 / -1; font-size: 0.95rem; }
 .breakNum { font-size: 0.9rem; font-weight: 600; text-align: right; }
-.review { margin: 0 0 14px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--border); border-left-width: 4px; border-radius: 4px 14px 14px 4px; }
-.reviewOk { border-left-color: var(--ok); }
-.reviewBad { border-left-color: var(--bad); }
+.review { margin: 0 0 14px; padding: 18px 20px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: var(--radius); }
+.reviewOk { border-color: var(--ok); }
+.reviewBad { border-color: var(--bad); }
 .reviewLine { margin: 8px 0 0; font-size: 0.95rem; }
 .review summary { margin-top: 10px; font-weight: 600; cursor: pointer; }
 
 .historyList { margin: 0; padding: 0; list-style: none; }
 .historyList li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--border); }
-.historyList a { color: var(--accent); font-weight: 600; }
+.historyList a { color: var(--accent-text); font-weight: 600; }
 
 @media (max-width: 520px) {
   .topicRow { flex-wrap: wrap; }
