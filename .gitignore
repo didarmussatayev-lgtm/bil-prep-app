@@ -2,3 +2,6 @@ node_modules/
 .next/
 .env
 *.tsbuildinfo
+
+# движок impeccable (бинарники по ~25 МБ): ставится командой `npx impeccable install`
+**/skills/impeccable/scripts/bin/
