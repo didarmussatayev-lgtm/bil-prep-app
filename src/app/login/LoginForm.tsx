@@ -5,7 +5,7 @@ import styles from "./login.module.css";
 import { useT } from "@/lib/i18n/client";
 import { LangSwitch } from "@/components/auth/LangSwitch";
 
-export function LoginForm({ notice }: { notice?: string }) {
+export function LoginForm({ notice, stats }: { notice?: string; stats?: { topics: number; tasks: number } | null }) {
   const t = useT();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -34,44 +34,78 @@ export function LoginForm({ notice }: { notice?: string }) {
     }
   }
 
+  const nf = (n: number) => n.toLocaleString("ru-RU");
+
   return (
     <main className={styles.page}>
-      <div className={styles.sheet}>
-        <div style={{ textAlign: "right", marginBottom: 16 }}><LangSwitch /></div>
-        <h1 className={styles.title}>{t("Подготовка в БИЛ")}</h1>
-        <p className={styles.lead}>{t("Введите логин и пароль, которые выдал администратор.")}</p>
+      <div className={styles.wrap}>
+        <header className={styles.top}>
+          <span className={styles.brand}>{t("Подготовка в БИЛ")}</span>
+          <LangSwitch />
+        </header>
 
-        {notice && <p className={styles.notice} role="status">{notice}</p>}
+        <div className={styles.grid}>
+          <section className={styles.intro} data-enter>
+            <h1 className={styles.title}>{t("Подготовка к поступлению в БИЛ и НИШ")}</h1>
+            <p className={styles.fact}>
+              {stats
+                ? t("{a} тем и {b} задач с проверкой ответа, пробные тесты по предметам.", { a: nf(stats.topics), b: nf(stats.tasks) })
+                : t("Темы, задачи с проверкой ответа и пробные тесты по предметам.")}
+            </p>
 
-        {/* без <form>: отправка по кнопке и по Enter в полях */}
-        <label className={styles.field}>
-          <span>{t("Логин")}</span>
-          <input
-            value={login}
-            onChange={(e) => setLogin(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && submit()}
-            autoComplete="username"
-            autoCapitalize="none"
-            autoFocus
-          />
-        </label>
+            {/* настоящий экран ученика: задача с вариантами и номерами вопросов */}
+            <div className={styles.shot} aria-hidden="true">
+              <div className={styles.shotHead}><span className={styles.shotKicker}>2.1</span><span className={styles.shotBar}><i /></span></div>
+              <p className={styles.shotQ}>2/5 + 1/5 = ?</p>
+              <ul className={styles.shotOpts}>
+                <li className={styles.shotOn}><b>A</b>3/5</li>
+                <li><b>B</b>3/10</li>
+                <li><b>C</b>2/5</li>
+                <li><b>D</b>1/5</li>
+              </ul>
+              <div className={styles.shotNums}>
+                {[1, 2, 3, 4, 5, 6].map((n) => <span key={n} className={n === 1 ? styles.shotCur : n < 1 ? styles.shotDone : undefined}>{n}</span>)}
+              </div>
+            </div>
+          </section>
 
-        <label className={styles.field}>
-          <span>{t("Пароль")}</span>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && submit()}
-            autoComplete="current-password"
-          />
-        </label>
+          <section className={styles.sheet} data-enter aria-labelledby="login-h">
+            <h2 id="login-h" className={styles.formTitle}>{t("Вход для учеников")}</h2>
+            <p className={styles.lead}>{t("Логин и пароль выдаёт администратор.")}</p>
 
-        {error && <p className={styles.error} role="alert">{error}</p>}
+            {notice && <p className={styles.notice} role="status">{notice}</p>}
 
-        <button className={styles.button} onClick={submit} disabled={busy || !login || !password}>
-          {busy ? t("Входим…") : t("Войти")}
-        </button>
+            {/* без <form>: отправка по кнопке и по Enter в полях */}
+            <label className={styles.field}>
+              <span>{t("Логин")}</span>
+              <input
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && submit()}
+                autoComplete="username"
+                autoCapitalize="none"
+                autoFocus
+              />
+            </label>
+
+            <label className={styles.field}>
+              <span>{t("Пароль")}</span>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && submit()}
+                autoComplete="current-password"
+              />
+            </label>
+
+            {error && <p className={styles.error} role="alert">{error}</p>}
+
+            <button className={styles.button} onClick={submit} disabled={busy || !login || !password}>
+              {busy ? t("Входим…") : t("Войти в кабинет")}
+            </button>
+          </section>
+        </div>
       </div>
     </main>
   );
