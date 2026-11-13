@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getT } from "@/lib/i18n/server";
+import { getAccess } from "@/lib/student/access";
 import { pick } from "@/lib/i18n/content";
 import { getLang } from "@/lib/i18n/server";
 import styles from "./gami.module.css";
@@ -10,6 +11,8 @@ import ui from "./ui.module.css";
 export async function ContinueCard({ userId }: { userId: string }) {
   const [t, lang] = [await getT(), await getLang()];
   const now = new Date();
+  const access = await getAccess(userId);
+  if (access.restricted && access.books.length === 0) return null; // доступ закрыт — вести некуда
 
   const open = await prisma.testAttempt.findFirst({
     where: { userId, finishedAt: null, OR: [{ deadlineAt: null }, { deadlineAt: { gt: now } }] },

@@ -1,0 +1,26 @@
+.plans { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin: 0 0 20px; }
+.plan { position: relative; display: flex; flex-direction: column; gap: 2px; padding: 18px; cursor: pointer; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: var(--radius); transition: border-color .15s; }
+.plan:hover { border-color: var(--border-strong); }
+.plan input, .method input { position: absolute; opacity: 0; pointer-events: none; }
+.planOn { border-color: var(--accent); background: var(--accent-soft); }
+.plan:has(input:focus-visible), .method:has(input:focus-visible) { outline: 3px solid var(--blue); outline-offset: 2px; }
+.planTitle { font-weight: 800; }
+.planPrice { font-size: 1.6rem; font-weight: 800; line-height: 1.2; }
+.planPer { font-size: 0.85rem; color: var(--muted); }
+.methods { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 20px; }
+.method { position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; font-weight: 700; cursor: pointer; background: var(--surface); border: 2px solid var(--border); border-radius: 14px; }
+.methodOn { border-color: var(--blue); background: var(--blue-soft); }
+.field { display: block; max-width: 320px; margin: 0 0 20px; }
+.field span { display: block; margin-bottom: 6px; font-size: 0.85rem; font-weight: 700; color: var(--muted); }
+.field input { width: 100%; height: 48px; padding: 0 14px; font: inherit; font-size: 1rem; color: inherit; background: var(--surface); border: 2px solid var(--border); border-radius: 14px; }
+.field input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px color-mix(in srgb, var(--blue) 25%, transparent); }
+.wait, .done { display: grid; gap: 14px; justify-items: start; padding: 24px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: var(--radius); max-width: 440px; }
+.wait p, .done p { margin: 0; }
+.amount { font-size: 2rem; font-weight: 800; }
+.qr { width: 240px; max-width: 100%; padding: 10px; background: #fff; border: 2px solid var(--border); border-radius: 16px; }
+.qr svg { display: block; width: 100%; height: auto; }
+.hint { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--muted); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .dot { animation: none; } }
+.doneTitle { font-size: 1.5rem; font-weight: 800; color: var(--accent-text); }

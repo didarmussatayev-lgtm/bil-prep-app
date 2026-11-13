@@ -27,14 +27,20 @@ enum Role {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  login        String   @unique // хранится в нижнем регистре
-  passwordHash String   @map("password_hash")
-  role         Role     @default(student)
-  createdAt    DateTime @default(now()) @map("created_at")
+  id             String    @id @default(cuid())
+  login          String    @unique // хранится в нижнем регистре
+  passwordHash   String    @map("password_hash")
+  role           Role      @default(student)
+  createdAt      DateTime  @default(now()) @map("created_at")
   // false — ученику открыт весь материал; true — только книги из bookAccess
-  restrictAccess Boolean @default(false) @map("restrict_access")
+  restrictAccess Boolean   @default(false) @map("restrict_access")
+  // Платный доступ (работает только при PAYWALL_ENABLED=true).
+  // freeAccess=true — доступ без оплаты (все ученики, созданные до включения оплаты, и «стипендиаты»).
+  freeAccess     Boolean   @default(true) @map("free_access")
+  // До какой даты оплачена подписка; null — не оплачивал
+  accessUntil    DateTime? @map("access_until")
 
+  payments     Payment[]
   bookAccess   UserBookAccess[]
   notes        StudentNote[]
   taskAttempts TaskAttempt[]
@@ -135,35 +141,33 @@ model Section {
 
   subject Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
   topics  Topic[]
+  i18n    Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
 
   @@index([subjectId])
-  i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
-
   @@map("sections")
 }
 
 model Topic {
-  id                 String @id @default(cuid())
-  sectionId          String @map("section_id")
+  id                 String  @id @default(cuid())
+  sectionId          String  @map("section_id")
   title              String // "1.1 Дроби"
-  slug               String @unique // "math-1.1.1" (шаг 4)
-  order              Int    @default(0)
+  slug               String  @unique // "math-1.1.1" (шаг 4)
+  order              Int     @default(0)
   // ExplanationBlock[] (см. src/lib/content/types.ts) ИЛИ строка Markdown
   // (заголовки ###, **жирный**, :::figure {json}) — обе формы разбирает parseExplanation().
-  explanationContent Json?  @map("explanation_content")
+  explanationContent Json?   @map("explanation_content")
   hidden             Boolean @default(false) // скрыта от учеников (быстрое «скрыть» в админке)
   // Кэш числа видимых ученику задач (без «ждущих рисунка»): open → practiceCount, test_choice → testCount.
   // null = ещё не посчитано; пересчёт — lib/student/topic-counts.ts (seed и правки контента в админке).
-  practiceCount      Int?   @map("practice_count")
-  testCount          Int?   @map("test_count")
+  practiceCount      Int?    @map("practice_count")
+  testCount          Int?    @map("test_count")
 
   section  Section    @relation(fields: [sectionId], references: [id], onDelete: Cascade)
   tasks    Task[]
   progress Progress[]
+  i18n     Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
 
   @@index([sectionId])
-  i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
-
   @@map("topics")
 }
 
@@ -191,25 +195,24 @@ model Task {
   correctOption String? @map("correct_option") // "A".."E"
 
   // Для type = open:
-  answerType        String?  @map("answer_type") // integer | decimal | fraction | mixed
-  correctAnswerJson Json?    @map("correct_answer") // {value} | {num,denom} | {whole,num,denom}
-  allowUnreduced    Boolean  @default(false) @map("allow_unreduced")
+  answerType        String? @map("answer_type") // integer | decimal | fraction | mixed
+  correctAnswerJson Json?   @map("correct_answer") // {value} | {num,denom} | {whole,num,denom}
+  allowUnreduced    Boolean @default(false) @map("allow_unreduced")
 
-  solutionText String? @db.Text @map("solution_text") // разбор (кнопка «Показать решение», шаг 6)
+  solutionText    String? @map("solution_text") @db.Text // разбор (кнопка «Показать решение», шаг 6)
   // FigureSpec | FigureSpec[] — параметры параметрических SVG (шаг 6); фигуры с kind="placeholder"
   // скрывают задачу от учеников до тех пор, пока рисунок не заменят (см. lib/content/types.ts).
   // Названо c суффиксом Json (не imageParams), чтобы совпадать с полем, которое пишут
   // админка (шаг 7) и seed (шаг 4) — под этим именем поле и ушло в Prisma Client.
-  imageParamsJson Json? @map("image_params")
+  imageParamsJson Json?   @map("image_params")
 
-  topic   Topic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  results TaskResult[]
+  topic        Topic         @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  results      TaskResult[]
   helpRequests HelpRequest[]
   attemptsLog  TaskAttempt[]
+  i18n         Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
 
   @@index([topicId])
-  i18n Json? // {kk:{...,reviewed:false}} — переводы; null = только русский
-
   @@map("tasks")
 }
 
@@ -284,12 +287,12 @@ model XpEvent {
 // Полученные достижения. Ключ вида "streak_7", "book_done:<subjectId>:<level>", "lvl:5" (повышение уровня).
 // seenAt = null — ученик ещё не видел поздравление.
 model UserAchievement {
-  id        String    @id @default(cuid())
-  userId    String    @map("user_id")
-  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  key       String
-  earnedAt  DateTime  @default(now()) @map("earned_at")
-  seenAt    DateTime? @map("seen_at")
+  id       String    @id @default(cuid())
+  userId   String    @map("user_id")
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  key      String
+  earnedAt DateTime  @default(now()) @map("earned_at")
+  seenAt   DateTime? @map("seen_at")
 
   @@unique([userId, key])
   @@index([userId, seenAt])
@@ -394,3 +397,60 @@ model ExamPaper {
 // model TestQuestion { testId String; taskId String; order Int }
 // Если понадобится редактируемый список тестов из админки — верните эти модели
 // и параметры из TEST_CONFIG (src/lib/student/tests.ts) переедут в таблицу Test.
+
+// ---------- Оплата доступа (Kaspi) ----------
+
+enum PaymentStatus {
+  pending // счёт создан, ждём оплату
+  paid // оплачено, доступ продлён
+  failed // отклонено или отменено
+  expired // время оплаты вышло
+  lost // статус неизвестен — проверить вручную
+}
+
+enum PaymentMethod {
+  qr // QR / ссылка Kaspi
+  invoice // счёт на номер телефона Kaspi
+  manual // отмечено админом вручную
+}
+
+// Тарифы: подписка на N месяцев за price тенге. Правятся в админке.
+model Plan {
+  id     String  @id @default(cuid())
+  title  String
+  months Int
+  price  Int // тенге
+  active Boolean @default(true)
+  order  Int     @default(0)
+
+  payments Payment[]
+
+  @@map("plans")
+}
+
+// Каждая попытка оплаты. kaspiId — id операции в Kaspi (QrOperationId); по нему webhook находит платёж.
+model Payment {
+  id          String        @id @default(cuid())
+  userId      String        @map("user_id")
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  planId      String?       @map("plan_id")
+  plan        Plan?         @relation(fields: [planId], references: [id], onDelete: SetNull)
+  months      Int // копия Plan.months на момент оплаты
+  amount      Int // тенге, копия Plan.price на момент оплаты
+  method      PaymentMethod
+  status      PaymentStatus @default(pending)
+  kaspiId     String?       @unique @map("kaspi_id")
+  payLink     String?       @map("pay_link") // ссылка/токен для QR
+  phone       String? // для счёта по номеру
+  receiptUrl  String?       @map("receipt_url")
+  kaspiStatus String?       @map("kaspi_status")
+  note        String? // «вручную: …», причина отказа
+  expiresAt   DateTime?     @map("expires_at")
+  paidAt      DateTime?     @map("paid_at")
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+
+  @@index([userId, createdAt])
+  @@index([status, createdAt])
+  @@map("payments")
+}

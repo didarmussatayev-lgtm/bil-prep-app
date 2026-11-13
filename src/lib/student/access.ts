@@ -3,6 +3,7 @@ import { cache } from "react";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { SUBJECT_LEVELS } from "@/lib/student/progress";
+import { paywallEnabled } from "@/lib/payments/config";
 
 /**
  * Доступ ученика к материалам. «Книга» = (предмет, Section.level).
@@ -16,10 +17,13 @@ export const bookKey = (b: Book) => `${b.subjectId}:${b.level}`;
 export const getAccess = cache(async (userId: string): Promise<Access> => {
   const u = await prisma.user.findUnique({
     where: { id: userId },
-    select: { role: true, restrictAccess: true, bookAccess: { select: { subjectId: true, level: true } } },
+    select: { role: true, restrictAccess: true, freeAccess: true, accessUntil: true, bookAccess: { select: { subjectId: true, level: true } } },
   });
   if (!u) return { restricted: true, books: [] };
-  if (u.role === "admin" || !u.restrictAccess) return { restricted: false, books: [] };
+  if (u.role === "admin") return { restricted: false, books: [] };
+  // Платный доступ: без оплаты и без бесплатного доступа не открыто ничего (страницы покажут «Доступ не открыт»)
+  if (paywallEnabled() && !u.freeAccess && !(u.accessUntil && u.accessUntil.getTime() > Date.now())) return { restricted: true, books: [] };
+  if (!u.restrictAccess) return { restricted: false, books: [] };
   return { restricted: true, books: u.bookAccess };
 });
 

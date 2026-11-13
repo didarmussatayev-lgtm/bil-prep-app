@@ -4,7 +4,9 @@ import ui from "@/components/student/ui.module.css";
 import { getT } from "@/lib/i18n/server";
 import { requireUser } from "@/lib/auth/guards";
 import { GamiSummary } from "@/components/student/GamiSummary";
+import { AccessBanner } from "@/components/payments/AccessBanner";
 import { ContinueCard } from "@/components/student/ContinueCard";
+import { paywallEnabled } from "@/lib/payments/config";
 import { WeakPlaces } from "@/components/student/WeakPlaces";
 import { getCourseTree, getOverallProgress, listSubjects } from "@/lib/student/progress";
 import { NIS_SUBJECTS } from "@/lib/student/nav";
@@ -24,6 +26,7 @@ export default async function HomePage() {
     <main className={ui.container}>
       <h1 className={ui.h1}>{t("Ваш прогресс")}</h1>
 
+      {user.role === "student" && <AccessBanner userId={user.id} />}
       {user.role === "student" && <ContinueCard userId={user.id} />}
 
       {p.topics === 0 ? (
@@ -50,6 +53,7 @@ export default async function HomePage() {
         {hasGrade5 && <Link href="/bil/grade5" className={ui.btnLarge}>{grade5?.name}</Link>}
         {hasNis && <Link href="/nis" className={ui.btnLarge}>{t("Подготовка в НИШ")}</Link>}
       </div>
+      {user.role === "student" && paywallEnabled() && <p className={ui.muted}><Link href="/account/subscription">{t("Доступ и оплата")}</Link></p>}
     </main>
   );
 }

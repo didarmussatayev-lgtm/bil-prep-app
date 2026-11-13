@@ -11,6 +11,7 @@ const ITEMS = [
   { href: "/admin/students", label: "Ученики", icon: I("M16 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M9.5 10a3.5 3.5 0 100-7 3.5 3.5 0 000 7zM21 20v-2a4 4 0 00-3-3.9M16 3.1a3.5 3.5 0 010 6.8") },
   { href: "/admin/help", label: "Заявки", icon: I("M12 22a10 10 0 100-20 10 10 0 000 20zM9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"), badge: true },
   { href: "/admin/content", label: "Контент", icon: I("M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5v14zM4 19.5A2.5 2.5 0 006.5 22H20v-5") },
+  { href: "/admin/payments", label: "Оплаты", icon: I("M2 7h20v12H2zM2 11h20M6 15h4") },
   { href: "/admin/stats", label: "Отчёты", icon: I("M4 20V10M10 20V4M16 20v-8M22 20H2") },
 ];
 
