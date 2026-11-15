@@ -1,6 +1,6 @@
 import "server-only";
 import { cache } from "react";
-import type { Prisma } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { SUBJECT_LEVELS } from "@/lib/student/progress";
 import { paywallEnabled } from "@/lib/payments/config";
@@ -10,17 +10,38 @@ import { paywallEnabled } from "@/lib/payments/config";
  * Админы и ученики с restrictAccess=false видят всё.
  */
 export type Book = { subjectId: string; level: number };
-export type Access = { restricted: boolean; books: Book[] };
+export type Access = { restricted: boolean; books: Book[]; /** демо: открыты только эти темы */ topicIds?: string[] };
 
 export const bookKey = (b: Book) => `${b.subjectId}:${b.level}`;
+
+// Демо-темы: по одной на предмет — первая тема (по порядку разделов) с теорией, задачами закрепления и тестовыми вопросами.
+let demoCache: { at: number; ids: string[] } | null = null;
+export async function demoTopicIds(): Promise<string[]> {
+  if (demoCache && Date.now() - demoCache.at < 5 * 60_000) return demoCache.ids;
+  const rows = await prisma.topic.findMany({
+    where: {
+      hidden: false,
+      NOT: { explanationContent: { equals: Prisma.DbNull } },
+      AND: [{ tasks: { some: { type: "open", hidden: false } } }, { tasks: { some: { type: "test_choice", hidden: false } } }],
+    },
+    orderBy: [{ section: { order: "asc" } }, { order: "asc" }],
+    select: { id: true, section: { select: { subjectId: true } } },
+  });
+  const seen = new Set<string>();
+  const ids: string[] = [];
+  for (const r of rows) if (!seen.has(r.section.subjectId)) { seen.add(r.section.subjectId); ids.push(r.id); }
+  demoCache = { at: Date.now(), ids };
+  return ids;
+}
 
 export const getAccess = cache(async (userId: string): Promise<Access> => {
   const u = await prisma.user.findUnique({
     where: { id: userId },
-    select: { role: true, restrictAccess: true, freeAccess: true, accessUntil: true, bookAccess: { select: { subjectId: true, level: true } } },
+    select: { role: true, isDemo: true, restrictAccess: true, freeAccess: true, accessUntil: true, bookAccess: { select: { subjectId: true, level: true } } },
   });
   if (!u) return { restricted: true, books: [] };
   if (u.role === "admin") return { restricted: false, books: [] };
+  if (u.isDemo) return { restricted: true, books: [], topicIds: await demoTopicIds() };
   // Платный доступ: без оплаты и без бесплатного доступа не открыто ничего (страницы покажут «Доступ не открыт»)
   if (paywallEnabled() && !u.freeAccess && !(u.accessUntil && u.accessUntil.getTime() > Date.now())) return { restricted: true, books: [] };
   if (!u.restrictAccess) return { restricted: false, books: [] };
@@ -30,6 +51,7 @@ export const getAccess = cache(async (userId: string): Promise<Access> => {
 /** Условие для Section: пусто для неограниченных, иначе только открытые книги. */
 export function sectionWhereFor(a: Access): Prisma.SectionWhereInput {
   if (!a.restricted) return {};
+  if (a.topicIds) return { topics: { some: { id: { in: a.topicIds } } } };
   if (a.books.length === 0) return { id: { in: [] } };
   return { OR: a.books.map((b) => ({ subjectId: b.subjectId, level: b.level })) };
 }
@@ -38,14 +60,20 @@ export async function sectionFilter(userId: string) {
   return sectionWhereFor(await getAccess(userId));
 }
 
+/** Ограничение по темам (только демо): подмешивается как `AND: [await topicFilter(id)]` рядом с sectionFilter. */
+export async function topicFilter(userId: string): Promise<Prisma.TopicWhereInput> {
+  const a = await getAccess(userId);
+  return a.topicIds ? { id: { in: a.topicIds } } : {};
+}
+
 export const allowedLevels = (a: Access, subjectId: string): number[] | undefined =>
-  a.restricted ? a.books.filter((b) => b.subjectId === subjectId).map((b) => b.level) : undefined;
+  a.restricted && !a.topicIds ? a.books.filter((b) => b.subjectId === subjectId).map((b) => b.level) : undefined;
 
 /** Какие из задач доступны ученику (для проверки попыток тестов целиком). */
 export async function accessibleTaskIds(userId: string, ids: string[]): Promise<Set<string>> {
-  const filter = await sectionFilter(userId);
+  const [filter, tf] = [await sectionFilter(userId), await topicFilter(userId)];
   const rows = await prisma.task.findMany({
-    where: { id: { in: ids }, topic: { section: filter } },
+    where: { id: { in: ids }, topic: { section: filter, AND: [tf] } },
     select: { id: true },
   });
   return new Set(rows.map((r) => r.id));

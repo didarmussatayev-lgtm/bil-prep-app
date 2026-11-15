@@ -2,7 +2,7 @@ import "server-only";
 import { prisma } from "@/lib/prisma";
 import { getLang } from "@/lib/i18n/server";
 import { pick } from "@/lib/i18n/content";
-import { sectionFilter } from "@/lib/student/access";
+import { sectionFilter, topicFilter } from "@/lib/student/access";
 import { Prisma } from "@prisma/client";
 import { ensureTopicCounts } from "@/lib/student/topic-counts";
 
@@ -56,7 +56,7 @@ export async function listSubjects() {
 
 /** Оглавление предмета (разделы → темы) с прогрессом конкретного ученика. */
 export async function getCourseTree(subjectId: string, userId: string): Promise<SectionRow[]> {
-  const [lang, access] = await Promise.all([getLang(), sectionFilter(userId), ensureTopicCounts()]);
+  const [lang, access, tf] = await Promise.all([getLang(), sectionFilter(userId), topicFilter(userId), ensureTopicCounts()]);
   const sections = await prisma.section.findMany({
     where: { subjectId, ...access },
     orderBy: { order: "asc" },
@@ -65,7 +65,7 @@ export async function getCourseTree(subjectId: string, userId: string): Promise<
       title: true,
       level: true,
       i18n: true,
-      topics: { where: { hidden: false }, orderBy: { order: "asc" }, select: { id: true, title: true, i18n: true, practiceCount: true, testCount: true } },
+      topics: { where: { hidden: false, AND: [tf] }, orderBy: { order: "asc" }, select: { id: true, title: true, i18n: true, practiceCount: true, testCount: true } },
     },
   });
 

@@ -19,7 +19,8 @@ export async function POST(req: Request) {
     const rate = checkLoginRate(key, 5);
     if (!rate.allowed) throw new ApiError(429, "Слишком много попыток. Повторите через {m} мин.".replace("{m}", String(Math.max(1, Math.ceil(rate.retryAfterSec / 60)))));
 
-    const row = await prisma.user.findUnique({ where: { id: user.id }, select: { passwordHash: true, login: true, role: true } });
+    const row = await prisma.user.findUnique({ where: { id: user.id }, select: { passwordHash: true, login: true, role: true, isDemo: true } });
+    if (row?.isDemo) throw new ApiError(403, "В демо-доступе пароль менять нельзя");
     if (!row || !(await verifyPassword(current, row.passwordHash))) {
       registerLoginFailure(key);
       throw new ApiError(400, "Текущий пароль указан неверно", "WRONG_CURRENT");

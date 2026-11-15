@@ -37,6 +37,8 @@ model User {
   // Платный доступ (работает только при PAYWALL_ENABLED=true).
   // freeAccess=true — доступ без оплаты (все ученики, созданные до включения оплаты, и «стипендиаты»).
   freeAccess     Boolean   @default(true) @map("free_access")
+  // Демо-аккаунт (student/student): по одной теме, закреплению и тесту на предмет; один вход на всех, без обрыва чужой сессии
+  isDemo         Boolean   @default(false) @map("is_demo")
   // До какой даты оплачена подписка; null — не оплачивал
   accessUntil    DateTime? @map("access_until")
 

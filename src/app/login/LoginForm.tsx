@@ -4,22 +4,23 @@ import { useState } from "react";
 import styles from "./login.module.css";
 import { useT } from "@/lib/i18n/client";
 import { LangSwitch } from "@/components/auth/LangSwitch";
+import { DEMO_LOGIN, DEMO_PASSWORD, SITE_INFO } from "@/lib/site-info";
 
-export function LoginForm({ notice, stats }: { notice?: string; stats?: { topics: number; tasks: number } | null }) {
+export function LoginForm({ notice, stats, selfPrice }: { notice?: string; stats?: { topics: number; tasks: number } | null; selfPrice?: number | null }) {
   const t = useT();
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  async function submit() {
+  async function submit(creds?: { login: string; password: string }) {
     setError(null);
     setBusy(true);
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ login, password }),
+        body: JSON.stringify(creds ?? { login, password }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -101,11 +102,45 @@ export function LoginForm({ notice, stats }: { notice?: string; stats?: { topics
 
             {error && <p className={styles.error} role="alert">{error}</p>}
 
-            <button className={styles.button} onClick={submit} disabled={busy || !login || !password}>
+            <button className={styles.button} onClick={() => submit()} disabled={busy || !login || !password}>
               {busy ? t("Входим…") : t("Войти в кабинет")}
             </button>
           </section>
         </div>
+
+        <section className={styles.block} aria-labelledby="res-h">
+          <h2 id="res-h" className={styles.blockTitle}>{t("Результаты прошлого года")}</h2>
+          <ul className={styles.facts}>
+            <li><b>{SITE_INFO.lastYear.students}</b><span>{t("учеников занимались")}</span></li>
+            <li><b>{SITE_INFO.lastYear.admitted}</b><span>{t("поступили")}</span></li>
+            <li><b>{SITE_INFO.yearsFrom}–{SITE_INFO.yearsTo}</b><span>{t("годы заданий в курсе")}</span></li>
+          </ul>
+        </section>
+
+        <section className={styles.block} aria-labelledby="price-h">
+          <h2 id="price-h" className={styles.blockTitle}>{t("Форматы и цены")}</h2>
+          <ul className={styles.prices}>
+            <li><h3>{t("Офлайн")}</h3><p className={styles.price}>{nf(SITE_INFO.offlinePrice)} ₸</p><p>{t("Занятия с преподавателем очно.")}</p></li>
+            <li><h3>{t("Онлайн")}</h3><p className={styles.price}>{nf(SITE_INFO.onlinePrice)} ₸</p><p>{t("Занятия с преподавателем онлайн.")}</p></li>
+            <li><h3>{t("Самостоятельное обучение")}</h3><p className={styles.price}>{nf(selfPrice ?? SITE_INFO.selfPriceFallback)} ₸</p><p>{t("Доступ к сайту: теория, задачи и тесты с правильными решениями и ответами.")}</p></li>
+          </ul>
+        </section>
+
+        <section className={styles.block} aria-labelledby="demo-h">
+          <h2 id="demo-h" className={styles.blockTitle}>{t("Попробовать бесплатно")}</h2>
+          <p className={styles.blockText}>{t("Демо-доступ: по одной теме, одному закреплению и одному тесту на каждый предмет.")}</p>
+          <p className={styles.demoCreds}>{t("Логин")}: <b>{DEMO_LOGIN}</b> · {t("Пароль")}: <b>{DEMO_PASSWORD}</b></p>
+          <button className={styles.buttonGhost} onClick={() => submit({ login: DEMO_LOGIN, password: DEMO_PASSWORD })} disabled={busy}>{t("Войти в демо")}</button>
+        </section>
+
+        <section className={styles.block} aria-labelledby="contact-h">
+          <h2 id="contact-h" className={styles.blockTitle}>{t("Записаться и задать вопрос")}</h2>
+          <p className={styles.phone}><a href={`tel:${SITE_INFO.phone}`}>{SITE_INFO.phoneView}</a></p>
+          <div className={styles.actions}>
+            <a className={styles.buttonLink} href={`tel:${SITE_INFO.phone}`}>{t("Позвонить")}</a>
+            <a className={styles.buttonGhostLink} href={`https://wa.me/${SITE_INFO.phone.replace("+", "")}`} target="_blank" rel="noopener noreferrer">{t("Написать в WhatsApp")}</a>
+          </div>
+        </section>
       </div>
     </main>
   );

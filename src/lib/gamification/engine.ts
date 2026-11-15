@@ -1,6 +1,6 @@
 import "server-only";
 import { prisma } from "@/lib/prisma";
-import { sectionFilter } from "@/lib/student/access";
+import { sectionFilter, topicFilter } from "@/lib/student/access";
 import { queueAchievementNotification } from "@/lib/telegram";
 import {
   ACHIEVEMENTS, BOOK_DONE, DAILY_GOAL, LEVEL_UP, NOTIFY_LEVELS, POINTS, TZ, XP, levelFromXp, type AchDef,
@@ -206,7 +206,7 @@ export async function getSummary(userId: string) {
     loadDays(userId),
     prisma.userAchievement.findMany({ where: { userId }, orderBy: { earnedAt: "desc" }, select: { key: true, earnedAt: true, seenAt: true } }),
     prisma.examTarget.findMany({ orderBy: { date: "asc" } }),
-    (async () => prisma.topic.count({ where: { hidden: false, section: await sectionFilter(userId) } }))(),
+    (async () => prisma.topic.count({ where: { hidden: false, AND: [await topicFilter(userId)], section: await sectionFilter(userId) } }))(),
     prisma.progress.count({ where: { userId, learnedAt: { not: null } } }),
   ]);
   const lv = levelFromXp(xp);

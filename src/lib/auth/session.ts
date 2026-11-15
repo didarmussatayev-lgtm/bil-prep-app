@@ -22,7 +22,7 @@ const hashToken = (token: string) => createHash("sha256").update(token).digest("
  */
 export async function createSession(
   userId: string,
-  meta: { ip?: string | null; userAgent?: string | null } = {},
+  meta: { ip?: string | null; userAgent?: string | null; shared?: boolean } = {},
 ) {
   const token = randomBytes(32).toString("base64url");
   const expiresAt = new Date(Date.now() + SESSION_TTL_MS);
@@ -31,8 +31,9 @@ export async function createSession(
     // чистим давно истёкшие сессии этого пользователя, чтобы таблица не росла
     prisma.session.deleteMany({ where: { userId, expiresAt: { lt: new Date() } } }),
     // инвалидируем все активные
+    // демо-аккаунт общий (shared): новый вход не обрывает чужие сессии
     prisma.session.updateMany({
-      where: { userId, revoked: false },
+      where: { userId, revoked: false, ...(meta.shared ? { id: "" } : {}) },
       data: { revoked: true, revokedReason: "replaced" satisfies SessionEndReason },
     }),
     prisma.session.create({
@@ -47,7 +48,7 @@ export async function createSession(
   ]);
 
   // журнал входов: нужен, чтобы видеть «один пароль — много людей» (сессии сами чистятся)
-  await prisma.loginEvent.create({
+  if (!meta.shared) await prisma.loginEvent.create({
     data: { userId, ip: meta.ip ?? null, device: deviceLabel(meta.userAgent), kicked: kicked.count },
   });
   await prisma.loginEvent.deleteMany({ where: { userId, createdAt: { lt: new Date(Date.now() - 60 * 86_400_000) } } });

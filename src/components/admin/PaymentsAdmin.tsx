@@ -91,6 +91,14 @@ export function PaymentsAdmin({ plans, payments }: { plans: Plan[]; payments: Pa
         </div>
       </div>
 
+      <h2>Демо-доступ</h2>
+      <div className="card">
+        <p className="muted" style={{ margin: "0 0 8px" }}>Логин <b>student</b>, пароль <b>student</b>: по одной теме, одному закреплению и одному тесту на каждый предмет. Входить могут сразу несколько человек, пароль менять нельзя. Кнопка создаёт аккаунт или возвращает его в исходное состояние.</p>
+        <div className="row">
+          <button className="primary" onClick={() => run(async () => { const r = await fetch("/api/admin/demo", { method: "POST" }); return r.ok ? null : (await r.json().catch(() => ({}))).error ?? "Ошибка"; }, "Демо-аккаунт готов: student / student")}>Создать / сбросить демо</button>
+        </div>
+      </div>
+
       <h2>Последние платежи</h2>
       {payments.length === 0 ? <p className="card muted">Платежей пока нет.</p> : (
         <div className="scroll">

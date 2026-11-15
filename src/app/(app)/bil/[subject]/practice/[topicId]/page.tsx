@@ -7,7 +7,7 @@ import { PracticeRunner } from "@/components/tasks/PracticeRunner";
 import { getLang, getT } from "@/lib/i18n/server";
 import { pick } from "@/lib/i18n/content";
 import { prisma } from "@/lib/prisma";
-import { sectionFilter } from "@/lib/student/access";
+import { sectionFilter, topicFilter } from "@/lib/student/access";
 import { bilCrumb } from "@/lib/student/nav";
 import { requireUser } from "@/lib/auth/guards";
 import { hasPendingFigure, parseFigures, toPublicTask } from "@/lib/content/types";
@@ -27,7 +27,7 @@ export default async function TopicPracticePage({
   if (!subject) notFound();
 
   const topic = await prisma.topic.findFirst({
-    where: { id: topicId, hidden: false, section: { subjectId: subject.id, ...(await sectionFilter(user.id)) } },
+    where: { id: topicId, hidden: false, AND: [await topicFilter(user.id)], section: { subjectId: subject.id, ...(await sectionFilter(user.id)) } },
     select: { id: true, title: true, i18n: true },
   });
   if (!topic) notFound();

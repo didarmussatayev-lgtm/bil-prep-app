@@ -12,7 +12,7 @@ export async function ContinueCard({ userId }: { userId: string }) {
   const [t, lang] = [await getT(), await getLang()];
   const now = new Date();
   const access = await getAccess(userId);
-  if (access.restricted && access.books.length === 0) return null; // доступ закрыт — вести некуда
+  if (access.restricted && access.books.length === 0 && !access.topicIds) return null; // доступ закрыт — вести некуда
 
   const open = await prisma.testAttempt.findFirst({
     where: { userId, finishedAt: null, OR: [{ deadlineAt: null }, { deadlineAt: { gt: now } }] },

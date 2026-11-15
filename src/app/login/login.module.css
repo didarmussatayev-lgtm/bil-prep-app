@@ -67,3 +67,32 @@
 .intro, .sheet { animation: rise .5s ease-out both; }
 .sheet { animation-delay: .08s; }
 @media (prefers-reduced-motion: reduce) { .intro, .sheet { animation: none; } }
+
+/* блоки под формой: результаты, цены, демо, контакты */
+.block { margin-top: 56px; padding-top: 40px; border-top: 2px solid var(--border); }
+.blockTitle { margin: 0 0 20px; font-size: clamp(1.4rem, 3.5vw, 2rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
+.blockText { max-width: 56ch; margin: 0 0 12px; color: var(--muted); }
+.facts { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin: 0; padding: 0; list-style: none; }
+.facts li { display: flex; flex-direction: column; gap: 2px; padding: 20px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: 20px; }
+.facts b { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.05; color: var(--accent-text); }
+.facts span { color: var(--muted); font-weight: 700; }
+.prices { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin: 0; padding: 0; list-style: none; }
+.prices li { padding: 22px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: 20px; }
+.prices h3 { margin: 0 0 4px; font-size: 1.1rem; font-weight: 800; }
+.price { margin: 0 0 8px; font-size: 1.9rem; font-weight: 800; line-height: 1.15; }
+.prices p:last-child { margin: 0; color: var(--muted); }
+.demoCreds { margin: 0 0 16px; font-size: 1.1rem; }
+.demoCreds b { padding: 2px 8px; font-family: ui-monospace, Menlo, Consolas, monospace; background: var(--surface-2); border-radius: 8px; }
+.phone { margin: 0 0 16px; font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; }
+.phone a { color: var(--text); text-decoration: none; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.buttonLink, .buttonGhost, .buttonGhostLink {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; font: inherit; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.03em; text-decoration: none; border-radius: 14px; cursor: pointer; transition: transform .1s, box-shadow .1s;
+}
+.buttonLink { color: var(--on-accent); background: var(--accent); border: 0; box-shadow: 0 4px 0 var(--accent-shade); }
+.buttonGhost, .buttonGhostLink { color: var(--blue-shade); background: var(--surface); border: 2px solid var(--border); box-shadow: 0 4px 0 var(--border); }
+.buttonLink:active, .buttonGhost:active, .buttonGhostLink:active { transform: translateY(4px); box-shadow: none; }
+.buttonLink:focus-visible, .buttonGhost:focus-visible, .buttonGhostLink:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.buttonGhost:disabled { opacity: 0.5; cursor: not-allowed; }
+@media (max-width: 560px) { .actions > * { flex: 1 1 100%; } .buttonGhost { width: 100%; } }
