@@ -38,7 +38,11 @@
 
 @media (max-width: 560px) {
   .header { padding: 0 12px; gap: 8px; }
-  .brand { font-size: 0; gap: 0; flex-shrink: 0; } /* на телефоне — только логотип, название не влезает */
+  .brand { gap: 8px; font-size: 1.05rem; flex-shrink: 0; }
+  .brand::before { width: 26px; height: 26px; }
+}
+@media (max-width: 460px) {
+  .brand { font-size: 0; gap: 0; } /* на узком телефоне — только значок: слову AlMath не хватает места рядом с кнопками */
   .brand::before { width: 28px; height: 28px; }
   .headerRight { gap: 4px; }
   .whoText { display: none; }
@@ -430,3 +434,6 @@ details[open] > .levelSummary::before, details[open] > .sectionSummary::before {
 .scoreFacts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; padding: 0; list-style: none; font-weight: 800; color: var(--muted); }
 .factUp { color: var(--ok); }
 .factDown { color: var(--bad); }
+
+/* совсем узкие экраны (320 px): аватар убираем, чтобы влезла кнопка «Выйти» */
+@media (max-width: 340px) { .whoInit { display: none; } .header { padding: 0 10px; } }

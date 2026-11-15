@@ -41,7 +41,7 @@ export function LoginForm({ notice, stats, selfPrice }: { notice?: string; stats
     <main className={styles.page}>
       <div className={styles.wrap}>
         <header className={styles.top}>
-          <span className={styles.brand}>{t("Подготовка в БИЛ")}</span>
+          <span className={styles.brand}>AlMath</span>
           <LangSwitch />
         </header>
 

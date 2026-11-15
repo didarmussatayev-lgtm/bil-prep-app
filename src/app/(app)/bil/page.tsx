@@ -17,7 +17,7 @@ export default async function SubjectsPage() {
 
   return (
     <main className={ui.container}>
-      <Breadcrumbs items={[{ label: t("Подготовка в БИЛ") }]} />
+      <Breadcrumbs items={[{ label: "AlMath", href: "/" }, { label: t("Подготовка в БИЛ") }]} />
       <h1 className={ui.h1}>{t("Выберите предмет")}</h1>
       <p className={ui.lead}>{t("Обучение, задачи и пробные тесты собраны по предметам.")}</p>
 
