@@ -33,7 +33,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
 
   return (
     <main className={ui.container}>
-      <Breadcrumbs items={[{ label: t("Подготовка в БИЛ"), href: "/" }, { label: t("Поиск") }]} />
+      <Breadcrumbs items={[{ label: "AlMath", href: "/" }, { label: t("Поиск") }]} />
       <h1 className={ui.h1}>{t("Поиск по темам")}</h1>
       <form action="/search" method="get" role="search" className={ui.searchForm}>
         <input

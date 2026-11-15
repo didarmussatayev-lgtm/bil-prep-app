@@ -8,8 +8,10 @@ import { createSession } from "@/lib/auth/session";
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
-  const login = typeof body?.login === "string" ? body.login.trim().toLowerCase() : "";
-  const password = typeof body?.password === "string" ? body.password : "";
+  let login = typeof body?.login === "string" ? body.login.trim().toLowerCase() : "";
+  if (login === "студент") login = "student"; // демо-логин, набранный по-русски
+  let password = typeof body?.password === "string" ? body.password : "";
+  if (login === "student" && password === "студент") password = "student";
 
   if (!login || !password || login.length > 64 || password.length > 200) {
     return NextResponse.json({ error: (await getT())("Введите логин и пароль") }, { status: 400 });
