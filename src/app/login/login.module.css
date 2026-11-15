@@ -76,6 +76,11 @@
 .facts li { display: flex; flex-direction: column; gap: 2px; padding: 20px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: 20px; }
 .facts b { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; line-height: 1.05; color: var(--accent-text); }
 .facts span { color: var(--muted); font-weight: 700; }
+.factWide { grid-column: span 2; }
+.factWide b { font-size: clamp(3rem, 8vw, 4.6rem); }
+.factBar { display: block; height: 14px; margin-top: 12px; overflow: hidden; background: var(--surface-2); border-radius: 999px; }
+.factBar u { display: block; height: 100%; background: var(--accent); border-radius: 999px; text-decoration: none; }
+@media (max-width: 560px) { .factWide { grid-column: auto; } }
 .prices { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); margin: 0; padding: 0; list-style: none; }
 .prices li { padding: 22px; background: var(--surface); border: 2px solid var(--border); border-bottom-width: 5px; border-radius: 20px; }
 .prices h3 { margin: 0 0 4px; font-size: 1.1rem; font-weight: 800; }

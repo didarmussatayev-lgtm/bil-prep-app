@@ -36,6 +36,8 @@ export function LoginForm({ notice, stats, selfPrice }: { notice?: string; stats
   }
 
   const nf = (n: number) => n.toLocaleString("ru-RU");
+  // показываем долю, а не число учеников
+  const admittedPct = Math.round((SITE_INFO.lastYear.admitted / SITE_INFO.lastYear.students) * 100);
 
   return (
     <main className={styles.page}>
@@ -111,8 +113,11 @@ export function LoginForm({ notice, stats, selfPrice }: { notice?: string; stats
         <section className={styles.block} aria-labelledby="res-h">
           <h2 id="res-h" className={styles.blockTitle}>{t("Результаты прошлого года")}</h2>
           <ul className={styles.facts}>
-            <li><b>{SITE_INFO.lastYear.students}</b><span>{t("учеников занимались")}</span></li>
-            <li><b>{SITE_INFO.lastYear.admitted}</b><span>{t("поступили")}</span></li>
+            <li className={styles.factWide}>
+              <b>{admittedPct}%</b>
+              <span>{t("учеников прошлого года поступили")}</span>
+              <i className={styles.factBar} aria-hidden="true"><u style={{ width: `${admittedPct}%` }} /></i>
+            </li>
             <li><b>{SITE_INFO.yearsFrom}–{SITE_INFO.yearsTo}</b><span>{t("годы заданий в курсе")}</span></li>
           </ul>
         </section>
