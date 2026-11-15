@@ -36,8 +36,6 @@ export function LoginForm({ notice, stats, selfPrice }: { notice?: string; stats
   }
 
   const nf = (n: number) => n.toLocaleString("ru-RU");
-  // показываем долю, а не число учеников
-  const admittedPct = Math.round((SITE_INFO.lastYear.admitted / SITE_INFO.lastYear.students) * 100);
 
   return (
     <main className={styles.page}>
@@ -111,23 +109,22 @@ export function LoginForm({ notice, stats, selfPrice }: { notice?: string; stats
         </div>
 
         <section className={styles.block} aria-labelledby="res-h">
-          <h2 id="res-h" className={styles.blockTitle}>{t("Результаты прошлого года")}</h2>
+          <h2 id="res-h" className={styles.blockTitle}>{t("О тренере")}</h2>
           <ul className={styles.facts}>
             <li className={styles.factWide}>
-              <b>{admittedPct}%</b>
-              <span>{t("учеников прошлого года поступили")}</span>
-              <i className={styles.factBar} aria-hidden="true"><u style={{ width: `${admittedPct}%` }} /></i>
+              <b>{SITE_INFO.yearsFrom}–{SITE_INFO.yearsTo}</b>
+              <span>{t("годы работы тренера в БИЛ")}</span>
+              <i className={styles.factBar} aria-hidden="true"><u style={{ width: "100%" }} /></i>
             </li>
-            <li><b>{SITE_INFO.yearsFrom}–{SITE_INFO.yearsTo}</b><span>{t("годы заданий в курсе")}</span></li>
           </ul>
         </section>
 
         <section className={styles.block} aria-labelledby="price-h">
           <h2 id="price-h" className={styles.blockTitle}>{t("Форматы и цены")}</h2>
           <ul className={styles.prices}>
-            <li><h3>{t("Офлайн")}</h3><p className={styles.price}>{nf(SITE_INFO.offlinePrice)} ₸</p><p>{t("Занятия с преподавателем очно.")}</p></li>
-            <li><h3>{t("Онлайн")}</h3><p className={styles.price}>{nf(SITE_INFO.onlinePrice)} ₸</p><p>{t("Занятия с преподавателем онлайн.")}</p></li>
-            <li><h3>{t("Самостоятельное обучение")}</h3><p className={styles.price}>{nf(selfPrice ?? SITE_INFO.selfPriceFallback)} ₸</p><p>{t("Доступ к сайту: теория, задачи и тесты с правильными решениями и ответами.")}</p></li>
+            <li><h3>{t("Офлайн")}</h3><p className={styles.price}>{t("{n} ₸ в месяц", { n: nf(SITE_INFO.offlinePrice) })}</p><p>{t("Занятия с преподавателем очно.")}</p></li>
+            <li><h3>{t("Онлайн")}</h3><p className={styles.price}>{t("{n} ₸ в месяц", { n: nf(SITE_INFO.onlinePrice) })}</p><p>{t("Занятия с преподавателем онлайн.")}</p></li>
+            <li><h3>{t("Самостоятельное обучение")}</h3><p className={styles.price}>{t("{n} ₸ в месяц", { n: nf(selfPrice ?? SITE_INFO.selfPriceFallback) })}</p><p>{t("Доступ к сайту: теория, задачи и тесты с правильными решениями и ответами.")}</p></li>
           </ul>
         </section>
 

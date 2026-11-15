@@ -7,12 +7,20 @@ import { classify, createInvoice, createQr, getStatus, KaspiError } from "./kasp
 const MONTH_MS = 30 * 24 * 60 * 60 * 1000;
 
 // Самостоятельное обучение: доступ к сайту (теория, задачи, тесты, решения и ответы). Срок и цену правьте в админке.
-const DEFAULT_PLANS = [{ title: "Самостоятельное обучение, 12 месяцев", months: 12, price: 20000, order: 1 }];
+const DEFAULT_PLANS = [{ title: "Самостоятельное обучение, 1 месяц", months: 1, price: 20000, order: 1 }];
 
 /** Тарифы для витрины. Если таблица пуста — создаёт три тарифа-образца (цены правятся в админке). */
 export async function listActivePlans() {
   // убираем тарифы-образцы из первой версии (1/3/6 месяцев), если по ним ещё никто не платил
-  await prisma.plan.deleteMany({ where: { title: { in: ["1 месяц", "3 месяца", "6 месяцев"] }, price: { in: [5000, 12000, 20000] }, payments: { none: {} } } });
+  await prisma.plan.deleteMany({
+    where: {
+      OR: [
+        { title: { in: ["1 месяц", "3 месяца", "6 месяцев"] }, price: { in: [5000, 12000, 20000] } },
+        { title: "Самостоятельное обучение, 12 месяцев" },
+      ],
+      payments: { none: {} },
+    },
+  });
   if ((await prisma.plan.count()) === 0) await prisma.plan.createMany({ data: DEFAULT_PLANS });
   return prisma.plan.findMany({ where: { active: true }, orderBy: [{ order: "asc" }, { price: "asc" }] });
 }

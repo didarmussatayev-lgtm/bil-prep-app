@@ -2,7 +2,7 @@
 export const SITE_INFO = {
   phone: "+77067149366",
   phoneView: "+7 706 714 93 66",
-  lastYear: { students: 25, admitted: 15 },
+  /** годы работы тренера в БИЛ */
   yearsFrom: 2012,
   yearsTo: 2025,
   offlinePrice: 80000,
