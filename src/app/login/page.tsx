@@ -3,6 +3,7 @@ import { getSession } from "@/lib/auth/session";
 import { getT } from "@/lib/i18n/server";
 import { prisma } from "@/lib/prisma";
 import { listActivePlans } from "@/lib/payments/service";
+import { ensureDemoUser } from "@/lib/demo";
 import { LoginForm } from "./LoginForm";
 
 const NOTICES: Record<string, string> = {
@@ -21,6 +22,7 @@ export default async function LoginPage({
   const s = await getSession();
   if (s.ok) redirect(s.user.role === "admin" ? "/admin" : "/");
 
+  await ensureDemoUser().catch(() => {}); // демо-аккаунт для кнопки «Войти в демо»
   const { reason } = await searchParams;
   const t = await getT();
   // настоящие цифры курса для первого экрана; без базы страница входа всё равно открывается
