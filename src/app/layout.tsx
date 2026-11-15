@@ -6,7 +6,7 @@ import { RegisterSW } from "@/components/RegisterSW";
 import { getLang } from "@/lib/i18n/server";
 
 export const metadata: Metadata = {
-  title: "Подготовка в БИЛ",
+  title: "AlMath — подготовка в БИЛ и НИШ",
   description: "Подготовка к поступлению: математика и логика",
   applicationName: "ALMATH",
   icons: { icon: "/icons/favicon-48.png", apple: "/icons/apple-touch-icon.png" },

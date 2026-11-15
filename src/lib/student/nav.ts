@@ -4,7 +4,10 @@ export const NIS_SUBJECTS = ["nis-math", "nis-science", "nis-english", "nis-russ
 /** «5 класс» и «Подготовка в НИШ» — отдельные разделы главного экрана, не часть «Подготовки в БИЛ»: в /bil их предметов нет. */
 export const STANDALONE_SUBJECTS = ["grade5", ...NIS_SUBJECTS];
 
-export const bilCrumb = (slug: string, t: (s: string) => string): { label: string; href: string }[] =>
-  NIS_SUBJECTS.includes(slug)
+/** Хлебные крошки начинаются с названия сайта; «Подготовка в БИЛ» и «Подготовка в НИШ» — его разделы. */
+export const bilCrumb = (slug: string, t: (s: string) => string): { label: string; href: string }[] => [
+  { label: "AlMath", href: "/" },
+  ...(NIS_SUBJECTS.includes(slug)
     ? [{ label: t("Подготовка в НИШ"), href: "/nis" }]
-    : STANDALONE_SUBJECTS.includes(slug) ? [] : [{ label: t("Подготовка в БИЛ"), href: "/bil" }];
+    : STANDALONE_SUBJECTS.includes(slug) ? [] : [{ label: t("Подготовка в БИЛ"), href: "/bil" }]),
+];

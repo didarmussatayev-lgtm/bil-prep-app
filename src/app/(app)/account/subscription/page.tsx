@@ -27,7 +27,7 @@ export default async function SubscriptionPage() {
 
   return (
     <main className={ui.container}>
-      <Breadcrumbs items={[{ label: t("Подготовка в БИЛ"), href: "/" }, { label: t("Доступ") }]} />
+      <Breadcrumbs items={[{ label: "AlMath", href: "/" }, { label: t("Доступ") }]} />
       <h1 className={ui.h1}>{t("Доступ к урокам")}</h1>
 
       {u?.freeAccess ? (
