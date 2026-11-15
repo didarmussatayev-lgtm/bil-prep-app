@@ -29,7 +29,7 @@ export default async function PracticeTocPage({ params }: { params: Promise<{ su
       />
       <h1 className={ui.h1}>{t("Закрепление")}</h1>
       <p className={ui.lead}>{t("Выберите тему, чтобы решать задачи по ней.")}</p>
-      <TopicToc sections={sections} subjectSlug={slug} allowedLevels={allowedLevels(access, subject.id)} mode="practice" basePath={`/bil/${slug}/practice`} />
+      <TopicToc sections={sections} subjectSlug={slug} allowedLevels={access.topicIds ? [...new Set(sections.map((s) => s.level))] : allowedLevels(access, subject.id)} mode="practice" basePath={`/bil/${slug}/practice`} />
     </main>
   );
 }

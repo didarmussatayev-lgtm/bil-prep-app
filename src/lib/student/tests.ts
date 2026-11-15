@@ -3,7 +3,7 @@ import { randomInt } from "node:crypto";
 import { prisma } from "@/lib/prisma";
 import { ApiError } from "@/lib/auth/guards";
 import { onTestFinished } from "@/lib/gamification/engine";
-import { getAccess, sectionFilter } from "@/lib/student/access";
+import { getAccess, sectionFilter, topicFilter } from "@/lib/student/access";
 import { hasPendingFigure, parseFigures, parseOptions } from "@/lib/content/types";
 
 export type TestScope = "topic" | "section" | "full"; // + "paper" — отдельно (startPaperAttempt)
@@ -89,6 +89,7 @@ export async function startAttempt(
   const subject = await prisma.subject.findUnique({ where: { slug: input.subjectSlug }, select: { id: true } });
   if (!subject) throw new ApiError(404, "Предмет не найден");
   const access = await sectionFilter(userId); // закрытые книги в тесты не попадают
+  const tf = await topicFilter(userId); // демо: только демо-темы
 
   let topicIds: string[] = [];
   let sectionId: string | null = null;
@@ -96,7 +97,7 @@ export async function startAttempt(
 
   if (input.scope === "topic") {
     const topic = await prisma.topic.findFirst({
-      where: { id: input.topicId ?? "", hidden: false, section: { subjectId: subject.id, ...access } },
+      where: { id: input.topicId ?? "", hidden: false, AND: [tf], section: { subjectId: subject.id, ...access } },
       select: { id: true },
     });
     if (!topic) throw new ApiError(404, "Тема не найдена");
@@ -105,7 +106,7 @@ export async function startAttempt(
   } else if (input.scope === "section") {
     const section = await prisma.section.findFirst({
       where: { id: input.sectionId ?? "", subjectId: subject.id, ...access },
-      select: { id: true, topics: { where: { hidden: false }, select: { id: true } } },
+      select: { id: true, topics: { where: { hidden: false, AND: [tf] }, select: { id: true } } },
     });
     if (!section) throw new ApiError(404, "Раздел не найден");
     sectionId = section.id;
@@ -113,7 +114,7 @@ export async function startAttempt(
   } else {
     // сборный тест — только из тем, которые ученик уже прошёл
     const learned = await prisma.progress.findMany({
-      where: { userId, learnedAt: { not: null }, topic: { hidden: false, section: { subjectId: subject.id, ...access } } },
+      where: { userId, learnedAt: { not: null }, topic: { hidden: false, AND: [tf], section: { subjectId: subject.id, ...access } } },
       select: { topicId: true },
     });
     if (learned.length === 0) {

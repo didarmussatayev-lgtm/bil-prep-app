@@ -1,7 +1,7 @@
 import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { sectionFilter } from "@/lib/student/access";
+import { sectionFilter, topicFilter } from "@/lib/student/access";
 import { queueHelpNotification } from "@/lib/telegram";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
 
@@ -21,7 +21,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
       : null;
     const inPaper = !!own && (own.questionIds as string[]).includes(id);
     const task = await prisma.task.findFirst({
-      where: inPaper ? { id } : { id, hidden: false, topic: { hidden: false, section: await sectionFilter(user.id) } },
+      where: inPaper ? { id } : { id, hidden: false, topic: { hidden: false, AND: [await topicFilter(user.id)], section: await sectionFilter(user.id) } },
       select: { id: true, number: true, question: true, topic: { select: { title: true } } },
     });
     if (!task) return NextResponse.json({ error: (await getT())("Задача не найдена") }, { status: 404 });

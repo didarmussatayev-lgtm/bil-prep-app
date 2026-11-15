@@ -45,7 +45,7 @@ export async function POST(req: Request) {
   resetLoginFailures(keys[0].key); // успешный вход сбрасывает только свою пару; общие счётчики по логину и IP остаются до конца окна
 
   // создаёт новую сессию и завершает все предыдущие (вход с другого устройства)
-  await createSession(user.id, { ip, userAgent: req.headers.get("user-agent") });
+  await createSession(user.id, { ip, userAgent: req.headers.get("user-agent"), shared: user.isDemo });
 
   return NextResponse.json({
     ok: true,

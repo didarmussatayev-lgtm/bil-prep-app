@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { requireAdmin, generatePassword } from "@/lib/admin";
 import { hashPassword } from "@/lib/auth/password";
 import { isInactive, loadStudents } from "@/lib/admin-students";
+import { paywallEnabled } from "@/lib/payments/config";
 import { bookKey, parseBookKeys, setStudentAccess } from "@/lib/student/access";
 
 // GET /api/admin/students?q=&book=&activity=all|inactive|never|online&progress=all|low|mid|high&sort=new|name|progress|activity&page=1
@@ -60,7 +61,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Такой логин уже есть" }, { status: 409 });
   const password = generatePassword();
   const user = await prisma.user.create({
-    data: { login: parsed.data.login, passwordHash: await hashPassword(password), role: "student" },
+    data: { login: parsed.data.login, passwordHash: await hashPassword(password), role: "student", freeAccess: !paywallEnabled() },
   });
   // books не передан — открыто всё; передан массив — только эти книги
   const books = await parseBookKeys(raw?.books);

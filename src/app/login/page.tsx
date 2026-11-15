@@ -1,6 +1,8 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth/session";
 import { getT } from "@/lib/i18n/server";
+import { prisma } from "@/lib/prisma";
+import { listActivePlans } from "@/lib/payments/service";
 import { LoginForm } from "./LoginForm";
 
 const NOTICES: Record<string, string> = {
@@ -21,5 +23,11 @@ export default async function LoginPage({
 
   const { reason } = await searchParams;
   const t = await getT();
-  return <LoginForm notice={reason && NOTICES[reason] ? t(NOTICES[reason]) : undefined} />;
+  // настоящие цифры курса для первого экрана; без базы страница входа всё равно открывается
+  const stats = await Promise.all([prisma.topic.count({ where: { hidden: false } }), prisma.task.count()])
+    .then(([topics, tasks]) => ({ topics, tasks }))
+    .catch(() => null);
+  // цена самостоятельного обучения — из тарифов (то, что реально платит ученик)
+  const selfPrice = await listActivePlans().then((p) => (p.length === 1 ? p[0].price : null)).catch(() => null);
+  return <LoginForm notice={reason && NOTICES[reason] ? t(NOTICES[reason]) : undefined} stats={stats} selfPrice={selfPrice} />;
 }

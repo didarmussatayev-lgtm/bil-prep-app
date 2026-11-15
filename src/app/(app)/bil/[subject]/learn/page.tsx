@@ -29,7 +29,7 @@ export default async function LearnTocPage({ params }: { params: Promise<{ subje
       />
       <h1 className={ui.h1}>{t("Обучение")}</h1>
       <p className={ui.lead}>{t("Выберите тему, чтобы прочитать объяснение и разобрать примеры.")}</p>
-      <TopicToc sections={sections} subjectSlug={slug} allowedLevels={allowedLevels(access, subject.id)} mode="learn" basePath={`/bil/${slug}/learn`} />
+      <TopicToc sections={sections} subjectSlug={slug} allowedLevels={access.topicIds ? [...new Set(sections.map((s) => s.level))] : allowedLevels(access, subject.id)} mode="learn" basePath={`/bil/${slug}/learn`} />
     </main>
   );
 }

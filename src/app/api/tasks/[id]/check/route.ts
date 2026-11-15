@@ -1,7 +1,7 @@
 import { getT } from "@/lib/i18n/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { sectionFilter } from "@/lib/student/access";
+import { sectionFilter, topicFilter } from "@/lib/student/access";
 import { onTaskChecked } from "@/lib/gamification/engine";
 import { handleApiError, requireApiUser } from "@/lib/auth/guards";
 import { checkAnswer, isWellFormedAnswer, type AnswerType } from "@/lib/student/answerCheck";
@@ -17,7 +17,7 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
     const { id } = await params;
 
     const task = await prisma.task.findFirst({
-      where: { id, hidden: false, topic: { hidden: false, section: await sectionFilter(user.id) } },
+      where: { id, hidden: false, topic: { hidden: false, AND: [await topicFilter(user.id)], section: await sectionFilter(user.id) } },
       select: { id: true, topicId: true, type: true, answerType: true, correctAnswerJson: true, allowUnreduced: true },
     });
     if (!task || task.type !== "open" || !task.answerType) {
